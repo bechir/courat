@@ -32,8 +32,21 @@
         {link: 'index', title: 'Terminale L'},
     ] %}
 
-    {{ section('Programme primaire', 'primary', n1_items) }}
-    {{ section('Programme collège', 'secondary', n2_items) }}
-    {{ section('Programme lycée', 'info', n3_items) }}
-    {{ section('Programme terminale', 'success', n4_items) }}
+    {% if level == 'primaire' %}
+        {{ section('Programme primaire', 'primary', n1_items) }}
+
+    {% elseif level ==  "college" %}
+        {{ section('Programme collège', 'secondary', n2_items) }}
+
+    {% elseif level ==  "lycee" %}
+        {{ section('Programme lycée', 'info', n3_items) }}
+
+    {% elseif level ==  "terminale" %}
+        {{ section('Programme terminale', 'success', n4_items) }}
+    {% elseif level ==  "all" %}
+        {{ section('Programme primaire', 'primary', n1_items) }}
+        {{ section('Programme collège', 'secondary', n2_items) }}
+        {{ section('Programme lycée', 'info', n3_items) }}
+        {{ section('Programme terminale', 'success', n4_items) }}
+    {% endif %}
 {% endblock %}
