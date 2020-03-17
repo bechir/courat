@@ -12,3 +12,8 @@
         font-size: 3.5rem;
     }
 }
+
+
+.container.main {
+    min-height: calc(100vh - 167px);
+}
