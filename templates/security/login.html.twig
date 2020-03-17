@@ -4,161 +4,25 @@
 
 
 {% block main %}
-<form class="logregform reservation-form" method="POST">
+<div class="col-md-5 col-sm-10 mx-auto">
+<div class="text-center">
+<form class="form-signin" method="POST">
+	<h1 class="h3 mb-3 font-weight-normal">{{ 'login.title'|trans }}</h1>
 	{% if error %}
 		<div class="alert alert-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 	{% endif %}
-	<div class="form-group">
-		<label>{{ 'login.username'|trans }}</label>
-		<input type="text" value="{{ last_username }}" name="username" id="inputEmail" class="form-control" required autofocus>
-		<i class="fa fa-user"></i>
-	</div>
-	<div class="form-group">
-		<a class="pull-right" href="{{ path('app_forgot') }}">{{ 'login.forgot'|trans }}</a>
-		<label>{{ 'login.password'|trans }}</label>
-		<i class="fa fa-lock"></i>
-		<input type="password" name="password" id="inputPassword" class="form-control" required>
-	</div>
-	<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-	<input type="checkbox" id="rememberme" name="_remember_me">{{ 'login.remember_me'|trans }}
-	<button type="submit" class="btn btn-default pull-right">
-		<span class="fa fa-unlock-alt"></span>
-		{{ 'login.sign_in'|trans }}
-	</button>
-
-	<a class="h4" href="{{ path('app_register') }}">
-		{{ 'login.register'|trans }}
-	</a>
-</form>
-{% endblock %}
-
-<style>
-	html,
-body {
-  height: 100%;
-}
-
-body {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5;
-}
-
-.form-signin {
-  width: 100%;
-  max-width: 420px;
-  padding: 15px;
-  margin: auto;
-}
-
-.form-label-group {
-  position: relative;
-  margin-bottom: 1rem;
-}
-
-.form-label-group > input,
-.form-label-group > label {
-  height: 3.125rem;
-  padding: .75rem;
-}
-
-.form-label-group > label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  margin-bottom: 0; /* Override default `<label>` margin */
-  line-height: 1.5;
-  color: #495057;
-  pointer-events: none;
-  cursor: text; /* Match the input under the label */
-  border: 1px solid transparent;
-  border-radius: .25rem;
-  transition: all .1s ease-in-out;
-}
-
-.form-label-group input::-webkit-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input:-ms-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input::-ms-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input::-moz-placeholder {
-  color: transparent;
-}
-
-.form-label-group input::placeholder {
-  color: transparent;
-}
-
-.form-label-group input:not(:placeholder-shown) {
-  padding-top: 1.25rem;
-  padding-bottom: .25rem;
-}
-
-.form-label-group input:not(:placeholder-shown) ~ label {
-  padding-top: .25rem;
-  padding-bottom: .25rem;
-  font-size: 12px;
-  color: #777;
-}
-
-/* Fallback for Edge
--------------------------------------------------- */
-@supports (-ms-ime-align: auto) {
-  .form-label-group > label {
-    display: none;
-  }
-  .form-label-group input::-ms-input-placeholder {
-    color: #777;
-  }
-}
-
-/* Fallback for IE
--------------------------------------------------- */
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .form-label-group > label {
-    display: none;
-  }
-  .form-label-group input:-ms-input-placeholder {
-    color: #777;
-  }
-}
-</style>
-
-<form class="form-signin">
-	<div class="text-center mb-4">
-	  <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-	  <h1 class="h3 mb-3 font-weight-normal">Floating labels</h1>
-	  <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p>
-	</div>
-  
-	<div class="form-label-group">
-	  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-	  <label for="inputEmail">Email address</label>
-	</div>
-  
-	<div class="form-label-group">
-	  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-	  <label for="inputPassword">Password</label>
-	</div>
-  
+	<label for="inputEmail" class="sr-only">{{ 'login.username'|trans }}</label>
+	<input type="text" name="username" id="inputEmail" class="form-control mb-2" placeholder="{{ 'login.username'|trans }}" required="" autofocus="">
+	<label for="inputPassword" class="sr-only">{{ 'login.password'|trans }}</label>
+	<input type="password" name="password" id="inputPassword" class="form-control" placeholder="{{ 'login.password'|trans }}" required="">
 	<div class="checkbox mb-3">
 	  <label>
-		<input type="checkbox" value="remember-me"> Remember me
+		<input type="checkbox" name="_remember_me"> {{ 'login.remember_me'|trans }}
 	  </label>
 	</div>
-	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-	<p class="mt-5 mb-3 text-muted text-center">© 2017-2019</p>
+	<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+	<button class="btn btn-lg btn-primary btn-block" type="submit">{{ 'login.sign_in'|trans }}</button>
 </form>
+</div>
+</div>
+{% endblock %}

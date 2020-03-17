@@ -29,8 +29,7 @@ class SecurityController extends AbstractController
                 return new RedirectResponse($targetPath);
             }
 
-            // return $this->redirectToRoute('index');
-            return new Response('ok');
+            return $this->redirectToRoute('index');
         }
 
         // get the login error if there is one
