@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'register.title'|trans }}{% endblock %}
+
+{% block main %}
+<h3 class="text-center">{{ 'register.form_title'|trans }}</h3>
+<br>
+{{ form_start(registrationForm, {attr: {class: 'logregform'}}) }}
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-12">
+                <label>{{ 'register.username'|trans }}</label>
+                {{ form_widget(registrationForm.username, {attr: {class: 'form-control'}}) }}
+            </div>
+        </div>
+    </div>
+    <div class="clearfix space20"></div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-6">
+                <label>{{ 'register.password'|trans }}</label>
+                {{ form_widget(registrationForm.plainPassword.first, {attr: {class: 'form-control'}}) }}
+            </div>
+            <div class="col-md-6">
+                <label>{{ 'register.password_confirm'|trans }}</label>
+                {{ form_widget(registrationForm.plainPassword.second, {attr: {class: 'form-control'}}) }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <span class="remember-box checkbox">
+                <label for="registration_form_agreeTerms">
+                    {{ form_widget(registrationForm.agreeTerms) }}
+                    {{ 'register.agree'|trans }}
+                </label>
+            </span>
+        </div>
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-default pull-right">
+                <i class="fa fa-user-plus"></i>
+                {{ 'register.sign_up'|trans }}
+            </button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12 text-center">
+            <a class="h4" href="{{ path('app_login') }}">{{ 'register.login'|trans }}</a>
+        </div>
+    </div>
+{{ form_end(registrationForm) }}
+{% endblock %}
