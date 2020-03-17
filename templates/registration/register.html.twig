@@ -5,7 +5,7 @@
 {% block main %}
 <div class="col-md-5 col-sm-10 mx-auto">
     {{ form_start(registrationForm, {attr: {class: 'logregform'}}) }}
-	<h1 class="h3 mb-3 text-center font-weight-normal">{{ 'register.title'|trans }}</h1>
+    <h1 class="h3 mb-3 text-center font-weight-normal">{{ 'register.title'|trans }}</h1>
 	<label for="inputEmail">{{ 'register.username'|trans }}</label>
     {{ form_widget(registrationForm.username, {attr: {class: 'form-control mb-3'}}) }}
 	<label for="inputPassword">{{ 'register.password'|trans }}</label>
