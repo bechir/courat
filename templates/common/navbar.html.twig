@@ -6,10 +6,10 @@
         <a href="" class=" text-decoration-none"><i class="fa fa-language"></i> Arabe</a>
     </div>
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark text-decoration-none" href="#">Primaire</a>
-      <a class="p-2 text-dark text-decoration-none" href="#">Collège</a>
-      <a class="p-2 text-dark text-decoration-none" href="#">Lycée</a>
-      <a class="p-2 text-dark text-decoration-none" href="#">Terminale</a>
+      <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'primaire'}) }}">Primaire</a>
+      <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'college'}) }}">Collège</a>
+      <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'lycee'}) }}">Lycée</a>
+      <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'terminale'}) }}">Terminale</a>
     </nav>
     <div class="d-flex justify-content-between">
         {% if is_granted('ROLE_USER') %}
