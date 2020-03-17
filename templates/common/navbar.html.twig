@@ -11,7 +11,11 @@
       <a class="p-2 text-dark" href="#">Lycée</a>
     </nav>
     <div class="d-flex justify-content-between">
-        <a class="btn btn-outline-primary" href="#"><i class="fa fa-user-plus"></i> Créer un compte</a>
-        <a class="btn btn-outline-primary ml-2" href="#"><i class="fa fa-sign-in-alt"></i> Connexion</a>
+        {% if is_granted('ROLE_USER') %}
+            <a class="btn btn-outline-primary" href="{{ path('app_logout') }}"><i class="fa fa-sign-out-alt"></i> Déconnexion</a>
+        {% else %}
+            <a class="btn btn-outline-primary" href="{{ path('app_register') }}"><i class="fa fa-user-plus"></i> Créer un compte</a>
+            <a class="btn btn-outline-primary ml-2" href="{{ path('app_login') }}"><i class="fa fa-sign-in-alt"></i> Connexion</a>
+        {% endif %}
     </div>
 </div>
