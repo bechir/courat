@@ -6,7 +6,7 @@
             <img src="{{ asset('images/logo.png') }}" height="50" alt="">
         </a>
     </div>
-    <nav class="my-2 my-md-0 mr-md-3 text-center">
+    <nav class="my-4 my-md-2 my-md-0 mr-md-3 text-center">
         <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'primaire'}) }}">{{ 'primaire'|trans }}</a>
         <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'college'}) }}">{{ 'college'|trans }}</a>
         <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'lycee'}) }}">{{ 'lycee'|trans }}</a>
@@ -14,7 +14,7 @@
 
         {% for l in locales() %}
             {% if l.code != locale() %}
-                <a class="btn btn-outline-primary" href="{{ path(app.request.get('_route', 'index'), app.request.get('_route_params', [])|merge({_locale: l.code})) }}"><i class="fa fa-language"></i> {{ l.name|capitalize }}</a>
+                <a class="mt-3 mt-sm-0 btn btn-outline-primary" href="{{ path(app.request.get('_route', 'index'), app.request.get('_route_params', [])|merge({_locale: l.code})) }}"><i class="fa fa-language"></i> {{ l.name|capitalize }}</a>
             {% endif %}
         {% endfor %}
     </nav>
