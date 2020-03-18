@@ -5,15 +5,15 @@ app:
   about: À propos
   terms: Conditions d'Utilisation
 
-primaire: Primaire
-college: Collège
-lycee: Lycée
-terminale: Terminale
+primaire: أساسي
+college: الكلية
+lycee: ثانوي
+terminale: البكالوريا
 
-Programme primaire: Programme primaire
-Programme collège: Programme collège
-Programme lycée: Programme lycée
-Programme terminale: Programme terminale
+Programme primaire: البرنامج الأساسي
+Programme collège: برنامج الكلية
+Programme lycée: برنامج المدرسة الثانوية
+Programme terminale: برنامج المحطة
 
 1af: 1<sup>ère</sup> AF
 2af: 2<sup>ème</sup> AF
@@ -34,7 +34,6 @@ Terminale A: Terminale A
 Terminale C: Terminale C
 Terminale D: Terminale D
 Terminale L: Terminale L
-
 
 home:
   h1: 

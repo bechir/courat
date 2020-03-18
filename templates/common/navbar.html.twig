@@ -7,10 +7,10 @@
         </a>
     </div>
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'primaire'}) }}">Primaire</a>
-      <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'college'}) }}">Collège</a>
-      <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'lycee'}) }}">Lycée</a>
-      <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'terminale'}) }}">Terminale</a>
+        <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'primaire'}) }}">{{ 'primaire'|trans }}</a>
+        <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'college'}) }}">{{ 'college'|trans }}</a>
+        <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'lycee'}) }}">{{ 'lycee'|trans }}</a>
+        <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'terminale'}) }}">{{ 'terminale'|trans }}</a>
     </nav>
     <div class="d-flex justify-content-between">
         {{ displayLocales() }}
