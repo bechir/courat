@@ -10,9 +10,9 @@
         <title>{% block title %}{{ App.name }}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
+    <body {% if locale() == 'ar' %}dir="rtl"{% endif %}>
         {% block header %}
-            {% if locale() == 'ar' %}
+            {% if locale() == 'awr' %}
                 {% include "common/navbar-rtl.html.twig" %}
             {% else %}
                 {% include "common/navbar.html.twig" %}
