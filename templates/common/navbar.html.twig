@@ -7,11 +7,15 @@
         </a>
     </div>
     <nav class="my-2 my-md-0 mr-md-3">
-        {{ displayLocales() }}
-
         <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'primaire'}) }}">{{ 'primaire'|trans }}</a>
         <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'college'}) }}">{{ 'college'|trans }}</a>
         <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'lycee'}) }}">{{ 'lycee'|trans }}</a>
         <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'terminale'}) }}">{{ 'terminale'|trans }}</a>
+
+        {% for l in locales() %}
+            {% if l.code != locale() %}
+                <a class="btn btn-outline-primary" href="{{ path(app.request.get('_route', 'index'), app.request.get('_route_params', [])|merge({_locale: l.code})) }}"><i class="fa fa-language"></i> {{ l.name|capitalize }}</a>
+            {% endif %}
+        {% endfor %}
     </nav>
 </div>
