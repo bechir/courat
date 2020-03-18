@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ locale() }}">
     <head>
         <meta charset="UTF-8">
 
@@ -11,7 +11,11 @@
     </head>
     <body>
         {% block header %}
-            {% include "common/navbar.html.twig" %}
+            {% if locale() == 'ar' %}
+                {% include "common/navbar-rtl.html.twig" %}
+            {% else %}
+                {% include "common/navbar.html.twig" %}
+            {% endif %}
         {% endblock %}
 
         <div class="container d-flex flex-column justify-content-between main">

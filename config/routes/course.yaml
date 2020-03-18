@@ -1,0 +1,5 @@
+course:
+  path:
+    fr: /cours
+    ar: /courses
+  controller: App\Controller\CourseController::index

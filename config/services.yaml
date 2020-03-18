@@ -6,6 +6,8 @@
 parameters:
     app:
         name: 'Learn.mr'
+    locales: ar|fr
+    locale: fr
 
 services:
     # default configuration for services in *this* file
