@@ -1,14 +1,15 @@
 {% macro section(title, color, items) %}
-<div class="section">
-    <div class="pricing-header pt-md-5">
-        <h1 class="h3 text-muted-2">{{ title }}</h1>
+    {% from "util/classes.html.twig" import addClassIfRtl %}
+    <div class="section">
+        <div class="pricing-header pt-md-5">
+            <h1 class="h3 text-muted-2{{ addClassIfRtl('float-right') }}">{{ title|trans }}</h1>
+        </div>
+        <div class="row{{ addClassIfRtl('flex-row-reverse') }}">
+            {% for item in items %}
+                <div class="col-md-3 col-sm-4 col-6 mb-3">
+                    <a href="{{ path(item.link) }}" class="btn btn-lg btn-block shadow-md btn-{{ color }}">{{ item.title|trans|raw }}</a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
-    <div class="row">
-        {% for item in items %}
-            <div class="col-md-3 col-sm-4 col-6 mb-3">
-                <a href="{{ path(item.link) }}" class="btn btn-lg btn-block shadow-md btn-{{ color }}">{{ item.title|raw }}</a>
-            </div>
-        {% endfor %}
-    </div>
-</div>
 {% endmacro %}

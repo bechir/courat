@@ -1,0 +1,3 @@
+{% macro addClassIfRtl(class) %}
+    {% if locale() == 'ar' %} {{ class }}{% endif %}
+{% endmacro %}
