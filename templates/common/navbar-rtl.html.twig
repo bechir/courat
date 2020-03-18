@@ -1,0 +1,16 @@
+{% from "util/widgets.html.twig" import displayLocales %}
+
+<div class="px-md-5 d-flex flex-column flex-md-row align-items-center p-3 mb-3 bg-white border-bottom shadow-sm">
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'primaire'}) }}">Primaire</a>
+      <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'college'}) }}">Collège</a>
+      <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'lycee'}) }}">Lycée</a>
+      <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'terminale'}) }}">Terminale</a>
+    </nav>
+    <div class="d-flex my-0 ml-md-auto justify-content-between align-items-center">
+        {{ displayLocales() }}
+        <a class="mr-3" href="{{ path('index') }}">
+            <img src="{{ asset('images/logo.png') }}" height="50" alt="">
+        </a>
+    </div>
+</div>

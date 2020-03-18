@@ -1,3 +1,11 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+  path:
+    fr: /
+    ar: /ar
+  controller: App\Controller\DefaultController::index
+
+section:
+  path:
+    fr: /{level}
+    ar: /ar/{level}
+  controller: App\Controller\DefaultController::section
