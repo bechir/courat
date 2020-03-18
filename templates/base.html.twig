@@ -11,13 +11,7 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body {% if locale() == 'ar' %}dir="rtl"{% endif %}>
-        {% block header %}
-            {% if locale() == 'awr' %}
-                {% include "common/navbar-rtl.html.twig" %}
-            {% else %}
-                {% include "common/navbar.html.twig" %}
-            {% endif %}
-        {% endblock %}
+        {% include "common/navbar.html.twig" %}
 
         <div class="container d-flex flex-column justify-content-between main">
             {% block main %}{% endblock %}
