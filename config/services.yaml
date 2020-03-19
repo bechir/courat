@@ -9,6 +9,13 @@ parameters:
     locales: ar|fr
     locale: fr
 
+    google_api:
+        application_name: rim-deu
+        client_id: 969164047759-ud7aquu0ltgbc53qkukbrqmoeol2i8d1.apps.googleusercontent.com
+        client_secret: qnuMndbvZ1dEhKIlMw7SAzcS
+        developer_key: AIzaSyA2aRMxsnJER8YSBptGwVISxjmtjeQoeko
+        redirect_uri: http://localhost:8000
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -27,5 +34,9 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    # google_api_client: '@HappyR\Google\ApiBundle\Services\GoogleClient'
+    # google_api_client:
+    #     public: true
+    #     alias: HappyR\Google\ApiBundle\Services\GoogleClient
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

@@ -2,6 +2,8 @@
 
 namespace App\Twig;
 
+use App\Entity\ClassLevel;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Intl\Languages;
 use Twig\Extension\AbstractExtension;
@@ -13,10 +15,13 @@ class AppExtension extends AbstractExtension
     private $container;
     private $locales;
     private $localeCodes;
+    private $entityManager;
+    private $levels = null;
 
-    public function __construct(ContainerInterface $container)
+    public function __construct(ContainerInterface $container, EntityManagerInterface $entityManager)
     {
         $this->container = $container;
+        $this->entityManager = $entityManager;
         $this->localeCodes = explode('|', $container->getParameter('locales'));
     }
 
@@ -33,6 +38,7 @@ class AppExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
+            new TwigFunction('levels', [$this, 'getLevels']),
             new TwigFunction('locale', [$this, 'getLocale']),
             new TwigFunction('locales', [$this, 'getLocales']),
         ];
@@ -58,5 +64,14 @@ class AppExtension extends AbstractExtension
         }
 
         return $this->locales;
+    }
+
+    public function getLevels()
+    {
+        if(!$this->levels) {
+            $this->levels = $this->entityManager->getRepository(ClassLevel::class)->findAll();
+        }
+
+        return $this->levels;
     }
 }

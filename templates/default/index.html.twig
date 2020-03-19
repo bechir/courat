@@ -5,48 +5,23 @@
 {% from "util/sections.html.twig" import section %}
 
 {% block main %}
-    {% set n1_items = [
-        {link: 'index', title: '1af'},
-        {link: 'index', title: '2af'},
-        {link: 'index', title: '3af'},
-        {link: 'index', title: '4af'},
-        {link: 'index', title: '5af'},
-        {link: 'index', title: '6af'}
-    ] %}
-    {% set n2_items = [
-        {link: 'index', title: '1as'},
-        {link: 'index', title: '2as'},
-        {link: 'index', title: '3as'},
-        {link: 'index', title: '4as'}
-    ] %}
-    {% set n3_items = [
-        {link: 'index', title: '5c'},
-        {link: 'index', title: '5d'},
-        {link: 'index', title: '6c'},
-        {link: 'index', title: '6d'},
-    ] %}
-    {% set n4_items = [
-        {link: 'index', title: 'Terminale A'},
-        {link: 'index', title: 'Terminale C'},
-        {link: 'index', title: 'Terminale D'},
-        {link: 'index', title: 'Terminale L'},
-    ] %}
 
     {% if level == 'primaire' %}
-        {{ section('Programme primaire', 'primary', n1_items) }}
+        {{ section('Programme primaire', 'primary', classes.primaire) }}
 
     {% elseif level ==  "college" %}
-        {{ section('Programme collège', 'secondary', n2_items) }}
+        {{ section('Programme collège', 'secondary', classes.college) }}
 
     {% elseif level ==  "lycee" %}
-        {{ section('Programme lycée', 'info', n3_items) }}
+        {{ section('Programme lycée', 'info', classes.lycee) }}
 
     {% elseif level ==  "terminale" %}
-        {{ section('Programme terminale', 'success', n4_items) }}
+        {{ section('Programme terminale', 'success', classes.terminale) }}
     {% elseif level ==  "all" %}
-        {{ section('Programme primaire', 'primary', n1_items) }}
-        {{ section('Programme collège', 'secondary', n2_items) }}
-        {{ section('Programme lycée', 'info', n3_items) }}
-        {{ section('Programme terminale', 'success', n4_items) }}
+        {{ section('Programme primaire', 'primary', classes.primaire) }}
+        {{ section('Programme collège', 'secondary', classes.college) }}
+        {{ section('Programme lycée', 'info', classes.lycee) }}
+        {{ section('Programme terminale', 'success', classes.terminale) }}
     {% endif %}
+
 {% endblock %}

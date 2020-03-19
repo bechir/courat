@@ -2,15 +2,14 @@
 
 <div class="px-md-5 d-flex flex-column flex-md-row align-items-center justify-content-between p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     <div class="d-flex my-0 justify-content-between align-items-center">
-        <a class="mr-3" href="{{ path('index') }}">
+        <a href="{{ path('index') }}">
             <img src="{{ asset('images/logo.png') }}" height="50" alt="">
         </a>
     </div>
-    <nav class="my-4 my-md-2 my-md-0 mr-md-3 text-center">
-        <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'primaire'}) }}">{{ 'primaire'|trans }}</a>
-        <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'college'}) }}">{{ 'college'|trans }}</a>
-        <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'lycee'}) }}">{{ 'lycee'|trans }}</a>
-        <a class="p-2 text-dark text-decoration-none" href="{{ path('section', {level: 'terminale'}) }}">{{ 'terminale'|trans }}</a>
+    <nav class="mt-4 mt-md-2 my-md-0 mr-md-3 text-center">
+        {% for level in levels() %}
+            <a class="p-2 text-dark text-decoration-none" href="{{ path('section_level', {name: level.name}) }}">{{ level.name|trans }}</a>
+        {% endfor %}
 
         {% for l in locales() %}
             {% if l.code != locale() %}
