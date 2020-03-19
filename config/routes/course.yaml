@@ -1,5 +1,5 @@
-course:
+course_index:
   path:
-    fr: /cours
-    ar: /courses
+    fr: /cours/{name}
+    ar: /courses/{name}
   controller: App\Controller\CourseController::index
