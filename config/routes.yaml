@@ -4,8 +4,8 @@ index:
     ar: /ar
   controller: App\Controller\DefaultController::index
 
-section:
+section_level:
   path:
-    fr: /{level}
-    ar: /ar/{level}
-  controller: App\Controller\DefaultController::section
+    fr: /{name}
+    ar: /ar/{name}
+  controller: App\Controller\DefaultController::sectionLevel
