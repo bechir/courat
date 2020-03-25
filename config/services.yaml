@@ -10,11 +10,6 @@ parameters:
     locale: fr
 
     google_api:
-        application_name: rim-deu
-        client_id: 969164047759-ud7aquu0ltgbc53qkukbrqmoeol2i8d1.apps.googleusercontent.com
-        client_secret: qnuMndbvZ1dEhKIlMw7SAzcS
-        developer_key: AIzaSyA2aRMxsnJER8YSBptGwVISxjmtjeQoeko
-        redirect_uri: http://localhost:8000
 
     # router.request_context.scheme: 'https'
 services:

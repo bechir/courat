@@ -2,6 +2,12 @@
     "behat/transliterator": {
         "version": "v1.3.0"
     },
+    "composer/semver": {
+        "version": "1.5.1"
+    },
+    "composer/xdebug-handler": {
+        "version": "1.4.1"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -111,11 +117,26 @@
     "firebase/php-jwt": {
         "version": "v5.1.0"
     },
+    "friendsofphp/php-cs-fixer": {
+        "version": "2.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.2",
+            "ref": "cc05ab6abf6894bddb9bbd6a252459010ebe040b"
+        },
+        "files": [
+            ".php_cs.dist"
+        ]
+    },
     "fzaninotto/faker": {
         "version": "v1.9.1"
     },
     "gedmo/doctrine-extensions": {
         "version": "v2.4.39"
+    },
+    "gitonomy/gitlib": {
+        "version": "v1.2.1"
     },
     "google/apiclient": {
         "version": "2.0",
@@ -223,8 +244,14 @@
     "ocramius/proxy-manager": {
         "version": "2.7.0"
     },
+    "pdepend/pdepend": {
+        "version": "2.7.1"
+    },
     "php": {
         "version": "7.4"
+    },
+    "php-cs-fixer/diff": {
+        "version": "v1.3.0"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.0.0"
@@ -235,8 +262,17 @@
     "phpdocumentor/type-resolver": {
         "version": "1.1.0"
     },
+    "phpmd/phpmd": {
+        "version": "2.8.2"
+    },
+    "phpro/grumphp": {
+        "version": "v0.18.0"
+    },
     "phpseclib/phpseclib": {
         "version": "2.0.25"
+    },
+    "phpstan/phpstan": {
+        "version": "0.12.18"
     },
     "psr/cache": {
         "version": "1.0.1"
@@ -267,6 +303,9 @@
     },
     "sebastian/recursion-context": {
         "version": "4.0.0"
+    },
+    "seld/jsonlint": {
+        "version": "1.7.2"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",

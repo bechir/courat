@@ -1,0 +1,20 @@
+parameters:
+  git_dir: "."
+  bin_dir: "./vendor/bin"
+  tasks:
+    # composer: ~
+    # gulp: ~
+    # jsonlint: ~
+    # kahlan: ~
+    phpcsfixer2:
+      config: './.php_cs.dist'
+    # phplint: ~
+    # phpspec: ~
+    phpstan:
+        ignore_patterns:
+          - /^tests/
+          - /^features/
+    phpmd:
+      exclude: ['test', 'features']
+      ruleset: ['phpmd.xml']
+    phpunit: ~
