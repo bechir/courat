@@ -16,6 +16,7 @@ parameters:
         developer_key: AIzaSyA2aRMxsnJER8YSBptGwVISxjmtjeQoeko
         redirect_uri: http://localhost:8000
 
+    # router.request_context.scheme: 'https'
 services:
     # default configuration for services in *this* file
     _defaults:

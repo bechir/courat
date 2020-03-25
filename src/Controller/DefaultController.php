@@ -14,10 +14,15 @@ class DefaultController extends AbstractController
     public function index(EntityManagerInterface $entityManager): Response
     {
         $classes = $entityManager->getRepository(Classe::class)->findAll();
-        $filtered['primaire'] = array_filter($classes, fn($class) => $class->getLevel() == 'primaire');
-        $filtered['college'] = array_filter($classes, fn($class) => $class->getLevel() == 'college');
-        $filtered['lycee'] = array_filter($classes, fn($class) => $class->getLevel() == 'lycee');
-        $filtered['terminale'] = array_filter($classes, fn($class) => $class->getLevel() == 'terminale');
+        
+        $filter = function($name) use($classes) {
+            return array_filter($classes, fn($class) => $class->getLevel() == $name);
+        };
+
+        $filtered['primaire'] = $filter('primaire');
+        $filtered['college'] = $filter('college');
+        $filtered['lycee'] = $filter('lycee');
+        $filtered['terminale'] = $filter('terminale');
 
         return $this->render('default/index.html.twig', [
             'level' => 'all',
