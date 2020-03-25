@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Rim Edu application.
+ *
+ * By Bechir Ba and contributors
+ */
+
 namespace App\Repository;
 
 use App\Entity\ClassLevel;

@@ -1,14 +1,20 @@
 <?php
 
+/*
+ * This file is part of the Rim Edu application.
+ *
+ * By Bechir Ba and contributors
+ */
+
 namespace App\Controller;
 
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-use \Exception;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
 class SecurityController extends AbstractController
@@ -24,8 +30,8 @@ class SecurityController extends AbstractController
             if ($targetPath = $this->getTargetPath($request->getSession(), 'main')) {
                 return new RedirectResponse($targetPath);
             }
-    
-            if($targetPath = $request->query->get('_target_path')) {
+
+            if ($targetPath = $request->query->get('_target_path')) {
                 return new RedirectResponse($targetPath);
             }
 

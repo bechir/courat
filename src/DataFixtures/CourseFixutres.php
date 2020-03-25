@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Rim Edu application.
+ *
+ * By Bechir Ba and contributors
+ */
+
 namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -30,7 +36,7 @@ class CourseFixutres extends Fixture
                 ['PC - Chapitre 1', 'https:/rre.rer/ewfwef'],
                 ['PC - Chapitre 2', 'https:/rre.rer/ewfwef'],
                 ['PC - Chapitre 3', 'https:/rre.rer/ewfwef'],
-            ]
+            ],
         ];
     }
 }
