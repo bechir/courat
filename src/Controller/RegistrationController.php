@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Rim Edu application.
+ *
+ * By Bechir Ba and contributors
+ */
+
 namespace App\Controller;
 
 use App\Entity\User;
@@ -17,6 +23,7 @@ use Symfony\Component\Security\Http\Util\TargetPathTrait;
 class RegistrationController extends AbstractController
 {
     use TargetPathTrait;
+
     /**
      * @Route("/register", name="app_register")
      */
@@ -26,8 +33,8 @@ class RegistrationController extends AbstractController
             if ($targetPath = $this->getTargetPath($request->getSession(), 'main')) {
                 return new RedirectResponse($targetPath);
             }
-    
-            if($targetPath = $request->query->get('_target_path')) {
+
+            if ($targetPath = $request->query->get('_target_path')) {
                 return new RedirectResponse($targetPath);
             }
 

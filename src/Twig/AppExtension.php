@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Rim Edu application.
+ *
+ * By Bechir Ba and contributors
+ */
+
 namespace App\Twig;
 
 use App\Entity\ClassLevel;
@@ -51,7 +57,7 @@ class AppExtension extends AbstractExtension
 
     public function getLocales(): array
     {
-        if(null !== $this->locales) {
+        if (null !== $this->locales) {
             return $this->locales;
         }
 
@@ -59,7 +65,7 @@ class AppExtension extends AbstractExtension
         foreach ($this->localeCodes as $code) {
             $this->locales[] = [
                 'code' => $code,
-                'name' => Languages::getName($code, $code)
+                'name' => Languages::getName($code, $code),
             ];
         }
 
@@ -68,7 +74,7 @@ class AppExtension extends AbstractExtension
 
     public function getLevels()
     {
-        if(!$this->levels) {
+        if (!$this->levels) {
             $this->levels = $this->entityManager->getRepository(ClassLevel::class)->findAll();
         }
 

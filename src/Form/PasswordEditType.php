@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Rim Edu application.
+ *
+ * By Bechir Ba and contributors
+ */
+
 namespace App\Form;
 
 use App\Entity\User;
@@ -20,14 +26,14 @@ class PasswordEditType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank(),
-                    new UserPassword()
+                    new UserPassword(),
                 ],
-                'label' => 'form.current_password'
+                'label' => 'form.current_password',
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => ['label' => 'form.new_password'],
-                'second_options' => ['label' => 'form.confirm_new_password']
+                'second_options' => ['label' => 'form.confirm_new_password'],
             ])
         ;
     }

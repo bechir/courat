@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Rim Edu application.
+ *
+ * By Bechir Ba and contributors
+ */
+
 namespace App\Security;
 
 use App\Entity\User;
@@ -94,16 +100,16 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator implements Passw
             return new RedirectResponse($targetPath);
         }
 
-        if($targetPath = $request->query->get('_target_path')) {
+        if ($targetPath = $request->query->get('_target_path')) {
             return new RedirectResponse($targetPath);
         }
 
         $user = $token->getUser();
-        if($user->hasRole('ROLE_ADMIN')) {
+        if ($user->hasRole('ROLE_ADMIN')) {
             return new RedirectResponse($this->urlGenerator->generate('admin_index'));
         }
 
-        if($user->hasRole('ROLE_CUSTOMER')) {
+        if ($user->hasRole('ROLE_CUSTOMER')) {
             return new RedirectResponse($this->urlGenerator->generate('dashboard'));
         }
 
