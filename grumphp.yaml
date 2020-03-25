@@ -17,4 +17,8 @@ parameters:
     phpmd:
       exclude: ['test', 'features']
       ruleset: ['phpmd.xml']
-    phpunit: ~
+    phpunit:
+      config_file: ~
+      testsuite: ~
+      group: []
+      always_execute: false
