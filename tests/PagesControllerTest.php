@@ -1,10 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Rim Edu application.
+ *
+ * By Bechir Ba and contributors
+ */
+
 namespace App\Tests;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class DefaultControllerTest extends WebTestCase
@@ -21,16 +25,17 @@ class DefaultControllerTest extends WebTestCase
         // dd($client->getResponse()->getStatusCode());
 
         // dd($client->getResponse());
-    
+
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
-    public function urlProvider() {
+    public function urlProvider()
+    {
         self::bootKernel();
         $router = self::$kernel->getContainer()->get('router');
         $router->getContext()->setHttpPort('8000');
 
-        $makeUrl = function($path, $parameters = []) use($router) {
+        $makeUrl = function ($path, $parameters = []) use ($router) {
             return $router->generate($path, $parameters, UrlGeneratorInterface::ABSOLUTE_URL);
         };
 
@@ -49,7 +54,7 @@ class DefaultControllerTest extends WebTestCase
             $makeUrl('section_level.fr', ['name' => 'terminale']),
             $makeUrl('section_level.ar', ['name' => 'terminale']),
         ];
-        
-        return [...array_map(fn($url) => [$url], $urls)];
+
+        return [...array_map(fn ($url) => [$url], $urls)];
     }
 }

@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Rim Edu application.
+ *
+ * By Bechir Ba and contributors
+ */
+
 namespace App\Controller;
 
 use App\Entity\Classe;
@@ -14,9 +20,9 @@ class DefaultController extends AbstractController
     public function index(EntityManagerInterface $entityManager): Response
     {
         $classes = $entityManager->getRepository(Classe::class)->findAll();
-        
-        $filter = function($name) use($classes) {
-            return array_filter($classes, fn($class) => $class->getLevel() == $name);
+
+        $filter = function ($name) use ($classes) {
+            return array_filter($classes, fn ($class) => $class->getLevel() == $name);
         };
 
         $filtered['primaire'] = $filter('primaire');
@@ -26,7 +32,7 @@ class DefaultController extends AbstractController
 
         return $this->render('default/index.html.twig', [
             'level' => 'all',
-            'classes' => $filtered
+            'classes' => $filtered,
         ]);
     }
 
@@ -34,7 +40,7 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/index.html.twig', [
             'level' => $level,
-            'classes' => [$level->getName() => $courseClassRepository->findBy(['level' => $level])]
+            'classes' => [$level->getName() => $courseClassRepository->findBy(['level' => $level])],
         ]);
     }
 }

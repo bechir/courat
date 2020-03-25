@@ -1,9 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Rim Edu application.
+ *
+ * By Bechir Ba and contributors
+ */
+
 namespace App\DataFixtures;
 
-use App\Entity\ClassLevel;
 use App\Entity\Classe;
+use App\Entity\ClassLevel;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -16,7 +22,7 @@ class ClassFixtures extends Fixture implements DependentFixtureInterface
         $level2 = $manager->getRepository(ClassLevel::class)->findOneBy(['name' => 'college']);
         $level3 = $manager->getRepository(ClassLevel::class)->findOneBy(['name' => 'lycee']);
         $level4 = $manager->getRepository(ClassLevel::class)->findOneBy(['name' => 'terminale']);
-        
+
         foreach ($this->getPrimaireClasses() as $className) {
             $class = (new Classe())
                 ->setLevel($level1)
@@ -76,8 +82,7 @@ class ClassFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-            ClassLevelFixtures::class
+            ClassLevelFixtures::class,
         ];
     }
-
 }
