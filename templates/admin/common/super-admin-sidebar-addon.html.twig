@@ -1,0 +1,53 @@
+<li>
+    <a class="collapsed" data-toggle="collapse" href="#subPages">
+        <i class="lnr lnr-file-empty"></i>
+        <span>Pages Demo</span>
+        <i class="icon-submenu lnr lnr-chevron-left"></i>
+    </a>
+    <div class="collapse " id="subPages">
+        <ul class="nav">
+            <li>
+                <a href="{{ path('admin_page_demo', {name: 'elements'}) }}" {% if active == 'elements' %} class="active" {% endif %}>
+                    <i class="lnr lnr-code"></i>
+                    <span>Elements</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('admin_page_demo', {name: 'panels'}) }}" {% if active == 'panels' %} class="active" {% endif %}>
+                    <i class="lnr lnr-cog"></i>
+                    <span>Panels</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('admin_page_demo', {name: 'charts'}) }}" {% if active == 'charts' %} class="active" {% endif %}>
+                    <i class="lnr lnr-chart-bars"></i>
+                    <span>Charts</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('admin_page_demo', {name: 'alerts'}) }}" {% if active == 'alerts' %} class="active" {% endif %}>
+                    <i class="lnr lnr-alarm"></i>
+                    <span>Alerts</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('admin_page_demo', {name: 'tables'}) }}" {% if active == 'tables' %} class="active" {% endif %}>
+                    <i class="lnr lnr-dice"></i>
+                    <span>Tables</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('admin_page_demo', {name: 'typography'}) }}" {% if active == 'typography' %} class="active" {% endif %}>
+                    <i class="lnr lnr-text-format"></i>
+                    <span>Typography</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('admin_page_demo', {name: 'icons'}) }}" {% if active == 'icons' %} class="active" {% endif %}>
+                    <i class="lnr lnr-linearicons"></i>
+                    <span>Icons</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>

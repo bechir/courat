@@ -1,0 +1,102 @@
+{% set lang = 'en' %}
+
+{% set search_terms = app.request.query.get('terms', '') %}
+{% set search_type = app.request.query.get('type', '') %}
+
+<!doctype html>
+<html lang="fr">
+<head>
+    {% block title %}
+    <title>Administration | {{ App.name }}</title>
+    {% endblock %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="{{ asset('admin/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/vendor/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/vendor/linearicons/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/cupertino/jquery-ui.min.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{{ asset('admin/css/main.css') }}">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="{{ asset('admin/css/app.css') }}">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('apple-touch-icon-76x76.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
+</head>
+
+<body>
+    {% block body %}
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="brand">
+                <a href="{{ path('index') }}" class="logo" target="_blank">
+                    {# <img class="logo" src="{{ asset('images/logo/logo.png') }}" alt="logo"> #}
+                    <div class="logo"><span class="last">{{ App.name }}</span></div>
+                </a>
+            </div>
+            <div class="container-fluid">
+                <div class="navbar-btn py-0">
+                    <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+                </div>
+                <div id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        {# <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Aide</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('admin_basic_usage') }}"><i class="lnr lnr-graduation-hat"></i> <span>Utilisation de base</span></a></li>
+                                <li><a href="{{ path('admin_security') }}"><i class="lnr lnr-lock"></i> <span>Securité</span></a></li>
+                                <li><a href="{{ path('admin_troubleshooting') }}"><i class="lnr lnr-cog"></i> <span>Dépannage</span></a></li>
+                            </ul>
+                        </li> #}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle pt-4 pb-0" data-toggle="dropdown"><i class="lnr lnr-user"></i> <span>{{ app.user.fullname ?? 'demo' }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                            <ul class="dropdown-menu mt-3">
+                                <li><a href="#"><i class="lnr lnr-user"></i> <span>Mon profil</span></a></li>
+                                <li><a href="{{ path('app_logout') }}"><i class="lnr lnr-exit"></i> <span>Deconnexion</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- END NAVBAR -->
+        {% block left_sidebar %}
+
+        {% endblock %}
+        <!-- MAIN -->
+        <div class="main">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="container-fluid">
+                  {% block main %}
+                  {% endblock %}
+                </div>
+            </div>
+            <!-- END MAIN CONTENT -->
+        </div>
+
+        {% include 'common/flash_messages.html.twig' %}
+
+        <!-- END MAIN -->
+        <div class="clearfix"></div>
+    </div>
+    <!-- END WRAPPER -->
+    {% endblock %}
+    {% block javascript %}
+        <!-- Javascript -->
+        <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('admin/scripts/klorofil-common.js') }}"></script>
+        <script src="{{ asset('admin/vendor/toastr/toastr.min.js') }}"></script>
+        <script src="{{ asset('admin/js/app.js') }}"></script>
+    {% endblock %}
+</body>
+
+</html>
