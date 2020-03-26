@@ -32,8 +32,11 @@ class DefaultControllerTest extends WebTestCase
     public function urlProvider()
     {
         self::bootKernel();
-        $router = self::$kernel->getContainer()->get('router');
-        $router->getContext()->setHttpPort('8000');
+        $container = self::$kernel->getContainer();
+        $router = $container->get('router');
+        $router->getContext()->setScheme($container->getParameter('router.request_context.scheme'));
+        $router->getContext()->setHost($container->getParameter('router.request_context.host'));
+        $router->getContext()->setHttpPort($container->getParameter('router.request_context.port'));
 
         $makeUrl = function ($path, $parameters = []) use ($router) {
             return $router->generate($path, $parameters, UrlGeneratorInterface::ABSOLUTE_URL);
