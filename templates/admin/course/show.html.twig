@@ -1,9 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
-{% block title %}Course{% endblock %}
+{% block title %}{{ course.title }}{% endblock %}
 
-{% block body %}
-    <h1>Course</h1>
+{% block left_sidebar %}
+    {% include 'admin/common/left-sidebar.twig' with { active: 'courses-list' } %}
+{% endblock %}
+
+{% block main %}
+    <h1>{{ course.title }}</h1>
 
     <table class="table">
         <tbody>
@@ -19,12 +23,16 @@
                 <th>VideoUrl</th>
                 <td>{{ course.videoUrl }}</td>
             </tr>
+            <tr>
+                <th>Added At</th>
+                <td>{{ course.addedAt|localizeddate('full', 'short', null)|capitalize }}</td>
+            </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('course_index') }}">back to list</a>
+    <a class="my-3 btn btn-info" href="{{ path('admin_courses') }}"><i class="lnr lnr-arrow-left fa-lg"></i> back to list</a>
 
-    <a href="{{ path('course_edit', {'id': course.id}) }}">edit</a>
+    <a class="btn btn-primary" href="{{ path('admin_course_edit', {'id': course.id}) }}"><i class="fa fa-edit"></i> edit</a>
 
-    {{ include('course/_delete_form.html.twig') }}
+    {{ include('admin/course/_delete_form.html.twig') }}
 {% endblock %}
