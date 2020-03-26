@@ -1,0 +1,19 @@
+language: php
+sudo: false
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+    - $HOME/symfony-bridge/.phpunit
+
+env:
+  global:
+    - PHPUNIT_FLAGS="-v"
+    - SYMFONY_PHPUNIT_DIR="$HOME/symfony-bridge/.phpunit"
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.1.3
+    - php: 7.2
+    - php: 7.3
+    - php: 7.4
