@@ -11,7 +11,9 @@ parameters:
 
     google_api:
 
-    # router.request_context.scheme: 'https'
+    router.request_context.scheme: 'http'
+    router.request_context.host: 'rim-edu.herokuapp.com'
+    router.request_context.port: '80'
 services:
     # default configuration for services in *this* file
     _defaults:
