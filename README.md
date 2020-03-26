@@ -1,4 +1,4 @@
-# Open Source online courses website for Mauritanians
+# Online courses website for Mauritanians
 
 ## Built on top of [Symfony 4][1].
 ## The user interface is built with [Bootstrap 4][2].
