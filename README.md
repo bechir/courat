@@ -1,7 +1,7 @@
 # Online courses website for Mauritanians
 
-## Built on top of [Symfony 4][1].
-## The user interface is built with [Bootstrap 4][2].
+### Built on top of [Symfony 4][1]
+### The user interface is built with [Bootstrap 4][2]
 
 ![GitHub](https://raw.githubusercontent.com/rand0mdev/rim-edu/master/docs/images/home-screenshot.ar.png)
 ![GitHub](https://raw.githubusercontent.com/rand0mdev/rim-edu/master/docs/images/home-screenshot.fr.png)
@@ -20,12 +20,13 @@ Requirements
 Installation
 ------------
 
-1. Install Composer (see http://getcomposer.org/download)
+1. Donwload git (see https://git-scm.com/downloads)
+2. Install Composer (see http://getcomposer.org/download)
 
-2. Create new project via [Composer][4]
+2. Clone the project via [Git][4]
 
    ```
-   $ composer create-project rand0mdev/rim-edu rim-edu.local
+   $ git clone https://github.com/rand0mdev/rim-edu.git
    $ composer install
    ```
    
@@ -35,7 +36,7 @@ There's no need to configure anything to run the application. If you have
 [installed Symfony][5], run this command and access the application in your
 browser at the given URL (<https://localhost:8000> by default):
    ```
-   $ cd rim-edu.local/
+   $ cd rim-edu/
    $ symfony serve
    ```
 If you don't have the Symfony binary installed, run `php -S localhost:8000 -t public/`
@@ -48,14 +49,14 @@ Tests
 Execute this command to run tests:
 
 ```bash
-$ cd rim-edu.local/
+$ cd rim-edu/
 $ ./bin/phpunit
 ```
 
 [1]: https://symfony.com/
 [2]: https://getbootstrap.com
 [3]: https://symfony.com/doc/current/reference/requirements.html
-[4]: https://getcomposer.org/doc/03-cli.md#create-project
+[4]: https://git-scm.com/docs/git-clone
 [5]: https://symfony.com/download
 [6]: https://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html
 [7]: http://rim-edu.herokuapp.com
