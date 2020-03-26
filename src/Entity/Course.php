@@ -8,10 +8,13 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CourseRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Course
 {
@@ -33,10 +36,19 @@ class Course
     private $videoUrl;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Subject", inversedBy="courses")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="datetime")
      */
-    private $subject;
+    private $addedAt;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Classe", mappedBy="courses")
+     */
+    private $classes;
+
+    public function __construct()
+    {
+        $this->classes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -67,14 +79,45 @@ class Course
         return $this;
     }
 
-    public function getSubject(): ?Subject
+    public function getAddedAt(): ?\DateTimeInterface
     {
-        return $this->subject;
+        return $this->addedAt;
     }
 
-    public function setSubject(?Subject $subject): self
+    /**
+     * @ORM\PrePersist
+     */
+    public function setAddedAt(): self
     {
-        $this->subject = $subject;
+        $this->addedAt = new \DateTime();
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Classe[]
+     */
+    public function getClasses(): Collection
+    {
+        return $this->classes;
+    }
+
+    public function addClass(Classe $class): self
+    {
+        if (!$this->classes->contains($class)) {
+            $this->classes[] = $class;
+            $class->addCourse($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClass(Classe $class): self
+    {
+        if ($this->classes->contains($class)) {
+            $this->classes->removeElement($class);
+            $class->removeCourse($this);
+        }
 
         return $this;
     }
