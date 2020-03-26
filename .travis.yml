@@ -2,18 +2,42 @@ language: php
 sudo: false
 cache:
   directories:
-    - $HOME/.composer/cache/files
-    - $HOME/symfony-bridge/.phpunit
-
+  - "$HOME/.composer/cache/files"
+  - "$HOME/symfony-bridge/.phpunit"
 env:
   global:
-    - PHPUNIT_FLAGS="-v"
-    - SYMFONY_PHPUNIT_DIR="$HOME/symfony-bridge/.phpunit"
-
+  - PHPUNIT_FLAGS="-v"
+  - SYMFONY_PHPUNIT_DIR="$HOME/symfony-bridge/.phpunit"
+  - ACTION=install
+  - HEROKU_API_KEY=jPmCspBRYwaBakkqSlbE7TCZFZGeOr3GQVCitG78wMLdb5j4tnjgmdO9fnNr9hD3KaTVMBtsfYWRHLO0imJGubcP4R1nhnUncbVP8Pd90t2ECK3qtX2/r4E8qI7GtK+f2oAmLrkCf/l+tgtjb4R2CTsT7uOoGxQyBCIxSr7cwoHstSoEFBrwpFSjrC1C9Oq0MeNiQICvdfI6UtI3cZUNSdNYN0Sxp1uf1NuDEmCG08Uc2FqoxAq7TXbYVYAWg/IN/n4flmTWOVys9CkWwn2hCrtTbHrR3CaoIPKSI4rt0XeW63kEsMg/URYFWnpALEiPCyt9QNWIc+3c8Bh5452U0km0HyxLRatnblpY1ztynHX9NG/yj932ulUOracD2Ek7HWne3QLI/akqGtaxO5hA3nfr6VMHvTmXxD/SZJ+eDkH6EHfAW++Vix7Ag4k9Z01y4+g/wfSCbbDS3hc/h3qp6tftDlVnRIji9ETef8Raf3zEpoNdSp7/hJ5BbEdO6y0MxYHCHunIdwcGpJPnMi2hE3RCls6UIM9aWZ42G1bPquvOr2pGiKrafQGF9wfi+yTfH9ee+norOBKZpPgtMwKp9QnNbkzbam8tKkcVadORb0pA1Gto/e/+H9b3ekAnIOHfmRdvLrvNrf/bDOgPeRSsEVRkqKnqlkdYM0tYrkRfRKI=
 matrix:
   fast_finish: true
   include:
-    - php: 7.1.3
-    - php: 7.2
-    - php: 7.3
-    - php: 7.4
+  - php: 7.2
+  - php: 7.3
+  - php: 7.4
+deploy:
+  provider: heroku
+  api_key:
+    secure: $HEROKU_API_KEY
+  app: rim-edu
+  run:
+    - "./bin/console doctrine:migrations:migrate"
+install:
+  - php -r "echo ini_get('memory_limit').PHP_EOL;"
+  # install or update
+  - composer $ACTION
+  - ./bin/phpunit install
+script:
+  - ./bin/phpunit
+  # this checks that the source code follows the Symfony Code Syntax rules
+  - '[[ "$TRAVIS_PHP_VERSION" == "7.4" ]] || ./vendor/bin/php-cs-fixer fix --diff --dry-run -v'
+  # this checks that the YAML config files contain no syntax errors
+  - ./bin/console lint:yaml config --parse-tags
+  # this checks that the Twig template files contain no syntax errors
+  - ./bin/console lint:twig templates --env=prod
+  # this checks that the XLIFF translations contain no syntax errors
+  - ./bin/console lint:yaml translations
+  # this checks that arguments injected into services match type declarations
+  - ./bin/console lint:container
+
