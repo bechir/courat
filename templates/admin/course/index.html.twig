@@ -23,9 +23,8 @@
                 {% for course in courses %}
                     <tr>
                         <td><a href="{{ path('admin_course_show', {id: course.id}) }}">{{ course.title }}</a></td>
-                        <td>{{ course.videoUrl }}</td>
-                        {# <td>{{ course.createdAt|localizeddate('full', 'none', null) }}</td> #}
-                        <td>-</td>
+                        <td><a href="{{ course.videoUrl }}" target="_blank" rel="noopener noreferrer">{{ course.videoUrl }}</a></td>
+                        <td>{{ course.addedAt|localizeddate('full', 'short', null)|capitalize }}</td>
                         <td class="px-0">
                             <div class="btn-group">
                                 <a class="mx-2 edit-item" href="{{ path('admin_course_show', {id: course.id}) }}" target="_blank">
