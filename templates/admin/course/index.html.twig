@@ -1,0 +1,50 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Course index{% endblock %}
+
+{% block left_sidebar %}
+    {% include 'admin/common/left-sidebar.twig' with { active: 'courses-list' } %}
+{% endblock %}
+
+{% block main %}
+    <h1>Liste des cours</h1>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>VideoUrl</th>
+                    <th>Date d'ajout</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                    <tr>
+                        <td><a href="{{ path('admin_course_show', {id: course.id}) }}">{{ course.title }}</a></td>
+                        <td>{{ course.videoUrl }}</td>
+                        {# <td>{{ course.createdAt|localizeddate('full', 'none', null) }}</td> #}
+                        <td>-</td>
+                        <td class="px-0">
+                            <div class="btn-group">
+                                <a class="mx-2 edit-item" href="{{ path('admin_course_show', {id: course.id}) }}" target="_blank">
+                                    <i class="fa fa-lg fa-external-link"></i>
+                                </a>
+                                <a class="mx-2 edit-item" data-placement="top" style="cursor:pointer;" title="Modifier" href="">
+                                    <i class="lnr lnr-pencil text-primary"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">no records found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{{ path('admin_course_new') }}" class="btn btn-primary"><i class="lnr lnr-plus-circle"></i> Create new</a>
+{% endblock %}

@@ -1,9 +1,34 @@
+{% set in_create = ['new-course', 'new-user'] %}
+
 <div id="sidebar-nav" class="sidebar">
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
                 <li><a href="{{ path('admin_index') }}" {% if active == 'index' %} class="active" {% endif %}>
                     <i class="lnr lnr-home"></i> <span>Tableau de bord</span></a>
+                </li>
+                <li><a href="{{ path('admin_courses') }}" {% if active == 'courses-list' %} class="active" {% endif %}>
+                    <i class="lnr lnr-camera-video"></i> <span>Cours</span></a>
+                </li>
+                <li><a href="#" {% if active == 'users-list' %} class="active" {% endif %}>
+                    <span><i class="lnr lnr-users"></i> Utilisateurs</span></a>
+                </li>
+                <li>
+                    <a {% if active in in_create %}class="active" aria-expanded="true"{% else %}class="collapsed"{% endif %} data-toggle="collapse" href="#newCourse">
+                        <i class="lnr lnr-plus-circle"></i>
+                        <span>Ajouter</span>
+                        <i class="icon-submenu lnr lnr-chevron-left"></i>
+                    </a>
+                    <div class="collapse{% if active in in_create %} in{% endif %}" id="newCourse">
+                        <ul class="nav">
+                            <li><a href="{{ path('admin_course_new') }}" {% if active == 'new-course' %} class="active" {% endif %}>
+                                <span><i class="lnr lnr-camera-video"></i> Cours</span></a>
+                            </li>
+                            <li><a href="#" {% if active == 'new-user' %} class="active" {% endif %}>
+                                <span><i class="lnr lnr-user"></i> Utilisateur</span></a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </nav>
