@@ -20,7 +20,6 @@ class CourseType extends AbstractType
         $builder
             ->add('title')
             ->add('videoUrl')
-            ->add('subject')
         ;
     }
 

@@ -1,11 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
+
+{% block left_sidebar %}
+    {% include 'admin/common/left-sidebar.twig' with { active: 'new-course' } %}
+{% endblock %}
 
 {% block title %}New Course{% endblock %}
 
-{% block body %}
+{% block main %}
     <h1>Create new Course</h1>
 
-    {{ include('course/_form.html.twig') }}
+    {{ include('admin/course/_form.html.twig') }}
 
-    <a href="{{ path('course_index') }}">back to list</a>
+    <a class="my-3 btn btn-info" href="{{ path('admin_courses') }}"><i class="lnr lnr-arrow-left fa-lg"></i> back to list</a>
 {% endblock %}
