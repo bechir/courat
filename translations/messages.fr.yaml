@@ -30,10 +30,10 @@ Programme terminale: Programme terminale
 6c: 6<sup>ème</sup> C
 6d: 6<sup>ème</sup> D
 
-Terminale A: Terminale A
-Terminale C: Terminale C
-Terminale D: Terminale D
-Terminale L: Terminale L
+TerminaleA: Terminale A
+TerminaleC: Terminale C
+TerminaleD: Terminale D
+TerminaleL: Terminale L
 
 
 home:
@@ -43,6 +43,9 @@ contact:
   title: Contactez nous
   caption: Faites-nous part de votre message
   send: Envoyer le message
+
+courses:
+  title: Cours de %class%
 
 login:
   title: Connexion
