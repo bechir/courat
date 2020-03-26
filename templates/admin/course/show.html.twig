@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Course{% endblock %}
+
+{% block body %}
+    <h1>Course</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ course.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ course.title }}</td>
+            </tr>
+            <tr>
+                <th>VideoUrl</th>
+                <td>{{ course.videoUrl }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('course_index') }}">back to list</a>
+
+    <a href="{{ path('course_edit', {'id': course.id}) }}">edit</a>
+
+    {{ include('course/_delete_form.html.twig') }}
+{% endblock %}
