@@ -3,8 +3,8 @@
 ### Built on top of [Symfony 4][1]
 ### The user interface is built with [Bootstrap 4][2]
 
-![GitHub](https://raw.githubusercontent.com/rand0mdev/rim-edu/master/docs/images/home-screenshot.ar.png)
-![GitHub](https://raw.githubusercontent.com/rand0mdev/rim-edu/master/docs/images/home-screenshot.fr.png)
+![GitHub](https://raw.githubusercontent.com/rand0mdev/rim-edu/master/docs/images/home-screenshot_ar.png)
+![GitHub](https://raw.githubusercontent.com/rand0mdev/rim-edu/master/docs/images/home-screenshot_fr.png)
 
 Online Demo
 -----------
