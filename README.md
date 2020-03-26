@@ -1,4 +1,4 @@
-# Online courses website for Mauritanians
+# Online courses website for Mauritanians [![Build Status](https://travis-ci.com/rand0mdev/rim-edu.svg?token=PJbraSespqsJKtHsBMT2&branch=master)](https://travis-ci.com/rand0mdev/rim-edu)
 
 ### Built on top of [Symfony 4][1]
 ### The user interface is built with [Bootstrap 4][2]
