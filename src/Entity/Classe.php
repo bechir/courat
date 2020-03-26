@@ -36,13 +36,13 @@ class Classe
     private $level;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Subject", mappedBy="class", orphanRemoval=true, cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity="App\Entity\Course", inversedBy="classes")
      */
-    private $subjects;
+    private $courses;
 
     public function __construct()
     {
-        $this->subjects = new ArrayCollection();
+        $this->courses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -75,31 +75,26 @@ class Classe
     }
 
     /**
-     * @return Collection|Subject[]
+     * @return Collection|Course[]
      */
-    public function getSubjects(): Collection
+    public function getCourses(): Collection
     {
-        return $this->subjects;
+        return $this->courses;
     }
 
-    public function addSubject(Subject $subject): self
+    public function addCourse(Course $course): self
     {
-        if (!$this->subjects->contains($subject)) {
-            $this->subjects[] = $subject;
-            $subject->setClasse($this);
+        if (!$this->courses->contains($course)) {
+            $this->courses[] = $course;
         }
 
         return $this;
     }
 
-    public function removeSubject(Subject $subject): self
+    public function removeCourse(Course $course): self
     {
-        if ($this->subjects->contains($subject)) {
-            $this->subjects->removeElement($subject);
-            // set the owning side to null (unless already changed)
-            if ($subject->getClasse() === $this) {
-                $subject->setClasse(null);
-            }
+        if ($this->courses->contains($course)) {
+            $this->courses->removeElement($course);
         }
 
         return $this;

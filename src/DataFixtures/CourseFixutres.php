@@ -8,35 +8,47 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Classe;
+use App\Entity\Course;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class CourseFixutres extends Fixture
+class CourseFixutres extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        // $product = new Product();
-        // $manager->persist($product);
+        $classes = $manager->getRepository(Classe::class)->findAll();
 
+        foreach (array_values($this->getCoursesData()) as [$title, $url]) {
+            $course = (new Course())
+                ->setTitle($title)
+                ->setVideoUrl($url)
+                ->addClass($classes[mt_rand(0, count($classes) - 1)]);
+
+            $manager->persist($course);
+        }
         $manager->flush();
     }
 
     public function getCoursesData(): array
     {
         return [
-            'maths' => [
-                ['Arithemetique - Chapitre 1', 'https:/rre.rer/ewfwef'],
-                ['Arithemetique - Chapitre 2', 'https:/rre.rer/ewfwef'],
-                ['Arithemetique - Chapitre 3', 'https:/rre.rer/ewfwef'],
-                ['Les nombres complexes - Chapitre 1', 'https:/rre.rer/ewfwef'],
-                ['Les nombres complexes - Chapitre 2', 'https:/rre.rer/ewfwef'],
-            ],
+            ['Chapitre 1', 'https:/youtube.com/qwerty'],
+            ['Chapitre 2', 'https:/youtube.com/qwerty'],
+            ['Chapitre 3', 'https:/youtube.com/qwerty'],
+            ['Chapitre 4', 'https:/youtube.com/qwerty'],
+            ['Chapitre 5', 'https:/youtube.com/qwerty'],
+            ['Chapitre 6', 'https:/youtube.com/qwerty'],
+            ['Chapitre 7', 'https:/youtube.com/qwerty'],
+            ['Chapitre 8', 'https:/youtube.com/qwerty'],
+        ];
+    }
 
-            'pc' => [
-                ['PC - Chapitre 1', 'https:/rre.rer/ewfwef'],
-                ['PC - Chapitre 2', 'https:/rre.rer/ewfwef'],
-                ['PC - Chapitre 3', 'https:/rre.rer/ewfwef'],
-            ],
+    public function getDependencies()
+    {
+        return [
+            ClassFixtures::class,
         ];
     }
 }
