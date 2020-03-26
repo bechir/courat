@@ -45,6 +45,8 @@ class Course
      */
     private $classes;
 
+    const NB_COURSES_PER_PAGE = 20;
+
     public function __construct()
     {
         $this->classes = new ArrayCollection();

@@ -8,9 +8,11 @@
 
 namespace App\Repository;
 
+use App\Entity\Classe;
 use App\Entity\Course;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @method Course|null find($id, $lockMode = null, $lockVersion = null)
@@ -20,37 +22,28 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  */
 class CourseRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private $paginator;
+
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Course::class);
+
+        $this->paginator = $paginator;
     }
 
-    // /**
-    //  * @return Course[] Returns an array of Course objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function paginate(Classe $class, int $page)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $query = $this->createQueryBuilder('c')
+            ->leftJoin('c.classes', 'cr')
+                ->addSelect('cr')
+            ->orderBy('c.addedAt', 'DESC')
+            ->where('cr = :cls')
+            ->setParameter('cls', $class);
 
-    /*
-    public function findOneBySomeField($value): ?Course
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $this->paginator->paginate(
+            $query,
+            $page,
+            Course::NB_COURSES_PER_PAGE
+        );
     }
-    */
 }

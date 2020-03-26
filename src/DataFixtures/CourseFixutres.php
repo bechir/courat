@@ -24,6 +24,8 @@ class CourseFixutres extends Fixture implements DependentFixtureInterface
             $course = (new Course())
                 ->setTitle($title)
                 ->setVideoUrl($url)
+                ->addClass($classes[mt_rand(0, count($classes) - 1)])
+                ->addClass($classes[mt_rand(0, count($classes) - 1)])
                 ->addClass($classes[mt_rand(0, count($classes) - 1)]);
 
             $manager->persist($course);
@@ -33,16 +35,13 @@ class CourseFixutres extends Fixture implements DependentFixtureInterface
 
     public function getCoursesData(): array
     {
-        return [
-            ['Chapitre 1', 'https:/youtube.com/qwerty'],
-            ['Chapitre 2', 'https:/youtube.com/qwerty'],
-            ['Chapitre 3', 'https:/youtube.com/qwerty'],
-            ['Chapitre 4', 'https:/youtube.com/qwerty'],
-            ['Chapitre 5', 'https:/youtube.com/qwerty'],
-            ['Chapitre 6', 'https:/youtube.com/qwerty'],
-            ['Chapitre 7', 'https:/youtube.com/qwerty'],
-            ['Chapitre 8', 'https:/youtube.com/qwerty'],
-        ];
+        $data = [];
+
+        for ($i = 0; $i < 50; ++$i) {
+            $data[] = ["Chapitre $i", "youtube.com/2AqYr$i"];
+        }
+
+        return $data;
     }
 
     public function getDependencies()
