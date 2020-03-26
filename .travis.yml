@@ -17,7 +17,8 @@ deploy:
   provider: heroku
   api_key:
     secure: 03DyQWGxEUVCs8sysol0KIHH5CcUvO6LO8Nz5GdwsgKPUVUh91lFSNgdYk9dtfb+kbPRfrfwIcSYVi0rEQm9TqyY/lc/b4aTKGBnEdmRVvdD5UV3vaTKlVm+YGjKr/3Rfd79dhsNZmhNcDvU059SNK2wHYfjDmVCxjp7f+QAcfsnNhNgweXgp5sx1Lxr58eOmUVjL+u97+nLfA6I+yy90IU+4ZLpw1xOZ6WYljybKIy6SpklF3J5JnxBL0/xVbqA1C5/6eb6vbtGg21SQc7dTI9xRo+RC9g1J9NRqC+iEmY2y4+id9DjdPKrX6QXJc1SCkpAzkf4GGgTj4sAznnaGeOwjglWYSZLnKmD9gw1KnJ0X4+E5kZE0ICbyzLqobUoN+pa4eJdeYaDIw7V8aLxxnlD3C3wQpnxMxq/A+DJa0XKF3dM9ZyQCYsi5ExBkA6+ExezbZbYeN5eOIrk3xRxGxr98QKhC7i8tHeqvymUT3V1M7zuMl+mxs/JdkZrB9v0MsMh6W/pHc/K6ud+va1Ra6I2x0GO8ItNIoawOxezHBwChLdrM5Y+lDMFYpbqw/vxY7WRmGv0/jQxYcFkfyaGDLTlrQbFW5NBxILWgf4IzoEjn1Iegq0Y9fJqnWacIk+MHqYhCxz7n+L9ePa5mWn1iBIWJNQhVBPWjKiUm909j9s=
-  app: rim-edu
+  app:
+    production: rim-edu
   run:
     - "./bin/console doctrine:migrations:migrate --no-interaction"
     # - ./bin/phpunit
