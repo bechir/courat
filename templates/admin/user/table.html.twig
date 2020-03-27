@@ -3,41 +3,22 @@
         <thead>
             <tr>
                 <th>Login</th>
-                <th>Date d'inscription</th>
                 <th>Type</th>
-                <th>Statut</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for user in users %}
                 <tr>
-                    <td>
-                        <a href="{{ path('admin_user_show', {user: user.id}) }}">{{ user.profileUsername }}</a></td>
-                    <td>
-                        {{ user.submittedAt|date('d M, Y') }}</td>
+                    <td><a href="{{ path('admin_user_show', {user: user.id}) }}">{{ user.username }}</a></td>
                     <td>
                         {% set label_type = 'default' %}
                         {% if user.hasRole('ROLE_SUPER_ADMIN') %}
                             {% set label_type = 'success' %}
                         {% elseif user.hasRole('ROLE_ADMIN') %}
                             {% set label_type = 'info' %}
-                        {% elseif user.hasRole('ROLE_CUSTOMER') %}
-                            {% set label_type = 'primary' %}
                         {% endif %}
                         <label class="label label-{{ label_type }}">{{ user.masterRole|trans }}</label>
-                    </td>
-                    {# <td>
-                        {{ user.locale|upper }}
-                    </td> #}
-                    <td>
-                        {% if user.enabled %}
-                            <span class="label label-success">ACTIVÉ</span>
-                        {# {% elseif user.lastLogin == null %}
-                            <span class="label label-warning">EN ATTENTE</span> #}
-                        {% else %}
-                            <span class="label label-warning">DÉSACTIVÉ</span>
-                        {% endif %}
                     </td>
                     <td>
                         <div class="btn-group">
@@ -46,7 +27,7 @@
                             </a>
                             &nbsp;&nbsp;
                             {% if not user.hasRole("ROLE_SUPER_ADMIN") %}
-                                <a class="delete-item" data-placement="top" data-target="#confirmDeleteUserModal" data-username="{{ user.fullname }}" data-ad-type="user" data-ad-id="{{ user.id }}" data-ad-name="{{ user.fullname }}" data-user-id="{{ user.id }}" data-toggle="modal" style="cursor:pointer;" title="Supprimer {{ user.fullname }}">
+                                <a class="delete-item" data-placement="top" data-target="#confirmDeleteUserModal" data-username="{{ user.username }}" data-ad-type="user" data-ad-id="{{ user.id }}" data-ad-name="{{ user.username }}" data-user-id="{{ user.id }}" data-toggle="modal" style="cursor:pointer;" title="Supprimer {{ user.username }}">
                                     <i class="lnr lnr-trash text-danger"></i>
                                 </a>
                             {% endif %}
