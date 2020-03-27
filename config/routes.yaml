@@ -4,8 +4,14 @@ index:
     ar: /ar
   controller: App\Controller\DefaultController::index
 
-section_level:
+course_show:
   path:
-    fr: /{name}
-    ar: /ar/{name}
-  controller: App\Controller\DefaultController::sectionLevel
+    fr: /cours/details/{id}
+    ar: /courses/details/{id}
+  controller: App\Controller\CourseController::show
+
+course_index:
+  path:
+    fr: /cours/{name}
+    ar: /courses/{name}
+  controller: App\Controller\CourseController::index

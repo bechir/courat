@@ -7,10 +7,21 @@
         </a>
     </div>
     <nav class="mt-4 mt-md-2 my-md-0 mr-md-3 text-center">
-        {% for level in levels() %}
-            <a class="p-2 text-dark text-decoration-none" href="{{ path('section_level', {name: level.name}) }}">{{ level.name|trans }}</a>
-        {% endfor %}
+        <a class="btn btn-primary text-decoration-none" href="{{ path('course_index', {name: '6af'}) }}">{{ 'class.6af'|trans|raw }}</a>
+        <a class="btn btn-secondary text-decoration-none" href="{{ path('course_index', {name: '4as'}) }}">{{ 'class.4as'|trans|raw }}</a>
+        <div class="dropdown d-inline">
+            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ 'class.terminale'|trans }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{{ path('course_index', {name: 'TerminaleA'}) }}">{{ 'class.terminaleA'|trans }}</a>
+              <a class="dropdown-item" href="{{ path('course_index', {name: 'TerminaleC'}) }}">{{ 'class.terminaleC'|trans }}</a>
+              <a class="dropdown-item" href="{{ path('course_index', {name: 'TerminaleD'}) }}">{{ 'class.terminaleD'|trans }}</a>
+              <a class="dropdown-item" href="{{ path('course_index', {name: 'TerminaleL'}) }}">{{ 'class.terminaleL'|trans }}</a>
+            </div>
+          </div>
 
+        {# Get all defined languages defined in the services.yaml file (@see App/Twig/AppExtension) #}
         {% for l in locales() %}
             {% if l.code != locale() %}
                 <a class="mt-3 mt-sm-0 btn btn-outline-primary" href="{{ path(app.request.get('_route', 'index'), app.request.get('_route_params', [])|merge({_locale: l.code})) }}"><i class="fa fa-language"></i> {{ l.name|capitalize }}</a>

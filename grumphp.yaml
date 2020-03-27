@@ -10,15 +10,11 @@ parameters:
       config: './.php_cs.dist'
     # phplint: ~
     # phpspec: ~
-    phpstan:
-        ignore_patterns:
-          - /^tests/
-          - /^features/
-    phpmd:
-      exclude: ['test', 'features']
-      ruleset: ['phpmd.xml']
-    phpunit:
-      config_file: ~
-      testsuite: ~
-      group: []
-      always_execute: false
+    # phpstan:
+    #     ignore_patterns:
+    #       - /^tests/
+    #       - /^features/
+    # phpmd:
+    #   exclude: ['test', 'features']
+    #   ruleset: ['phpmd.xml']
+    phpunit: ~

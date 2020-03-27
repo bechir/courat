@@ -2,26 +2,8 @@
 
 {% block title %}{{ App.name }} &ndash; Cours de soutien en Mauritanie{% endblock %}
 
-{% from "util/sections.html.twig" import section %}
-
 {% block main %}
-
-    {% if level == 'primaire' %}
-        {{ section('Programme primaire', 'primary', classes.primaire) }}
-
-    {% elseif level ==  "college" %}
-        {{ section('Programme collège', 'secondary', classes.college) }}
-
-    {% elseif level ==  "lycee" %}
-        {{ section('Programme lycée', 'info', classes.lycee) }}
-
-    {% elseif level ==  "terminale" %}
-        {{ section('Programme terminale', 'success', classes.terminale) }}
-    {% elseif level ==  "all" %}
-        {{ section('Programme primaire', 'primary', classes.primaire) }}
-        {{ section('Programme collège', 'secondary', classes.college) }}
-        {{ section('Programme lycée', 'info', classes.lycee) }}
-        {{ section('Programme terminale', 'success', classes.terminale) }}
-    {% endif %}
-
+<div class="h-100">
+    
+</div>
 {% endblock %}
