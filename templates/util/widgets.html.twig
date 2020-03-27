@@ -1,7 +1,15 @@
 {% macro displayLocales() %}
     {% for l in locales() %}
         {% if l.code != locale() %}
-            <a class="btn mr-3 btn-outline-primary" href="{{ path(app.request.get('_route', 'index'), app.request.get('_route_params', [])|merge({_locale: l.code})) }}"><i class="fa fa-language"></i> {{ l.name|capitalize }}</a>
+            <a class="btn mr-3 btn-outline-primary"
+                href="{{ path(
+                        app.request.get('_route', 'index'),
+                        app.request.get('_route_params', [])|merge({_locale: l.code})
+                        )
+                    }}">
+                    <i class="fa fa-language"></i>
+                    {{ l.name|capitalize }}
+            </a>
         {% endif %}
     {% endfor %}
 {% endmacro %}

@@ -11,10 +11,15 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body {% if locale() == 'ar' %}dir="rtl"{% endif %}>
+
+        {# Include the app navbar #}
         {% include "common/navbar.html.twig" %}
 
         <div class="container d-flex flex-column justify-content-between main">
-            {% block main %}{% endblock %}
+            
+            {% block main %}
+            {# The main bloakc of all pages #}
+            {% endblock %}
 
             {% block footer %}
                 {% include "common/footer.html.twig" %}
