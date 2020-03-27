@@ -77,4 +77,20 @@ class UserController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/delete/{id}", name="admin_user_delete", methods={"POST"})
+     */
+    public function deleteUser(User $user, EntityManagerInterface $em)
+    {
+        if (!$user) {
+            $this->addFlash('danger', "L'utilisateur est introuvable.");
+        } else {
+            $em->remove($user);
+            $em->flush();
+            $this->addFlash('success', "L'utilisateur a été supprimé.");
+        }
+
+        return $this->redirectToRoute('admin_users');
+    }
 }
