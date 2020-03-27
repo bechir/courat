@@ -1,4 +1,6 @@
-# Online courses website for Mauritanians [![Build Status](https://travis-ci.com/rand0mdev/rim-edu.svg?token=PJbraSespqsJKtHsBMT2&branch=master)](https://travis-ci.com/rand0mdev/rim-edu)
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg) [![Build Status](https://travis-ci.com/rand0mdev/rim-edu.svg?token=PJbraSespqsJKtHsBMT2&branch=master)](https://travis-ci.com/rand0mdev/rim-edu)
+
+# Online courses website for Mauritanians
 
 ### Built on top of [Symfony 4][1]
 ### The user interface is built with [Bootstrap 4][2]

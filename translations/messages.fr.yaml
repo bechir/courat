@@ -5,36 +5,14 @@ app:
   about: À propos
   terms: Conditions d'Utilisation
 
-primaire: Primaire
-college: Collège
-lycee: Lycée
-terminale: Terminale
-
-Programme primaire: Programme primaire
-Programme collège: Programme collège
-Programme lycée: Programme lycée
-Programme terminale: Programme terminale
-
-1af: 1<sup>ère</sup> AF
-2af: 2<sup>ème</sup> AF
-3af: 3<sup>ème</sup> AF
-4af: 4<sup>ème</sup> AF
-5af: 5<sup>ème</sup> AF
-6af: 6<sup>ème</sup> AF
-1as: 1<sup>ère</sup> AS
-2as: 2<sup>ème</sup> AS
-3as: 3<sup>ème</sup> AS
-4as: 4<sup>ème</sup> AS
-5c: 5<sup>ème</sup> C
-5d: 5<sup>ème</sup> D
-6c: 6<sup>ème</sup> C
-6d: 6<sup>ème</sup> D
-
-TerminaleA: Terminale A
-TerminaleC: Terminale C
-TerminaleD: Terminale D
-TerminaleL: Terminale L
-
+class:
+  6af: 6<sup>ème</sup>AF
+  4as: 4<sup>ème</sup>AS
+  terminale: Terminale
+  terminaleA: Terminale A
+  terminaleC: Terminale C
+  terminaleD: Terminale D
+  terminaleL: Terminale L
 
 home:
   h1: 

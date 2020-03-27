@@ -30,12 +30,6 @@ class Classe
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ClassLevel")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $level;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Course", inversedBy="classes")
      */
     private $courses;
@@ -58,18 +52,6 @@ class Classe
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getLevel(): ?ClassLevel
-    {
-        return $this->level;
-    }
-
-    public function setLevel(?ClassLevel $level): self
-    {
-        $this->level = $level;
 
         return $this;
     }
