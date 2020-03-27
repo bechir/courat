@@ -1,0 +1,166 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block left_sidebar %}
+
+{% include 'admin/common/left-sidebar.twig' with { active: 'profile' } %}
+
+{% endblock %}
+
+{% block main %}
+  <div class="panel panel-profile">
+    <div class="clearfix">
+      <div class="col-md-10 col-md-offset-1">
+        <!-- PROFILE HEADER -->
+        <div class="profile-header">
+          <div class="overlay {% if user.enabled %}bg-success-2{% else %}bg-warning-2{% endif %}"></div>
+          <div class="profile-main">
+            <h3 class="name">{{ user.fullname }}</h3>
+            <div class="user-state">
+              {% if user.enabled %}
+                  <span class="lnr lnr-checkmark-circle"></span> Activé
+              {% else %}
+                  {# {% if user.lastLogin is null %}
+                    <span class="fa fa-warning"></span> En attente
+                  {% else %} #}
+                    <span class="lnr lnr-cross-circle"></span> Desactivé
+                  {# {% endif %} #}
+              {% endif %}
+            </div>
+          </div>
+          {% if user.hasRole('ROLE_SUPER_ADMIN') %}
+            <div class="profile-stat">
+              <div class="row">
+                <h4><i class="fa fa-star"></i> Super Admin</h4>
+              </div>
+            </div>
+          {% elseif user.hasRole('ROLE_ADMIN') %}
+            <div class="profile-stat">
+              <div class="row">
+                <h4>Administrateur</h4>
+              </div>
+            </div>
+          {% elseif user.hasRole('ROLE_CUSTOMER') %}
+            <div class="profile-stat">
+              <div class="row">
+                <h4>Partenaire</h4>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        <!-- END PROFILE HEADER -->
+        <!-- PROFILE DETAIL -->
+        <div class="profile-detail">
+          <div class="profile-info px-0">
+            <h4 class="heading">Informations</h4>
+            <ul class="list-unstyled list-justify">
+              <hr>
+              <li>Nom <span><strong>{{ user.fullname }}</strong></span></li>
+              <li>Téléphone <span>{{ user.phone }}</span></li>
+              <li>Date d'inscription <span>{{ user.submittedAt|date('d M, Y') }}</span></li>
+              <li>Email <span>{{ user.email }}</span></li>
+            </ul>
+          </div>
+          <div class="profile-info px-0 text-center">
+            <hr>
+            <div class="text-center">
+              {% if not user.hasRole('ROLE_SUPER_ADMIN') %}
+                <div class="btn-group">
+                    <a href="#" class="btn btn-warning m-1 px-4 my-3 {% if not user.enabled %}hidden{% endif %}" id="disable-user"><span class="lnr lnr-circle-minus"></span> Désactiver</a>
+                    <a href="#" class="btn btn-info m-1 px-4 my-3 {% if user.enabled %}hidden{% endif %}" id="enable-user"><span class="lnr lnr-checkmark-circle"></span> Activer</a>
+                    <a href="#" class="btn btn-danger mx-1 px-4 my-3" data-toggle="modal" data-target="#confirmDeleteModal"><span class="lnr lnr-trash"></span> Supprimer</a>
+                </div>
+              {% endif %}
+              {% if app.user == user %}
+                {# <a href="{{ path('user_profile_edit') }}" target="_blank" class="btn btn-default btn-block my-3"><span class="lnr lnr-pencil"></span> Modifier mon profil</a> #}
+              {% endif %}
+            </div>
+          </div>
+          {% if not user.hasRole('ROLE_ADMIN') %}
+              <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="confirmDeleteModalLabel">Confirmation</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-danger">Voulez-vous vraiment supprimer <strong>{{ user.fullname }}</strong> de la base de données ?</p>
+                            <p class="alert alert-danger"><span class="fa fa-warning"></span> Cette action est irréversible.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-lg float-left" data-dismiss="modal">Annuler</button>
+                            <form action="{{ path('admin_security_user_delete', {id: user.id}) }}" method="POST" data-confirmation="true" id="delete-form">
+                              <input type="hidden" name="user[delete_token]" value="{{ csrf_token('user.delete_token') }}" />
+                              <button type="submit" id="btn-user-delete" class="btn btn-danger btn-lg">
+                                  <span class="lnr lnr-trash"></span> Supprimer
+                              </button>
+                            </form>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          {% endif %}
+        </div>
+        <!-- END PROFILE DETAIL -->
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascript %}
+  {{ parent() }}
+
+  <script>
+    // Disable user when we click on the disable user button
+    $("#disable-user").on('click', function(e){
+      button = $(this)
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "{{ path('admin_security_user_disable') }}",
+        data: "id=" + {{ user.id }},
+
+        success: function(data) {
+          console.log('user disabled')
+          button.addClass('hidden')
+          $("#enable-user").removeClass('hidden')
+          $('.overlay').removeClass('bg-success-2').addClass('bg-warning-2')
+          $(".profile-main .user-state").html(`<span class="lnr lnr-cross-circle"></span> Desactivé`);
+        },
+
+        error: function(data) {
+          console.error(data)
+          alert('Une erruer est survenue au niveau du serveur.')
+        }
+      })
+      e.preventDefault();
+    });
+
+    // Enable user when we click on the enable user button
+    $("#enable-user").on('click', function(e){
+      button = $(this)
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "{{ path('admin_security_user_enable') }}",
+        data: "id=" + {{ user.id }},
+
+        success: function(data) {
+          console.log('user enabled')
+          button.addClass('hidden')
+          $("#disable-user").removeClass('hidden')
+          $('.overlay').removeClass('bg-warning-2').addClass('bg-success-2')
+          $(".profile-main .user-state").html(`<span class="lnr lnr-checkmark-circle"></span> Activé`);
+        },
+
+        error: function(data) {
+          console.error(data)
+          alert('Une erruer est survenue au niveau du serveur.')
+        }
+      })
+      e.preventDefault();
+    });
+  </script>
+
+
+{% endblock %}
