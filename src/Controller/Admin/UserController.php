@@ -35,7 +35,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/", name="admin_user_show")
+     * @Route("/{user}", name="admin_user_show")
      */
     public function show(User $user): Response
     {
@@ -61,7 +61,7 @@ class UserController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-            $user->addRole('ROLE_ADMIN');
+            $user->setRoles(['ROLE_ADMIN']);
             $em->persist($user);
 
             $em->flush();
