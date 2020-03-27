@@ -1,0 +1,65 @@
+{% extends 'admin/base.html.twig' %}
+{% block left_sidebar %}
+    {% include 'admin/common/left-sidebar.twig' with { active: 'users' } %}
+{% endblock %}
+
+{% block main %}
+<h3 class="page-title text-info"><span class="lnr lnr-users"></span> Utilisateurs <span class="badge badge-info mb-1">{{ users|length }}</span></h3></h3>
+<div class="row">
+    <div class="col-md-12">
+        <!-- TABLE STRIPED -->
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Liste des utilisateurs</h3>
+            </div>
+            <div class="panel-body">
+                {% include 'admin/user/table.html.twig' with {users: users} %}
+            </div>
+            <div class="panel-footer">
+                 {# <!-- Page navigation start -->
+                  <nav aria-label="Page navigation">
+                      <ul class="pagination">
+                      {% if users.haveToPaginate %}
+                          {{ pagerfanta(
+                                    users,
+                                    'twitter_bootstrap3_translated',
+                                    { routeName: 'admin_users_paginated',
+                                          routeParams: app.request.query.all,
+                                          prev_message: 'Précédant',
+                                          next_message: 'Suivant',
+                                          page_template: '<li><a href="%href%" %rel%>%text%</a></li>'
+                                    }
+                               )
+                          }}
+                      {% else %}
+                            <li><button type="button" class="btn btn-default disabled">1</button> </li>
+                      {% endif %}
+                      </ul>
+                  </nav>
+                  <!-- Page navigation end --> #}
+            </div>
+        </div>
+        <!-- END TABLE STRIPED -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+
+    <script>
+        $("#confirmDeleteUserModal").on('show.bs.modal', function(e){
+            button = $(e.relatedTarget)
+
+            var modal = $(this);
+            var userId = button.data('user-id')
+            var username = button.data('username')
+
+            modal.find('.fullname').text(username)
+            modal.find('form').attr('action', '/admin/security/user/delete/' + userId)
+        });
+    </script>
+{% endblock %}
+
