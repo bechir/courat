@@ -35,16 +35,6 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{user}", name="admin_user_show")
-     */
-    public function show(User $user): Response
-    {
-        return $this->render('admin/user/show.html.twig', [
-          'user' => $user,
-        ]);
-    }
-
-    /**
      * @Route("/new", name="admin_user_create")
      */
     public function create(Request $request, EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder): Response
@@ -75,6 +65,16 @@ class UserController extends AbstractController
 
         return $this->render('admin/user/create.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{user}", name="admin_user_show")
+     */
+    public function show(User $user): Response
+    {
+        return $this->render('admin/user/show.html.twig', [
+          'user' => $user,
         ]);
     }
 
