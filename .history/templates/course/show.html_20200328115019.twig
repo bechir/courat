@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}{{ course.title }}{% endblock %}
+
+{% block main %}
+  <div class="row">
+    <div class="col">
+      <h1 class="h3 mb-4 pt-3 border-bottom pb-2">{{ course.title }}A</h1>
+    </div>
+  </div>
+
+  <pre>
+      {#{ dump(course) }#}
+  </pre>
+{% endblock %}
