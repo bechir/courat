@@ -23,56 +23,56 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-              {% if courses is not empty %}
-                {% for course in courses %}
-								  <div class="panel panel-default custom-panel">
-									<div class="panel-heading" role="tab" id="headingOne">
-										<div class="title" data-role="title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-											<strong>ARABE</strong>
+								{% if courses is not empty %}
+									{% for course in courses %}
+										<div class="panel panel-default custom-panel">
+											<div class="panel-heading" role="tab" id="heading{{ loop.index }}">
+												<div class="title" data-role="title" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
+													<strong>ARABE</strong>
+												</div>
+											</div>
+											<div id="collapse{{ loop.index }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ loop.index }}">
+												<div class="panel-body">
+													<table class="table">
+														<thead>
+															<tr>
+																<th scope="col">Intitule</th>
+																<th scope="col"></th>
+																<th scope="col">Diffusé le</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<th scope="row">
+																	<i class="icofont-check-circled"></i>
+																	&nbsp; Lorem ipsum titre du cours</th>
+																<td>
+																	<a href="">
+																		<i class="icofont-play-alt-2"></i>
+																		&nbsp; Regarder</a>
+																</td>
+																<td>23/03/2020</td>
+															</tr>
+															<tr>
+																<th scope="row">
+																	<i class="icofont-check-circled"></i>
+																	&nbsp; Lorem ipsum titre du cours</th>
+																<td>
+																	<a href="">
+																		<i class="icofont-play-alt-2"></i>
+																		&nbsp; Regarder</a>
+																</td>
+																<td>25/03/2020</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-										<div class="panel-body">
-											<table class="table">
-												<thead>
-													<tr>
-														<th scope="col">Intitule</th>
-														<th scope="col"></th>
-														<th scope="col">Diffusé le</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<th scope="row">
-															<i class="icofont-check-circled"></i>
-															&nbsp; Lorem ipsum titre du cours</th>
-														<td>
-															<a href="">
-																<i class="icofont-play-alt-2"></i>
-																&nbsp; Regarder</a>
-														</td>
-														<td>23/03/2020</td>
-													</tr>
-													<tr>
-														<th scope="row">
-															<i class="icofont-check-circled"></i>
-															&nbsp; Lorem ipsum titre du cours</th>
-														<td>
-															<a href="">
-																<i class="icofont-play-alt-2"></i>
-																&nbsp; Regarder</a>
-														</td>
-														<td>25/03/2020</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-                {% endfor %}
-              {% else %}
-			          <p class="alert alert-info">Aucun n'est actuellement disponible.</p>
-		          {% endif %} #}
+									{% endfor %}
+								{% else %}
+									<p class="alert alert-info">Aucun n'est actuellement disponible.</p>
+								{% endif %}
 							</div>
 
 						</div>
@@ -86,29 +86,30 @@
 		</section>
 		<!-- End Classes Section -->
 		{# {% if courses is not empty %}
-			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-				{% for course in courses %}
-					<div class="col mb-4">
-						<div class="card h-100">
-							<img src="{{ asset('images/preloader.jpg') }}" class="card-img-top" alt="...">
-							<div class="card-body pb-1">
-								<h3 class="h6">
-									<a href="{{ path('course_show', {id: course.id}) }}">{{ course.title }}</a>
-								</h3>
+					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+						{% for course in courses %}
+							<div class="col mb-4">
+								<div class="card h-100">
+									<img src="{{ asset('images/preloader.jpg') }}" class="card-img-top" alt="...">
+									<div class="card-body pb-1">
+										<h3 class="h6">
+											<a href="{{ path('course_show', {id: course.id}) }}">{{ course.title }}</a>
+										</h3>
+									</div>
+									<div class="card-footer">
+										<small class="text-muted">
+											{{ course.classes|map(
+		                      c => '<a class="py-1 badge badge-success" href="' ~ path('course_index', {name: c}) ~ '">' ~ c|trans ~ '</a>'
+		                    )|join(' ')|raw
+		                  }}
+										</small>
+									</div>
+								</div>
 							</div>
-							<div class="card-footer">
-								<small class="text-muted">
-									{{ course.classes|map(
-                      c => '<a class="py-1 badge badge-success" href="' ~ path('course_index', {name: c}) ~ '">' ~ c|trans ~ '</a>'
-                    )|join(' ')|raw
-                  }}
-								</small>
-							</div>
-						</div>
+						{% endfor %}
 					</div>
-				{% endfor %}
-			</div>
-		{% else %}
-			<p class="alert alert-info">Aucun n'est actuellement disponible.</p>
-		{% endif %} #}
+				{% else %}
+					<p class="alert alert-info">Aucun n'est actuellement disponible.</p>
+				{% endif %} #}
 	{% endblock %}
+
