@@ -10,7 +10,7 @@
                 <li><a href="{{ path('admin_courses') }}" {% if active == 'courses-list' %} class="active" {% endif %}>
                     <i class="lnr lnr-camera-video"></i> <span>Cours</span></a>
                 </li>
-                <li><a href="#" {% if active == 'users-list' %} class="active" {% endif %}>
+                <li><a href="{{ path('admin_users') }}" {% if active == 'users-list' %} class="active" {% endif %}>
                     <span><i class="lnr lnr-users"></i> Utilisateurs</span></a>
                 </li>
                 <li>
@@ -24,7 +24,7 @@
                             <li><a href="{{ path('admin_course_new') }}" {% if active == 'new-course' %} class="active" {% endif %}>
                                 <span><i class="lnr lnr-camera-video"></i> Cours</span></a>
                             </li>
-                            <li><a href="#" {% if active == 'new-user' %} class="active" {% endif %}>
+                            <li><a href="{{ path('admin_user_create') }}" {% if active == 'new-user' %} class="active" {% endif %}>
                                 <span><i class="lnr lnr-user"></i> Utilisateur</span></a>
                             </li>
                         </ul>
