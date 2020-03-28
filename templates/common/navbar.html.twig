@@ -8,7 +8,7 @@
       </div>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#header">{{ 'app.index'|trans|upper }}</a></li>
+          <li class="active"><a href="{{ path('index') }}">{{ 'app.index'|trans|upper }}</a></li>
           <li class="active"><a href="#" data-toggle="modal" data-target="#schedule">PLANNING</a></li>
           <li><a href="{{ path('course_index', {name: '6af'}) }}">{{ 'class.6af'|trans|raw }}</a></li>
           <li><a href="{{ path('course_index', {name: '4as'}) }}">{{ 'class.4as'|trans|raw }}</a></li>
