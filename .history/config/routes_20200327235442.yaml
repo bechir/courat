@@ -1,0 +1,17 @@
+index:
+  path:
+    fr: /
+    ar: /ar
+  controller: App\Controller\DefaultController::index
+
+course_show:
+  path:
+    fr: /cours/details/{id}
+    ar: /courses/details/{id}
+  controller: App\Controller\CourseController::show
+
+course_index:
+  path:
+    fr: /cours/{name}
+    ar: /courses/{name}
+  controller: App\Controller\CourseController::index
