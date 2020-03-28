@@ -5,7 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     app:
-        name: 'RimEdu'
+        name: 'Courat'
     locales: ar|fr
     locale: fr
 
