@@ -37,6 +37,6 @@
 	</section>
 	<!-- End Classes Section -->
 	<p class="text-center btn-box">
-		<a href="{{ path('course_index',{name:course.classes[0].name})}}" class="btn-return">REVENIR EN ARRIERE</a>
+		<a href="{{ path('course_index',{name:course.classes[0].name})}}" class="btn-return"> {{ 'course.back'|trans }}</a>
 	</p>
 {% endblock %}
