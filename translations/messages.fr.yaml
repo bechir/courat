@@ -9,10 +9,10 @@ class:
   6af: 6<sup>ème</sup>AF
   4as: 4<sup>ème</sup>AS
   terminale: Terminale
-  terminaleA: Terminale A
   terminaleC: Terminale C
   terminaleD: Terminale D
-  terminaleL: Terminale L
+  terminaleLM: Terminale LM
+  terminaleLO: Terminale LO
 
 home:
   h1: 
