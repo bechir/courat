@@ -1,16 +1,42 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}{{ course.title }}{% endblock %}
+{% block title %}
+	{{ course.title }}
+{% endblock %}
 
 {% block main %}
-  <div class="row">
-    <div class="col">
-      <h1 class="h3 mb-4 pt-3 border-bottom pb-2">{{ course.title }}</h1>
-    </div>
-  </div>
+	<section id="class" class="class section-bg mb-10">
+		<div class="container">
 
-  <pre>
-      {#{ dump(course) }#}
-  </pre>
+
+			<div class="row">
+				<div class="col-md-12">
+					<h3>
+						<b>{{ course.title }}</b>
+					</h3>
+					<div class="alert alert-primary" role="alert">
+						<i class="icofont-info-circle"></i>
+						&nbsp; Le cours de
+						<b>Sciences Naturelles</b>
+						commence à partir de la minute
+						<b>05:09</b>
+					</div>
+					<hr>
+					<div class="vid">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/pvbu0bNJh6s" allowfullscreen="yes"></iframe>
+					</div>
+					<!--./vid -->
+
+
+				</div>
+				<!--.col -->
+			</div>
+
+		</div>
+	</section>
+	<!-- End Classes Section -->
+	<p class="text-center btn-box">
+		<a href="{{ path('course_index',{name:course.classes[0].name})}}" class="btn-return">REVENIR EN ARRIERE</a>
+	</p>
 {% endblock %}

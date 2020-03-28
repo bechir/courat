@@ -30,10 +30,10 @@ class ClassFixtures extends Fixture
         return [
             '6af',
             '4as',
-            'TerminaleA',
-            'TerminaleC',
-            'TerminaleD',
-            'TerminaleL',
+            'terminaleC',
+            'terminaleD',
+            'terminaleLM',
+            'terminaleLO',
         ];
     }
 }
