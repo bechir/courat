@@ -18,8 +18,8 @@
                 <div class="metric">
                     <span class="icon"><i class="lnr lnr-users"></i></span>
                     <p>
-                        <span class="number">123</span>
-                        <span class="title"><a href="#">Utilisateurs</a></span>
+                        <span class="number">{{ data.users }}</span>
+                        <span class="title"><a href="{{ path('admin_users') }}">Utilisateurs</a></span>
                     </p>
                 </div>
             </div>
@@ -27,10 +27,41 @@
                 <div class="metric">
                     <span class="icon"><i class="lnr lnr-camera-video"></i></span>
                     <p>
-                        <span class="number">234</span>
-                        <span class="title"><a href="#">Cours</a></span>
+                        <span class="number">{{ data.courses }}</span>
+                        <span class="title"><a href="{{ path('admin_courses') }}">Cours</a></span>
                     </p>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Cours récents</h3>
+                <div class="right">
+                    <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                    <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                </div>
+            </div>
+            <div class="panel-body">
+                {{ render(controller('App\\Controller\\Admin\\CourseController::latest')) }}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Utilisateurs ajoutés récemment</h3>
+                <div class="right">
+                    <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                    <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                </div>
+            </div>
+            <div class="panel-body">
+                {{ render(controller('App\\Controller\\Admin\\UserController::latest')) }}
             </div>
         </div>
     </div>

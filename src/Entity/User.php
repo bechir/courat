@@ -86,6 +86,21 @@ class User implements UserInterface
         return in_array($role, $this->roles);
     }
 
+    public function getMasterRole(): ?string
+    {
+        $roles = [
+            'ROLE_SUPER_ADMIN',
+            'ROLE_ADMIN',
+            'ROLE_USER',
+        ];
+
+        foreach ($roles as $role) {
+            if ($this->hasRole($role)) {
+                return $role;
+            }
+        }
+    }
+
     /**
      * @see UserInterface
      */

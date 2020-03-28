@@ -1,0 +1,35 @@
+<div class="table-responsive">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>VideoUrl</th>
+                <th>Date d'ajout</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+                <tr>
+                    <td><a href="{{ path('admin_course_show', {id: course.id}) }}">{{ course.title }}</a></td>
+                    <td><a href="{{ course.videoUrl }}" target="_blank" rel="noopener noreferrer">{{ course.videoUrl }}</a></td>
+                    <td>{{ course.addedAt|localizeddate('full', 'short', null)|capitalize }}</td>
+                    <td class="px-0">
+                        <div class="btn-group">
+                            <a class="mx-2 edit-item" href="{{ path('course_show', {id: course.id}) }}" target="_blank">
+                                <i class="fa fa-lg fa-external-link"></i>
+                            </a>
+                            <a class="mx-2 edit-item" data-placement="top" style="cursor:pointer;" title="Modifier" href="">
+                                <i class="lnr lnr-pencil text-primary"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">no records found</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
