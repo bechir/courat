@@ -37,7 +37,6 @@ h6 {
   bottom: 15px;
   background: #129b00;
   color: #fff;
-  transition: display 0.5s ease-in-out;
   z-index: 99999;
   transition: all ease-in-out 0.3s;
 }
@@ -61,7 +60,6 @@ h6 {
   height: 80px;
   transition: all 0.5s;
   z-index: 997;
-  transition: all 0.5s;
   padding: 16px 0;
   background: #35404f;
 }
@@ -126,7 +124,6 @@ h6 {
   transition: 0.3s;
   font-size: 15px;
   font-family: "Cairo", sans-serif;
-  font-weight: bold;
 }
 
 .nav-menu a:hover,
@@ -194,7 +191,7 @@ h6 {
 
 .nav-menu .drop-down > a:after {
   content: "\ea99";
-  font-family: IcoFont;
+  font-family: 'IcoFont';
   padding-left: 5px;
 }
 
@@ -215,7 +212,7 @@ h6 {
 
 .nav-menu .drop-down .drop-down > a:after {
   content: "\eaa0";
-  font-family: IcoFont;
+  font-family: 'IcoFont';
   position: absolute;
   right: 15px;
 }
@@ -295,7 +292,7 @@ h6 {
 
 .mobile-nav .drop-down > a:after {
   content: "\ea99";
-  font-family: IcoFont;
+  font-family: 'IcoFont';
   padding-left: 10px;
   position: absolute;
   right: 15px;
@@ -609,7 +606,6 @@ section {
   font-size: 15px;
   text-align: center;
   line-height: 1;
-  text-align: center;
   width: 200px;
   height: 100px;
   display: inline-block;
@@ -761,8 +757,8 @@ section {
   font-size: 14px;
 }
 
-.class .php-email-form input::focus,
-.class .php-email-form textarea::focus {
+.class .php-email-form input:focus,
+.class .php-email-form textarea:focus {
   background-color: #129b00;
 }
 
@@ -879,7 +875,7 @@ section {
   background: none;
   font-size: 16px;
   padding: 0 20px;
-  background: #129b00;
+  background-color: #129b00;
   color: #fff;
   transition: 0.3s;
   border-radius: 50px;
