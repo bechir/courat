@@ -1,0 +1,15 @@
+<div class="alert alert-dismissable">
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="jy-alert alert-{{ type }}" role="alert">
+                    {% set icon = 'check-circle' %}
+                    {% if type == 'danger' %}
+                        {% set icon = 'exclamation-circle' %}
+                    {% elseif icon == 'info'  %}
+                        {% set icon = 'info-circle' %}
+                    {% endif %}
+                <span class="fa fa-{{ icon }}"></span> {{ message|trans }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>

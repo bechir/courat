@@ -1,0 +1,39 @@
+/*Video Iframe*/
+
+.vid {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+ 
+.vid iframe,
+.vid object,
+.vid embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Return Button */
+.btn-return {
+    background: #fff;
+    font-size: 18px;
+    font-family: 'Cairo', sans-serif;
+    color: #35404f;
+    border-radius: 50px;
+    padding: 4px 25px 6px 25px;
+    border: 1px solid #35404f;
+    margin-bottom: 30px;
+}
+
+.btn-return:hover{
+    background: #35404f;
+    color: #fff;
+    border: 1px solid #35404f;
+}
+
+.section-title {
+    margin-top: 80px;
+}
