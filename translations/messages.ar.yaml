@@ -6,26 +6,45 @@ app:
   terms: Conditions d'Utilisation
 
 class:
-  6af: السادسة<sup>إبتدائية</sup> 
+  6af: السادسة<sup> إبتدائية</sup> 
   4as: الرابعة
   terminale: البكالوريا
-  terminaleA: Terminale A
   terminaleC: السوابع الرياضية
   terminaleD: السوابع العلمية
   terminaleLO: سوابع الآداب الأصلية
   terminaleLM: سوابع الآداب العصرية
   planning: الجدول     
 
-
 hero:
   about: COURAT هي منصة تعليمية موريتانية تهدف إلى إتاحة مشاهدة المحتوى الدراسي الذي يبث على قناة الموريتانية من قبل جميع الطلاب ، أينما كانوا على الأراضي الوطنية وفي أي وقت.
   courses: مشاهدة الدروس
   planning: الجدول
 
+home:
+  chooseClass:  يرجى إختيار الفصل
+  6af: السادسة إبتدائية 
+  4as:  الرابعة ثانوية
+
+platforms:
+  title:  الموارد الرقمية
+  description:  في فترة هذا الوباء، ظهرت منصات التعلم عن بعد. يمكنكم الولوج إلى هذه المنصات بالإضافة إلى بعض الموارد الأخرى قد تكون مفيدة بالضغط على أحد الروابط التالية 
+  visit:  زيارة المنصة
+
+diffusion:
+  title:  الدروس تبث مباشرة على
+  description: ترفع التلفزة المدرسية إلى علم التلاميذ التعليم الإبتدائي و الثانوي، أن بث الدروس سيبدأ يوم 23 مارس 2020, إبتداء من الساعة الخامسة مساء على الموريتانية 2، ويعاد بثه في اليوم الموالي إبتداء من الحادية عشرة صباحا، حسب الجدول. تقدم لكم المنصات التالية بثا مباشرا على شبكات التواصل الإجتماعية في الساعات المذكورة سابقا.  
+
 contact:
   title: Contactez nous
   caption: Faites-nous part de votre message
   send: Envoyer le message
+
+courses:
+  class:  فصل
+  title: درس ال %class%
+  intitule: العنوان
+  dateDiff: صدر يوم
+  watch: مشاهدة
 
 login:
   title: Connexion
@@ -75,3 +94,9 @@ user:
   account: Mon compte
   bookmarked: Mes restaurants
   logout: Déconnexion
+
+footer:
+  follow: تابعونا على
+
+course:
+  back: الرجوع إلى الوراء
