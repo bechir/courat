@@ -17,11 +17,15 @@
 
         {# Include the app navbar #}
         {% include "common/navbar.html.twig" %}
+
+        {# Include the planning #}
+         {% include "common/planning.html.twig" %}
             
         {% block main %}
 
         {% endblock %}
 
+        {# Include the diffusion platforms #}
         {% include "common/diffusion.html.twig" %}
 
         {% block footer %}
