@@ -12,9 +12,13 @@
           <div class="col-lg-6 py-5 py-lg-0 order-2 order-lg-1"
             data-aos="fade-right">
             <h2>
-             {{ 'hero.about'|trans|raw }}
+             {{ 'hero.about'|trans({'%app_name%': App.name|upper}) }}
             </h2>
+<<<<<<< HEAD
             <a href="#class" class="btn-get-started scrollto">{{ 'hero.courses'|trans}}</a>
+=======
+            <a href="#class" class="btn-get-started scrollto">{{ 'hero.courses'|trans }}</a>
+>>>>>>> 49895880ec55185c4d8e1f5504552e67173979c7
             <a href=""
               data-toggle="modal"
               data-target="#schedule"
