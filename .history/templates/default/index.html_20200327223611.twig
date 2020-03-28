@@ -1,0 +1,181 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ App.name }} &ndash; Cours de soutien en Mauritanie{% endblock %}
+
+{% block main %}
+<div class="h-100">
+
+    <!-- ======= Hero Section ======= -->
+  <section id="hero">
+
+    <div class="container">
+      <div class="row d-flex align-items-center">
+      <div class="col-lg-6 py-5 py-lg-0 order-2 order-lg-1" data-aos="fade-right">
+        <h1>EDU.RIM</h1>
+        <h2>EDU.RIM est une plateforme éducative mauritanienne dont l’objectif est de 
+          rendre accessible le programme scolaire diffusé sur la télévision nationale à tous les élèves, 
+          où qu’ils se situent sur le territoire nationale et accessible à tout moment</h2>
+        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+        <img src="assets/img/hero-img.png" class="img-fluid" alt="">
+      </div>
+    </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+   <!-- Schedule Modal -->
+    <div class="modal fade" id="schedule" tabindex="-1" role="dialog" aria-labelledby="schedule" aria-hidden="true">
+      <div class="modal-center">
+        <div class="modal-dialog .modal-align-center modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Planning des cours</h4>
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="timeline">
+                    <h3><b>6<sup>eme</sup> AF</b></h3>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Lundi à 17h00 - Rediffusion : Mardi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Arabe et Français</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Mardi à 17h00 - Rediffusion : Mercredi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Mathématiques et Instruction Religieuse</p>
+                    </li>
+                    <hr>
+                    <h3><b>4<sup>eme</sup> AS</b></h3>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Lundi à 17h00 - Rediffusion : Mardi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Mathématiques</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Mercredi à 17h00 - Rediffusion : Jeudi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Arabe</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Jeudi à 17h00 - Rediffusion : Vendredi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Français</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Vendredi à 17h00 - Rediffusion : Samedi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Mathématiques</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Samedi à 17h00 - Rediffusion : Dimanche à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Arabe</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Dimanche à 17h00 - Rediffusion : Lundi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Français</p>
+                    </li>
+                    <hr>
+                    <h3><b>7<sup>eme</sup> C</b></h3>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Mardi à 17h00 - Rediffusion : Mercredi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Mathématiques et Sciences</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Jeudi à 17h00 - Rediffusion : Vendredi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Physique Chimie</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Vendredi à 17h00 - Rediffusion : Samedi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Mathématiques et Sciences</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Samedi à 17h00 - Rediffusion : Dimanche à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Physique Chimie</p>
+                    </li>
+                    <hr>
+                    <h3><b>7<sup>eme</sup> D</b></h3>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Mardi à 17h00 - Rediffusion : Mercredi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b>Sciences</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Jeudi à 17h00 - Rediffusion : Vendredi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Physique Chimie et Mathématiques</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Samedi à 17h00 - Rediffusion : Dimanche à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Physique Chimie et Sciences</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Dimanche à 17h00 - Rediffusion : Lundi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Mathématiques</p>
+                    </li>
+                    <hr>
+                    <h3><b>7<sup>eme</sup> LO</b></h3>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Mardi à 17h00 - Rediffusion : Mercredi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Arabe</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Mercredi à 17h00 - Rediffusion : Jeudi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Droit Musulman</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Jeudi à 17h00 - Rediffusion : Vendredi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Arabe</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Vendredi à 17h00 - Rediffusion : Samedi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Pensée Islamique</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Samedi à 17h00 - Rediffusion : Dimanche à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Droit Musulman</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Dimanche à 17h00 - Rediffusion : Lundi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Pensée Islamique</p>
+                    </li>
+                    <hr>
+                    <h3><b>7<sup>eme</sup> LM</b></h3>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Mardi à 17h00 - Rediffusion : Mercredi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Arabe</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Mercredi à 17h00 - Rediffusion : Jeudi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Français</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Jeudi à 17h00 - Rediffusion : Vendredi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Arabe</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Vendredi à 17h00 - Rediffusion : Samedi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Philosophie</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Samedi à 17h00 - Rediffusion : Dimanche à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Français</p>
+                    </li>
+                    <li>
+                      <a target="" href=""><b><i class="icofont-clock-time"></i> En direct : Dimanche à 17h00 - Rediffusion : Lundi à 11h</b></a>
+                      <p><b><i class="icofont-book-alt"></i> Matière :</b> Philosophie</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <small>
+                <i class="icofont-info-circle"></i> Ce planning peut changer à tout moment.
+              </small>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Schedule Modal -->
+    
+</div>
+{% endblock %}
