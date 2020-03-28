@@ -46,4 +46,12 @@ class CourseRepository extends ServiceEntityRepository
             Course::NB_COURSES_PER_PAGE
         );
     }
+
+    public function getLatest()
+    {
+        return $this->createQueryBuilder('c')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
 }

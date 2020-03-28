@@ -1,0 +1,32 @@
+{% extends 'admin/base.html.twig' %}
+{% block left_sidebar %}
+    {% include 'admin/common/left-sidebar.twig' with { active: 'new-user' } %}
+{% endblock %}
+
+{% block main %}
+    <h3 class="page-title text-info">
+        <span class="fa fa-user-plus"></span>
+        Ajouter un utilisateur
+    </h3>
+    <div class="row">
+        <div class="col-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Remplissez le formulaire</h3>
+                </div>
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                        <div class="container-fluid">
+
+                            {% include 'admin/user/_form.html.twig' with {form: form} %}
+                            
+                            <hr>
+                            <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-check-circle"></i> Valider</button>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

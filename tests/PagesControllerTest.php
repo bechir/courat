@@ -35,8 +35,9 @@ class DefaultControllerTest extends WebTestCase
         $container = self::$kernel->getContainer();
         $router = $container->get('router');
         $router->getContext()->setScheme($container->getParameter('router.request_context.scheme'));
-        $router->getContext()->setHost($container->getParameter('router.request_context.host'));
-        $router->getContext()->setHttpPort($container->getParameter('router.request_context.port'));
+        // $router->getContext()->setHost($container->getParameter('router.request_context.host'));
+        // $router->getContext()->setHttpPort($container->getParameter('router.request_context.port'));
+        $router->getContext()->setHttpPort('8000');
 
         $makeUrl = function ($path, $parameters = []) use ($router) {
             return $router->generate($path, $parameters, UrlGeneratorInterface::ABSOLUTE_URL);
@@ -48,14 +49,12 @@ class DefaultControllerTest extends WebTestCase
             $makeUrl('index.ar'), // Arabic version of the homepage
 
             // Section level pages
-            $makeUrl('section_level.fr', ['name' => 'primaire']),
-            $makeUrl('section_level.ar', ['name' => 'primaire']),
-            $makeUrl('section_level.fr', ['name' => 'college']),
-            $makeUrl('section_level.ar', ['name' => 'college']),
-            $makeUrl('section_level.fr', ['name' => 'lycee']),
-            $makeUrl('section_level.ar', ['name' => 'lycee']),
-            $makeUrl('section_level.fr', ['name' => 'terminale']),
-            $makeUrl('section_level.ar', ['name' => 'terminale']),
+            $makeUrl('course_index.fr', ['name' => '6af']),
+            $makeUrl('course_index.ar', ['name' => '4as']),
+            $makeUrl('course_index.fr', ['name' => 'TerminaleA']),
+            $makeUrl('course_index.ar', ['name' => 'TerminaleC']),
+            $makeUrl('course_index.fr', ['name' => 'TerminaleD']),
+            $makeUrl('course_index.ar', ['name' => 'TerminaleL']),
         ];
 
         return [...array_map(fn ($url) => [$url], $urls)];
