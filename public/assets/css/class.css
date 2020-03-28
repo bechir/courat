@@ -1,0 +1,41 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+.panel-default 
+{
+    border-color: transparent;
+}
+.panel-default > .panel-heading
+{
+	background-color: rgba(53,64,79,0.2);
+    border-color: transparent;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+.panel-group .title
+{
+    cursor: pointer;
+    padding-left: 20px;
+}
+.panel-group .title span
+{
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    color: #464646;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.panel-heading .title:before {
+
+    font-family: FontAwesome;
+    content:"\f106";
+     font-size: 25px;
+    padding-right: 10px;
+    line-height: 25px;
+    float: right;
+}
+.panel-heading .title.collapsed:before {
+     font-size: 25px;
+    padding-right: 10px;
+    line-height: 25px;
+    float: right;
+    content:"\f107";
+}
