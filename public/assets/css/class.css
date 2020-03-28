@@ -25,7 +25,7 @@
 }
 .panel-heading .title:before {
 
-    font-family: FontAwesome;
+    font-family: 'FontAwesome';
     content:"\f106";
      font-size: 25px;
     padding-right: 10px;
