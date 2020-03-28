@@ -1,5 +1,0 @@
-(function($) {
-
-    $('select').selectpicker();
-
-})(jQuery);
