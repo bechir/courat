@@ -35,6 +35,18 @@ class UserController extends AbstractController
     }
 
     /**
+     * Retrieve the lateste registrated users from the database.
+     */
+    public function latest(): Response
+    {
+        $users = $this->getDoctrine()->getRepository(User::class)->getLatest();
+
+        return $this->render('admin/user/table.html.twig', [
+            'users' => $users,
+        ]);
+    }
+
+    /**
      * @Route("/new", name="admin_user_create")
      */
     public function create(Request $request, EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder): Response
