@@ -22,6 +22,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class CourseController extends AbstractController
 {
     /**
+     * The courses listing page.
+     *
      * @Route("/", name="admin_courses", methods={"GET"})
      */
     public function index(CourseRepository $courseRepository): Response
@@ -32,6 +34,22 @@ class CourseController extends AbstractController
     }
 
     /**
+     * Retrieve the lateste course from the database.
+     */
+    public function latest(): Response
+    {
+        $courses = $this->getDoctrine()->getRepository(Course::class)->getLatest();
+
+        return $this->render('admin/course/table.html.twig', [
+            'courses' => $courses,
+        ]);
+    }
+
+    /**
+     * Create new course.
+     *
+     * @param Request $request The Request
+     *
      * @Route("/new", name="admin_course_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
@@ -55,6 +73,10 @@ class CourseController extends AbstractController
     }
 
     /**
+     * The course details page.
+     *
+     * @param Course $course The course, identified by it's (feteched by doctrine)
+     *
      * @Route("/{id}", name="admin_course_show", methods={"GET"})
      */
     public function show(Course $course): Response
@@ -65,6 +87,11 @@ class CourseController extends AbstractController
     }
 
     /**
+     * Edit a course.
+     *
+     * @param Request $request The Request
+     * @param Course  $course  The course to edit, identified by it's (feteched by doctrine)
+     *
      * @Route("/{id}/edit", name="admin_course_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Course $course): Response
@@ -85,6 +112,11 @@ class CourseController extends AbstractController
     }
 
     /**
+     * Delete a course from the database.
+     *
+     * @param Request $request The Request
+     * @param Course  $course  The course to delete, identified by it's (feteched by doctrine)
+     *
      * @Route("/{id}", name="admin_course_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Course $course): Response
