@@ -27,7 +27,7 @@
                         <td>{{ course.addedAt|localizeddate('full', 'short', null)|capitalize }}</td>
                         <td class="px-0">
                             <div class="btn-group">
-                                <a class="mx-2 edit-item" href="{{ path('admin_course_show', {id: course.id}) }}" target="_blank">
+                                <a class="mx-2 edit-item" href="{{ path('course_show', {id: course.id}) }}" target="_blank">
                                     <i class="fa fa-lg fa-external-link"></i>
                                 </a>
                                 <a class="mx-2 edit-item" data-placement="top" style="cursor:pointer;" title="Modifier" href="">
