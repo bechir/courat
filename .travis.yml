@@ -1,0 +1,42 @@
+language: php
+sudo: false
+cache:
+  directories:
+  - "$HOME/.composer/cache/files"
+  - "$HOME/symfony-bridge/.phpunit"
+env:
+  global:
+  - PHPUNIT_FLAGS="-v"
+  - SYMFONY_PHPUNIT_DIR="$HOME/symfony-bridge/.phpunit"
+  - ACTION=install
+matrix:
+  fast_finish: true
+  include:
+  - php: 7.2
+  - php: 7.4
+deploy:
+  provider: heroku
+  api_key:
+    secure: $HEROKU_SECRET_KEY
+    
+  app:
+    production: rim-edu
+  run:
+  - "./bin/console doctrine:migrations:migrate --no-interaction"
+  - "./bin/phpunit"
+before_install:
+- composer self-update
+- '[[ "$ACTION" == "install" ]] || echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv
+  version-name)/etc/conf.d/travis.ini'
+- '[[ "$ACTION" == "install" ]] || composer config extra.symfony.require $SYMFONY'
+install:
+- php -r "echo ini_get('memory_limit').PHP_EOL;"
+- composer $ACTION
+- "./bin/phpunit install"
+script:
+- '[[ "$TRAVIS_PHP_VERSION" == "7.4" ]] || ./vendor/bin/php-cs-fixer fix --diff --dry-run
+  -v'
+- "./bin/console lint:yaml config --parse-tags"
+- "./bin/console lint:twig templates --env=prod"
+- "./bin/console lint:yaml translations"
+- "./bin/console lint:container"
