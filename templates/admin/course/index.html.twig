@@ -9,7 +9,7 @@
 {% block main %}
     <h1>Liste des cours</h1>
 
-    {% include "admin/course/table.html.twig" with {courses: coures} %}
+    {% include "admin/course/table.html.twig" with {courses: courses} %}
 
     <a href="{{ path('admin_course_new') }}" class="btn btn-primary"><i class="lnr lnr-plus-circle"></i> Create new</a>
 {% endblock %}
