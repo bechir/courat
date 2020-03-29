@@ -8,8 +8,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,11 +39,6 @@ class Course
     private $addedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Classe", mappedBy="courses")
-     */
-    private $classes;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $publishedAt;
@@ -55,12 +48,19 @@ class Course
      */
     private $startTime;
 
-    const NB_COURSES_PER_PAGE = 20;
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Classe", inversedBy="courses")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $class;
 
-    public function __construct()
-    {
-        $this->classes = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Subject")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $subject;
+
+    const NB_COURSES_PER_PAGE = 20;
 
     public function getId(): ?int
     {
@@ -106,34 +106,6 @@ class Course
         return $this;
     }
 
-    /**
-     * @return Collection|Classe[]
-     */
-    public function getClasses(): Collection
-    {
-        return $this->classes;
-    }
-
-    public function addClass(Classe $class): self
-    {
-        if (!$this->classes->contains($class)) {
-            $this->classes[] = $class;
-            $class->addCourse($this);
-        }
-
-        return $this;
-    }
-
-    public function removeClass(Classe $class): self
-    {
-        if ($this->classes->contains($class)) {
-            $this->classes->removeElement($class);
-            $class->removeCourse($this);
-        }
-
-        return $this;
-    }
-
     public function getPublishedAt(): ?\DateTimeInterface
     {
         return $this->publishedAt;
@@ -154,6 +126,30 @@ class Course
     public function setStartTime(?\DateTimeInterface $startTime): self
     {
         $this->startTime = $startTime;
+
+        return $this;
+    }
+
+    public function getClass(): ?Classe
+    {
+        return $this->class;
+    }
+
+    public function setClass(?Classe $class): self
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    public function getSubject(): ?Subject
+    {
+        return $this->subject;
+    }
+
+    public function setSubject(?Subject $subject): self
+    {
+        $this->subject = $subject;
 
         return $this;
     }

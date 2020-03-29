@@ -30,7 +30,7 @@ class Classe
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Course", inversedBy="classes")
+     * @ORM\OneToMany(targetEntity="App\Entity\Course", mappedBy="class")
      */
     private $courses;
 
@@ -56,6 +56,11 @@ class Classe
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     /**
      * @return Collection|Course[]
      */
@@ -68,6 +73,7 @@ class Classe
     {
         if (!$this->courses->contains($course)) {
             $this->courses[] = $course;
+            $course->setClass($this);
         }
 
         return $this;
@@ -77,13 +83,12 @@ class Classe
     {
         if ($this->courses->contains($course)) {
             $this->courses->removeElement($course);
+            // set the owning side to null (unless already changed)
+            if ($course->getClass() === $this) {
+                $course->setClass(null);
+            }
         }
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->name;
     }
 }
