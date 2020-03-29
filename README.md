@@ -1,11 +1,11 @@
-![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg) [![Build Status](https://travis-ci.com/rand0mdev/rim-edu.svg?token=PJbraSespqsJKtHsBMT2&branch=master)](https://travis-ci.com/rand0mdev/rim-edu) [![CodeFactor](https://www.codefactor.io/repository/github/rand0mdev/rim-edu/badge)](https://www.codefactor.io/repository/github/rand0mdev/rim-edu) 
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg) [![Build Status](https://travis-ci.com/rand0mdev/courat.svg?token=PJbraSespqsJKtHsBMT2&branch=master)](https://travis-ci.com/rand0mdev/courat) [![CodeFactor](https://www.codefactor.io/repository/github/rand0mdev/courat/badge)](https://www.codefactor.io/repository/github/rand0mdev/courat) 
 
 # Online courses website for Mauritanians
 
 ### Built on top of [Symfony 4][1]
 ### The user interface is built with [Bootstrap 4][2]
 
-![GitHub](https://raw.githubusercontent.com/rand0mdev/rim-edu/master/docs/images/home.png)
+![GitHub](https://raw.githubusercontent.com/rand0mdev/courat/master/docs/images/home.png)
 
 Online Demo
 -----------
@@ -27,7 +27,7 @@ Installation
 2. Clone the project via [Git][4]
 
    ```
-   $ git clone https://github.com/rand0mdev/rim-edu.git
+   $ git clone https://github.com/rand0mdev/courat.git
    $ composer install
    ```
    
@@ -37,7 +37,7 @@ There's no need to configure anything to run the application. If you have
 [installed Symfony][5], run this command and access the application in your
 browser at the given URL (<https://localhost:8000> by default):
    ```
-   $ cd rim-edu/
+   $ cd courat/
    $ symfony serve
    ```
 If you don't have the Symfony binary installed, run `php -S localhost:8000 -t public/`
@@ -50,7 +50,7 @@ Tests
 Execute this command to run tests:
 
 ```bash
-$ cd rim-edu/
+$ cd courat/
 $ ./bin/phpunit
 ```
 
@@ -60,4 +60,4 @@ $ ./bin/phpunit
 [4]: https://git-scm.com/docs/git-clone
 [5]: https://symfony.com/download
 [6]: https://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html
-[7]: http://rim-edu.herokuapp.com
+[7]: http://courat.herokuapp.com
