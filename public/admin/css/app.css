@@ -237,8 +237,13 @@ legend {
 }
 
 .logo .last{
-  color: #234462e3;
+  color: #41B314;
+  /* #27951aff */
   text-transform: uppercase;
+}
+
+.badge-success {
+  background-color: #41B314;
 }
 
 .text-gold{
