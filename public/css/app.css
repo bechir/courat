@@ -917,31 +917,7 @@ body {
     padding-top: 40px;
     padding-bottom: 40px;
   }
-  
-  #footer .copyright {
-    text-align: left;
-    float: left;
-  }
 
-  #footer .dev {
-    text-align: center;
-  }
-
-  #footer .credits {
-    float: right;
-    text-align: right;
-  }
-  
-  @media (max-width: 768px) {
-    #footer .copyright,
-    #footer .credits
-    #footer .dev {
-      padding: 5px;
-      float: none;
-      text-align: ceneter;
-    }
-  }
-  
   /*
   --------------------------------------------------------------------------------------------------------------------------------------------
   --------------------------------------------------------CUSTOM STYLES-----------------------------------------------------------------------

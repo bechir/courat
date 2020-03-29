@@ -42,7 +42,7 @@ class UserFixtures extends Fixture
     public function getUsers(): array
     {
         return [
-            ['rim-edu', '123456', ['ROLE_ADMIN']],
+            ['courat', '123456', ['ROLE_ADMIN']],
             ['demo', '123456', ['ROLE_USER']],
         ];
     }
