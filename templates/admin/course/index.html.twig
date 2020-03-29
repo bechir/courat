@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Liste des cours</h1>
+<h3 class="page-title text-success"><span class="lnr lnr-camera-video"></span> Liste des cours <span class="badge badge-success">{{ courses|length }}</span></h3></h3>
 
     {% include "admin/course/table.html.twig" with {courses: courses} %}
 
