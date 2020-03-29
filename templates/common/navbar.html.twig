@@ -15,7 +15,7 @@
 <!-- ======= Header ======= -->
 <header id="header">
 	<div class="container d-flex">
-		<div class="logo m{{ locale() == 'fr' ? 'r' : 'l' }}-auto">
+		<div class="logo {{ locale() == 'fr' ? 'mr-auto' : 'ml-auto ar' }}">
 			<h1 class="text-light">
 				<img src="{{ asset('assets/img/logo.png') }}" alt="Courat Logo" height="100">
 				<a href="{{ path('index') }}">{{ App.name }}<span></span>
@@ -23,14 +23,11 @@
 			</h1>
 		</div>
 		<nav class="nav-menu d-none d-lg-block">
-			<ul>
-        {% if locale() == 'ar' %}
-          {{ localeTags }}
-        {% endif %}
-				<li class="active">
+			<ul class="d-flex flex-wrap">
+				<li>
 					<a href="{{ path('index') }}">{{ 'app.index'|trans|upper }}</a>
 				</li>
-				<li class="active">
+				<li>
 					<a href="#" data-toggle="modal" data-target="#schedule">{{ 'class.planning'|trans|raw }}</a>
 				</li>
 				<li>
@@ -48,9 +45,7 @@
 						<li><a href="{{ path('course_index', {name: 'terminaleLO'}) }}">{{ 'class.terminaleLO'|trans }}</a></li>
 					</ul>
 				</li>
-        {% if locale() == 'fr' %}
-          {{ localeTags }}
-        {% endif %}
+				{{ localeTags }}
 			</ul>
 		</nav>
 		<!-- .nav-menu -->
