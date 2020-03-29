@@ -40,15 +40,18 @@ contact:
   send: Envoyer le message
 
 subject:
-  ar: Arabe
-  eng: Anglais
-  maths: Mathématiques
-  fr: Français
+  ar: اللغة العربية
+  eng: الإنجليزية
+  maths: الرياضيات
+  fr: الفرنسية
   pc: Physique-Chime
   hg: Histoire Géo
   sn: Sciences Naturelles
   ic: IC
-  ir: IR
+  ir: Instruction Religieuse
+  dm: الشريعة الإسلامية
+  pi: الفكر الإسلامي
+  ph: فلسفة
 
 courses:
   class:  فصل
@@ -56,6 +59,7 @@ courses:
   intitule: العنوان
   dateDiff: صدر يوم
   watch: مشاهدة
+  empty_section: هذا الجزء فارغ
 
 login:
   title: Connexion
@@ -103,7 +107,6 @@ form:
 
 user:
   account: Mon compte
-  bookmarked: Mes restaurants
   logout: Déconnexion
 
 footer:

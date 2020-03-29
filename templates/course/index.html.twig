@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h3>
+					<h3{{ locale() == 'ar' ? ' class="text-right"' : '' }}>
 						<b>{{ 'courses.class'|trans }} :</b>
 						<span class="badge badge-secondary">{{ ('class.' ~ class.name)|trans|raw }}</span>
 					</h3>
@@ -36,15 +36,15 @@
 								{% if courses is not empty %}
 									{% for subject, courses_by_subject in courses %}
 										<div class="panel panel-default custom-panel">
-											<div class="panel-heading" role="tab" id="heading{{ subject }}">
-												<div class="title" data-role="title" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ subject }}" aria-expanded="false" aria-controls="collapse{{ subject }}">
+											<div class="panel-heading {{ locale() }}" role="tab" id="heading{{ subject }}">
+												<div class="title px-3 text-{{ locale() == 'fr' ? 'left' : 'right' }}" data-role="title" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ subject }}" aria-expanded="false" aria-controls="collapse{{ subject }}">
 													<strong>{{ ('subject.' ~ subject)|trans }}</strong>
 												</div>
 											</div>
 											<div id="collapse{{ subject }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ subject }}">
 												<div class="panel-body">
 													{% if courses_by_subject is not empty %}
-														<table class="table">
+														<table class="table{{ locale() == 'ar' ? ' text-right' : '' }}">
 															<thead>
 																<tr>
 																	<th scope="col">{{ 'courses.intitule'|trans }}</th>
@@ -69,7 +69,7 @@
 															</tbody>
 														</table>
 													{% else %}
-														<p class="alert alert-info">{{ 'courses.empty_section'|trans }}</p>
+														<p class="alert alert-info{{ locale() == 'ar' ? ' text-right' : '' }}">{{ 'courses.empty_section'|trans }}</p>
 													{% endif %}
 												</div>
 											</div>

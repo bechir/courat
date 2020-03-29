@@ -60,6 +60,7 @@ subject:
   ph: Philosophie
 
 courses:
+  class: Classe
   title: Cours de %class%
   intitule: Intitule
   dateDiff: Diffusé le

@@ -1068,21 +1068,23 @@ body {
     font-weight: bold;
     text-transform: uppercase;
 }
-.panel-heading .title:before {
-
+.panel-heading .title:before,
+.panel-heading .title.collapsed:before {
     font-family: FontAwesome;
-    content:"\f106";
      font-size: 25px;
     padding-right: 10px;
     line-height: 25px;
     float: right;
 }
+.panel-heading.ar .title:before,
+.panel-heading.ar .title.collapsed:before {
+  float: left;
+}
+.panel-heading .title:before {
+  content:"\f106";
+}
 .panel-heading .title.collapsed:before {
-     font-size: 25px;
-    padding-right: 10px;
-    line-height: 25px;
-    float: right;
-    content:"\f107";
+  content:"\f107";
 }
 
 /*=======*/
