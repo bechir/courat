@@ -16,10 +16,11 @@
     <link rel="stylesheet" href="{{ asset('admin/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/vendor/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/vendor/linearicons/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/vendor/chartist/css/chartist-custom.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/cupertino/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.4/css/bootstrap-datetimepicker.min.css" integrity="sha256-Fl1s8EQCc9mKf/njo8mWr0MPJR8TnOQb0h0rmVKRoP8=" crossorigin="anonymous" />
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{ asset('admin/css/main.css') }}">
-    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
     <link rel="stylesheet" href="{{ asset('admin/css/app.css') }}">
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
@@ -93,8 +94,14 @@
         <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('admin/vendor/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+        <script src="{{ asset('admin/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
+        <script src="{{ asset('admin/vendor/chartist/js/chartist.min.js') }}"></script>
         <script src="{{ asset('admin/scripts/klorofil-common.js') }}"></script>
         <script src="{{ asset('admin/vendor/toastr/toastr.min.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/fr.js" integrity="sha256-D0tqyrTQHDExvGYoi+kyInjV47fm30M5qq4whUrMuuE=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.4/js/bootstrap-datetimepicker.min.js" integrity="sha256-sU6nRhzXDAC31Wdrirz7X2A2rSRWj10WnP9CA3vpYKw=" crossorigin="anonymous"></script>
         <script src="{{ asset('admin/js/app.js') }}"></script>
     {% endblock %}
 </body>

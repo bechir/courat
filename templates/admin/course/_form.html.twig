@@ -1,4 +1,42 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-success"><i class="lnr lnr-checkmark-circle"></i> {{ button_label|default('Save') }}</button>
+
+    <div class="col-sm-12 mb-5">
+        {{ form_label(form.title) }}
+        {% if form_errors(form.title) %}
+            <p class="alert alert-danger">{{ form_errors(form.title) }}</p>
+        {% endif %}
+        {{ form_widget(form.title, {'attr': {'class': 'form-control input-lg'}}) }}
+    </div>
+
+    <div class="col-sm-12 mb-5">
+        {{ form_label(form.videoUrl) }}
+        {% if form_errors(form.videoUrl) %}
+            <p class="alert alert-danger">{{ form_errors(form.videoUrl) }}</p>
+        {% endif %}
+        {{ form_widget(form.videoUrl, {'attr': {'class': 'form-control input-lg'}}) }}
+    </div>
+
+    <div class="col-sm-6 mb-5">
+        <label>Date de publication</label>
+        <div class="input-group mb-3">
+            <div class="input-group-addon">
+                <label class="cursor-pointer m-0 py-2 px-4" for="job_deadline"><i class="fa fa-calendar fa-lg"></i></label>
+            </div>
+            {{ form_widget(form.publishedAt, {attr: {class: 'form-control input-lg datetime'}}) }}
+        </div>
+    </div>
+
+    <div class="col-sm-6 mb-5">
+        <label>Temps de début du cours</label>
+        <div class="input-group mb-3">
+            <div class="input-group-addon">
+                <label class="cursor-pointer m-0 py-2 px-4" for="job_deadline"><i class="fa fa-clock-o fa-lg"></i></label>
+            </div>
+            {{ form_widget(form.startTime, {attr: {class: 'form-control input-lg time'}}) }}
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <button class="btn btn-success btn-lg"><i class="lnr lnr-checkmark-circle"></i> {{ button_label|default('Save') }}</button>
+    </div>
 {{ form_end(form) }}

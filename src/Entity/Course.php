@@ -45,6 +45,16 @@ class Course
      */
     private $classes;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $publishedAt;
+
+    /**
+     * @ORM\Column(type="time", nullable=true)
+     */
+    private $startTime;
+
     const NB_COURSES_PER_PAGE = 20;
 
     public function __construct()
@@ -120,6 +130,30 @@ class Course
             $this->classes->removeElement($class);
             $class->removeCourse($this);
         }
+
+        return $this;
+    }
+
+    public function getPublishedAt(): ?\DateTimeInterface
+    {
+        return $this->publishedAt;
+    }
+
+    public function setPublishedAt(?\DateTimeInterface $publishedAt): self
+    {
+        $this->publishedAt = $publishedAt;
+
+        return $this;
+    }
+
+    public function getStartTime(): ?\DateTimeInterface
+    {
+        return $this->startTime;
+    }
+
+    public function setStartTime(?\DateTimeInterface $startTime): self
+    {
+        $this->startTime = $startTime;
 
         return $this;
     }
