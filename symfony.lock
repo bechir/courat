@@ -199,7 +199,7 @@
         "version": "2.7.1"
     },
     "php": {
-        "version": "7.2.9"
+        "version": "7.4"
     },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
@@ -650,9 +650,15 @@
         "version": "v3.0.3"
     },
     "webimpress/safe-writer": {
-        "version": "2.0.0"
+        "version": "2.0.1"
     },
     "webmozart/assert": {
         "version": "1.7.0"
+    },
+    "zendframework/zend-code": {
+        "version": "3.4.1"
+    },
+    "zendframework/zend-eventmanager": {
+        "version": "3.2.1"
     }
 }

@@ -930,18 +930,23 @@ body {
   }
   
   #footer .copyright {
-    text-align: center;
+    text-align: left;
     float: left;
   }
-  
+
+  #footer .dev {
+    text-align: center;
+  }
+
   #footer .credits {
     float: right;
-    text-align: center;
+    text-align: right;
   }
   
   @media (max-width: 768px) {
     #footer .copyright,
-    #footer .credits {
+    #footer .credits
+    #footer .dev {
       padding: 5px;
       float: none;
       text-align: ceneter;
