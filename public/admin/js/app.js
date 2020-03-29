@@ -39,6 +39,13 @@ jQuery(function ($) {
         todayHighlight: true,
     });
 
+    $(".time").datetimepicker({
+        format: 'HH:mm',
+        autoclose:true,
+        locale: 'fr',
+        todayHighlight: true,
+    });
+
     imagefile.change(function(){
         $('.preview-container').html($img);
         readURL(this, '#img-preview');

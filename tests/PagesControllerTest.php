@@ -37,7 +37,7 @@ class DefaultControllerTest extends WebTestCase
         $router->getContext()->setScheme($container->getParameter('router.request_context.scheme'));
         // $router->getContext()->setHost($container->getParameter('router.request_context.host'));
         // $router->getContext()->setHttpPort($container->getParameter('router.request_context.port'));
-        $router->getContext()->setHttpPort('8000');
+        // $router->getContext()->setHttpPort('8000');
 
         $makeUrl = function ($path, $parameters = []) use ($router) {
             return $router->generate($path, $parameters, UrlGeneratorInterface::ABSOLUTE_URL);
@@ -51,10 +51,10 @@ class DefaultControllerTest extends WebTestCase
             // Section level pages
             $makeUrl('course_index.fr', ['name' => '6af']),
             $makeUrl('course_index.ar', ['name' => '4as']),
-            $makeUrl('course_index.fr', ['name' => 'TerminaleA']),
-            $makeUrl('course_index.ar', ['name' => 'TerminaleC']),
-            $makeUrl('course_index.fr', ['name' => 'TerminaleD']),
-            $makeUrl('course_index.ar', ['name' => 'TerminaleL']),
+            $makeUrl('course_index.ar', ['name' => 'terminaleC']),
+            $makeUrl('course_index.fr', ['name' => 'terminaleD']),
+            $makeUrl('course_index.ar', ['name' => 'terminaleLO']),
+            $makeUrl('course_index.ar', ['name' => 'terminaleLM']),
         ];
 
         return [...array_map(fn ($url) => [$url], $urls)];
