@@ -12,7 +12,7 @@ env:
 matrix:
   fast_finish: true
   include:
-  - php: 7.2
+  # - php: 7.2
   - php: 7.4
 deploy:
   provider: heroku
@@ -20,7 +20,7 @@ deploy:
     secure: $HEROKU_SECRET_KEY
     
   app:
-    1.0: courat
+    master: courat
   run:
   - "./bin/console doctrine:migrations:migrate --no-interaction"
   - "./bin/phpunit"
