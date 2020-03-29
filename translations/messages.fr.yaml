@@ -54,13 +54,17 @@ subject:
   hg: Histoire Géo
   sn: Sciences Naturelles
   ic: IC
-  ir: IR
+  ir: Instruction Religieuse
+  dm: Droit Musulman
+  pi: Pensé Islamique
+  ph: Philosophie
 
 courses:
   title: Cours de %class%
   intitule: Intitule
   dateDiff: Diffusé le
   watch: Regarder
+  empty_section: Cette partie est vide
 
 
 login:

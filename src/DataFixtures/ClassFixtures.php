@@ -16,10 +16,11 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class ClassFixtures extends Fixture implements DependentFixtureInterface
 {
-    const SUBJECTS = ['ar', 'eng', 'maths', 'pc', 'sn', 'fr'];
-    const SUBJECTS_6_AF = ['ar', 'fr'];
-    const SUBJECTS_4_AS = [...self::SUBJECTS, 'hg', 'sn', 'ic', 'ir', 'fr'];
-    const SUBJECTS_7 = [...self::SUBJECTS, ''];
+    const SUBJECTS_6_AF = ['ar', 'fr', 'maths', 'ir'];
+    const SUBJECTS_4_AS = ['hg', 'sn', 'ic', 'ir', 'fr'];
+    const SUBJECTS_7_CD = ['sn', 'pc', 'maths'];
+    const SUBJECTS_7_LM = ['ar', 'dm', 'pi'];
+    const SUBJECTS_7_LO = ['ph', 'fr', 'ar'];
 
     public function load(ObjectManager $manager)
     {
@@ -46,10 +47,10 @@ class ClassFixtures extends Fixture implements DependentFixtureInterface
         return [
             ['6af',         self::SUBJECTS_6_AF],
             ['4as',         self::SUBJECTS_4_AS],
-            ['terminaleC',  self::SUBJECTS_7],
-            ['terminaleD',  self::SUBJECTS_7],
-            ['terminaleLM', self::SUBJECTS_7],
-            ['terminaleLO', self::SUBJECTS_7],
+            ['terminaleC',  self::SUBJECTS_7_CD],
+            ['terminaleD',  self::SUBJECTS_7_CD],
+            ['terminaleLM', self::SUBJECTS_7_LM],
+            ['terminaleLO', self::SUBJECTS_7_LO],
         ];
     }
 

@@ -20,7 +20,7 @@
 						<span class="badge badge-secondary">{{ ('class.' ~ class.name)|trans|raw }}</span>
 					</h3>
 					<hr>
-					<div class="form-row align-items-center mt-5 mb-3 pb-2 border-bottom">
+					{#<div class="form-row align-items-center mt-5 mb-3 pb-2 border-bottom">
 						<div class="col-8 col-sm-6 col-lg-3">
 						  <select class="selectpicker show-tick form-control" data-size="10" data-live-search="true" data-style="btn-success">
 							<option selected>Toutes les matières</option>
@@ -29,53 +29,48 @@
 							{% endfor %}
 						  </select>
 						</div>
-					</div>			  
+					</div>#}
 					<div class="row">
 						<div class="col-md-12">
 							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 								{% if courses is not empty %}
-									{% for course in courses %}
+									{% for subject, courses_by_subject in courses %}
 										<div class="panel panel-default custom-panel">
-											<div class="panel-heading" role="tab" id="heading{{ loop.index }}">
-												<div class="title" data-role="title" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
-													<strong>ARABE</strong>
+											<div class="panel-heading" role="tab" id="heading{{ subject }}">
+												<div class="title" data-role="title" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ subject }}" aria-expanded="false" aria-controls="collapse{{ subject }}">
+													<strong>{{ ('subject.' ~ subject)|trans }}</strong>
 												</div>
 											</div>
-											<div id="collapse{{ loop.index }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ loop.index }}">
+											<div id="collapse{{ subject }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ subject }}">
 												<div class="panel-body">
-													<table class="table">
-														<thead>
-															<tr>
-																<th scope="col">{{ 'courses.intitule'|trans }}</th>
-																<th scope="col"></th>
-																<th scope="col">{{ 'courses.dateDiff'|trans }}</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr>
-																<th scope="row">
-																	<i class="icofont-check-circled"></i>
-																	&nbsp; Lorem ipsum titre du cours</th>
-																<td>
-																	<a href="">
-																		<i class="icofont-play-alt-2"></i>
-																		&nbsp; {{ 'courses.watch'|trans }}</a>
-																</td>
-																<td>23/03/2020</td>
-															</tr>
-															<tr>
-																<th scope="row">
-																	<i class="icofont-check-circled"></i>
-																	&nbsp; Lorem ipsum titre du cours</th>
-																<td>
-																	<a href="">
-																		<i class="icofont-play-alt-2"></i>
-																		&nbsp; Regarder</a>
-																</td>
-																<td>25/03/2020</td>
-															</tr>
-														</tbody>
-													</table>
+													{% if courses_by_subject is not empty %}
+														<table class="table">
+															<thead>
+																<tr>
+																	<th scope="col">{{ 'courses.intitule'|trans }}</th>
+																	<th scope="col"></th>
+																	<th scope="col">{{ 'courses.dateDiff'|trans }}</th>
+																</tr>
+															</thead>
+															<tbody>
+																{% for course in courses_by_subject %}
+																	<tr>
+																		<th scope="row">
+																			<i class="icofont-check-circled"></i>
+																			&nbsp; {{ course.title }}</th>
+																		<td>
+																			<a href="{{ path('course_show', {id: course.id}) }}">
+																				<i class="icofont-play-alt-2"></i>
+																				&nbsp; {{ 'courses.watch'|trans }}</a>
+																		</td>
+																		<td>{{ course.publishedAt|localizeddate('short', 'short', locale()) }}</td>
+																	</tr>
+																{% endfor %}
+															</tbody>
+														</table>
+													{% else %}
+														<p class="alert alert-info">{{ 'courses.empty_section'|trans }}</p>
+													{% endif %}
 												</div>
 											</div>
 										</div>
