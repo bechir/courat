@@ -20,6 +20,26 @@ hero:
   courses: VOIR COURS
   planning: EMPLOI DU TEMPS
 
+home:
+  chooseClass:  VEUILLEZ CHOISIR UNE CLASSE POUR COMMENCER
+  6af: 6 <sup>eme</sup> ANNEE FONDEMENTALE
+  4as: 4 <sup>eme</sup> ANNEE SECONDAIRE
+
+platforms:
+  title:  RESSOURCES NUMERIQUES
+  description:  En cette période de crise, des plateformes de cours a distance ont vu le jour. Veuillez les retrouver ci-dessous en plus de qualques autres ressources qui peuvent vous être utiles.
+  visit:  VISITER LA PLATEFORME
+
+diffusion:
+  title: LES COURS SONT DIFFUSES EN DIRECT SUR
+  description:  La Télévision Scolaire informe les élèves du fondemental et du
+          secondaire que la diffusion des cours débutera à partir du <b>
+            23/03/2020
+          </b> à <b>17H</b> sur <b>Al Mouritaniya 2</b> et la rediffusion le lendemain
+          à <b>11H</b> selon l'emploi du temps. Les structures ci-dessous vous offrent
+          les cours en direct sur les réseaux sociaux au même moment ou les cours
+          sont diffusés à la télévision.
+
 contact:
   title: Contactez nous
   caption: Faites-nous part de votre message
@@ -27,6 +47,10 @@ contact:
 
 courses:
   title: Cours de %class%
+  intitule: Intitule
+  dateDiff: Diffusé le
+  watch: Regarder
+
 
 login:
   title: Connexion
@@ -76,3 +100,9 @@ user:
   account: Mon compte
   bookmarked: Mes restaurants
   logout: Déconnexion
+
+footer:
+  follow: RETROUVEZ NOUS SUR
+
+course:
+  back: REVENIR EN ARRIERE

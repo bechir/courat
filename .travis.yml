@@ -12,7 +12,7 @@ env:
 matrix:
   fast_finish: true
   include:
-  # - php: 7.2
+  - php: 7.2
   - php: 7.4
 deploy:
   provider: heroku
@@ -22,7 +22,7 @@ deploy:
     production: rim-edu
   run:
     - "./bin/console doctrine:migrations:migrate --no-interaction"
-    # - ./bin/phpunit
+    - ./bin/phpunit
 before_install:
   # - '[[ "$TRAVIS_PHP_VERSION" == "7.4snapshot" ]] || phpenv config-rm xdebug.ini'
   - composer self-update
@@ -36,7 +36,7 @@ install:
   - php -r "echo ini_get('memory_limit').PHP_EOL;"
   # install or update
   - composer $ACTION
-  # - ./bin/phpunit install
+  - ./bin/phpunit install
 script:
   # - ./bin/phpunit
   # this checks that the source code follows the Symfony Code Syntax rules
