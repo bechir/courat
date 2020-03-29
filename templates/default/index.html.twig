@@ -14,7 +14,7 @@
             <h2>
              {{ 'hero.about'|trans({'%app_name%': App.name|upper}) }}
             </h2>
-            <a href="#class" class="btn-get-started scrollto">{{ 'hero.courses'|trans }}</a>
+            <a href="#class" class="btn-get-started scrollto">{{ 'hero.courses'|trans}}</a>
             <a href=""
               data-toggle="modal"
               data-target="#schedule"
@@ -24,7 +24,7 @@
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img"
             data-aos="fade-left">
-            <img src="assets/img/hero-img.png" class="img-fluid" alt="" />
+            <img src="{{ asset('assets/img/hero.svg') }}" class="img-fluid" alt="" />
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
         <div class="container">
           <div class="section-title">
             <h2 data-aos="fade-in">
-              VEUILLEZ CHOISIR UNE CLASSE POUR COMMENCER
+              {{ 'home.chooseClass'|trans}}
             </h2>
           </div>
 
@@ -51,7 +51,7 @@
                       <strong>6<sup>eme</sup> AF</strong>
                     </div>
                     <h3>
-                      6<sup>eme</sup> ANNEE FONDEMENTALE
+                      {{ 'home.6af'|trans|raw}}
                     </h3>
                   </div>
                 </a>
@@ -64,7 +64,7 @@
                       <strong>4<sup>eme</sup> AS</strong>
                     </div>
                     <h3>
-                      4<sup>eme</sup> ANNEE SECONDAIRE
+                       {{ 'home.4as'|trans|raw}}
                     </h3>
                   </div>
                 </a>
@@ -77,7 +77,7 @@
                       <strong>7<sup>eme</sup> C</strong>
                     </div>
                     <h3>
-                      TERMINALE C
+                       {{ 'class.terminaleC'|trans|raw}}
                     </h3>
                   </div>
                 </a>
@@ -90,7 +90,7 @@
                       <strong>7<sup>eme</sup> D</strong>
                     </div>
                     <h3>
-                      TERMINALE D
+                       {{ 'class.terminaleD'|trans|raw}}
                     </h3>
                   </div>
                 </a>
@@ -103,7 +103,7 @@
                       <strong>7<sup>eme</sup> LM</strong>
                     </div>
                     <h3>
-                      TERMINALE LM
+                       {{ 'class.terminaleLM'|trans|raw}}
                     </h3>
                   </div>
                 </a>
@@ -116,7 +116,7 @@
                       <strong>7<sup>eme</sup> LO</strong>
                     </div>
                     <h3>
-                      TERMINALE LO
+                       {{ 'class.terminaleLO'|trans|raw}}
                     </h3>
                   </div>
                 </a>
@@ -133,13 +133,10 @@
         <div class="container">
           <div class="section-title">
             <h2 data-aos="fade-in">
-              RESSOURCES NUMERIQUES
+               {{ 'platforms.title'|trans}}
             </h2>
             <p data-aos="fade-in">
-              En cette période de crise, des plateformes de cours a distance
-              plus particulierement ont vu le jour. Veuillez les retrouvez
-              ci-dessous en plus de plusieurs autres ressources qui peuvent vous
-              être utiles.
+               {{ 'platforms.description'|trans}}
             </p>
           </div>
 
@@ -151,7 +148,7 @@
                   alt="" />
                 <div class="plateform-links">
                   <a href="https://edu.med.mr/">
-                    <i class="icofont-eye"></i> VISITER LA PLATEFORME
+                    <i class="icofont-eye"></i>  {{ 'platforms.visit'|trans}}
                   </a>
                 </div>
                 <div class="plateform-info">
@@ -172,7 +169,7 @@
                   alt="" />
                 <div class="plateform-links">
                   <a href="https://guarrini.com/">
-                    <i class="icofont-eye"></i> VISITER LA PLATEFORME
+                    <i class="icofont-eye"></i> {{ 'platforms.visit'|trans}}
                   </a>
                 </div>
                 <div class="plateform-info">
@@ -193,7 +190,7 @@
                   alt="" />
                 <div class="plateform-links">
                   <a href="http://dec.mr/igendoc/">
-                    <i class="icofont-eye"></i> VISITER LA PLATEFORME
+                    <i class="icofont-eye"></i> {{ 'platforms.visit'|trans}}
                   </a>
                 </div>
                 <div class="plateform-info">
