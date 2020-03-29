@@ -1,10 +1,10 @@
 {% extends 'admin/base.html.twig' %}
 {% block left_sidebar %}
-    {% include 'admin/common/left-sidebar.twig' with { active: 'users' } %}
+    {% include 'admin/common/left-sidebar.twig' with { active: 'users-list' } %}
 {% endblock %}
 
 {% block main %}
-<h3 class="page-title text-info"><span class="lnr lnr-users"></span> Utilisateurs <span class="badge badge-info mb-1">{{ users|length }}</span></h3></h3>
+<h3 class="page-title text-success"><span class="lnr lnr-users"></span> Utilisateurs <span class="badge badge-success mb-1">{{ users|length }}</span></h3></h3>
 <div class="row">
     <div class="col-md-12">
         <!-- TABLE STRIPED -->
