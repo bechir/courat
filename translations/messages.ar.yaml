@@ -39,6 +39,17 @@ contact:
   caption: Faites-nous part de votre message
   send: Envoyer le message
 
+subject:
+  ar: Arabe
+  eng: Anglais
+  maths: Mathématiques
+  fr: Français
+  pc: Physique-Chime
+  hg: Histoire Géo
+  sn: Sciences Naturelles
+  ic: IC
+  ir: IR
+
 courses:
   class:  فصل
   title: درس ال %class%

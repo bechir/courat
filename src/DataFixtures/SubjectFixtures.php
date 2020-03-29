@@ -37,6 +37,7 @@ class SubjectFixtures extends Fixture
             'sn',
             'ic',
             'ir',
+            'fr',
         ];
     }
 }
