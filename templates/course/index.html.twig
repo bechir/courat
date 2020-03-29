@@ -63,7 +63,7 @@
 																				<i class="icofont-play-alt-2"></i>
 																				&nbsp; {{ 'courses.watch'|trans }}</a>
 																		</td>
-																		<td>{{ course.publishedAt|localizeddate('short', 'short', locale()) }}</td>
+																		<td>{{ course.publishedAt|localizeddate('short', 'short', null) }}</td>
 																	</tr>
 																{% endfor %}
 															</tbody>
