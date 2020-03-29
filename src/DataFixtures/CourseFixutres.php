@@ -26,7 +26,8 @@ class CourseFixutres extends Fixture implements DependentFixtureInterface
                 ->setVideoUrl($url)
                 ->addClass($classes[mt_rand(0, count($classes) - 1)])
                 ->addClass($classes[mt_rand(0, count($classes) - 1)])
-                ->addClass($classes[mt_rand(0, count($classes) - 1)]);
+                ->addClass($classes[mt_rand(0, count($classes) - 1)])
+                ->setPublishedAt(new \DateTime());
 
             $manager->persist($course);
         }

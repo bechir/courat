@@ -106,7 +106,7 @@ p {
 }
 
 .sidebar .nav > li > a .badge, .badge-info {
-  background-color: #f9c56a;
+  background-color: #3287B2;
 }
 
 .message-list > li {
@@ -237,7 +237,7 @@ legend {
 }
 
 .logo .last{
-  color: #d79601;
+  color: #234462e3;
   text-transform: uppercase;
 }
 
@@ -362,7 +362,4 @@ ul.list-hoverable li:hover{
 
 .min-w-300{
   min-width: 300px!important;
-}
-.navbar-nav > li > a > i {
-  font-size: 18px;
 }
