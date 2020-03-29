@@ -281,7 +281,7 @@ body {
     display: block;
     position: relative;
     color: #35404f;
-    text-align: center;
+    text-align: left;
     font-family: "Cairo", sans-serif;
     font-weight: bold;
     padding: 10px 20px;
@@ -300,8 +300,6 @@ body {
     content: "\ea99";
     font-family: IcoFont;
     padding-left: 10px;
-    position: absolute;
-    right: 15px;
   }
   
   .mobile-nav .active.drop-down > a:after {
@@ -309,7 +307,6 @@ body {
   }
   
   .mobile-nav .drop-down > a {
-    text-align: center;
     font-family: "Cairo", sans-serif;
     font-weight: bold;
   }
@@ -1124,4 +1121,19 @@ nav .nav-links a:active {
 
 .text-muted-2 {
     color: #4f555b!important;
+}
+
+@media (max-width: 993px) {
+  .ml-auto.ar {
+    margin-right: auto!important;
+    margin-left: 0!important;
+  }
+}
+
+.mobile-nav li {
+  width: 100%;
+  text-align: left;
+}
+body[dir="rtl"] .mobile-nav a {
+  text-align: right;
 }
