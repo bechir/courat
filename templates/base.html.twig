@@ -2,7 +2,8 @@
 <html lang="{{ locale() }}">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Athié Mohamed">
 
         {# Favicon  #}
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -18,10 +19,17 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="manifest" href="/manifest.json">
-        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileColor" content="##35404f">
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-        <meta name="theme-color" content="#ffffff">
+        <meta name="theme-color" content="##35404f">
+
+        <meta name="msapplication-TileColor" content="#35404f">
+        <meta property="og:site_name" content="{{ App.name }}">
+        <meta property="og:title" content="{{ 'app.title'|trans }}">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="{{ 'hero.about'|trans({'%app_name%': App.name|upper}) }}">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="{{ asset('assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet">
@@ -31,6 +39,12 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <title>{% block title %}{{ App.name }}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+
+        {% for l in locales() %}
+            {% if l.code != locale() %}
+                <link rel="alternate" hreflang="{{ l.code }}" href="{{ url(app.request.get('_route', 'index'), app.request.get('_route_params', [])|merge({_locale: l.code})) }}" />
+            {% endif %}
+        {% endfor %}
     </head>
     <body {% if locale() == 'ar' %}dir="rtl"{% endif %}>
 
