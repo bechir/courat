@@ -36,7 +36,7 @@
 																<tr>
 																	<th scope="col">{{ 'courses.intitule'|trans }}</th>
 																	<th scope="col"></th>
-																	<th scope="col">{{ 'courses.dateDiff'|trans }}</th>
+																	<th scope="col"><i class="far fa-clock"></i> {{ 'courses.dateDiff'|trans }}</th>
 																</tr>
 															</thead>
 															<tbody>
@@ -44,13 +44,13 @@
 																	<tr>
 																		<th scope="row">
 																			<i class="icofont-check-circled"></i>
-																			&nbsp; {{ course.title }}</th>
+																			{{ course.title }}</th>
 																		<td>
 																			<a href="{{ path('course_show', {id: course.id}) }}">
 																				<i class="icofont-play-alt-2"></i>
-																				&nbsp; {{ 'courses.watch'|trans }}</a>
+																				{{ 'courses.watch'|trans }}</a>
 																		</td>
-																		<td>{{ course.publishedAt|localizeddate('short', 'short', null) }}</td>
+																		<td>{{ course.publishedAt|localizeddate('short', 'none', null) }}</td>
 																	</tr>
 																{% endfor %}
 															</tbody>

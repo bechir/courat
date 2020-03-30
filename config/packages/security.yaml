@@ -2,7 +2,7 @@ security:
     # always_authenticate_before_granting: true
     encoders:
         App\Entity\User:
-            algorithm: argon2i
+            algorithm: auto
     role_hierarchy:
         ROLE_CUSTOMER: ROLE_USER
         ROLE_ADMIN: ROLE_USER

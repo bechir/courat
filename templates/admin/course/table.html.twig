@@ -6,7 +6,7 @@
                 <th>Classe</th>
                 <th>Matière</th>
                 <th>VideoUrl</th>
-                <th>Date d'ajout</th>
+                <th>Date de publication</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -17,7 +17,7 @@
                     <td>{{ course.class|trans }}</td>
                     <td>{{ course.subject|trans }}</td>
                     <td><a href="{{ course.videoUrl }}" target="_blank" rel="noopener noreferrer">{{ course.videoUrl }}</a></td>
-                    <td>{{ course.addedAt|localizeddate('full', 'short', null)|capitalize }}</td>
+                    <td>{{ course.publishedAt|localizeddate('full', 'short', null)|capitalize }}</td>
                     <td class="px-0">
                         <div class="btn-group">
                             <a class="mx-2 edit-item" href="{{ path('course_show', {id: course.id}) }}" target="_blank">
