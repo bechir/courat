@@ -32,7 +32,7 @@ class CourseType extends AbstractType
             ->add('startTime', TextType::class, ['required' => false])
             ->add('class', EntityType::class, [
                 'class' => Classe::class,
-                'choice_label' => 'name',
+                'choice_label' => 'code',
                 'choice_translation_domain' => 'messages',
             ])
             //attr_translation_parameters

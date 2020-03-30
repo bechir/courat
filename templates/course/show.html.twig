@@ -8,11 +8,9 @@
 {% block main %}
 	<section id="class" class="class section-bg mb-10">
 		<div class="container">
-
-
 			<div class="row">
 				<div class="col-md-12">
-					<h3>
+					<h3{{ locale() == 'ar' ? ' class="text-right"' : '' }}>
 						<b>{{ course.title }}</b>
 					</h3>
 					{% if course.startTime %}
@@ -30,8 +28,6 @@
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/pvbu0bNJh6s" allowfullscreen="yes"></iframe>
 					</div>
 					<!--./vid -->
-
-
 				</div>
 				<!--.col -->
 			</div>
@@ -40,6 +36,6 @@
 	</section>
 	<!-- End Classes Section -->
 	<p class="text-center btn-box">
-		<a href="{{ path('course_index',{name:course.class})}}" class="btn-return"> {{ 'course.back'|trans }}</a>
+		<a href="{{ path('course_index',  {name: course.class.name}) }}" class="btn-return"> {{ 'course.back'|trans }}</a>
 	</p>
 {% endblock %}

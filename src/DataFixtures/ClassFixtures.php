@@ -27,12 +27,13 @@ class ClassFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        foreach ($this->getClassDatas() as [$className, $subjectCodes]) {
+        foreach ($this->getClassDatas() as [$classCode, $subjectCodes]) {
             $class = new Classe();
-            $class->setName('class.' . $className);
+            $class->setName($classCode);
+            $class->setCode('class.' . $classCode);
 
             foreach ($subjectCodes as $code) {
-                $subject = $manager->getRepository(Subject::class)->findOneBy(['code' => $code]);
+                $subject = $manager->getRepository(Subject::class)->findOneBy(['code' => "subject.$code"]);
 
                 if ($subject) {
                     $class->addSubject($subject);

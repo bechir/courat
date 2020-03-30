@@ -4,6 +4,7 @@ app:
   contact: Contact
   about: À propos
   terms: Conditions d'Utilisation
+  title: La plateforme éducative mauritanienne
 
 class:
   6af: السادسة<sup> إبتدائية</sup> 
@@ -118,3 +119,4 @@ footer:
 
 course:
   back: الرجوع إلى الوراء
+  start_time_notice: Le cours de <b>%subject%</b> commence à partir de <b>%time%</b>

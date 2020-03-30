@@ -1,14 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% set title = 'courses.title'|trans({'%class%': class.name|trans|raw }) %}
+{% set title = 'courses.title'|trans({'%class%': class.code|trans|raw }) %}
 
 {% block title %}
 	{{ title|striptags }}
 {% endblock %}
-
-{% block stylesheets %}
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
- {% endblock %}
 
 {% block main %}
 	<section id="class" class="class section-bg mb-10">
@@ -17,7 +13,7 @@
 				<div class="col-md-12">
 					<h3{{ locale() == 'ar' ? ' class="text-right"' : '' }}>
 						<b>{{ 'courses.class'|trans }} :</b>
-						<span class="badge badge-secondary">{{ class.name|trans|raw }}</span>
+						<span class="badge badge-secondary">{{ class.code|trans|raw }}</span>
 					</h3>
 					<hr>
 					<div class="row">
@@ -25,13 +21,14 @@
 							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 								{% if courses is not empty %}
 									{% for subject, courses_by_subject in courses %}
+										{% set subject_id = subject|replace({'.': '-'}) %}
 										<div class="panel panel-default custom-panel">
-											<div class="panel-heading {{ locale() }}" role="tab" id="heading{{ subject }}">
-												<div class="title px-3 text-{{ locale() == 'fr' ? 'left' : 'right' }}" data-role="title" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ subject }}" aria-expanded="false" aria-controls="collapse{{ subject }}">
+											<div class="panel-heading {{ locale() }}" role="tab" id="heading{{ subject_id }}">
+												<div class="title px-3 text-{{ locale() == 'fr' ? 'left' : 'right' }}" data-role="title" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ subject_id }}" aria-expanded="false" aria-controls="collapse{{ subject_id }}">
 													<strong>{{ subject|trans }}</strong>
 												</div>
 											</div>
-											<div id="collapse{{ subject }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ subject }}">
+											<div id="collapse{{ subject_id }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ subject_id }}">
 												<div class="panel-body">
 													{% if courses_by_subject is not empty %}
 														<table class="table{{ locale() == 'ar' ? ' text-right' : '' }}">
@@ -66,7 +63,7 @@
 										</div>
 									{% endfor %}
 								{% else %}
-									<p class="alert alert-info">Aucun n'est actuellement disponible.</p>
+									<p class="alert alert-info">Aucun cours n'est actuellement disponible.</p>
 								{% endif %}
 							</div>
 
@@ -79,9 +76,4 @@
 
 			</div>
 		</section>
-{% endblock %}
-
-
-{% block javascripts %}
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 {% endblock %}

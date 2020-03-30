@@ -42,6 +42,11 @@ class Classe
      */
     private $subjects;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $code;
+
     public function __construct()
     {
         $this->courses = new ArrayCollection();
@@ -67,7 +72,7 @@ class Classe
 
     public function __toString()
     {
-        return $this->name;
+        return $this->code;
     }
 
     /**
@@ -123,6 +128,18 @@ class Classe
         if ($this->subjects->contains($subject)) {
             $this->subjects->removeElement($subject);
         }
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
 
         return $this;
     }

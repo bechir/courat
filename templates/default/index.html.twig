@@ -14,11 +14,11 @@
             <h2>
              {{ 'hero.about'|trans({'%app_name%': App.name|upper}) }}
             </h2>
-            <a href="#class" class="btn-get-started scrollto">{{ 'hero.courses'|trans}}</a>
+            <a href="#class" class="btn-get-started scrollto{{ locale() == 'ar' ? ' pull-right' : '' }}">{{ 'hero.courses'|trans}}</a>
             <a href=""
               data-toggle="modal"
               data-target="#schedule"
-              class="btn-get-started scrollto">
+              class="btn-get-started scrollto{{ locale() == 'ar' ? ' pull-right mr-2' : '' }}">
               {{ 'hero.planning'|trans|raw }}
             </a>
           </div>
