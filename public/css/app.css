@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
-
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
-=======
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
 
->>>>>>> master
 body {
     font-family: "Lato", sans-serif;
     color: hsl(0, 0%, 27%);
@@ -154,11 +146,7 @@ body {
     color: #35404f;
     border-radius: 50px;
     margin: 2px 0 0 15px;
-<<<<<<< HEAD
     padding: 5px 15px 5px 15px;
-=======
-    padding: 5px 25px 4px 25px;
->>>>>>> master
     border: 1px solid #fff;
   }
   
@@ -401,7 +389,6 @@ body {
     display: inline-block;
     background: #35404f;
   }
-<<<<<<< HEAD
 
   @media (max-width: 768px) {
     #hero .btn-get-started {
@@ -409,8 +396,6 @@ body {
     }
 
   }
-=======
->>>>>>> master
   
   #hero .btn-get-started:hover {
     background: #fff;
@@ -517,13 +502,6 @@ body {
     padding-right: 20px;
   }
     
-<<<<<<< HEAD
-=======
-  html,body {
-    margin:0;
-    padding:0;
-}
->>>>>>> master
   /*--------------------------------------------------------------
   # Diffusion
   --------------------------------------------------------------*/
@@ -558,8 +536,6 @@ body {
     margin-bottom: 30px;
   }
   
-<<<<<<< HEAD
-=======
   .plateform #plateform-flters {
     padding: 0;
     margin: 0 0 35px 0;
@@ -589,7 +565,6 @@ body {
     margin-right: 0;
   }
   
->>>>>>> master
   .plateform .plateform-wrap {
     transition: 0.3s;
     position: relative;
@@ -725,8 +700,6 @@ body {
     margin-bottom: 0;
   }
   
-<<<<<<< HEAD
-=======
   .class .php-email-form {
     box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
     padding: 30px;
@@ -810,7 +783,6 @@ body {
   .class .php-email-form button[type="submit"]:hover {
     background: #fdd067;
   }
->>>>>>> master
   
   @-webkit-keyframes animate-loading {
     0% {
@@ -932,16 +904,74 @@ body {
     }
   }
   
-=======
-
->>>>>>> master
   /*
   --------------------------------------------------------------------------------------------------------------------------------------------
   --------------------------------------------------------CUSTOM STYLES-----------------------------------------------------------------------
   --------------------------------------------------------------------------------------------------------------------------------------------
   */
   
-<<<<<<< HEAD
+  /* Schedule Timeline */
+  ul.timeline {
+    list-style-type: none;
+    position: relative;
+  }
+  ul.timeline:before {
+    content: " ";
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+  }
+  ul.timeline > li {
+    margin: 20px 0;
+    padding-left: 20px;
+  }
+  ul.timeline > li:before {
+    content: " ";
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #129b00;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+  }
+  
+  .timeline h3 {
+    font-family: "Cairo", sans-serif;
+    font-weight: bold;
+  }
+  
+  /* Schedule Modal */
+  .modal-body h3 {
+    font-size: 18px;
+  }
+  
+  .modal-body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .modal-title {
+    text-align: center;
+    font-family: "Cairo", sans-serif;
+    font-weight: bold;
+  }
+  
+  .hr-cp{
+    color: #bd004d;
+  }
+
+/*
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  --------------------------------------------------------CUSTOM STYLES-----------------------------------------------------------------------
+  --------------------------------------------------------------------------------------------------------------------------------------------
+  */
+  
   /* Planning Style */
   
   .modal-body h3 {
@@ -1009,7 +1039,6 @@ body {
   }
   
   /*Course Detail Style*/
-=======
   /* Schedule Timeline */
   ul.timeline {
     list-style-type: none;
@@ -1067,7 +1096,6 @@ body {
   }
 
   /*COURSE DETAIL STYLES*/
->>>>>>> master
 
 .vid {
   position: relative;
@@ -1106,11 +1134,7 @@ body {
   border: 1px solid #35404f;
 }
 
-<<<<<<< HEAD
-/* Courses Index Style*/
-=======
 /* COURSES INDEX STYLE*/
->>>>>>> master
 .panel-default 
 {
     border-color: transparent;
@@ -1135,29 +1159,14 @@ body {
     font-weight: bold;
     text-transform: uppercase;
 }
-<<<<<<< HEAD
-.panel-heading .title:before {
-
-    font-family: FontAwesome;
-    content:"\f106";
-=======
 .panel-heading .title:before,
 .panel-heading .title.collapsed:before {
     font-family: FontAwesome;
->>>>>>> master
      font-size: 25px;
     padding-right: 10px;
     line-height: 25px;
     float: right;
 }
-<<<<<<< HEAD
-.panel-heading .title.collapsed:before {
-     font-size: 25px;
-    padding-right: 10px;
-    line-height: 25px;
-    float: right;
-    content:"\f107";
-=======
 .panel-heading.ar .title:before,
 .panel-heading.ar .title.collapsed:before {
   float: left;
@@ -1167,7 +1176,6 @@ body {
 }
 .panel-heading .title.collapsed:before {
   content:"\f107";
->>>>>>> master
 }
 
 /*=======*/
@@ -1219,15 +1227,6 @@ nav .nav-links a:active {
   width: 100%;
   text-align: left;
 }
-<<<<<<< HEAD
-
 body[dir="rtl"] .mobile-nav a {
   text-align: right;
 }
-
-
-=======
-body[dir="rtl"] .mobile-nav a {
-  text-align: right;
-}
->>>>>>> master
