@@ -15,10 +15,12 @@
 				<div class="modal-body">
 					<div class="container planning {{ locale() == 'fr' ? 'mr-auto' : 'ml-auto ar text-right' }}">
 						<input id="tab1" type="radio" name="tabs" checked>
-						<label for="tab1">6<sup>eme</sup> AF</label>
+						<label for="tab1">6<sup>eme</sup>
+							AF</label>
 
 						<input id="tab2" type="radio" name="tabs">
-						<label for="tab2">4<sup>eme</sup> AS</label>
+						<label for="tab2">4<sup>eme</sup>
+							AS</label>
 
 						<input id="tab3" type="radio" name="tabs">
 						<label for="tab3">7C</label>
@@ -28,951 +30,960 @@
 
 						<input id="tab5" type="radio" name="tabs">
 						<label for="tab5">7LO</label>
-						
+
 						<input id="tab6" type="radio" name="tabs">
 						<label for="tab6">7LM</label>
 
 						<section id="content1">
 							<p>
 								{# 6AF Class planning #}
-											<div id="home" class="container tab-pane active"><br>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-													-
-													{{ 'planning.fr'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-													-
-													{{ 'planning.fr'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.math'|trans }}
-													-
-													{{ 'planning.ir'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.math'|trans }}
-													-
-													{{ 'planning.ir'|trans }}
-												</p>
-											</div>
-											{# End of class planning #}
-							</p>
-						</section>
 
-						<section id="content2">
-							<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.fr'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.math'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.math'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.fr'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.fr'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.math'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.math'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.fr'|trans }}
-												</p>
-						</section>
-
-						<section id="content3">
-							<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.math'|trans }}
-													-
-													{{ 'planning.sn'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.math'|trans }}
-													-
-													{{ 'planning.sn'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.pc'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.pc'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.math'|trans }}
-													-
-													{{ 'planning.sn'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.math'|trans }}
-													-
-													{{ 'planning.sn'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.pc'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.pc'|trans }}
-												</p>
-						</section>
-
-						<section id="content4">
-							<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.math'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.sn'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.sn'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.pc'|trans }}
-													-
-													{{ 'planning.math'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.pc'|trans }}
-													-
-													{{ 'planning.math'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.pc'|trans }}
-													-
-													{{ 'planning.sn'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.pc'|trans }}
-													-
-													{{ 'planning.sn'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.math'|trans }}
-												</p>
-						</section>
-						 <section id="content5">
-							<p>
-							<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.pens-isl'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.droit-m'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.droit-m'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.pens-isl'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.pens-isl'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.droit-m'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.droit-m'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.pens-isl'|trans }}
-												</p>
-							</p>
-						</section>
-						 <section id="content6">
-							<p>
 								<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.philo'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.fr'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.fr'|trans }}
-												</p>
-													<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.ar'|trans }}
-												</p>
-													<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.philo'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.philo'|trans }}
-												</p>
-													<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.fr'|trans }}
-												</p>
-												<hr>
-												<h3>
-													<b>
-														<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
-													</b>
-												</h3>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.fr'|trans }}
-												</p>
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{{ 'planning.philo'|trans }}
-												</p>
+									<b>
+										<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
+									</b>
+								</h3>
 							</p>
-						</section>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- End of Schedule Modal -->
+							<p>
+								<i class="icofont-clock-time"></i>
+								<b>{{ 'planning.hour'|trans }}
+									:</b>
+								{{ 'planning.5pm'|trans }}
+								({{ 'planning.direct'|trans }})
+								<br>
+								<i class="icofont-book-alt"></i>
+								<b>{{ 'planning.field'|trans }}
+									:</b>
+								{{ 'planning.ar'|trans }}
+								-
+								{{ 'planning.fr'|trans }}
+							</p>
+							<hr>
+							<h3>
+								<b>
+									<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+								</b>
+							</h3>
+							<p>
+								<i class="icofont-clock-time"></i>
+								<b>{{ 'planning.hour'|trans }}
+									:</b>
+								{{ 'planning.11pm'|trans }}
+								({{ 'planning.rediff'|trans }})
+								<br>
+								<i class="icofont-book-alt"></i>
+								<b>{{ 'planning.field'|trans }}
+									:</b>
+								{{ 'planning.ar'|trans }}
+								-
+								{{ 'planning.fr'|trans }}
+							</p>
+							<p>
+								<i class="icofont-clock-time"></i>
+								<b>{{ 'planning.hour'|trans }}
+									:</b>
+								{{ 'planning.5pm'|trans }}
+								({{ 'planning.direct'|trans }})
+								<br>
+								<i class="icofont-book-alt"></i>
+								<b>{{ 'planning.field'|trans }}
+									:</b>
+								{{ 'planning.math'|trans }}
+								-
+								{{ 'planning.ir'|trans }}
+							</p>
+							<hr>
+							<h3>
+								<b>
+									<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+								</b>
+							</h3>
+							<p>
+								<i class="icofont-clock-time"></i>
+								<b>{{ 'planning.hour'|trans }}
+									:</b>
+								{{ 'planning.11pm'|trans }}
+								({{ 'planning.rediff'|trans }})
+								<br>
+								<i class="icofont-book-alt"></i>
+								<b>{{ 'planning.field'|trans }}
+									:</b>
+								{{ 'planning.math'|trans }}
+								-
+								{{ 'planning.ir'|trans }}
+							</p>
+
+							{# End of class planning #}
+
+
+						</p>
+					</section>
+
+					<section id="content2">
+						<p>
+							<h3>
+								<b>
+									<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
+								</b>
+							</h3>
+						</p>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.11pm'|trans }}
+							({{ 'planning.rediff'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.fr'|trans }}
+						</p>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.5pm'|trans }}
+							({{ 'planning.direct'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.math'|trans }}
+						</p>
+						<hr>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+							</b>
+						</h3>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.11pm'|trans }}
+							({{ 'planning.rediff'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.math'|trans }}
+						</p>
+						<hr>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+							</b>
+						</h3>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.5pm'|trans }}
+							({{ 'planning.direct'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.ar'|trans }}
+						</p>
+						<hr>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
+							</b>
+						</h3>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.11pm'|trans }}
+							({{ 'planning.rediff'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.ar'|trans }}
+						</p>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.5pm'|trans }}
+							({{ 'planning.direct'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.fr'|trans }}
+						</p>
+						<hr>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
+							</b>
+						</h3>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.11pm'|trans }}
+							({{ 'planning.rediff'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.fr'|trans }}
+						</p>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.5pm'|trans }}
+							({{ 'planning.direct'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.math'|trans }}
+						</p>
+						<hr>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
+							</b>
+						</h3>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.11pm'|trans }}
+							({{ 'planning.rediff'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.math'|trans }}
+						</p>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.5pm'|trans }}
+							({{ 'planning.direct'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.ar'|trans }}
+						</p>
+						<hr>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
+							</b>
+						</h3>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.11pm'|trans }}
+							({{ 'planning.rediff'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.ar'|trans }}
+						</p>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.5pm'|trans }}
+							({{ 'planning.direct'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.fr'|trans }}
+						</p>
+
+
+					</p>
+				</section>
+
+				<section id="content3">
+					<p>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+							</b>
+						</h3>
+					</p>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.5pm'|trans }}
+						({{ 'planning.direct'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.math'|trans }}
+						-
+						{{ 'planning.sn'|trans }}
+					</p>
+					<hr>
+					<h3>
+						<b>
+							<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+						</b>
+					</h3>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.11pm'|trans }}
+						({{ 'planning.rediff'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.math'|trans }}
+						-
+						{{ 'planning.sn'|trans }}
+					</p>
+					<hr>
+					<h3>
+						<b>
+							<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
+						</b>
+					</h3>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.5pm'|trans }}
+						({{ 'planning.direct'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.pc'|trans }}
+					</p>
+					<hr>
+					<h3>
+						<b>
+							<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
+						</b>
+					</h3>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.11pm'|trans }}
+						({{ 'planning.rediff'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.pc'|trans }}
+					</p>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.5pm'|trans }}
+						({{ 'planning.direct'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.math'|trans }}
+						-
+						{{ 'planning.sn'|trans }}
+					</p>
+					<hr>
+					<h3>
+						<b>
+							<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
+						</b>
+					</h3>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.11pm'|trans }}
+						({{ 'planning.rediff'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.math'|trans }}
+						-
+						{{ 'planning.sn'|trans }}
+					</p>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.5pm'|trans }}
+						({{ 'planning.direct'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.pc'|trans }}
+					</p>
+					<hr>
+					<h3>
+						<b>
+							<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
+						</b>
+					</h3>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.11pm'|trans }}
+						({{ 'planning.rediff'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.pc'|trans }}
+					</p>
+				
+			</section>
+
+			<section id="content4">
+				<p>
+					<h3>
+						<b>
+							<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
+						</b>
+					</h3>
+				</p>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.11pm'|trans }}
+					({{ 'planning.rediff'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.math'|trans }}
+				</p>
+				<hr>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+					</b>
+				</h3>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.5pm'|trans }}
+					({{ 'planning.direct'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.sn'|trans }}
+				</p>
+				<hr>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+					</b>
+				</h3>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.11pm'|trans }}
+					({{ 'planning.rediff'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.sn'|trans }}
+				</p>
+				<hr>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
+					</b>
+				</h3>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.5pm'|trans }}
+					({{ 'planning.direct'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.pc'|trans }}
+					-
+					{{ 'planning.math'|trans }}
+				</p>
+				<hr>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
+					</b>
+				</h3>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.11pm'|trans }}
+					({{ 'planning.rediff'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.pc'|trans }}
+					-
+					{{ 'planning.math'|trans }}
+				</p>
+				<hr>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
+					</b>
+				</h3>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.5pm'|trans }}
+					({{ 'planning.direct'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.pc'|trans }}
+					-
+					{{ 'planning.sn'|trans }}
+				</p>
+				<hr>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
+					</b>
+				</h3>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.11pm'|trans }}
+					({{ 'planning.rediff'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.pc'|trans }}
+					-
+					{{ 'planning.sn'|trans }}
+				</p>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.5pm'|trans }}
+					({{ 'planning.direct'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.math'|trans }}
+				</p>
+			</p>
+		</section>
+		<section id="content5">
+			<p>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
+					</b>
+				</h3>
+			</p>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.11pm'|trans }}
+				({{ 'planning.rediff'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.pens-isl'|trans }}
+			</p>
+			<hr>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+				</b>
+			</h3>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.5pm'|trans }}
+				({{ 'planning.direct'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.ar'|trans }}
+			</p>
+			<hr>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+				</b>
+			</h3>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.11pm'|trans }}
+				({{ 'planning.rediff'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.ar'|trans }}
+			</p>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.5pm'|trans }}
+				({{ 'planning.direct'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.droit-m'|trans }}
+			</p>
+			<hr>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
+				</b>
+			</h3>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.11pm'|trans }}
+				({{ 'planning.rediff'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.droit-m'|trans }}
+			</p>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.5pm'|trans }}
+				({{ 'planning.direct'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.ar'|trans }}
+			</p>
+			<hr>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
+				</b>
+			</h3>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.11pm'|trans }}
+				({{ 'planning.rediff'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.ar'|trans }}
+			</p>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.5pm'|trans }}
+				({{ 'planning.direct'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.pens-isl'|trans }}
+			</p>
+			<hr>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
+				</b>
+			</h3>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.11pm'|trans }}
+				({{ 'planning.rediff'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.pens-isl'|trans }}
+			</p>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.5pm'|trans }}
+				({{ 'planning.direct'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.droit-m'|trans }}
+			</p>
+			<hr>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
+				</b>
+			</h3>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.11pm'|trans }}
+				({{ 'planning.rediff'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.droit-m'|trans }}
+			</p>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.5pm'|trans }}
+				({{ 'planning.direct'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.pens-isl'|trans }}
+			</p>
+		</p>
+	</section>
+	<section id="content6">
+		<p>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
+				</b>
+			</h3>
+		</p>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.11pm'|trans }}
+			({{ 'planning.rediff'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.philo'|trans }}
+		</p>
+		<hr>
+		<h3>
+			<b>
+				<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+			</b>
+		</h3>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.5pm'|trans }}
+			({{ 'planning.direct'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.ar'|trans }}
+		</p>
+		<hr>
+		<h3>
+			<b>
+				<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+			</b>
+		</h3>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.11pm'|trans }}
+			({{ 'planning.rediff'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.ar'|trans }}
+		</p>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.5pm'|trans }}
+			({{ 'planning.direct'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.fr'|trans }}
+		</p>
+		<hr>
+		<h3>
+			<b>
+				<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
+			</b>
+		</h3>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.11pm'|trans }}
+			({{ 'planning.rediff'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.fr'|trans }}
+		</p>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.5pm'|trans }}
+			({{ 'planning.direct'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.ar'|trans }}
+		</p>
+		<hr>
+		<h3>
+			<b>
+				<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
+			</b>
+		</h3>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.11pm'|trans }}
+			({{ 'planning.rediff'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.ar'|trans }}
+		</p>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.5pm'|trans }}
+			({{ 'planning.direct'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.philo'|trans }}
+		</p>
+		<hr>
+		<h3>
+			<b>
+				<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
+			</b>
+		</h3>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.11pm'|trans }}
+			({{ 'planning.rediff'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.philo'|trans }}
+		</p>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.5pm'|trans }}
+			({{ 'planning.direct'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.fr'|trans }}
+		</p>
+		<hr>
+		<h3>
+			<b>
+				<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
+			</b>
+		</h3>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.11pm'|trans }}
+			({{ 'planning.rediff'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.fr'|trans }}
+		</p>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.5pm'|trans }}
+			({{ 'planning.direct'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.philo'|trans }}
+		</p>
+	</p>
+</section></div></div></div></div></div></div><!-- End of Schedule Modal -->
