@@ -12,11 +12,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SubjectRepository")
  */
-class Subject
+class Subject implements JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -50,5 +51,13 @@ class Subject
     public function __toString()
     {
         return $this->code;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->id,
+            'code' => substr($this->code, 8),
+        ];
     }
 }

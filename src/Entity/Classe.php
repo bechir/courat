@@ -14,11 +14,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ClassRepository")
  */
-class Classe
+class Classe implements JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -142,5 +143,25 @@ class Classe
         $this->code = $code;
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'subjects' => $this->subjects,
+            'courses_count' => count($this->courses),
+        ];
+    }
+
+    public function jsonSerializeDetails()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'subjects' => $this->subjects,
+            'courses' => $this->courses,
+        ];
     }
 }

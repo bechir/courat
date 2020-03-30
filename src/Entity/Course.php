@@ -12,12 +12,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CourseRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Course
+class Course implements JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -155,5 +156,21 @@ class Course
         $this->subject = $subject;
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'videoUrl' => $this->videoUrl,
+            'startTime' => $this->startTime,
+            'publishedDate' => $this->publishedAt,
+            'class' => $this->class->getName(),
+            'subject' => $this->subject->jsonSerialize(),
+        ];
     }
 }

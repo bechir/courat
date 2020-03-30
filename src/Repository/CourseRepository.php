@@ -39,9 +39,23 @@ class CourseRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('c')
             ->leftJoin('c.class', 'cr')
                 ->addSelect('cr')
-            ->orderBy('c.addedAt', 'DESC')
+            ->orderBy('c.addedAt', 'ASC')
             ->where('cr = :cls')
             ->setParameter('cls', $class);
+
+        return $this->paginator->paginate(
+            $query,
+            $page,
+            Course::NB_COURSES_PER_PAGE
+        );
+    }
+
+    public function paginateLatest(int $page)
+    {
+        $query = $this->createQueryBuilder('c')
+            ->leftJoin('c.class', 'cr')
+                ->addSelect('cr')
+            ->orderBy('c.publishedAt', 'ASC');
 
         return $this->paginator->paginate(
             $query,
@@ -55,7 +69,7 @@ class CourseRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('c')
             ->leftJoin('c.class', 'cr')
                 ->addSelect('cr')
-            ->orderBy('c.addedAt', 'DESC');
+            ->orderBy('c.publishedAt', 'ASC');
 
         return $this->paginator->paginate(
             $query,
