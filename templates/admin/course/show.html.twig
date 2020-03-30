@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block main %}
-    <h1>{{ course.title }}</h1>
+    <h1>{{ course.title }} <a target="_blank" class="btn btn-link float-right" href="{{ path('course_show', {id: course.id}) }}"><i class="fa fa-external-link"></i> Voir le cours</a></h1>
 
     <table class="table">
         <tbody>

@@ -125,3 +125,4 @@ footer:
 
 course:
   back: REVENIR EN ARRIERE
+  start_time_notice: Le cours de <b>%subject%</b> commence à partir de <b>%time%</b>
