@@ -25,7 +25,7 @@
 					{% endif %}
 					<hr>
 					<div class="vid">
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/pvbu0bNJh6s" allowfullscreen="yes"></iframe>
+						<iframe src="{{ course.videoUrl|replace({'watch?v=': 'embed/'}) }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					<!--./vid -->
 				</div>

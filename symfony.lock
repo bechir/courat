@@ -167,6 +167,12 @@
     "laminas/laminas-zendframework-bridge": {
         "version": "1.0.1"
     },
+    "markbaker/complex": {
+        "version": "1.4.8"
+    },
+    "markbaker/matrix": {
+        "version": "1.2.0"
+    },
     "monolog/monolog": {
         "version": "1.25.3"
     },
@@ -195,11 +201,14 @@
     "ocramius/proxy-manager": {
         "version": "2.7.0"
     },
+    "onurb/excel-bundle": {
+        "version": "1.0.2"
+    },
     "pdepend/pdepend": {
         "version": "2.7.1"
     },
     "php": {
-        "version": "7.3"
+        "version": "7.4"
     },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
@@ -215,6 +224,9 @@
     },
     "phpmd/phpmd": {
         "version": "2.8.2"
+    },
+    "phpoffice/phpspreadsheet": {
+        "version": "1.11.0"
     },
     "phpro/grumphp": {
         "version": "v0.18.0"
@@ -233,6 +245,9 @@
     },
     "psr/log": {
         "version": "1.1.2"
+    },
+    "psr/simple-cache": {
+        "version": "1.0.1"
     },
     "sebastian/comparator": {
         "version": "4.0.0"
@@ -648,9 +663,6 @@
     },
     "twig/twig": {
         "version": "v3.0.3"
-    },
-    "webimpress/safe-writer": {
-        "version": "2.0.1"
     },
     "webmozart/assert": {
         "version": "1.7.0"

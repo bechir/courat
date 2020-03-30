@@ -43,9 +43,9 @@ class CourseFixutres extends Fixture implements DependentFixtureInterface
     {
         $data = [];
 
-        for ($i = 0; $i < 50; ++$i) {
-            $data[] = ["Chapitre $i", "youtube.com/2AqYr$i"];
-        }
+        // for ($i = 1; $i < 50; ++$i) {
+        //     $data[] = ["Chapitre $i", "youtube.com/2AqYr$i"];
+        // }
 
         return $data;
     }
