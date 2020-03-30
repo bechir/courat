@@ -19,7 +19,7 @@
         "symfony/framework-bundle": "4.4.*",
         "symfony/http-client": "4.4.*",
         "symfony/intl": "4.4.*",
-        "symfony/mailer": "4.4.*",
+        "symfony/mailer": "5.0.*",
         "symfony/monolog-bundle": "^3.1",
         "symfony/orm-pack": "*",
         "symfony/process": "4.4.*",
