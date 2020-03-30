@@ -1,14 +1,20 @@
 <?php
 
 /*
- * This file is part of the Rim Edu application.
+ * This file is part of the COURAT application.
  *
- * By Bechir Ba and contributors
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace App\Form;
 
+use App\Entity\Classe;
 use App\Entity\Course;
+use App\Entity\Subject;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -23,7 +29,19 @@ class CourseType extends AbstractType
             ->add('title')
             ->add('videoUrl')
             ->add('publishedAt', TextType::class)
-            ->add('startTime', TextType::class, ['required' => false]);
+            ->add('startTime', TextType::class, ['required' => false])
+            ->add('class', EntityType::class, [
+                'class' => Classe::class,
+                'choice_label' => 'code',
+                'choice_translation_domain' => 'messages',
+            ])
+            //attr_translation_parameters
+            ->add('subject', EntityType::class, [
+                'class' => Subject::class,
+                'choice_label' => 'code',
+                'translation_domain' => true,
+                'choice_translation_domain' => 'messages',
+            ]);
 
         $builder->get('publishedAt')->addModelTransformer(new CallbackTransformer(
             function ($publishedAsDate) {

@@ -23,7 +23,7 @@ deploy:
     1.0: courat
   run:
   - "./bin/console doctrine:migrations:migrate --no-interaction"
-  - "./bin/phpunit"
+  - "./vendor/bin/simple-phpunit"
 before_install:
 - composer self-update
 - '[[ "$ACTION" == "install" ]] || echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv

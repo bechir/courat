@@ -1,0 +1,10 @@
+{{ form_start(form, {'attr': {'id': 'upload-form', action: path('load_from_excel')}}) }}
+<div class="form-group">
+    {{ form_errors(form) }}
+    {{ form_widget(form.file, {'attr': {'accept': '.csv, .xls, .xlsx', class: 'form-control input-lg'}}) }}
+</div>
+<button class="float-right btn btn-info btn-lg my-5 py-2" id="btn-upload-file" type="submit">
+    <i class="lnr lnr-checkmark-circle"></i>
+    Valider
+</button>
+{{ form_end(form) }}

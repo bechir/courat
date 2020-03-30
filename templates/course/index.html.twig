@@ -1,77 +1,69 @@
 {% extends 'base.html.twig' %}
 
-{% set title = 'courses.title'|trans({'%class%': class.name|trans }) %}
+{% set title = 'courses.title'|trans({'%class%': class.code|trans|raw }) %}
 
 {% block title %}
 	{{ title|striptags }}
 {% endblock %}
 
-
 {% block main %}
 	<section id="class" class="class section-bg mb-10">
 		<div class="container">
-
-
 			<div class="row">
 				<div class="col-md-12">
-					<h3>
+					<h3{{ locale() == 'ar' ? ' class="text-right"' : '' }}>
 						<b>{{ 'courses.class'|trans }} :</b>
-						<span class="badge badge-secondary">6<sup>eme</sup>AF</span>
+						<span class="badge badge-secondary">{{ class.code|trans|raw }}</span>
 					</h3>
 					<hr>
-
 					<div class="row">
 						<div class="col-md-12">
 							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 								{% if courses is not empty %}
-									{% for course in courses %}
+									{% for subject, courses_by_subject in courses %}
+										{% set subject_id = subject|replace({'.': '-'}) %}
 										<div class="panel panel-default custom-panel">
-											<div class="panel-heading" role="tab" id="heading{{ loop.index }}">
-												<div class="title" data-role="title" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
-													<strong>ARABE</strong>
+											<div class="panel-heading {{ locale() }}" role="tab" id="heading{{ subject_id }}">
+												<div class="title px-3 text-{{ locale() == 'fr' ? 'left' : 'right' }}" data-role="title" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ subject_id }}" aria-expanded="false" aria-controls="collapse{{ subject_id }}">
+													<strong>{{ subject|trans }}</strong>
 												</div>
 											</div>
-											<div id="collapse{{ loop.index }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ loop.index }}">
+											<div id="collapse{{ subject_id }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ subject_id }}">
 												<div class="panel-body">
-													<table class="table">
-														<thead>
-															<tr>
-																<th scope="col">{{ 'courses.intitule'|trans }}</th>
-																<th scope="col"></th>
-																<th scope="col">{{ 'courses.dateDiff'|trans }}</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr>
-																<th scope="row">
-																	<i class="icofont-check-circled"></i>
-																	&nbsp; Lorem ipsum titre du cours</th>
-																<td>
-																	<a href="">
-																		<i class="icofont-play-alt-2"></i>
-																		&nbsp; {{ 'courses.watch'|trans }}</a>
-																</td>
-																<td>23/03/2020</td>
-															</tr>
-															<tr>
-																<th scope="row">
-																	<i class="icofont-check-circled"></i>
-																	&nbsp; Lorem ipsum titre du cours</th>
-																<td>
-																	<a href="">
-																		<i class="icofont-play-alt-2"></i>
-																		&nbsp; Regarder</a>
-																</td>
-																<td>25/03/2020</td>
-															</tr>
-														</tbody>
-													</table>
+													{% if courses_by_subject is not empty %}
+														<table class="table{{ locale() == 'ar' ? ' text-right' : '' }}">
+															<thead>
+																<tr>
+																	<th scope="col">{{ 'courses.intitule'|trans }}</th>
+																	<th scope="col"></th>
+																	<th scope="col"><i class="far fa-clock"></i> {{ 'courses.dateDiff'|trans }}</th>
+																</tr>
+															</thead>
+															<tbody>
+																{% for course in courses_by_subject %}
+																	<tr>
+																		<th scope="row">
+																			<i class="icofont-check-circled"></i>
+																			{{ course.title }}</th>
+																		<td>
+																			<a href="{{ path('course_show', {id: course.id}) }}">
+																				<i class="icofont-play-alt-2"></i>
+																				{{ 'courses.watch'|trans }}</a>
+																		</td>
+																		<td>{{ course.publishedAt|localizeddate('short', 'none', null) }}</td>
+																	</tr>
+																{% endfor %}
+															</tbody>
+														</table>
+													{% else %}
+														<p class="alert alert-info{{ locale() == 'ar' ? ' text-right' : '' }}">{{ 'courses.empty_section'|trans }}</p>
+													{% endif %}
 												</div>
 											</div>
 										</div>
 									{% endfor %}
 								{% else %}
-									<p class="alert alert-info">Aucun n'est actuellement disponible.</p>
+									<p class="alert alert-info">Aucun cours n'est actuellement disponible.</p>
 								{% endif %}
 							</div>
 
@@ -84,32 +76,4 @@
 
 			</div>
 		</section>
-		<!-- End Classes Section -->
-		{# {% if courses is not empty %}
-					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-						{% for course in courses %}
-							<div class="col mb-4">
-								<div class="card h-100">
-									<img src="{{ asset('images/preloader.jpg') }}" class="card-img-top" alt="...">
-									<div class="card-body pb-1">
-										<h3 class="h6">
-											<a href="{{ path('course_show', {id: course.id}) }}">{{ course.title }}</a>
-										</h3>
-									</div>
-									<div class="card-footer">
-										<small class="text-muted">
-											{{ course.classes|map(
-		                      c => '<a class="py-1 badge badge-success" href="' ~ path('course_index', {name: c}) ~ '">' ~ c|trans ~ '</a>'
-		                    )|join(' ')|raw
-		                  }}
-										</small>
-									</div>
-								</div>
-							</div>
-						{% endfor %}
-					</div>
-				{% else %}
-					<p class="alert alert-info">Aucun n'est actuellement disponible.</p>
-				{% endif %} #}
-	{% endblock %}
-
+{% endblock %}

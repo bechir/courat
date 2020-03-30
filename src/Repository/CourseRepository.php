@@ -1,9 +1,12 @@
 <?php
 
 /*
- * This file is part of the Rim Edu application.
+ * This file is part of the COURAT application.
  *
- * By Bechir Ba and contributors
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace App\Repository;
@@ -34,11 +37,39 @@ class CourseRepository extends ServiceEntityRepository
     public function paginate(Classe $class, int $page)
     {
         $query = $this->createQueryBuilder('c')
-            ->leftJoin('c.classes', 'cr')
+            ->leftJoin('c.class', 'cr')
                 ->addSelect('cr')
-            ->orderBy('c.addedAt', 'DESC')
+            ->orderBy('c.addedAt', 'ASC')
             ->where('cr = :cls')
             ->setParameter('cls', $class);
+
+        return $this->paginator->paginate(
+            $query,
+            $page,
+            Course::NB_COURSES_PER_PAGE
+        );
+    }
+
+    public function paginateLatest(int $page)
+    {
+        $query = $this->createQueryBuilder('c')
+            ->leftJoin('c.class', 'cr')
+                ->addSelect('cr')
+            ->orderBy('c.publishedAt', 'ASC');
+
+        return $this->paginator->paginate(
+            $query,
+            $page,
+            Course::NB_COURSES_PER_PAGE
+        );
+    }
+
+    public function adminPaginate(int $page)
+    {
+        $query = $this->createQueryBuilder('c')
+            ->leftJoin('c.class', 'cr')
+                ->addSelect('cr')
+            ->orderBy('c.publishedAt', 'ASC');
 
         return $this->paginator->paginate(
             $query,

@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+=======
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+
+>>>>>>> master
 body {
     font-family: "Lato", sans-serif;
     color: hsl(0, 0%, 27%);
@@ -146,7 +154,11 @@ body {
     color: #35404f;
     border-radius: 50px;
     margin: 2px 0 0 15px;
+<<<<<<< HEAD
     padding: 5px 15px 5px 15px;
+=======
+    padding: 5px 25px 4px 25px;
+>>>>>>> master
     border: 1px solid #fff;
   }
   
@@ -389,6 +401,7 @@ body {
     display: inline-block;
     background: #35404f;
   }
+<<<<<<< HEAD
 
   @media (max-width: 768px) {
     #hero .btn-get-started {
@@ -396,6 +409,8 @@ body {
     }
 
   }
+=======
+>>>>>>> master
   
   #hero .btn-get-started:hover {
     background: #fff;
@@ -502,6 +517,13 @@ body {
     padding-right: 20px;
   }
     
+<<<<<<< HEAD
+=======
+  html,body {
+    margin:0;
+    padding:0;
+}
+>>>>>>> master
   /*--------------------------------------------------------------
   # Diffusion
   --------------------------------------------------------------*/
@@ -536,6 +558,38 @@ body {
     margin-bottom: 30px;
   }
   
+<<<<<<< HEAD
+=======
+  .plateform #plateform-flters {
+    padding: 0;
+    margin: 0 0 35px 0;
+    list-style: none;
+    text-align: center;
+  }
+  
+  .plateform #plateform-flters li {
+    cursor: pointer;
+    margin: 0 5px 5px 0;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #444444;
+    margin-bottom: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .plateform #plateform-flters li:hover,
+  .plateform #plateform-flters li.filter-active {
+    color: #129b00;
+  }
+  
+  .plateform #plateform-flters li:last-child {
+    margin-right: 0;
+  }
+  
+>>>>>>> master
   .plateform .plateform-wrap {
     transition: 0.3s;
     position: relative;
@@ -671,6 +725,92 @@ body {
     margin-bottom: 0;
   }
   
+<<<<<<< HEAD
+=======
+  .class .php-email-form {
+    box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+    padding: 30px;
+    background: #fff;
+  }
+  
+  .class .php-email-form .validate {
+    display: none;
+    color: red;
+    margin: 0 0 15px 0;
+    font-weight: 400;
+    font-size: 13px;
+  }
+  
+  .class .php-email-form .error-message {
+    display: none;
+    color: #fff;
+    background: #ed3c0d;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+  }
+  
+  .class .php-email-form .sent-message {
+    display: none;
+    color: #fff;
+    background: #18d26e;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+  }
+  
+  .class .php-email-form .loading {
+    display: none;
+    background: #fff;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .class .php-email-form .loading:before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px -6px 0;
+    border: 3px solid #18d26e;
+    border-top-color: #eee;
+    -webkit-animation: animate-loading 1s linear infinite;
+    animation: animate-loading 1s linear infinite;
+  }
+  
+  .class .php-email-form input,
+  .class .php-email-form textarea {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+  }
+  
+  .class .php-email-form input::focus,
+  .class .php-email-form textarea::focus {
+    background-color: #129b00;
+  }
+  
+  .class .php-email-form input {
+    padding: 20px 15px;
+  }
+  
+  .class .php-email-form textarea {
+    padding: 12px 15px;
+  }
+  
+  .class .php-email-form button[type="submit"] {
+    background: #129b00;
+    border: 0;
+    padding: 10px 24px;
+    color: #fff;
+    transition: 0.4s;
+  }
+  
+  .class .php-email-form button[type="submit"]:hover {
+    background: #fdd067;
+  }
+>>>>>>> master
   
   @-webkit-keyframes animate-loading {
     0% {
@@ -735,6 +875,50 @@ body {
     padding: 0;
   }
   
+<<<<<<< HEAD
+=======
+  #footer .footer-top .footer-newsletter {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 30px;
+  }
+  
+  #footer .footer-top .footer-newsletter form {
+    background: #fff;
+    padding: 6px 10px;
+    position: relative;
+    border-radius: 50px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  #footer .footer-top .footer-newsletter form input[type="email"] {
+    border: 0;
+    padding: 4px 8px;
+    width: calc(100% - 100px);
+  }
+  
+  #footer .footer-top .footer-newsletter form input[type="submit"] {
+    position: absolute;
+    top: 0;
+    right: -1px;
+    bottom: 0;
+    border: 0;
+    background: none;
+    font-size: 16px;
+    padding: 0 20px;
+    background: #129b00;
+    color: #fff;
+    transition: 0.3s;
+    border-radius: 50px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  #footer .footer-top .footer-newsletter form input[type="submit"]:hover {
+    background: #129b00;
+  }
+  
+>>>>>>> master
   #footer .footer-top .social-links {
     margin-top: 30px;
   }
@@ -767,6 +951,7 @@ body {
     padding-top: 40px;
     padding-bottom: 40px;
   }
+<<<<<<< HEAD
   
   #footer .copyright {
     text-align: left;
@@ -792,12 +977,16 @@ body {
     }
   }
   
+=======
+
+>>>>>>> master
   /*
   --------------------------------------------------------------------------------------------------------------------------------------------
   --------------------------------------------------------CUSTOM STYLES-----------------------------------------------------------------------
   --------------------------------------------------------------------------------------------------------------------------------------------
   */
   
+<<<<<<< HEAD
   /* Planning Style */
   
   .modal-body h3 {
@@ -865,6 +1054,65 @@ body {
   }
   
   /*Course Detail Style*/
+=======
+  /* Schedule Timeline */
+  ul.timeline {
+    list-style-type: none;
+    position: relative;
+  }
+  ul.timeline:before {
+    content: " ";
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+  }
+  ul.timeline > li {
+    margin: 20px 0;
+    padding-left: 20px;
+  }
+  ul.timeline > li:before {
+    content: " ";
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #129b00;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+  }
+  
+  .timeline h3 {
+    font-family: "Cairo", sans-serif;
+    font-weight: bold;
+  }
+  
+  /* Schedule Modal */
+  .modal-body h3 {
+    font-size: 18px;
+  }
+  
+  .modal-body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .modal-title {
+    text-align: center;
+    font-family: "Cairo", sans-serif;
+    font-weight: bold;
+  }
+  
+  .hr-cp{
+    color: #bd004d;
+  }
+
+  /*COURSE DETAIL STYLES*/
+>>>>>>> master
 
 .vid {
   position: relative;
@@ -903,7 +1151,11 @@ body {
   border: 1px solid #35404f;
 }
 
+<<<<<<< HEAD
 /* Courses Index Style*/
+=======
+/* COURSES INDEX STYLE*/
+>>>>>>> master
 .panel-default 
 {
     border-color: transparent;
@@ -928,21 +1180,39 @@ body {
     font-weight: bold;
     text-transform: uppercase;
 }
+<<<<<<< HEAD
 .panel-heading .title:before {
 
     font-family: FontAwesome;
     content:"\f106";
+=======
+.panel-heading .title:before,
+.panel-heading .title.collapsed:before {
+    font-family: FontAwesome;
+>>>>>>> master
      font-size: 25px;
     padding-right: 10px;
     line-height: 25px;
     float: right;
 }
+<<<<<<< HEAD
 .panel-heading .title.collapsed:before {
      font-size: 25px;
     padding-right: 10px;
     line-height: 25px;
     float: right;
     content:"\f107";
+=======
+.panel-heading.ar .title:before,
+.panel-heading.ar .title.collapsed:before {
+  float: left;
+}
+.panel-heading .title:before {
+  content:"\f106";
+}
+.panel-heading .title.collapsed:before {
+  content:"\f107";
+>>>>>>> master
 }
 
 /*=======*/
@@ -994,9 +1264,15 @@ nav .nav-links a:active {
   width: 100%;
   text-align: left;
 }
+<<<<<<< HEAD
 
 body[dir="rtl"] .mobile-nav a {
   text-align: right;
 }
 
 
+=======
+body[dir="rtl"] .mobile-nav a {
+  text-align: right;
+}
+>>>>>>> master

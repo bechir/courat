@@ -7,6 +7,11 @@ admin:
     type: annotation
     prefix: /fr
 
+api:
+    resource: ../../src/Controller/Api/
+    type: annotation
+    prefix: /api/
+
 kernel:
     resource: ../../src/Kernel.php
     type: annotation

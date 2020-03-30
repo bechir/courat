@@ -1,9 +1,12 @@
 <?php
 
 /*
- * This file is part of the Rim Edu application.
+ * This file is part of the COURAT application.
  *
- * By Bechir Ba and contributors
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace App\Repository;
@@ -24,33 +27,4 @@ class ClassRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Classe::class);
     }
-
-    // /**
-    //  * @return Classe[] Returns an array of Classe objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Classe
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

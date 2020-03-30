@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  {{ App.name }} &ndash; Cours de soutien en Mauritanie
+  {{ App.name }} &ndash; {{ 'app.title'|trans }}
 {% endblock %}
 
 {% block main %}
@@ -9,16 +9,16 @@
     <section id="hero">
       <div class="container-fluid m-0">
         <div class="row d-flex align-items-center">
-          <div class="col-lg-6 py-5 py-lg-0 order-2 order-lg-1 {{ locale() == 'fr' ? 'mr-auto' : 'ml-auto ar text-right' }}"
+          <div class="col-lg-6 py-5 py-lg-0 order-2 order-lg-1"
             data-aos="fade-right">
             <h2>
              {{ 'hero.about'|trans({'%app_name%': App.name|upper}) }}
             </h2>
-            <a href="#class" class="btn-get-started scrollto">{{ 'hero.courses'|trans}}</a>
+            <a href="#class" class="btn-get-started scrollto{{ locale() == 'ar' ? ' pull-right' : '' }}">{{ 'hero.courses'|trans}}</a>
             <a href=""
               data-toggle="modal"
               data-target="#schedule"
-              class="btn-get-started scrollto">
+              class="btn-get-started scrollto{{ locale() == 'ar' ? ' pull-right mr-2' : '' }}">
               {{ 'hero.planning'|trans|raw }}
             </a>
           </div>
@@ -45,7 +45,7 @@
             <div class="col-lg-12">
               <div class="row">
                 <!-- Class item -->
-                <a href="" class="col-md-4">
+                <a href="{{ path('course_index', {name: '6af'}) }}" class="col-md-4">
                   <div class="info-box mt-4">
                     <div class="circle-badge">
                       <strong>6<sup>eme</sup> AF</strong>
@@ -58,7 +58,7 @@
                 <!-- End of class item -->
 
                 <!-- Class item -->
-                <a href="" class="col-md-4">
+                <a href="{{ path('course_index', {name: '4as'}) }}" class="col-md-4">
                   <div class="info-box mt-4">
                     <div class="circle-badge">
                       <strong>4<sup>eme</sup> AS</strong>
@@ -71,7 +71,7 @@
                 <!-- End of class item -->
 
                 <!-- Class item -->
-                <a href="" class="col-md-4">
+                <a href="{{ path('course_index', {name: 'terminaleC'}) }}" class="col-md-4">
                   <div class="info-box mt-4">
                     <div class="circle-badge">
                       <strong>7<sup>eme</sup> C</strong>
@@ -84,7 +84,7 @@
                 <!-- End of class item -->
 
                 <!-- Class item -->
-                <a href="" class="col-md-4">
+                <a href="{{ path('course_index', {name: 'terminaleD'}) }}" class="col-md-4">
                   <div class="info-box mt-4">
                     <div class="circle-badge">
                       <strong>7<sup>eme</sup> D</strong>
@@ -97,7 +97,7 @@
                 <!-- End of class item -->
 
                 <!-- Class item -->
-                <a href="" class="col-md-4">
+                <a href="{{ path('course_index', {name: 'terminaleLM'}) }}" class="col-md-4">
                   <div class="info-box mt-4">
                     <div class="circle-badge">
                       <strong>7<sup>eme</sup> LM</strong>
@@ -110,7 +110,7 @@
                 <!-- End of class item -->
 
                 <!-- Class item -->
-                <a href="" class="col-md-4">
+                <a href="{{ path('course_index', {name: 'terminaleLO'}) }}" class="col-md-4">
                   <div class="info-box mt-4">
                     <div class="circle-badge">
                       <strong>7<sup>eme</sup> LO</strong>
@@ -147,7 +147,7 @@
                   class="img-fluid"
                   alt="" />
                 <div class="plateform-links">
-                  <a href="https://edu.med.mr/" target="_blank">
+                  <a href="https://edu.med.mr/">
                     <i class="icofont-eye"></i>  {{ 'platforms.visit'|trans}}
                   </a>
                 </div>
@@ -168,7 +168,7 @@
                   class="img-fluid"
                   alt="" />
                 <div class="plateform-links">
-                  <a href="https://guarrini.com/" target="_blank">
+                  <a href="https://guarrini.com/">
                     <i class="icofont-eye"></i> {{ 'platforms.visit'|trans}}
                   </a>
                 </div>
@@ -189,7 +189,7 @@
                   class="img-fluid"
                   alt="" />
                 <div class="plateform-links">
-                  <a href="http://dec.mr/igendoc/" target="_blank">
+                  <a href="http://dec.mr/igendoc/">
                     <i class="icofont-eye"></i> {{ 'platforms.visit'|trans}}
                   </a>
                 </div>
@@ -207,7 +207,6 @@
         </div>
       </section>
       <!-- End Plateforms Section -->
-      
 
       
     </main>

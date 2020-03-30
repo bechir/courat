@@ -9,6 +9,16 @@
     </div>
 
     <div class="col-sm-12 mb-5">
+        Classe
+        {{ form_widget(form.class, {'attr': {'class': 'custom-select input-lg'}})|html_entity_decode|raw }}
+    </div>
+
+    <div class="col-sm-12 mb-5">
+        Matière
+        {{ form_widget(form.subject, {'attr': {'class': 'custom-select input-lg'}}) }}
+    </div>
+
+    <div class="col-sm-12 mb-5">
         {{ form_label(form.videoUrl) }}
         {% if form_errors(form.videoUrl) %}
             <p class="alert alert-danger">{{ form_errors(form.videoUrl) }}</p>

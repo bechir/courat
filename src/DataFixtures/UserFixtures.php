@@ -1,9 +1,12 @@
 <?php
 
 /*
- * This file is part of the Rim Edu application.
+ * This file is part of the COURAT application.
  *
- * By Bechir Ba and contributors
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace App\DataFixtures;
@@ -39,7 +42,7 @@ class UserFixtures extends Fixture
     public function getUsers(): array
     {
         return [
-            ['rim-edu', '123456', ['ROLE_ADMIN']],
+            ['courat', '123456', ['ROLE_ADMIN']],
             ['demo', '123456', ['ROLE_USER']],
         ];
     }

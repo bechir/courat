@@ -54,10 +54,15 @@ $ cd courat/
 $ ./bin/phpunit
 ```
 
+Contributing
+------------
+Contributions Are Welcome! Please see [how to contribute page][8] for more details.
+
 [1]: https://symfony.com/
 [2]: https://getbootstrap.com
 [3]: https://symfony.com/doc/current/reference/requirements.html
 [4]: https://git-scm.com/docs/git-clone
 [5]: https://symfony.com/download
 [6]: https://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html
-[7]: http://courat.herokuapp.com
+[7]: https://courat.herokuapp.com
+[8]: https://github.com/rand0mdev/courat/blob/master/CONTRIBUTING.md

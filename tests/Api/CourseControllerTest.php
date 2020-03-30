@@ -1,28 +1,24 @@
 <?php
 
 /*
- * This file is part of the Rim Edu application.
+ * This file is part of the COURAT application.
  *
- * By Bechir Ba and contributors
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace App\Tests\Api;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-
-class CourseControllerTest extends WebTestCase
+class CourseControllerTest extends ApiTestCase
 {
-    const BASE_PATH = '/api/course/';
+    const PATH = self::BASE_PATH . 'course/';
 
-    public function testLatest()
+    public function testListing()
     {
-        $this->assertTrue(true);
-        // $client = static::createClient();
-        // $client->request('GET', self::BASE_PATH . 'latest');
+        $response = $this->client->request('GET', self::PATH . 'list');
 
-        // $response = $client->getResponse();
-
-        // $this->assertResponseIsSuccessful();
-        // $this->assertSelectorTextContains('h1', 'Hello World');
+        $this->assertResponse();
     }
 }

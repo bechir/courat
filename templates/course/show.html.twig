@@ -8,27 +8,27 @@
 {% block main %}
 	<section id="class" class="class section-bg mb-10">
 		<div class="container">
-
-
 			<div class="row">
 				<div class="col-md-12">
-					<h3>
+					<h3{{ locale() == 'ar' ? ' class="text-right"' : '' }}>
 						<b>{{ course.title }}</b>
 					</h3>
-					<div class="alert alert-primary" role="alert">
-						<i class="icofont-info-circle"></i>
-						&nbsp; Le cours de
-						<b>Sciences Naturelles</b>
-						commence à partir de la minute
-						<b>05:09</b>
-					</div>
+					<p{{ locale() == 'ar' ? ' class="text-right"' : '' }}><i class="far fa-clock"></i> {{ course.publishedAt|localizeddate('full', 'none', null)|capitalize }}</p>
+					{% if course.startTime %}
+						<div class="alert alert-primary" role="alert">
+							<i class="icofont-info-circle"></i>
+							{{ 'course.start_time_notice'|trans({
+								'%subject%': course.subject|trans,
+								'%time%': course.startTime|localizeddate('none', 'short', null)
+								})|raw
+							}}
+						</div>
+					{% endif %}
 					<hr>
 					<div class="vid">
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/pvbu0bNJh6s" allowfullscreen="yes"></iframe>
+						<iframe src="{{ course.videoUrl|replace({'watch?v=': 'embed/'}) }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					<!--./vid -->
-
-
 				</div>
 				<!--.col -->
 			</div>
@@ -37,6 +37,6 @@
 	</section>
 	<!-- End Classes Section -->
 	<p class="text-center btn-box">
-		<a href="{{ path('course_index',{name:course.classes[0].name})}}" class="btn-return"> {{ 'course.back'|trans }}</a>
+		<a href="{{ path('course_index',  {name: course.class.name}) }}" class="btn-return"> {{ 'course.back'|trans }}</a>
 	</p>
 {% endblock %}

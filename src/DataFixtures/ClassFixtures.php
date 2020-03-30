@@ -1,39 +1,67 @@
 <?php
 
 /*
- * This file is part of the Rim Edu application.
+ * This file is part of the COURAT application.
  *
- * By Bechir Ba and contributors
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace App\DataFixtures;
 
 use App\Entity\Classe;
+use App\Entity\Subject;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class ClassFixtures extends Fixture
+class ClassFixtures extends Fixture implements DependentFixtureInterface
 {
+    const SUBJECTS_6_AF = ['ar', 'fr', 'maths', 'ir'];
+    const SUBJECTS_4_AS = ['hg', 'sn', 'ic', 'ir', 'fr'];
+    const SUBJECTS_7_CD = ['sn', 'pc', 'maths'];
+    const SUBJECTS_7_LM = ['ar', 'dm', 'pi'];
+    const SUBJECTS_7_LO = ['ph', 'fr', 'ar'];
+
     public function load(ObjectManager $manager)
     {
-        foreach ($this->getClassNames() as $className) {
-            $class = (new Classe())
-                ->setName($className);
+        foreach ($this->getClassDatas() as [$classCode, $subjectCodes]) {
+            $class = new Classe();
+            $class->setName($classCode);
+            $class->setCode('class.' . $classCode);
+
+            foreach ($subjectCodes as $code) {
+                $subject = $manager->getRepository(Subject::class)->findOneBy(['code' => "subject.$code"]);
+
+                if ($subject) {
+                    $class->addSubject($subject);
+                }
+            }
+
             $manager->persist($class);
         }
 
         $manager->flush();
     }
 
-    public function getClassNames(): array
+    public function getClassDatas(): array
     {
         return [
-            '6af',
-            '4as',
-            'terminaleC',
-            'terminaleD',
-            'terminaleLM',
-            'terminaleLO',
+            ['6af',         self::SUBJECTS_6_AF],
+            ['4as',         self::SUBJECTS_4_AS],
+            ['terminaleC',  self::SUBJECTS_7_CD],
+            ['terminaleD',  self::SUBJECTS_7_CD],
+            ['terminaleLM', self::SUBJECTS_7_LM],
+            ['terminaleLO', self::SUBJECTS_7_LO],
+        ];
+    }
+
+    public function getDependencies()
+    {
+        return [
+            SubjectFixtures::class,
         ];
     }
 }
