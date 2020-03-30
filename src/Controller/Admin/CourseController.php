@@ -29,10 +29,12 @@ class CourseController extends AbstractController
      *
      * @Route("/", name="admin_courses", methods={"GET"})
      */
-    public function index(CourseRepository $courseRepository): Response
+    public function index(Request $request, CourseRepository $courseRepository): Response
     {
+        $courses = $courseRepository->adminPaginate($request->query->get('page', 1));
+
         return $this->render('admin/course/index.html.twig', [
-            'courses' => $courseRepository->findAll(),
+            'courses' => $courses,
         ]);
     }
 

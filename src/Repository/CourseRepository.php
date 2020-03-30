@@ -50,6 +50,20 @@ class CourseRepository extends ServiceEntityRepository
         );
     }
 
+    public function adminPaginate(int $page)
+    {
+        $query = $this->createQueryBuilder('c')
+            ->leftJoin('c.class', 'cr')
+                ->addSelect('cr')
+            ->orderBy('c.addedAt', 'DESC');
+
+        return $this->paginator->paginate(
+            $query,
+            $page,
+            Course::NB_COURSES_PER_PAGE
+        );
+    }
+
     public function getLatest()
     {
         return $this->createQueryBuilder('c')

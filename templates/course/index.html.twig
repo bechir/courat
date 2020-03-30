@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% set title = 'courses.title'|trans({'%class%': ('class.' ~ class.name)|trans|raw }) %}
+{% set title = 'courses.title'|trans({'%class%': class.name|trans|raw }) %}
 
 {% block title %}
 	{{ title|striptags }}
@@ -17,19 +17,9 @@
 				<div class="col-md-12">
 					<h3{{ locale() == 'ar' ? ' class="text-right"' : '' }}>
 						<b>{{ 'courses.class'|trans }} :</b>
-						<span class="badge badge-secondary">{{ ('class.' ~ class.name)|trans|raw }}</span>
+						<span class="badge badge-secondary">{{ class.name|trans|raw }}</span>
 					</h3>
 					<hr>
-					{#<div class="form-row align-items-center mt-5 mb-3 pb-2 border-bottom">
-						<div class="col-8 col-sm-6 col-lg-3">
-						  <select class="selectpicker show-tick form-control" data-size="10" data-live-search="true" data-style="btn-success">
-							<option selected>Toutes les matières</option>
-							{% for subject in class.subjects %}
-								<option value="{{ subject }}">{{ ('subject.' ~ subject)|trans }}</option>
-							{% endfor %}
-						  </select>
-						</div>
-					</div>#}
 					<div class="row">
 						<div class="col-md-12">
 							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -38,7 +28,7 @@
 										<div class="panel panel-default custom-panel">
 											<div class="panel-heading {{ locale() }}" role="tab" id="heading{{ subject }}">
 												<div class="title px-3 text-{{ locale() == 'fr' ? 'left' : 'right' }}" data-role="title" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ subject }}" aria-expanded="false" aria-controls="collapse{{ subject }}">
-													<strong>{{ ('subject.' ~ subject)|trans }}</strong>
+													<strong>{{ subject|trans }}</strong>
 												</div>
 											</div>
 											<div id="collapse{{ subject }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ subject }}">

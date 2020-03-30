@@ -20,6 +20,14 @@
                 <td>{{ course.title }}</td>
             </tr>
             <tr>
+                <th>Classe</th>
+                <td>{{ course.class|trans|raw }}</td>
+            </tr>
+            <tr>
+                <th>Matière</th>
+                <td>{{ course.subject|trans }}</td>
+            </tr>
+            <tr>
                 <th>VideoUrl</th>
                 <td>{{ course.videoUrl }}</td>
             </tr>

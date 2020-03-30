@@ -21,7 +21,7 @@ class SubjectFixtures extends Fixture
     {
         foreach ($this->getSubjectCodes() as $code) {
             $subject = new Subject();
-            $subject->setCode($code);
+            $subject->setCode('subject.' . $code);
 
             $manager->persist($subject);
         }

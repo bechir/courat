@@ -29,7 +29,7 @@ class ClassFixtures extends Fixture implements DependentFixtureInterface
     {
         foreach ($this->getClassDatas() as [$className, $subjectCodes]) {
             $class = new Classe();
-            $class->setName($className);
+            $class->setName('class.' . $className);
 
             foreach ($subjectCodes as $code) {
                 $subject = $manager->getRepository(Subject::class)->findOneBy(['code' => $code]);

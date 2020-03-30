@@ -15,13 +15,18 @@
 					<h3>
 						<b>{{ course.title }}</b>
 					</h3>
-					<div class="alert alert-primary" role="alert">
-						<i class="icofont-info-circle"></i>
-						&nbsp; Le cours de
-						<b>Sciences Naturelles</b>
-						commence à partir de la minute
-						<b>05:09</b>
-					</div>
+					{% if course.startTime %}
+						<pre>
+							{{ dump(course.startTime) }}
+						</pre>
+						<div class="alert alert-primary" role="alert">
+							<i class="icofont-info-circle"></i>
+							&nbsp; Le cours de
+							<b>Sciences Naturelles</b>
+							commence à partir de la minute
+							<b>05:09</b>
+						</div>
+					{% endif %}
 					<hr>
 					<div class="vid">
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/pvbu0bNJh6s" allowfullscreen="yes"></iframe>
