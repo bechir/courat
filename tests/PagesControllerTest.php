@@ -25,10 +25,6 @@ class DefaultControllerTest extends WebTestCase
         $client = self::createClient();
         $client->request('GET', $url);
 
-        // dd($client->getResponse()->getStatusCode());
-
-        // dd($client->getResponse());
-
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 

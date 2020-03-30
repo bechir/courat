@@ -11,21 +11,14 @@
 
 namespace App\Tests\Api;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-
-class CourseControllerTest extends WebTestCase
+class CourseControllerTest extends ApiTestCase
 {
-    const BASE_PATH = '/api/course/';
+    const PATH = self::BASE_PATH . 'course/';
 
-    public function testLatest()
+    public function testListing()
     {
-        $this->assertTrue(true);
-        // $client = static::createClient();
-        // $client->request('GET', self::BASE_PATH . 'latest');
+        $response = $this->client->request('GET', self::PATH . 'list');
 
-        // $response = $client->getResponse();
-
-        // $this->assertResponseIsSuccessful();
-        // $this->assertSelectorTextContains('h1', 'Hello World');
+        $this->assertResponse();
     }
 }
