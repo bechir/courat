@@ -114,3 +114,24 @@ planning:
   title:  PLANNING DES COURS
   direct: En direct
   rediff: Rediffusion
+  change: Ce planning est succeptible de changer à tout moment
+  lun:  Lundi
+  mar:	Mardi
+  mer:	Mercredi
+  jeu:	Jeudi
+  ven:	Vendredi
+  sam:	Samedi
+  dim:	Dimanche
+  field:	Matière
+  hour: Heure
+  5pm:  17h00
+  11pm: 11h00
+  ar: Arabe
+  fr: Français
+  math: Mathématiques
+  ir: Instruction Réligieuse 
+  sn: Sciences 
+  pc: Physique Chimie
+  droit-m:  Droit Musulman
+  pens-isl: Pensée Islamique
+  philo:  Philosophie

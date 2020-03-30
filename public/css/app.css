@@ -146,7 +146,7 @@ body {
     color: #35404f;
     border-radius: 50px;
     margin: 2px 0 0 15px;
-    padding: 5px 25px 4px 25px;
+    padding: 5px 15px 5px 15px;
     border: 1px solid #fff;
   }
   
@@ -388,6 +388,13 @@ body {
     transition: all ease-in-out 0.3s;
     display: inline-block;
     background: #35404f;
+  }
+
+  @media (max-width: 768px) {
+    #hero .btn-get-started {
+      padding: 5px 15px 5px 15px;
+    }
+
   }
   
   #hero .btn-get-started:hover {
@@ -808,40 +815,53 @@ body {
   }
 
   /* Timeline */
-  ul.timeline {
-    list-style-type: none;
-    position: relative;
-  }
-  ul.timeline:before {
-    content: " ";
-    background: #d4d9df;
-    display: inline-block;
-    position: absolute;
-    left: 29px;
-    width: 2px;
-    height: 100%;
-    z-index: 400;
-  }
-  ul.timeline > li {
-    margin: 20px 0;
-    padding-left: 20px;
-  }
-  ul.timeline > li:before {
-    content: " ";
-    background: white;
-    display: inline-block;
-    position: absolute;
-    border-radius: 50%;
-    border: 3px solid #129b00;
-    left: 20px;
-    width: 20px;
-    height: 20px;
-    z-index: 400;
+  .planning main {
+    min-width: 320px;
+    max-width: 1100px;
+    padding: 10px;
+    margin: 0 auto;
+    background: #fff;
   }
   
-  .timeline h3 {
-    font-family: "Cairo", sans-serif;
-    font-weight: bold;
+  .planning section {
+    display: none;
+    padding: 5px 0 0;
+    border-top: 1px solid #ddd;
+  }
+  
+  .planning input {
+    display: none;
+  }
+  
+  .planning label {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 5px 5px;
+    font-weight: 600;
+    text-align: center;
+    color: #bbb;
+    border: 1px solid transparent;
+  }
+  
+  .planning label:hover {
+    color: #888;
+    cursor: pointer;
+  }
+  
+  .planning input:checked + label {
+    color: #555;
+    border: 1px solid #ddd;
+    border-top: 2px solid #129b00;
+    border-bottom: 1px solid #fff;
+  }
+  
+  .planning #tab1:checked ~ #content1,
+  .planning #tab2:checked ~ #content2,
+  .planning #tab3:checked ~ #content3,
+  .planning #tab4:checked ~ #content4,
+  .planning #tab5:checked ~ #content5, 
+  .planning #tab6:checked ~ #content6 {
+    display: block;
   }
   
   /*Course Detail Style*/
@@ -978,3 +998,5 @@ nav .nav-links a:active {
 body[dir="rtl"] .mobile-nav a {
   text-align: right;
 }
+
+
