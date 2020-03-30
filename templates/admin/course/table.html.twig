@@ -19,7 +19,7 @@
                             <a class="mx-2 edit-item" href="{{ path('course_show', {id: course.id}) }}" target="_blank">
                                 <i class="fa fa-lg fa-external-link"></i>
                             </a>
-                            <a class="mx-2 edit-item" data-placement="top" style="cursor:pointer;" title="Modifier" href="">
+                            <a class="mx-2 edit-item" data-placement="top" style="cursor:pointer;" title="Modifier" href="{{ path('admin_course_edit', {id: course.id}) }}">
                                 <i class="lnr lnr-pencil text-primary"></i>
                             </a>
                         </div>

@@ -41,9 +41,11 @@ jQuery(function ($) {
 
     $(".time").datetimepicker({
         format: 'HH:mm',
+        dateFormat: '',
+        timeOnly: true,
         autoclose:true,
         locale: 'fr',
-        todayHighlight: true,
+        pickDate: false,
     });
 
     imagefile.change(function(){
