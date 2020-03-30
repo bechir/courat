@@ -13,6 +13,7 @@
 					<h3{{ locale() == 'ar' ? ' class="text-right"' : '' }}>
 						<b>{{ course.title }}</b>
 					</h3>
+					<p{{ locale() == 'ar' ? ' class="text-right"' : '' }}><i class="far fa-clock"></i> {{ course.publishedAt|localizeddate('full', 'none', null)|capitalize }}</p>
 					{% if course.startTime %}
 						<div class="alert alert-primary" role="alert">
 							<i class="icofont-info-circle"></i>

@@ -11,7 +11,6 @@
 
 namespace App\Controller\Api;
 
-use App\Entity\Subject;
 use App\Repository\SubjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

@@ -20,3 +20,5 @@
 ###< friendsofphp/php-cs-fixer ###
 
 /.DS_Store
+
+/src/Controller/Admin/tmp/

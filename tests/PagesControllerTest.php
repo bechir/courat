@@ -56,6 +56,8 @@ class DefaultControllerTest extends WebTestCase
             $makeUrl('course_index.ar', ['name' => 'terminaleLM']),
         ];
 
-        return [...array_map(fn ($url) => [$url], $urls)];
+        return array_map(function ($url) {
+            return [$url];
+        }, $urls);
     }
 }
