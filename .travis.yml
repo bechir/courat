@@ -20,7 +20,7 @@ deploy:
     secure: $HEROKU_SECRET_KEY
     
   app:
-    master: courat
+    1.0: courat
   run:
   - "./bin/console doctrine:migrations:migrate --no-interaction"
   - "./bin/phpunit"
