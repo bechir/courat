@@ -9,7 +9,7 @@
     <section id="hero">
       <div class="container-fluid m-0">
         <div class="row d-flex align-items-center">
-          <div class="col-lg-6 py-5 py-lg-0 order-2 order-lg-1"
+          <div class="col-lg-6 py-5 py-lg-0 order-2 order-lg-1 {{ locale() == 'fr' ? 'mr-auto' : 'ml-auto ar text-right' }}"
             data-aos="fade-right">
             <h2>
              {{ 'hero.about'|trans({'%app_name%': App.name|upper}) }}
@@ -147,7 +147,7 @@
                   class="img-fluid"
                   alt="" />
                 <div class="plateform-links">
-                  <a href="https://edu.med.mr/">
+                  <a href="https://edu.med.mr/" target="_blank">
                     <i class="icofont-eye"></i>  {{ 'platforms.visit'|trans}}
                   </a>
                 </div>
@@ -168,7 +168,7 @@
                   class="img-fluid"
                   alt="" />
                 <div class="plateform-links">
-                  <a href="https://guarrini.com/">
+                  <a href="https://guarrini.com/" target="_blank">
                     <i class="icofont-eye"></i> {{ 'platforms.visit'|trans}}
                   </a>
                 </div>
@@ -189,7 +189,7 @@
                   class="img-fluid"
                   alt="" />
                 <div class="plateform-links">
-                  <a href="http://dec.mr/igendoc/">
+                  <a href="http://dec.mr/igendoc/" target="_blank">
                     <i class="icofont-eye"></i> {{ 'platforms.visit'|trans}}
                   </a>
                 </div>
@@ -207,6 +207,7 @@
         </div>
       </section>
       <!-- End Plateforms Section -->
+      
 
       
     </main>

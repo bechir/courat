@@ -109,3 +109,8 @@ footer:
 
 course:
   back: REVENIR EN ARRIERE
+
+planning:
+  title:  PLANNING DES COURS
+  direct: En direct
+  rediff: Rediffusion

@@ -101,6 +101,30 @@ footer:
   dev: Made with <i class="icofont-heart-alt hr-cp"></i> by <a href="https://github.com/rand0mdev">rand0mDev</a>
   credits: برعاية <a href="https://www.iprod.mr/">iProd technology ®</a>
 
-
 course:
   back: الرجوع إلى الوراء
+
+planning:
+  title:  جدول الحصص
+  direct: مباشر
+  rediff: إعادة
+  change: يمكن أن يتغيير هذا الجدول في أي وقت
+  lun:  الإثنين
+  mar:	الثلاثاء
+  mer:	الأربعاء
+  jeu:	الخميس
+  ven:	الجمعة
+  sam:	السبت
+  dim:	الأحد
+  field:	المادة
+  hour: الساعة
+  5pm:  الخامسة مساء
+  11pm: الحادية عشرة صباحا
+  ar: العربية
+  fr: الفرنسية
+  math: الرياضيات
+  ir: التربية الإسلامية 
+  sn: العلوم 
+  pc: الفيزياء و الكيمياء
+  droit-m:  التشريع الإسلامي 
+  pens-isl: الفكر الإسلامي 
