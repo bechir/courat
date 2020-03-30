@@ -26,7 +26,7 @@
 					{% endif %}
 					<hr>
 					<div class="vid">
-						<iframe src="{{ course.videoUrl|replace({'watch?v=': 'embed/'}) }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe src="{{ course.videoUrl|replace({'watch?v=': 'embed/'}) }}" style="overflow:hidden;height:100%;width:100%" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					<!--./vid -->
 				</div>

@@ -40,18 +40,15 @@ contact:
   send: Envoyer le message
 
 subject:
-  ar: اللغة العربية
-  eng: الإنجليزية
+  ar:  العربية
   maths: الرياضيات
   fr: الفرنسية
-  pc: Physique-Chime
-  hg: Histoire Géo
-  sn: Sciences Naturelles
-  ic: IC
-  ir: Instruction Religieuse
-  dm: الشريعة الإسلامية
+  pc: الفيزياء و الكيمياء
+  sn: العلوم
+  ir: التربية الإسلامية
+  dm: التشريع الإسلامي
   pi: الفكر الإسلامي
-  ph: فلسفة
+  ph: الفلسفة
 
 courses:
   class:  فصل
@@ -112,9 +109,9 @@ user:
 
 footer:
   follow: تابعونا على
-  copyright: © 2020 <a href="https://www.rimacademy.net">Rim Academy. </a>All rights reserved
-  dev: Made with <i class="icofont-heart-alt hr-cp"></i> by <a href="https://github.com/rand0mdev">rand0mDev</a>
-  credits: برعاية <a href="https://www.iprod.mr/">iProd technology ®</a>
+  copyright: © 2020 <a href="https://www.rimacademy.net">Rim Academy. </a>جميع الحقوق محفوظة 
+  dev: مطور ب <i class="icofont-heart-alt hr-cp"></i> من طرف <a href="https://github.com/rand0mdev">rand0mDev</a>
+  credits: برعاية  <a href="https://www.iprod.mr/">iProd technology ®</a>
 
 planning:
   title:  جدول الحصص
