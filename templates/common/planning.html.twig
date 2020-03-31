@@ -1,427 +1,989 @@
+<!-- Schedule Modal -->
+<div class="modal fade" id="schedule" tabindex="-1" role="dialog" aria-labelledby="schedule" aria-hidden="true">
+	<div class="modal-center">
+		<div class="modal-dialog .modal-align-center modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">
+						{{ 'planning.title'|trans }}
+					</h4>
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">×</span>
+						<span class="sr-only">Close</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container planning {{ locale() == 'fr' ? 'mr-auto' : 'ml-auto ar text-right' }}">
+						<input id="tab1" type="radio" name="tabs" checked>
+						<label for="tab1">6<sup>eme</sup>
+							AF</label>
+
+						<input id="tab2" type="radio" name="tabs">
+						<label for="tab2">4<sup>eme</sup>
+							AS</label>
+
+						<input id="tab3" type="radio" name="tabs">
+						<label for="tab3">7C</label>
+
+						<input id="tab4" type="radio" name="tabs">
+						<label for="tab4">7D</label>
+
+						<input id="tab5" type="radio" name="tabs">
+						<label for="tab5">7LO</label>
+
+						<input id="tab6" type="radio" name="tabs">
+						<label for="tab6">7LM</label>
+
+						<section id="content1">
+							<p>
+								{# 6AF Class planning #}
+
+								<h3>
+									<b>
+										<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
+									</b>
+								</h3>
+							</p>
+							<p>
+								<i class="icofont-clock-time"></i>
+								<b>{{ 'planning.hour'|trans }}
+									:</b>
+								{{ 'planning.5pm'|trans }}
+								({{ 'planning.direct'|trans }})
+								<br>
+								<i class="icofont-book-alt"></i>
+								<b>{{ 'planning.field'|trans }}
+									:</b>
+								{{ 'planning.ar'|trans }}
+								-
+								{{ 'planning.fr'|trans }}
+							</p>
+							<hr>
+							<h3>
+								<b>
+									<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+								</b>
+							</h3>
+							<p>
+								<i class="icofont-clock-time"></i>
+								<b>{{ 'planning.hour'|trans }}
+									:</b>
+								{{ 'planning.11pm'|trans }}
+								({{ 'planning.rediff'|trans }})
+								<br>
+								<i class="icofont-book-alt"></i>
+								<b>{{ 'planning.field'|trans }}
+									:</b>
+								{{ 'planning.ar'|trans }}
+								-
+								{{ 'planning.fr'|trans }}
+							</p>
+							<p>
+								<i class="icofont-clock-time"></i>
+								<b>{{ 'planning.hour'|trans }}
+									:</b>
+								{{ 'planning.5pm'|trans }}
+								({{ 'planning.direct'|trans }})
+								<br>
+								<i class="icofont-book-alt"></i>
+								<b>{{ 'planning.field'|trans }}
+									:</b>
+								{{ 'planning.math'|trans }}
+								-
+								{{ 'planning.ir'|trans }}
+							</p>
+							<hr>
+							<h3>
+								<b>
+									<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+								</b>
+							</h3>
+							<p>
+								<i class="icofont-clock-time"></i>
+								<b>{{ 'planning.hour'|trans }}
+									:</b>
+								{{ 'planning.11pm'|trans }}
+								({{ 'planning.rediff'|trans }})
+								<br>
+								<i class="icofont-book-alt"></i>
+								<b>{{ 'planning.field'|trans }}
+									:</b>
+								{{ 'planning.math'|trans }}
+								-
+								{{ 'planning.ir'|trans }}
+							</p>
+
+							{# End of class planning #}
 
 
- <!-- Schedule Modal -->
-    <div class="modal fade"
-      id="schedule"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="schedule"
-      aria-hidden="true">
-      <div class="modal-center">
-        <div class="modal-dialog .modal-align-center modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">
-                Planning des cours
-              </h4>
-              <button type="button" class="close" data-dismiss="modal">
-                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-12">
-                  
-                  <ul class="timeline">
-                  {% if plannings is defined %}
-                    
-                  
-                    {% for classe in classes %}
-                        <h3>{{ classe.name }}</h3>
-                            {% for day in days %}
-                              {% set dayExist = 0 %}
-                              {% set andSubject = 0 %}                     
-                                {% for planning in plannings %}
-                                    {% if day.name == planning.day.name %}
-                                        {% for class in planning.classes %}
-                                            {% if class.name == classe.name %}
-                                                
-                                                    {% if dayExist == 0 %}
-                                                      <li>  
-                                                        <a target="" href="">
-                                                        <b>
-                                                            <i class="icofont-clock-time"></i> En direct : {{planning.day.name}} à
-                                                        17h00 - Rediffusion : aulendemain à 11h
-                                                        </b>  
-                                                        </a> 
-                                                        <p>
-                                                        <b><i class="icofont-book-alt"></i> Matière :</b>
-                                                        {% set dayExist = 1 %} 
-                                                    {% endif %}
-                                                    
-                                                        {% for subject in planning.subjects %}
-                                                          {% if andSubject == 1  %}
-                                                            et 
-                                                          {% endif %}  {{ subject.code }}
-                                                          {% set andSubject = 1 %}
-                                                        {% endfor %}           
-                                            {% endif %}
-                                        {% endfor %}
-                                    {% endif %}
-                                {% endfor %}
-                                                    </p>
-                                                </li>
-                                            
-                            {% endfor %}
-                        <hr />
-                    {% endfor %}  
-                    {% endif %}
-                  </ul>
+						</p>
+					</section>
 
-                  {# <ul class="timeline">
-                    <h3>
-                      <b>6<sup>eme</sup> AF</b>
-                    </h3>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Lundi à
-                          17h00 - Rediffusion : Mardi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Arabe et
-                        Français
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Mardi à
-                          17h00 - Rediffusion : Mercredi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Mathématiques
-                        et Instruction Religieuse
-                      </p>
-                    </li>
-                    <hr />
-                    <h3>
-                      <b>4<sup>eme</sup> AS</b>
-                    </h3>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Lundi à
-                          17h00 - Rediffusion : Mardi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Mathématiques
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Mercredi
-                          à 17h00 - Rediffusion : Jeudi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Arabe
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Jeudi à
-                          17h00 - Rediffusion : Vendredi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Français
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Vendredi
-                          à 17h00 - Rediffusion : Samedi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Mathématiques
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Samedi à
-                          17h00 - Rediffusion : Dimanche à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Arabe
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Dimanche
-                          à 17h00 - Rediffusion : Lundi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Français
-                      </p>
-                    </li>
-                    <hr />
-                    <h3>
-                      <b>7<sup>eme</sup> C</b>
-                    </h3>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Mardi à
-                          17h00 - Rediffusion : Mercredi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Mathématiques
-                        et Sciences
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Jeudi à
-                          17h00 - Rediffusion : Vendredi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Physique
-                        Chimie
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Vendredi
-                          à 17h00 - Rediffusion : Samedi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Mathématiques
-                        et Sciences
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Samedi à
-                          17h00 - Rediffusion : Dimanche à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Physique
-                        Chimie
-                      </p>
-                    </li>
-                    <hr />
-                    <h3>
-                      <b>7<sup>eme</sup> D</b>
-                    </h3>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Mardi à
-                          17h00 - Rediffusion : Mercredi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b>Sciences
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Jeudi à
-                          17h00 - Rediffusion : Vendredi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Physique
-                        Chimie et Mathématiques
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Samedi à
-                          17h00 - Rediffusion : Dimanche à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Physique
-                        Chimie et Sciences
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Dimanche
-                          à 17h00 - Rediffusion : Lundi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Mathématiques
-                      </p>
-                    </li>
-                    <hr />
-                    <h3>
-                      <b>7<sup>eme</sup> LO</b>
-                    </h3>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Mardi à
-                          17h00 - Rediffusion : Mercredi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Arabe
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Mercredi
-                          à 17h00 - Rediffusion : Jeudi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Droit Musulman
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Jeudi à
-                          17h00 - Rediffusion : Vendredi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Arabe
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Vendredi
-                          à 17h00 - Rediffusion : Samedi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Pensée
-                        Islamique
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Samedi à
-                          17h00 - Rediffusion : Dimanche à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Droit Musulman
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Dimanche
-                          à 17h00 - Rediffusion : Lundi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Pensée
-                        Islamique
-                      </p>
-                    </li>
-                    <hr />
-                    <h3>
-                      <b>7<sup>eme</sup> LM</b>
-                    </h3>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Mardi à
-                          17h00 - Rediffusion : Mercredi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Arabe
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Mercredi
-                          à 17h00 - Rediffusion : Jeudi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Français
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Jeudi à
-                          17h00 - Rediffusion : Vendredi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Arabe
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Vendredi
-                          à 17h00 - Rediffusion : Samedi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Philosophie
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Samedi à
-                          17h00 - Rediffusion : Dimanche à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Français
-                      </p>
-                    </li>
-                    <li>
-                      <a target="" href="">
-                        <b>
-                          <i class="icofont-clock-time"></i> En direct : Dimanche
-                          à 17h00 - Rediffusion : Lundi à 11h
-                        </b>
-                      </a>
-                      <p>
-                        <b><i class="icofont-book-alt"></i> Matière :</b> Philosophie
-                      </p>
-                    </li>
-                  </ul> #}
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <small>
-                <i class="icofont-info-circle"></i> Ce planning peut changer à tout
-                moment.
-              </small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End of Schedule Modal -->
+					<section id="content2">
+						<p>
+							<h3>
+								<b>
+									<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
+								</b>
+							</h3>
+						</p>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.11pm'|trans }}
+							({{ 'planning.rediff'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.fr'|trans }}
+						</p>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.5pm'|trans }}
+							({{ 'planning.direct'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.math'|trans }}
+						</p>
+						<hr>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+							</b>
+						</h3>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.11pm'|trans }}
+							({{ 'planning.rediff'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.math'|trans }}
+						</p>
+						<hr>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+							</b>
+						</h3>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.5pm'|trans }}
+							({{ 'planning.direct'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.ar'|trans }}
+						</p>
+						<hr>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
+							</b>
+						</h3>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.11pm'|trans }}
+							({{ 'planning.rediff'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.ar'|trans }}
+						</p>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.5pm'|trans }}
+							({{ 'planning.direct'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.fr'|trans }}
+						</p>
+						<hr>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
+							</b>
+						</h3>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.11pm'|trans }}
+							({{ 'planning.rediff'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.fr'|trans }}
+						</p>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.5pm'|trans }}
+							({{ 'planning.direct'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.math'|trans }}
+						</p>
+						<hr>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
+							</b>
+						</h3>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.11pm'|trans }}
+							({{ 'planning.rediff'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.math'|trans }}
+						</p>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.5pm'|trans }}
+							({{ 'planning.direct'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.ar'|trans }}
+						</p>
+						<hr>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
+							</b>
+						</h3>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.11pm'|trans }}
+							({{ 'planning.rediff'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.ar'|trans }}
+						</p>
+						<p>
+							<i class="icofont-clock-time"></i>
+							<b>{{ 'planning.hour'|trans }}
+								:</b>
+							{{ 'planning.5pm'|trans }}
+							({{ 'planning.direct'|trans }})
+							<br>
+							<i class="icofont-book-alt"></i>
+							<b>{{ 'planning.field'|trans }}
+								:</b>
+							{{ 'planning.fr'|trans }}
+						</p>
+
+
+					</p>
+				</section>
+
+				<section id="content3">
+					<p>
+						<h3>
+							<b>
+								<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+							</b>
+						</h3>
+					</p>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.5pm'|trans }}
+						({{ 'planning.direct'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.math'|trans }}
+						-
+						{{ 'planning.sn'|trans }}
+					</p>
+					<hr>
+					<h3>
+						<b>
+							<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+						</b>
+					</h3>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.11pm'|trans }}
+						({{ 'planning.rediff'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.math'|trans }}
+						-
+						{{ 'planning.sn'|trans }}
+					</p>
+					<hr>
+					<h3>
+						<b>
+							<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
+						</b>
+					</h3>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.5pm'|trans }}
+						({{ 'planning.direct'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.pc'|trans }}
+					</p>
+					<hr>
+					<h3>
+						<b>
+							<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
+						</b>
+					</h3>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.11pm'|trans }}
+						({{ 'planning.rediff'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.pc'|trans }}
+					</p>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.5pm'|trans }}
+						({{ 'planning.direct'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.math'|trans }}
+						-
+						{{ 'planning.sn'|trans }}
+					</p>
+					<hr>
+					<h3>
+						<b>
+							<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
+						</b>
+					</h3>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.11pm'|trans }}
+						({{ 'planning.rediff'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.math'|trans }}
+						-
+						{{ 'planning.sn'|trans }}
+					</p>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.5pm'|trans }}
+						({{ 'planning.direct'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.pc'|trans }}
+					</p>
+					<hr>
+					<h3>
+						<b>
+							<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
+						</b>
+					</h3>
+					<p>
+						<i class="icofont-clock-time"></i>
+						<b>{{ 'planning.hour'|trans }}
+							:</b>
+						{{ 'planning.11pm'|trans }}
+						({{ 'planning.rediff'|trans }})
+						<br>
+						<i class="icofont-book-alt"></i>
+						<b>{{ 'planning.field'|trans }}
+							:</b>
+						{{ 'planning.pc'|trans }}
+					</p>
+				
+			</section>
+
+			<section id="content4">
+				<p>
+					<h3>
+						<b>
+							<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
+						</b>
+					</h3>
+				</p>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.11pm'|trans }}
+					({{ 'planning.rediff'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.math'|trans }}
+				</p>
+				<hr>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+					</b>
+				</h3>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.5pm'|trans }}
+					({{ 'planning.direct'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.sn'|trans }}
+				</p>
+				<hr>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+					</b>
+				</h3>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.11pm'|trans }}
+					({{ 'planning.rediff'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.sn'|trans }}
+				</p>
+				<hr>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
+					</b>
+				</h3>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.5pm'|trans }}
+					({{ 'planning.direct'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.pc'|trans }}
+					-
+					{{ 'planning.math'|trans }}
+				</p>
+				<hr>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
+					</b>
+				</h3>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.11pm'|trans }}
+					({{ 'planning.rediff'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.pc'|trans }}
+					-
+					{{ 'planning.math'|trans }}
+				</p>
+				<hr>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
+					</b>
+				</h3>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.5pm'|trans }}
+					({{ 'planning.direct'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.pc'|trans }}
+					-
+					{{ 'planning.sn'|trans }}
+				</p>
+				<hr>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
+					</b>
+				</h3>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.11pm'|trans }}
+					({{ 'planning.rediff'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.pc'|trans }}
+					-
+					{{ 'planning.sn'|trans }}
+				</p>
+				<p>
+					<i class="icofont-clock-time"></i>
+					<b>{{ 'planning.hour'|trans }}
+						:</b>
+					{{ 'planning.5pm'|trans }}
+					({{ 'planning.direct'|trans }})
+					<br>
+					<i class="icofont-book-alt"></i>
+					<b>{{ 'planning.field'|trans }}
+						:</b>
+					{{ 'planning.math'|trans }}
+				</p>
+			</p>
+		</section>
+		<section id="content5">
+			<p>
+				<h3>
+					<b>
+						<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
+					</b>
+				</h3>
+			</p>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.11pm'|trans }}
+				({{ 'planning.rediff'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.pens-isl'|trans }}
+			</p>
+			<hr>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+				</b>
+			</h3>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.5pm'|trans }}
+				({{ 'planning.direct'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.ar'|trans }}
+			</p>
+			<hr>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+				</b>
+			</h3>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.11pm'|trans }}
+				({{ 'planning.rediff'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.ar'|trans }}
+			</p>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.5pm'|trans }}
+				({{ 'planning.direct'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.droit-m'|trans }}
+			</p>
+			<hr>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
+				</b>
+			</h3>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.11pm'|trans }}
+				({{ 'planning.rediff'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.droit-m'|trans }}
+			</p>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.5pm'|trans }}
+				({{ 'planning.direct'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.ar'|trans }}
+			</p>
+			<hr>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
+				</b>
+			</h3>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.11pm'|trans }}
+				({{ 'planning.rediff'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.ar'|trans }}
+			</p>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.5pm'|trans }}
+				({{ 'planning.direct'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.pens-isl'|trans }}
+			</p>
+			<hr>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
+				</b>
+			</h3>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.11pm'|trans }}
+				({{ 'planning.rediff'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.pens-isl'|trans }}
+			</p>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.5pm'|trans }}
+				({{ 'planning.direct'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.droit-m'|trans }}
+			</p>
+			<hr>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
+				</b>
+			</h3>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.11pm'|trans }}
+				({{ 'planning.rediff'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.droit-m'|trans }}
+			</p>
+			<p>
+				<i class="icofont-clock-time"></i>
+				<b>{{ 'planning.hour'|trans }}
+					:</b>
+				{{ 'planning.5pm'|trans }}
+				({{ 'planning.direct'|trans }})
+				<br>
+				<i class="icofont-book-alt"></i>
+				<b>{{ 'planning.field'|trans }}
+					:</b>
+				{{ 'planning.pens-isl'|trans }}
+			</p>
+		</p>
+	</section>
+	<section id="content6">
+		<p>
+			<h3>
+				<b>
+					<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
+				</b>
+			</h3>
+		</p>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.11pm'|trans }}
+			({{ 'planning.rediff'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.philo'|trans }}
+		</p>
+		<hr>
+		<h3>
+			<b>
+				<span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+			</b>
+		</h3>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.5pm'|trans }}
+			({{ 'planning.direct'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.ar'|trans }}
+		</p>
+		<hr>
+		<h3>
+			<b>
+				<span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+			</b>
+		</h3>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.11pm'|trans }}
+			({{ 'planning.rediff'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.ar'|trans }}
+		</p>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.5pm'|trans }}
+			({{ 'planning.direct'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.fr'|trans }}
+		</p>
+		<hr>
+		<h3>
+			<b>
+				<span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
+			</b>
+		</h3>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.11pm'|trans }}
+			({{ 'planning.rediff'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.fr'|trans }}
+		</p>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.5pm'|trans }}
+			({{ 'planning.direct'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.ar'|trans }}
+		</p>
+		<hr>
+		<h3>
+			<b>
+				<span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
+			</b>
+		</h3>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.11pm'|trans }}
+			({{ 'planning.rediff'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.ar'|trans }}
+		</p>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.5pm'|trans }}
+			({{ 'planning.direct'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.philo'|trans }}
+		</p>
+		<hr>
+		<h3>
+			<b>
+				<span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
+			</b>
+		</h3>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.11pm'|trans }}
+			({{ 'planning.rediff'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.philo'|trans }}
+		</p>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.5pm'|trans }}
+			({{ 'planning.direct'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.fr'|trans }}
+		</p>
+		<hr>
+		<h3>
+			<b>
+				<span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
+			</b>
+		</h3>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.11pm'|trans }}
+			({{ 'planning.rediff'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.fr'|trans }}
+		</p>
+		<p>
+			<i class="icofont-clock-time"></i>
+			<b>{{ 'planning.hour'|trans }}
+				:</b>
+			{{ 'planning.5pm'|trans }}
+			({{ 'planning.direct'|trans }})
+			<br>
+			<i class="icofont-book-alt"></i>
+			<b>{{ 'planning.field'|trans }}
+				:</b>
+			{{ 'planning.philo'|trans }}
+		</p>
+	</p>
+</section></div></div></div></div></div></div><!-- End of Schedule Modal -->

@@ -146,7 +146,7 @@ body {
     color: #35404f;
     border-radius: 50px;
     margin: 2px 0 0 15px;
-    padding: 5px 25px 4px 25px;
+    padding: 5px 15px 5px 15px;
     border: 1px solid #fff;
   }
   
@@ -389,6 +389,19 @@ body {
     display: inline-block;
     background: #35404f;
   }
+
+  @media (max-width: 768px) {
+    #hero .btn-get-started {
+      padding: 5px 0px 5px 0px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .single-course-link{
+      display: none;
+    }
+
+  }
   
   #hero .btn-get-started:hover {
     background: #fff;
@@ -495,10 +508,6 @@ body {
     padding-right: 20px;
   }
     
-  html,body {
-    margin:0;
-    padding:0;
-}
   /*--------------------------------------------------------------
   # Diffusion
   --------------------------------------------------------------*/
@@ -697,90 +706,6 @@ body {
     margin-bottom: 0;
   }
   
-  .class .php-email-form {
-    box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
-    padding: 30px;
-    background: #fff;
-  }
-  
-  .class .php-email-form .validate {
-    display: none;
-    color: red;
-    margin: 0 0 15px 0;
-    font-weight: 400;
-    font-size: 13px;
-  }
-  
-  .class .php-email-form .error-message {
-    display: none;
-    color: #fff;
-    background: #ed3c0d;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
-  }
-  
-  .class .php-email-form .sent-message {
-    display: none;
-    color: #fff;
-    background: #18d26e;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
-  }
-  
-  .class .php-email-form .loading {
-    display: none;
-    background: #fff;
-    text-align: center;
-    padding: 15px;
-  }
-  
-  .class .php-email-form .loading:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    margin: 0 10px -6px 0;
-    border: 3px solid #18d26e;
-    border-top-color: #eee;
-    -webkit-animation: animate-loading 1s linear infinite;
-    animation: animate-loading 1s linear infinite;
-  }
-  
-  .class .php-email-form input,
-  .class .php-email-form textarea {
-    border-radius: 0;
-    box-shadow: none;
-    font-size: 14px;
-  }
-  
-  .class .php-email-form input::focus,
-  .class .php-email-form textarea::focus {
-    background-color: #129b00;
-  }
-  
-  .class .php-email-form input {
-    padding: 20px 15px;
-  }
-  
-  .class .php-email-form textarea {
-    padding: 12px 15px;
-  }
-  
-  .class .php-email-form button[type="submit"] {
-    background: #129b00;
-    border: 0;
-    padding: 10px 24px;
-    color: #fff;
-    transition: 0.4s;
-  }
-  
-  .class .php-email-form button[type="submit"]:hover {
-    background: #fdd067;
-  }
-  
   @-webkit-keyframes animate-loading {
     0% {
       transform: rotate(0deg);
@@ -844,47 +769,6 @@ body {
     padding: 0;
   }
   
-  #footer .footer-top .footer-newsletter {
-    text-align: center;
-    font-size: 15px;
-    margin-top: 30px;
-  }
-  
-  #footer .footer-top .footer-newsletter form {
-    background: #fff;
-    padding: 6px 10px;
-    position: relative;
-    border-radius: 50px;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-    text-align: left;
-  }
-  
-  #footer .footer-top .footer-newsletter form input[type="email"] {
-    border: 0;
-    padding: 4px 8px;
-    width: calc(100% - 100px);
-  }
-  
-  #footer .footer-top .footer-newsletter form input[type="submit"] {
-    position: absolute;
-    top: 0;
-    right: -1px;
-    bottom: 0;
-    border: 0;
-    background: none;
-    font-size: 16px;
-    padding: 0 20px;
-    background: #129b00;
-    color: #fff;
-    transition: 0.3s;
-    border-radius: 50px;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  #footer .footer-top .footer-newsletter form input[type="submit"]:hover {
-    background: #129b00;
-  }
-  
   #footer .footer-top .social-links {
     margin-top: 30px;
   }
@@ -917,55 +801,47 @@ body {
     padding-top: 40px;
     padding-bottom: 40px;
   }
+  
+  #footer .copyright {
+    text-align: left;
+    float: left;
+  }
 
+  #footer .dev {
+    text-align: center;
+  }
+
+  #footer .credits {
+    float: right;
+    text-align: right;
+  }
+  
+  @media (max-width: 768px) {
+    #footer .copyright,
+    #footer .credits,
+    #footer .dev {
+      padding: 5px;
+      float: none;
+      text-align: center;
+    }
+  }
+
+  .hr-cp{
+    color: #bd004d;
+  }
+  
   /*
   --------------------------------------------------------------------------------------------------------------------------------------------
   --------------------------------------------------------CUSTOM STYLES-----------------------------------------------------------------------
   --------------------------------------------------------------------------------------------------------------------------------------------
   */
+    
+  /* Planning Style */
   
-  /* Schedule Timeline */
-  ul.timeline {
-    list-style-type: none;
-    position: relative;
-  }
-  ul.timeline:before {
-    content: " ";
-    background: #d4d9df;
-    display: inline-block;
-    position: absolute;
-    left: 29px;
-    width: 2px;
-    height: 100%;
-    z-index: 400;
-  }
-  ul.timeline > li {
-    margin: 20px 0;
-    padding-left: 20px;
-  }
-  ul.timeline > li:before {
-    content: " ";
-    background: white;
-    display: inline-block;
-    position: absolute;
-    border-radius: 50%;
-    border: 3px solid #129b00;
-    left: 20px;
-    width: 20px;
-    height: 20px;
-    z-index: 400;
-  }
-  
-  .timeline h3 {
-    font-family: "Cairo", sans-serif;
-    font-weight: bold;
-  }
-  
-  /* Schedule Modal */
   .modal-body h3 {
     font-size: 18px;
   }
-  
+
   .modal-body {
     font-family: "Lato", sans-serif;
   }
@@ -975,13 +851,59 @@ body {
     font-family: "Cairo", sans-serif;
     font-weight: bold;
   }
-  
-  .hr-cp{
-    color: #bd004d;
+
+  /* Timeline */
+  .planning main {
+    min-width: 320px;
+    max-width: 1100px;
+    padding: 10px;
+    margin: 0 auto;
+    background: #fff;
   }
-
-  /*COURSE DETAIL STYLES*/
-
+  
+  .planning section {
+    display: none;
+    padding: 5px 0 0;
+    border-top: 1px solid #ddd;
+  }
+  
+  .planning input {
+    display: none;
+  }
+  
+  .planning label {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 5px 5px;
+    font-weight: 600;
+    text-align: center;
+    color: #bbb;
+    border: 1px solid transparent;
+  }
+  
+  .planning label:hover {
+    color: #888;
+    cursor: pointer;
+  }
+  
+  .planning input:checked + label {
+    color: #555;
+    border: 1px solid #ddd;
+    border-top: 2px solid #129b00;
+    border-bottom: 1px solid #fff;
+  }
+  
+  .planning #tab1:checked ~ #content1,
+  .planning #tab2:checked ~ #content2,
+  .planning #tab3:checked ~ #content3,
+  .planning #tab4:checked ~ #content4,
+  .planning #tab5:checked ~ #content5, 
+  .planning #tab6:checked ~ #content6 {
+    display: block;
+  }
+  
+  /*Course Detail Style*/
+  
 .vid {
   position: relative;
   padding-bottom: 56.25%;
@@ -1115,3 +1037,55 @@ nav .nav-links a:active {
 body[dir="rtl"] .mobile-nav a {
   text-align: right;
 }
+
+/*Login page*/
+.login-container {
+  margin-top: 10%;
+  border: 1px solid #CCD1D1;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  max-width: 50%;
+}
+
+.ads {
+  background-color: #35404f;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.ads h1 {
+  margin-top: 20%;
+}
+
+
+.profile-img {
+  text-align: center;
+}
+
+.profile-img img {
+  border-radius: 50%;
+  /* animation: mymove 2s infinite; */
+}
+
+@keyframes mymove {
+  from {border: 1px solid #F2F3F4;}
+  to {border: 8px solid #F2F3F4;}
+}
+
+.login-form {
+  padding: 15px;
+}
+
+.form-control {
+  font-size: 14px;
+}
+
+.remember-me{
+  font-size: 14px;
+  font-family: 'Cairo',sans-serif;
+}
+
+

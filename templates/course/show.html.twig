@@ -15,18 +15,18 @@
 					</h3>
 					<p{{ locale() == 'ar' ? ' class="text-right"' : '' }}><i class="far fa-clock"></i> {{ course.publishedAt|localizeddate('full', 'none', null)|capitalize }}</p>
 					{% if course.startTime %}
-						<div class="alert alert-primary" role="alert">
+						<div class="alert alert-primary {{ locale() == 'fr' ? 'mr-auto' : 'ml-auto ar text-right' }}" role="alert">
 							<i class="icofont-info-circle"></i>
 							{{ 'course.start_time_notice'|trans({
 								'%subject%': course.subject|trans,
-								'%time%': course.startTime|localizeddate('none', 'short', null)
+								'%time%': course.startTime|date('i:s')
 								})|raw
 							}}
 						</div>
 					{% endif %}
 					<hr>
 					<div class="vid">
-						<iframe src="{{ course.videoUrl|replace({'watch?v=': 'embed/'}) }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe src="{{ course.videoUrl|replace({'watch?v=': 'embed/'}) }}" style="overflow:hidden;height:100%;width:100%" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					<!--./vid -->
 				</div>

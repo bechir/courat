@@ -29,6 +29,8 @@
         <meta property="og:site_name" content="{{ App.name }}">
         <meta property="og:title" content="{{ 'app.title'|trans }}">
         <meta property="og:type" content="website">
+        <meta property="og:image" content="{{ asset('images/logo.png') }}">
+        <meta property="og:locale" content="{{ locale() }}">
         <meta property="og:description" content="{{ 'hero.about'|trans({'%app_name%': App.name|upper}) }}">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -39,17 +41,14 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <title>{% block title %}{{ App.name }}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-
-        {% for l in locales() %}
-            {% if l.code != locale() %}
-                <link rel="alternate" hreflang="{{ l.code }}" href="{{ url(app.request.get('_route', 'index'), app.request.get('_route_params', [])|merge({_locale: l.code})) }}" />
-            {% endif %}
-        {% endfor %}
     </head>
     <body {% if locale() == 'ar' %}dir="rtl"{% endif %}>
 
         {# Include the app navbar #}
+         {% block navbar %}
         {% include "common/navbar.html.twig" %}
+          {% endblock %}
+
 
         {# Include the planning #}
          {% include "common/planning.html.twig" %}
@@ -59,18 +58,20 @@
         {% endblock %}
 
         {# Include the diffusion platforms #}
-        {% include "common/diffusion.html.twig" %}
+         {% block diffusion %}
+            {% include "common/diffusion.html.twig" %}
+         {% endblock %}
 
         {% block footer %}
             {% include "common/footer.html.twig" %}
         {% endblock %}
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="{{ asset('assets/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
-        <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.8.6/venobox.min.js"></script>
+        <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/venobox/venobox.min.js') }}"></script>
         <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
         {% block javascripts %}{% endblock %}
