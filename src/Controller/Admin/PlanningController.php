@@ -34,11 +34,11 @@ class PlanningController extends AbstractController
     public function index(DayRepository $dayRepository, SubjectRepository $subjectRepository, ClassRepository $classRepository, PlanningRepository $planningRepository)
     {
         return $this->render('admin/planning/index.html.twig', [
-            'controller_name'   =>  'PlanningController',
-            'days'              =>  $dayRepository->findAll(),
-            'classes'           =>  $classRepository->findAll(),
-            'plannings'         =>  $planningRepository->findAll(),
-            'subjects'          =>  $subjectRepository->findAll()
+            'controller_name' => 'PlanningController',
+            'days' => $dayRepository->findAll(),
+            'classes' => $classRepository->findAll(),
+            'plannings' => $planningRepository->findAll(),
+            'subjects' => $subjectRepository->findAll(),
         ]);
     }
 
@@ -51,7 +51,7 @@ class PlanningController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $planning = new Planning;
+        $planning = new Planning();
         $form = $this->createForm(PlanningType::class, $planning);
         $form->handleRequest($request);
 
@@ -70,14 +70,9 @@ class PlanningController extends AbstractController
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
-     * @param Request $request
-     * @param EntityManager $entityManager
-     * 
      * @Route("/deleteAll", name="admin_planning_deleteAll", methods={"GET","POST"})
-     *
-     * @return Response
      */
     public function deleteAll(Request $request, EntityManager $entityManager): Response
     {
@@ -86,11 +81,10 @@ class PlanningController extends AbstractController
         // $form->handleRequest($request);
 
         $connection = $entityManager->getConnection();
-        $platform   = $connection->getDatabasePlatform();
-        
-        $connection->executeUpdate($platform->getTruncateTableSQL('planning', true ));
+        $platform = $connection->getDatabasePlatform();
+
+        $connection->executeUpdate($platform->getTruncateTableSQL('planning', true));
 
         return $this->redirectToRoute('planning');
-        
     }
 }

@@ -1,3 +1,5 @@
+
+
  <!-- Schedule Modal -->
     <div class="modal fade"
       id="schedule"
@@ -19,7 +21,54 @@
             <div class="modal-body">
               <div class="row">
                 <div class="col-md-12">
+                  
                   <ul class="timeline">
+                  {% if plannings is defined %}
+                    
+                  
+                    {% for classe in classes %}
+                        <h3>{{ classe.name }}</h3>
+                            {% for day in days %}
+                              {% set dayExist = 0 %}
+                              {% set andSubject = 0 %}                     
+                                {% for planning in plannings %}
+                                    {% if day.name == planning.day.name %}
+                                        {% for class in planning.classes %}
+                                            {% if class.name == classe.name %}
+                                                
+                                                    {% if dayExist == 0 %}
+                                                      <li>  
+                                                        <a target="" href="">
+                                                        <b>
+                                                            <i class="icofont-clock-time"></i> En direct : {{planning.day.name}} à
+                                                        17h00 - Rediffusion : aulendemain à 11h
+                                                        </b>  
+                                                        </a> 
+                                                        <p>
+                                                        <b><i class="icofont-book-alt"></i> Matière :</b>
+                                                        {% set dayExist = 1 %} 
+                                                    {% endif %}
+                                                    
+                                                        {% for subject in planning.subjects %}
+                                                          {% if andSubject == 1  %}
+                                                            et 
+                                                          {% endif %}  {{ subject.code }}
+                                                          {% set andSubject = 1 %}
+                                                        {% endfor %}           
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
+                                                    </p>
+                                                </li>
+                                            
+                            {% endfor %}
+                        <hr />
+                    {% endfor %}  
+                    {% endif %}
+                  </ul>
+
+                  {# <ul class="timeline">
                     <h3>
                       <b>6<sup>eme</sup> AF</b>
                     </h3>
@@ -361,7 +410,7 @@
                         <b><i class="icofont-book-alt"></i> Matière :</b> Philosophie
                       </p>
                     </li>
-                  </ul>
+                  </ul> #}
                 </div>
               </div>
             </div>

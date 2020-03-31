@@ -18,3 +18,83 @@
     </ul>
 </div>
 {% endblock %}
+
+
+
+
+ <!-- Schedule Modal -->
+    <div class="modal fade"
+      id="schedule"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="schedule"
+      aria-hidden="true">
+      <div class="modal-center">
+        <div class="modal-dialog .modal-align-center modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">
+                Planning des cours
+                {% for planning in plannings %}
+                                {{ planning.day.name }}
+                                           
+                  {% endfor %}
+              </h4>
+              <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="timeline">
+                    {% for classe in classes %}
+                        <h3>{{ classe.name }}</h3>
+                            {% for day in days %}
+                                {% for planning in plannings %}
+                                    {% if day.name == planning.day.name %}
+                                        {% for class in planning.classes %}
+                                            {% if class.name == classe.name %}
+                                                <li>
+                                                    {% set dayExist = 0 %}
+                                                    {% if dayExist == 0 %}
+                                                        
+                                                        <a target="" href="">
+                                                        <b>
+                                                            <i class="icofont-clock-time"></i> En direct : {{planning.day.name}} à
+                                                        17h00 - Rediffusion : aulendemain à 11h
+                                                        </b>  
+                                                        </a> 
+                                                        {% set dayExist = 1 %} 
+                                                    {% endif %}
+                                                    <p>
+                                                        <b><i class="icofont-book-alt"></i> Matière :</b> 
+                                                        {% for subject in planning.subjects %}
+                                                            {{ subject.code }}
+                                                        {% endfor %}
+                                                    </p>
+                                                </li>
+                                                
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        <hr />
+                    {% endfor %}  
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <small>
+                <i class="icofont-info-circle"></i> Ce planning peut changer à tout
+                moment.
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Schedule Modal -->

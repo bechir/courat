@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the COURAT application.
+ *
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Form;
 
 use App\Entity\Classe;
@@ -19,16 +28,16 @@ class PlanningType extends AbstractType
     {
         $builder
             ->add('classes', EntityType::class, [
-                'class'     => Classe::class,
+                'class' => Classe::class,
                 'choice_label' => 'name',
                 'query_builder' => function (EntityRepository $repo) {
                     return $repo->createQueryBuilder('f')
                         ->where('f.id > :id')
                         ->setParameter('id', 1);
                 },
-                'label'     => 'Who is fighting in this round?',
+                'label' => 'Who is fighting in this round?',
                 // 'expanded'  => true,
-                'multiple'  => true,
+                'multiple' => true,
             ])
             // ->add('classes', CollectionType::class, [
             //     'class' => Classe::class,
@@ -46,9 +55,9 @@ class PlanningType extends AbstractType
                         ->where('f.id > :id')
                         ->setParameter('id', 1);
                 },
-                'label'     => 'Who is fighting in this round?',
+                'label' => 'Who is fighting in this round?',
                 // 'expanded'  => true,
-                'multiple'  => true,
+                'multiple' => true,
             ])
             ->add('day', EntityType::class, [
                 'class' => Day::class,
