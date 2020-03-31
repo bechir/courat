@@ -37,7 +37,7 @@
             </tr>
             <tr>
                 <th>Start time</th>
-                <td>{{ course.startTime ? course.startTime|localizeddate('none', 'short', null)|capitalize : '0:0' }}</td>
+                <td>{{ course.startTime ? course.startTime|date('i:s') : '0:0' }}</td>
             </tr>
         </tbody>
     </table>

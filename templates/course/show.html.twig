@@ -19,7 +19,7 @@
 							<i class="icofont-info-circle"></i>
 							{{ 'course.start_time_notice'|trans({
 								'%subject%': course.subject|trans,
-								'%time%': course.startTime|localizeddate('none', 'short', null)
+								'%time%': course.startTime|date('i:s')
 								})|raw
 							}}
 						</div>
