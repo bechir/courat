@@ -923,6 +923,7 @@ body {
   border-radius: 50px;
   padding: 4px 25px 6px 25px;
   border: 1px solid #35404f;
+  margin-bottom: 30px;
 }
 
 .btn-box{
@@ -933,6 +934,10 @@ body {
   background: #35404f;
   color: #fff;
   border: 1px solid #35404f;
+}
+
+.section-title {
+  margin-top: 80px;
 }
 
 /* COURSES INDEX STYLE*/
@@ -960,23 +965,21 @@ body {
     font-weight: bold;
     text-transform: uppercase;
 }
-.panel-heading .title:before,
-.panel-heading .title.collapsed:before {
-    font-family: FontAwesome;
+.panel-heading .title:before {
+
+    font-family: 'FontAwesome';
+    content:"\f106";
      font-size: 25px;
     padding-right: 10px;
     line-height: 25px;
     float: right;
 }
-.panel-heading.ar .title:before,
-.panel-heading.ar .title.collapsed:before {
-  float: left;
-}
-.panel-heading .title:before {
-  content:"\f106";
-}
 .panel-heading .title.collapsed:before {
-  content:"\f107";
+     font-size: 25px;
+    padding-right: 10px;
+    line-height: 25px;
+    float: right;
+    content:"\f107";
 }
 
 /*=======*/
