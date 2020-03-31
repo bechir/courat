@@ -26,10 +26,28 @@
                 {% for classe in classes %}
                     <tr>
                         <td>{{ classe.name }}</td>
-                    </tr>
+                         {% for day in days %}
+                            <td>
+                            {% for planning in plannings %}
+                                {% if day.name == planning.day.name %}
+                                    {% for class in planning.classes %}
+                                        {% if class.name == classe.name %}
+                                            
+                                                {% for da in planning.subjects %}
+                                                    {{ da.code }} <br>
+                                                {% endfor %}
+                                            
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}       
+                            {% endfor %}
+                            </td>
+                         {% endfor %}
+                    </tr> 
                 {% endfor %}    
-                <tr>
-                {# {% for day in days %} #}
+                {# <tr> #}
+
+                
                 
                     {# <td><a href="{{ path('admin_course_show', {id: course.id}) }}">{{ course.title }}</a></td> #}
                     {# <td>{{ day.name }}</td> #}
@@ -47,11 +65,15 @@
                         </div>
                     </td> #}
                 {# {% endfor %} #}
-                </tr>
+                {# </tr> #}
         </tbody>
     </table>
 </div>
 
 
+
+
     <a href="{{ path('admin_planning_new') }}" class="btn btn-primary"><i class="lnr lnr-plus-circle"></i> Saisir un nouveau</a>
+    <a href="{{ path('admin_planning_deleteAll') }}" class="btn btn-danger"><i class="lnr lnr-trash"></i> Tous supprimer</a>
+
 {% endblock %}

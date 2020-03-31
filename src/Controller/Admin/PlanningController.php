@@ -15,6 +15,9 @@ use App\Entity\Planning;
 use App\Form\PlanningType;
 use App\Repository\ClassRepository;
 use App\Repository\DayRepository;
+use App\Repository\PlanningRepository;
+use App\Repository\SubjectRepository;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,12 +31,14 @@ class PlanningController extends AbstractController
     /**
      * @Route("/", name="planning")
      */
-    public function index(DayRepository $dayRepository, ClassRepository $classRepository)
+    public function index(DayRepository $dayRepository, SubjectRepository $subjectRepository, ClassRepository $classRepository, PlanningRepository $planningRepository)
     {
         return $this->render('admin/planning/index.html.twig', [
-            'controller_name' => 'PlanningController',
-            'days' => $dayRepository->findAll(),
-            'classes' => $classRepository->findAll()
+            'controller_name'   =>  'PlanningController',
+            'days'              =>  $dayRepository->findAll(),
+            'classes'           =>  $classRepository->findAll(),
+            'plannings'         =>  $planningRepository->findAll(),
+            'subjects'          =>  $subjectRepository->findAll()
         ]);
     }
 
@@ -62,5 +67,30 @@ class PlanningController extends AbstractController
             'planning' => $planning,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @param EntityManager $entityManager
+     * 
+     * @Route("/deleteAll", name="admin_planning_deleteAll", methods={"GET","POST"})
+     *
+     * @return Response
+     */
+    public function deleteAll(Request $request, EntityManager $entityManager): Response
+    {
+        // $planning = new Planning;
+        // $form = $this->createForm(PlanningType::class, $planning);
+        // $form->handleRequest($request);
+
+        $connection = $entityManager->getConnection();
+        $platform   = $connection->getDatabasePlatform();
+        
+        $connection->executeUpdate($platform->getTruncateTableSQL('planning', true ));
+
+        return $this->redirectToRoute('planning');
+        
     }
 }

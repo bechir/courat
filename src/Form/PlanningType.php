@@ -6,8 +6,10 @@ use App\Entity\Classe;
 use App\Entity\Day;
 use App\Entity\Planning;
 use App\Entity\Subject;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,16 +19,36 @@ class PlanningType extends AbstractType
     {
         $builder
             ->add('classes', EntityType::class, [
-                'class' => Classe::class,
-                'choice_label' => 'code',
-                'choice_translation_domain' => 'messages',
+                'class'     => Classe::class,
+                'choice_label' => 'name',
+                'query_builder' => function (EntityRepository $repo) {
+                    return $repo->createQueryBuilder('f')
+                        ->where('f.id > :id')
+                        ->setParameter('id', 1);
+                },
+                'label'     => 'Who is fighting in this round?',
+                // 'expanded'  => true,
+                'multiple'  => true,
             ])
+            // ->add('classes', CollectionType::class, [
+            //     'class' => Classe::class,
+            //     'choice_label' => 'code',
+            //     'choice_translation_domain' => 'messages',
+            // ])
             //attr_translation_parameters
             ->add('subjects', EntityType::class, [
                 'class' => Subject::class,
                 'choice_label' => 'code',
                 'translation_domain' => true,
                 'choice_translation_domain' => 'messages',
+                'query_builder' => function (EntityRepository $repo) {
+                    return $repo->createQueryBuilder('f')
+                        ->where('f.id > :id')
+                        ->setParameter('id', 1);
+                },
+                'label'     => 'Who is fighting in this round?',
+                // 'expanded'  => true,
+                'multiple'  => true,
             ])
             ->add('day', EntityType::class, [
                 'class' => Day::class,
