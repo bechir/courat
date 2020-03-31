@@ -392,7 +392,13 @@ body {
 
   @media (max-width: 768px) {
     #hero .btn-get-started {
-      padding: 5px 15px 5px 15px;
+      padding: 5px 0px 5px 0px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .single-course-link{
+      display: none;
     }
 
   }
@@ -1031,3 +1037,55 @@ nav .nav-links a:active {
 body[dir="rtl"] .mobile-nav a {
   text-align: right;
 }
+
+/*Login page*/
+.login-container {
+  margin-top: 10%;
+  border: 1px solid #CCD1D1;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  max-width: 50%;
+}
+
+.ads {
+  background-color: #35404f;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.ads h1 {
+  margin-top: 20%;
+}
+
+
+.profile-img {
+  text-align: center;
+}
+
+.profile-img img {
+  border-radius: 50%;
+  /* animation: mymove 2s infinite; */
+}
+
+@keyframes mymove {
+  from {border: 1px solid #F2F3F4;}
+  to {border: 8px solid #F2F3F4;}
+}
+
+.login-form {
+  padding: 15px;
+}
+
+.form-control {
+  font-size: 14px;
+}
+
+.remember-me{
+  font-size: 14px;
+  font-family: 'Cairo',sans-serif;
+}
+
+

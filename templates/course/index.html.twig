@@ -36,19 +36,21 @@
 																<tr>
 																	<th scope="col">{{ 'courses.intitule'|trans }}</th>
 																	<th scope="col"></th>
-																	<th scope="col"><i class="far fa-clock"></i> {{ 'courses.dateDiff'|trans }}</th>
+																	<th scope="col"><i class="far fa-clock single-course-link"></i> 
+																	{{ 'courses.dateDiff'|trans }}</th>
 																</tr>
 															</thead>
 															<tbody>
 																{% for course in courses_by_subject %}
 																	<tr>
 																		<th scope="row">
-																			<i class="icofont-check-circled"></i>
+																			<i class="icofont-check-circled single-course-link"></i>
 																			{{ course.title }}</th>
 																		<td>
 																			<a href="{{ path('course_show', {id: course.id}) }}">
 																				<i class="icofont-play-alt-2"></i>
-																				{{ 'courses.watch'|trans }}</a>
+																				<span class="single-course-link"> {{ 'courses.watch'|trans }}
+																				</span></a>
 																		</td>
 																		<td>{{ course.publishedAt|localizeddate('short', 'none', null) }}</td>
 																	</tr>

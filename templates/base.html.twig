@@ -49,7 +49,10 @@
     <body {% if locale() == 'ar' %}dir="rtl"{% endif %}>
 
         {# Include the app navbar #}
+         {% block navbar %}
         {% include "common/navbar.html.twig" %}
+          {% endblock %}
+
 
         {# Include the planning #}
          {% include "common/planning.html.twig" %}
@@ -59,7 +62,9 @@
         {% endblock %}
 
         {# Include the diffusion platforms #}
-        {% include "common/diffusion.html.twig" %}
+         {% block diffusion %}
+            {% include "common/diffusion.html.twig" %}
+         {% endblock %}
 
         {% block footer %}
             {% include "common/footer.html.twig" %}
