@@ -14,7 +14,7 @@
             {% for course in courses %}
                 <tr>
                     <td><a href="{{ path('admin_course_show', {id: course.id}) }}">{{ course.title }}</a></td>
-                    <td>{{ course.class|trans }}</td>
+                    <td>{{ course.class|trans|raw }}</td>
                     <td>{{ course.subject|trans }}</td>
                     <td><a href="{{ course.videoUrl }}" target="_blank" rel="noopener noreferrer">{{ course.videoUrl }}</a></td>
                     <td>{{ course.publishedAt|localizeddate('full', 'short', null)|capitalize }}</td>

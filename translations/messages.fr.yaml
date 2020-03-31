@@ -22,13 +22,13 @@ hero:
   planning: EMPLOI DU TEMPS
 
 home:
-  chooseClass:  VEUILLEZ CHOISIR UNE CLASSE POUR COMMENCER
-  6af: 6 <sup>eme</sup> ANNÉE FONDEMENTALE
-  4as: 4 <sup>eme</sup> ANNÉE SECONDAIRE
+  chooseClass: VEUILLEZ CHOISIR UNE CLASSE POUR COMMENCER
+  6af: 6<sup>ème</sup> ANNEE FONDEMENTALE
+  4as: 4<sup>ème</sup> ANNEE SECONDAIRE
 
 platforms:
-  title:  RESSOURCES NUMERIQUES
-  description:  En cette période de crise, des plateformes de cours a distance ont vu le jour. Veuillez les retrouver ci-dessous en plus de qualques autres ressources qui peuvent vous être utiles.
+  title: RESSOURCES NUMERIQUES
+  description:  En cette période de crise, des plateformes de cours a distance ont vu le jour. Veuillez les retrouver ci-dessous en plus de quelques autres ressources qui peuvent vous être utiles.
   visit:  VISITER LA PLATEFORME
 
 diffusion:
@@ -37,7 +37,7 @@ diffusion:
           secondaire que la diffusion des cours débutera à partir du <b>
             23/03/2020
           </b> à <b>17H</b> sur <b>Al Mouritaniya 2</b> et la rediffusion le lendemain
-          à <b>11H</b> selon l'emploi du temps. Les structures ci-dessous vous offrent
+          à <b>11H</b> selon <a href="" data-toggle="modal" data-target="#schedule">l'emploi du temps.</a> Les structures ci-dessous vous offrent
           les cours en direct sur les réseaux sociaux au même moment ou les cours
           sont diffusés à la télévision.
 
@@ -122,8 +122,35 @@ footer:
   follow: RETROUVEZ NOUS SUR
   copyright: © 2020 <a href="https://www.rimacademy.net">Rim Academy. </a>All rights reserved.
   dev: Made with <i class="icofont-heart-alt hr-cp"></i> by <a href="https://github.com/rand0mdev">rand0mDev</a>
-  credits: Hosted by <a href="https://www.iprod.mr/">iProd technology ®.</a>
+  credits: Hosted by <a href="https://www.iprod.mr/">iProd technology ®</a>
 
 course:
   back: REVENIR EN ARRIERE
-  start_time_notice: Le cours de <b>%subject%</b> commence à partir de <b>%time%</b>
+  start_time_notice: Le cours de <b>%subject%</b> commence à partir de la minute <b>%time%</b> <small>secondes</small>
+
+planning:
+  title:  PLANNING DES COURS
+  direct: En direct
+  rediff: Rediffusion
+  change: Ce planning est succeptible de changer à tout moment
+  lun: Lundi
+  mar: Mardi
+  mer: Mercredi
+  jeu: Jeudi
+  ven: Vendredi
+  sam: Samedi
+  dim: Dimanche
+  field: Matière
+  hour: Heure
+  5pm:  17h00
+  11pm: 11h00
+  ar: Arabe
+  fr: Français
+  math: Mathématiques
+  ir: Instruction Réligieuse 
+  sn: Sciences 
+  pc: Physique Chimie
+  droit-m:  Droit Musulman
+  pens-isl: Pensée Islamique
+  philo:  Philosophie
+  

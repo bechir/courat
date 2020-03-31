@@ -1,28 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'login.title'|trans }}{% endblock %}
-
-
-{% block main %}
-<div class="col-md-5 col-sm-10 mx-auto">
-<div class="text-center">
-<form class="form-signin" method="POST">
-	<h1 class="h3 mb-3 font-weight-normal">{{ 'login.title'|trans }}</h1>
-	{% if error %}
-		<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-	{% endif %}
-	<label for="inputEmail" class="sr-only">{{ 'login.username'|trans }}</label>
-	<input type="text" name="username" id="inputEmail" class="form-control mb-2" placeholder="{{ 'login.username'|trans }}" required="" autofocus="">
-	<label for="inputPassword" class="sr-only">{{ 'login.password'|trans }}</label>
-	<input type="password" name="password" id="inputPassword" class="form-control" placeholder="{{ 'login.password'|trans }}" required="">
-	<div class="checkbox mb-3">
-	  <label>
-		<input type="checkbox" name="_remember_me"> {{ 'login.remember_me'|trans }}
-	  </label>
-	</div>
-	<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-	<button class="btn btn-lg btn-primary btn-block" type="submit">{{ 'login.sign_in'|trans }}</button>
-</form>
-</div>
-</div>
+{% block title %}
+	{{ 'login.title'|trans }}
 {% endblock %}
+
+{% block navbar %}{% endblock %}
+{% block main %}
+	<div class="container login-container">
+		<div class="row">
+			<div class="col-md-6 ads"></div>
+			<div class="col-md-6 login-form">
+				<div class="profile-img">
+					<a href="{{ path(app.request.get('_route', 'index')) }}">
+						<img src="{{ asset('assets/img/logo_dark.png') }}" alt="profile_img" height="140px" width="140px;">
+					</a>
+				</div>
+				<p>
+					{% if error %}
+						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+					{% endif %}
+				</p>
+				<form class="form-signin" method="POST">
+					<div class="form-group">
+						<input type="text" class="form-control" name="username" placeholder="{{ 'login.username'|trans }}" required autofocus>
+
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" name="password" placeholder="{{ 'login.password'|trans }}" required>
+					</div>
+					<div class="form-group">
+						<p class="text-center">
+							<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+							<button type="submit" class="btn-return">{{ 'login.sign_in'|trans }}</button>
+						</p>
+					</div>
+					<div class="checkbox mb-3">
+						<label class="remember-me">
+							<input type="checkbox" name="_remember_me">
+							{{ 'login.remember_me'|trans }}
+						</label>
+					</div>
+				</form>
+			</div>
+		</div>
+	{% endblock %}
+	{% block diffusion %}{% endblock %}
+	{% block footer %}{% endblock %}

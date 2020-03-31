@@ -20,6 +20,7 @@ use App\Form\CourseType;
 use App\Repository\CourseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Shared\Date as PhpOfficeDate;
 use SplFileInfo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -193,17 +194,43 @@ class CourseController extends AbstractController
                         true                // Should the array be indexed by cell row and cell column
                     )[$rowIt];
 
-                    if (null != $data['A']) {
+                    if (null != $data['A'] && null != $data['B'] && null != $data['C'] && null != $data['D'] && null != $data['E']) {
                         $course = (new Course())
                             ->setTitle($data['A'])
                             ->setVideoUrl($data['D'] ?? '');
 
                         if ($publishedDate = $data['E'] ?? null) {
-                            $course->setPublishedAt(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($publishedDate));
+                            $course->setPublishedAt(PhpOfficeDate::excelToDateTimeObject($publishedDate));
                         }
 
-                        if ($startTime = $data['F'] ?? null) {
-                            $course->setStartTime(new \DateTime($startTime));
+                        try {
+                            if ($startTime = $data['F'] ?? null) {
+                                $startTime = explode(':', $startTime);
+                                $datetime = new \DateTime('0-0-0 0:0:0');
+                                switch (count($startTime)) {
+                                    case 1:
+                                        $datetime->modify("+ $startTime[0] minutes");
+
+                                        break;
+                                    case 2:
+                                        $datetime->modify("+ $startTime[0] minutes");
+                                        $datetime->modify("+ $startTime[1] second");
+
+                                        break;
+                                    case 3:
+                                        $datetime->modify("+ $startTime[0] hours");
+                                        $datetime->modify("+ $startTime[1] minutes");
+                                        $datetime->modify("+ $startTime[2] second");
+
+                                        break;
+                                    default:
+                                        // code...
+                                        break;
+                                }
+                                $course->setStartTime($datetime);
+                            }
+                        } catch (\Exception $e) {
+                            throw $e;
                         }
 
                         $class = $entityManager->getRepository(Classe::class)->findOneBy(['name' => $data['B'] ?? null]);
@@ -222,10 +249,10 @@ class CourseController extends AbstractController
                     }
                 }
             } catch (\Exception $e) {
-                // throw $e;
-                $this->addFlash('danger', $e->getMessage());
+                throw $e;
+                // $this->addFlash('danger', $e->getMessage());
 
-                return $this->redirectToRoute('admin_course_new');
+                // return $this->redirectToRoute('admin_course_new');
             } finally {
                 unlink($fileName);
             }
