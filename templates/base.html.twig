@@ -39,7 +39,15 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <title>{% block title %}{{ App.name }}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGRETY1H3Y"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'G-DGRETY1H3Y');
+        </script>
         {% for l in locales() %}
             {% if l.code != locale() %}
                 <link rel="alternate" hreflang="{{ l.code }}" href="{{ url(app.request.get('_route', 'index'), app.request.get('_route_params', [])|merge({_locale: l.code})) }}" />
