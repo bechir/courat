@@ -44,8 +44,9 @@
 																{% for course in courses_by_subject %}
 																	<tr>
 																		<th scope="row">
+																			<a href="{{ path('course_show', {id: course.id}) }}">
 																			<i class="icofont-check-circled single-course-link"></i>
-																			{{ course.title }}</th>
+																			{{ course.title }}</a></th>
 																		<td>
 																			<a href="{{ path('course_show', {id: course.id}) }}">
 																				<i class="icofont-play-alt-2"></i>
