@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the COURAT application.
+ *
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -29,7 +38,8 @@ class Planning
     private $subjects;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Day", inversedBy="plannings")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Day")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $day;
 
@@ -37,7 +47,7 @@ class Planning
     {
         $this->classes = new ArrayCollection();
         $this->subjects = new ArrayCollection();
-        $this->day = new ArrayCollection();
+        // $this->day = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -51,6 +61,13 @@ class Planning
     public function getClasses(): Collection
     {
         return $this->classes;
+    }
+
+    public function setClasses(?Classe $classe): self
+    {
+        $this->classes = $classe;
+
+        return $this;
     }
 
     public function addClass(Classe $class): self
@@ -79,6 +96,13 @@ class Planning
         return $this->subjects;
     }
 
+    public function setSubjects(?Subject $subject): self
+    {
+        $this->subjects = $subject;
+
+        return $this;
+    }
+
     public function addSubject(Subject $subject): self
     {
         if (!$this->subjects->contains($subject)) {
@@ -97,29 +121,33 @@ class Planning
         return $this;
     }
 
-    /**
-     * @return Collection|Day[]
-     */
-    public function getDay(): Collection
+    public function getDay()
     {
         return $this->day;
     }
 
-    public function addDay(Day $day): self
+    public function setDay(?Day $day): self
     {
-        if (!$this->day->contains($day)) {
-            $this->day[] = $day;
-        }
+        $this->day = $day;
 
         return $this;
     }
 
-    public function removeDay(Day $day): self
-    {
-        if ($this->day->contains($day)) {
-            $this->day->removeElement($day);
-        }
+    // public function addDay(Day $day): self
+    // {
+    //     if (!$this->day->contains($day)) {
+    //         $this->day[] = $day;
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
+
+    // public function removeDay(Day $day): self
+    // {
+    //     if ($this->day->contains($day)) {
+    //         $this->day->removeElement($day);
+    //     }
+
+    //     return $this;
+    // }
 }

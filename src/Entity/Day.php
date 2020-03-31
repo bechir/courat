@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the COURAT application.
+ *
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -23,16 +32,7 @@ class Day
      */
     private $name;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Planning", mappedBy="day")
-     */
-    private $plannings;
-
-    public function __construct()
-    {
-        $this->plannings = new ArrayCollection();
-    }
-
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -50,31 +50,31 @@ class Day
         return $this;
     }
 
-    /**
-     * @return Collection|Planning[]
-     */
-    public function getPlannings(): Collection
-    {
-        return $this->plannings;
-    }
+    // /**
+    //  * @return Collection|Planning[]
+    //  */
+    // public function getPlannings(): Collection
+    // {
+    //     return $this->plannings;
+    // }
 
-    public function addPlanning(Planning $planning): self
-    {
-        if (!$this->plannings->contains($planning)) {
-            $this->plannings[] = $planning;
-            $planning->addDay($this);
-        }
+    // public function addPlanning(Planning $planning): self
+    // {
+    //     if (!$this->plannings->contains($planning)) {
+    //         $this->plannings[] = $planning;
+    //         $planning->addDay($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removePlanning(Planning $planning): self
-    {
-        if ($this->plannings->contains($planning)) {
-            $this->plannings->removeElement($planning);
-            $planning->removeDay($this);
-        }
+    // public function removePlanning(Planning $planning): self
+    // {
+    //     if ($this->plannings->contains($planning)) {
+    //         $this->plannings->removeElement($planning);
+    //         $planning->removeDay($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }
