@@ -4,6 +4,7 @@ app:
   contact: Contact
   about: À propos
   terms: Conditions d'Utilisation
+  title:  المنصة التربوية الموريتانية
 
 class:
   6af: السادسة<sup> إبتدائية</sup> 
@@ -141,4 +142,4 @@ planning:
 
 course:
   back: الرجوع إلى الوراء
-  start_time_notice: يبدأ درس <b>%subject%</b> في الدقيقة <b>%time%</b> ثانية
+  start_time_notice: يبدأ درس <b>%subject%</b> في الدقيقة <b>%time%</b> <small>ثانية</small>
