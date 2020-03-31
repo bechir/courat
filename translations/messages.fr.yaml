@@ -28,7 +28,7 @@ home:
 
 platforms:
   title: RESSOURCES NUMERIQUES
-  description:  En cette période de crise, des plateformes de cours a distance ont vu le jour. Veuillez les retrouver ci-dessous en plus de qualques autres ressources qui peuvent vous être utiles.
+  description:  En cette période de crise, des plateformes de cours a distance ont vu le jour. Veuillez les retrouver ci-dessous en plus de quelques autres ressources qui peuvent vous être utiles.
   visit:  VISITER LA PLATEFORME
 
 diffusion:
@@ -37,7 +37,7 @@ diffusion:
           secondaire que la diffusion des cours débutera à partir du <b>
             23/03/2020
           </b> à <b>17H</b> sur <b>Al Mouritaniya 2</b> et la rediffusion le lendemain
-          à <b>11H</b> selon l'emploi du temps. Les structures ci-dessous vous offrent
+          à <b>11H</b> selon <a href="" data-toggle="modal" data-target="#schedule">l'emploi du temps.</a> Les structures ci-dessous vous offrent
           les cours en direct sur les réseaux sociaux au même moment ou les cours
           sont diffusés à la télévision.
 
@@ -152,4 +152,4 @@ planning:
   droit-m:  Droit Musulman
   pens-isl: Pensée Islamique
   philo:  Philosophie
-  start_time_notice: Le cours de <b>%subject%</b> commence à partir de <b>%time%</b>
+  start_time_notice: Le cours de <b>%subject%</b> commence à partir de la minute <b>%time%</b>
