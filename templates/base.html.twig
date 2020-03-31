@@ -29,6 +29,8 @@
         <meta property="og:site_name" content="{{ App.name }}">
         <meta property="og:title" content="{{ 'app.title'|trans }}">
         <meta property="og:type" content="website">
+        <meta property="og:image" content="{{ asset('images/logo.png') }}">
+        <meta property="og:locale" content="{{ locale() }}">
         <meta property="og:description" content="{{ 'hero.about'|trans({'%app_name%': App.name|upper}) }}">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -39,20 +41,6 @@
         <link rel="stylesheet" href="{{ asset('css/app.min.css') }}">
         <title>{% block title %}{{ App.name }}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGRETY1H3Y"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-DGRETY1H3Y');
-        </script>
-        {% for l in locales() %}
-            {% if l.code != locale() %}
-                <link rel="alternate" hreflang="{{ l.code }}" href="{{ url(app.request.get('_route', 'index'), app.request.get('_route_params', [])|merge({_locale: l.code})) }}" />
-            {% endif %}
-        {% endfor %}
     </head>
     <body {% if locale() == 'ar' %}dir="rtl"{% endif %}>
 
