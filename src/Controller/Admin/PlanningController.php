@@ -17,6 +17,7 @@ use App\Repository\ClassRepository;
 use App\Repository\DayRepository;
 use App\Repository\PlanningRepository;
 use App\Repository\SubjectRepository;
+// use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,8 +29,11 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class PlanningController extends AbstractController
 {
+    
+
+
     /**
-     * @Route("/", name="planning")
+     * @Route("/", name="admin_planning")
      */
     public function index(DayRepository $dayRepository, SubjectRepository $subjectRepository, ClassRepository $classRepository, PlanningRepository $planningRepository)
     {
@@ -60,13 +64,41 @@ class PlanningController extends AbstractController
             $entityManager->persist($planning);
             $entityManager->flush();
 
-            return $this->redirectToRoute('planning');
+            return $this->redirectToRoute('admin_planning');
         }
 
         return $this->render('admin/planning/new.html.twig', [
             'planning' => $planning,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="admin_planning_edit", methods="GET|POST")
+     *
+     * @param Planning $planning
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function edit(Planning $planning, Request $request)
+    {
+        $form = $this->createForm(PlanningType::class, $planning);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $entityManager = $this->getDoctrine()->getManager();
+            //$entityManager->persist($planning);
+            $entityManager->flush();
+
+           // $this->addFlash('success', 'Bien modifie avec succes');
+            return $this->redirectToRoute('admin_planning');
+        }
+
+        return $this->render('admin/planning/edit.html.twig', [
+            'planning' => $planning,
+            'form' => $form->createView()
+            ]);
     }
 
     /**
@@ -85,6 +117,6 @@ class PlanningController extends AbstractController
 
         $connection->executeUpdate($platform->getTruncateTableSQL('planning', true));
 
-        return $this->redirectToRoute('planning');
+        return $this->redirectToRoute('admin_planning');
     }
 }
