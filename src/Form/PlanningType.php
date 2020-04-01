@@ -36,15 +36,8 @@ class PlanningType extends AbstractType
                         ->setParameter('id', 1);
                 },
                 'label' => 'Who is fighting in this round?',
-                // 'expanded'  => true,
                 'multiple' => true,
             ])
-            // ->add('classes', CollectionType::class, [
-            //     'class' => Classe::class,
-            //     'choice_label' => 'code',
-            //     'choice_translation_domain' => 'messages',
-            // ])
-            //attr_translation_parameters
             ->add('subjects', EntityType::class, [
                 'class' => Subject::class,
                 'choice_label' => 'code',
@@ -56,7 +49,6 @@ class PlanningType extends AbstractType
                         ->setParameter('id', 1);
                 },
                 'label' => 'Who is fighting in this round?',
-                // 'expanded'  => true,
                 'multiple' => true,
             ])
             ->add('day', EntityType::class, [

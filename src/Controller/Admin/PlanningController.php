@@ -17,7 +17,6 @@ use App\Repository\ClassRepository;
 use App\Repository\DayRepository;
 use App\Repository\PlanningRepository;
 use App\Repository\SubjectRepository;
-// use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -108,10 +107,6 @@ class PlanningController extends AbstractController
      */
     public function deleteAll(Request $request, EntityManager $entityManager): Response
     {
-        // $planning = new Planning;
-        // $form = $this->createForm(PlanningType::class, $planning);
-        // $form->handleRequest($request);
-
         $connection = $entityManager->getConnection();
         $platform = $connection->getDatabasePlatform();
 
