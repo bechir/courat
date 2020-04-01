@@ -17,7 +17,7 @@ class:
   planning: PLANNING
 
 hero:
-  about: "%app_name% est une plateforme éducative mauritanienne dont l’objectif est de rendre accessible le programme scolaire diffusé sur la télévision nationale à tous les élèves, où qu’ils se situent sur le territoire national et à n'importe quel moment"
+  about: "%app_name% est une plateforme éducative mauritanienne dont l’objectif est de rendre accessible le programme scolaire diffusé sur la télévision nationale à tous les élèves, où qu’ils se situent sur le territoire national et à n'importe quel moment."
   courses: VOIR COURS
   planning: EMPLOI DU TEMPS
 

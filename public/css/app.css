@@ -1088,4 +1088,21 @@ body[dir="rtl"] .mobile-nav a {
   font-family: 'Cairo',sans-serif;
 }
 
+/* Error Pages */
+.error-content {
+  padding: 0 0 70px;
+}
+.error-text{
+  text-align: center;
+}
 
+.error {
+  font-size: 180px;
+  font-weight: 100;
+ 
+}
+
+.error-img{
+  margin-top: 70px;
+  margin-bottom: 10px;
+}
