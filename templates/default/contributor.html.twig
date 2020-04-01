@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ App.name }}
+	&ndash;
+	{{ 'app.title'|trans }}
+{% endblock %}
+
+{% block main %}
+
+	<!-- ======= Team Section ======= -->
+	<section id="team" class="team section-bg">
+		<div class="container">
+
+			<div class="section-title">
+				<h2 data-aos="fade-in">{{ 'contribute.title'|trans}}</h2>
+				<p data-aos="fade-in">
+					{{ 'contribute.description'|trans}}
+				</p>
+			</div>
+
+			<div class="d-flex justify-content-between flex-wrap">
+				<div class="col-xl-3 col-lg-4 col-md-6">
+					<div class="member" data-aos="fade-up">
+						<div class="pic"><img src="{{ asset('assets/img/avatar.png') }}" alt="" width="90%"></div>
+						<h4>Bechir BA
+							<i class="icofont-star" data-toggle="tooltip" data-placement="top" title="Initiateur du projet"></i>
+						</h4>
+						<span>Symfony &amp; React Native Developer</span>
+						<div class="social">
+							<a href="https://web.facebook.com/rand0mdev" target="_blank">
+								<i class="fab fa-facebook"></i>
+							</a>
+							<a href="" target="_blank">
+								<i class="fab fa-twitter"></i>
+							</a>
+							<a href="https://github.com/rand0mdev" target="_blank">
+								<i class="fab fa-github"></i>
+							</a>
+							<a href="https://www.linkedin.com/in/randomdev/" target="_blank">
+								<i class="fab fa-linkedin"></i>
+							</i>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xl-3 col-lg-4 col-md-6">
+				<div class="member" data-aos="fade-up" data-aos-delay="100">
+					<div class="pic"><img src="{{ asset('assets/img/avatar.png') }}" alt="" width="90%"></div>
+					<h4>Diafra SOUMARE</h4>
+					<span>Web Developer</span>
+					<div class="social">
+						<a href="https://web.facebook.com/diafara.soumare.7">
+							<i class="fab fa-facebook" target="_blank"></i>
+						</a>
+						<a href="">
+							<i class="fab fa-twitter" target="_blank"></i>
+						</a>
+						<a href="https://github.com/thediaf">
+							<i class="fab fa-github" target="_blank"></i>
+						</a>
+						<a href="https://www.linkedin.com/in/diafra-soumar%C3%A9-a53b8518a/">
+							<i class="fab fa-linkedin" target="_blank"></i>
+						</i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xl-3 col-lg-4 col-md-6">
+			<div class="member" data-aos="fade-up" data-aos-delay="200">
+				<div class="pic"><img src="{{ asset('assets/img/avatar.png') }}" alt="" width="90%"></div>
+				<h4>ATHIE Mohamed</h4>
+				<span>Full Stack Web Developer</span>
+				<div class="social">
+					<a href="http://facebook.com/athiemed" target="_blank">
+						<i class="fab fa-facebook"></i>
+					</a>
+					<a href="http://twitter.com/athie_mohamed" target="_blank">
+						<i class="fab fa-twitter"></i>
+					</a>
+					<a href="https://github.com/athiemohamed" target="_blank">
+						<i class="fab fa-github"></i>
+					</a>
+					<a href="https://www.linkedin.com/in/athiemed/" target="_blank">
+						<i class="fab fa-linkedin"></i>
+					</i>
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+<hr>
+<p class="text-center contrib-section">
+	<a href="https://github.com/rand0mdev/courat" target="_blank" class="btn-return github-btn">
+		<i class="fab fa-github"></i>
+		&nbsp;
+		{{ 'contribute.github'|trans}}</a>
+	<a href="https://discord.gg/CUT3neU" target="_blank" class="btn-return discord-btn">
+		<i class="fab fa-discord"></i>&nbsp;
+		{{ 'contribute.discord'|trans}}</a>
+
+</p></section><!-- End Team Section -->{% endblock %}{% block diffusion %}{% endblock %}

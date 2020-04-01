@@ -11,9 +11,9 @@
         </div>
 
         <div class="social-links">
-          <a href="https://facebook.com/rimacademyofficiel" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="http://twitter.com/rim_academy" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="https://www.youtube.com/channel/UCmicy4Xqf2PISbNoZDzOTaw" class="instagram"><i class="bx bxl-youtube"></i></a>
+          <a href="https://facebook.com/rimacademyofficiel" class="mx"><i class="fab fa-facebook-f"></i></a>
+          <a href="http://twitter.com/rim_academy" class="mx"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.youtube.com/channel/UCmicy4Xqf2PISbNoZDzOTaw" class="mx"><i class="fab fa-youtube"></i></a>
         </div>
 
       </div>
@@ -25,7 +25,7 @@
           {{ 'footer.copyright'|trans|raw }}
         </div>
         <div class="dev col-md-4">
-          {{ 'footer.dev'|trans|raw }}
+          {{ 'footer.dev'|trans({'%link%': path('contributors')})|raw }}
         </div>
         <div class="credits col-md-4">
           {{ 'footer.credits'|trans|raw }}

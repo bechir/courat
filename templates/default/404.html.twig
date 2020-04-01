@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{{ 'login.title'|trans }}
+{% endblock %}
+
+{% block navbar %}{% endblock %}
+{% block main %}
+	<div class="error-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 ">
+					<div class="error-text">
+						<h1 class="error"></h1>
+						<div>
+							{# For 404 #}
+							<img src="{{ asset('assets/img/404.svg') }}" width="50%" class="error-img">
+						<h4>{{ 'error.404-title'|trans|raw }}</h4>
+						<p>
+							{{ 'error.404-description'|trans|raw }}
+						</p>
+						<a href="{{ path('index') }}" class="btn-return">{{ 'error.go-back'|trans|raw }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block diffusion %}{% endblock %}
+{% block footer %}{% endblock %}
