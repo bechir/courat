@@ -5,7 +5,8 @@
 ### Built on top of [Symfony 4][1]
 ### The user interface is built with [Bootstrap 4][2]
 
-![GitHub](https://raw.githubusercontent.com/rand0mdev/courat/master/docs/images/home.png)
+![GitHub](https://raw.githubusercontent.com/rand0mdev/courat/master/docs/images/home_fr.png)
+![GitHub](https://raw.githubusercontent.com/rand0mdev/courat/master/docs/images/home_ar.png)
 
 Online Demo
 -----------

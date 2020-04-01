@@ -48,10 +48,16 @@ class Classe implements JsonSerializable
      */
     private $code;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Planning", mappedBy="classes")
+     */
+    private $plannings;
+
     public function __construct()
     {
         $this->courses = new ArrayCollection();
         $this->subjects = new ArrayCollection();
+        $this->plannings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -163,5 +169,33 @@ class Classe implements JsonSerializable
             'subjects' => $this->subjects,
             'courses' => $this->courses,
         ];
+    }
+
+    /**
+     * @return Collection|Planning[]
+     */
+    public function getPlannings(): Collection
+    {
+        return $this->plannings;
+    }
+
+    public function addPlanning(Planning $planning): self
+    {
+        if (!$this->plannings->contains($planning)) {
+            $this->plannings[] = $planning;
+            $planning->addClass($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlanning(Planning $planning): self
+    {
+        if ($this->plannings->contains($planning)) {
+            $this->plannings->removeElement($planning);
+            $planning->removeClass($this);
+        }
+
+        return $this;
     }
 }

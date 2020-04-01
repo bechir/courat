@@ -1,0 +1,59 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Emplois du temps
+{% endblock %}
+
+{% block left_sidebar %}
+	{% include 'admin/common/left-sidebar.twig' with { active: 'planning-list' } %}
+{% endblock %}
+
+{% block main %}
+
+	<div class="table-responsive">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Niveau</th>
+					{% for day in days %}
+						<th>{{ day.name|trans }}</th>
+					{% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+				{% for classe in classes %}
+					<tr>
+						<td>{{ classe.code|trans|raw }}</td>
+						{% for day in days %}
+							<td>
+								{% for planning in plannings %}
+									{% if day.name == planning.day.name %}
+										{% for class in planning.classes %}
+											{% if class.name == classe.name %}
+
+												{% for subject in planning.subjects %}
+													<a href="{{ path('admin_planning_edit', {id: planning.id}) }}">{{ subject.code|trans }}</a>
+													<br>
+												{% endfor %}
+
+											{% endif %}
+										{% endfor %}
+									{% endif %}
+								{% endfor %}
+							</td>
+						{% endfor %}
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+
+	<a href="{{ path('admin_planning_new') }}" class="btn btn-success">
+		<i class="lnr lnr-plus-circle"></i>
+		Saisir un nouveau</a>
+	<a href="{{ path('admin_planning_deleteAll') }}" class="btn btn-danger">
+		<i class="lnr lnr-trash"></i>
+		Tous supprimer</a>
+
+{% endblock %}
+
