@@ -24,13 +24,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class PlanningType extends AbstractType
 {
     const ENTITY_CLASS = 'class';
+    const ENTITY_LABEL = 'choice_label';
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('classes', EntityType::class, [
                 self::ENTITY_CLASS => Classe::class,
-                'choice_label' => 'name',
+                self::ENTITY_LABEL => 'name',
                 'query_builder' => function (EntityRepository $repo) {
                     return $repo->createQueryBuilder('f')
                         ->where('f.id > :id')
@@ -41,7 +42,7 @@ class PlanningType extends AbstractType
             ])
             ->add('subjects', EntityType::class, [
                 self::ENTITY_CLASS => Subject::class,
-                'choice_label' => 'code',
+                self::ENTITY_LABEL => 'code',
                 'translation_domain' => true,
                 'choice_translation_domain' => 'messages',
                 'query_builder' => function (EntityRepository $repo) {
@@ -54,7 +55,7 @@ class PlanningType extends AbstractType
             ])
             ->add('day', EntityType::class, [
                 self::ENTITY_CLASS => Day::class,
-                'choice_label' => 'name',
+                self::ENTITY_LABEL => 'name',
                 'translation_domain' => true,
                 'choice_translation_domain' => 'messages',
             ])
