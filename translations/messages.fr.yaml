@@ -17,7 +17,7 @@ class:
   planning: PLANNING
 
 hero:
-  about: "%app_name% est une plateforme éducative mauritanienne dont l’objectif est de rendre accessible le programme scolaire diffusé sur la télévision nationale à tous les élèves, où qu’ils se situent sur le territoire nationale et à n'importe quel moment"
+  about: "%app_name% est une plateforme éducative mauritanienne dont l’objectif est de rendre accessible le programme scolaire diffusé sur la télévision nationale à tous les élèves, où qu’ils se situent sur le territoire national et à n'importe quel moment."
   courses: VOIR COURS
   planning: EMPLOI DU TEMPS
 
@@ -151,3 +151,9 @@ planning:
   pens-isl: Pensée Islamique
   philo:  Philosophie
   
+error:
+  go-back:  Revenir à l'acceuil
+  404-title:  Cette page est introuvable
+  404-description:  Il peut y avoir un problème avec le lien ou la page a peut-être été supprimée
+  500-title:  Erreur interne du serveur
+  500-description:  Malheureusement, nous avons du mal à charger la page que vous recherchez. Veuillez revenir dans un moment.
