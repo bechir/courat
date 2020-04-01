@@ -1163,13 +1163,18 @@ body[dir="rtl"] .mobile-nav a {
 .discord-btn{
   background-color: #7085D6;
   border:1px solid #7085D6;
+}
+
+.discord-btn,
+.github-btn {
   color:#fff;
+  padding-bottom: .65rem;
+  padding-top: .65rem;
 }
 
 .github-btn{
   background-color: #161414;
   border:1px solid #161414;
-  color:#fff;
 }
 
 .github-btn:hover{

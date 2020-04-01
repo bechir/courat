@@ -111,7 +111,7 @@ user:
 footer:
   follow: تابعونا على
   copyright: © 2020 <a href="https://www.rimacademy.net">Rim Academy. </a>جميع الحقوق محفوظة 
-  dev: مطور ب<i class="icofont-heart-alt hr-cp"></i> من طرف <a href="https://github.com/rand0mdev">rand0mdev</a> و <a href="">المساهمون</a> 
+  dev: مطور ب<i class="icofont-heart-alt hr-cp"></i> من طرف <a href="https://github.com/rand0mdev">rand0mdev</a> و <a href="%link%">المساهمون</a>
   credits: برعاية  <a href="https://www.iprod.mr/">iProd technology ®</a>
 
 planning:
