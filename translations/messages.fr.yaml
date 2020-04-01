@@ -23,8 +23,8 @@ hero:
 
 home:
   chooseClass: VEUILLEZ CHOISIR UNE CLASSE POUR COMMENCER
-  6af: 6 <sup>eme</sup> ANNEE FONDEMENTALE
-  4as: 4 <sup>eme</sup> ANNEE SECONDAIRE
+  6af: 6<sup>ème</sup> ANNEE FONDEMENTALE
+  4as: 4<sup>ème</sup> ANNEE SECONDAIRE
 
 platforms:
   title: RESSOURCES NUMERIQUES
@@ -48,13 +48,10 @@ contact:
 
 subject:
   ar: Arabe
-  eng: Anglais
   maths: Mathématiques
   fr: Français
   pc: Physique-Chime
-  hg: Histoire Géo
   sn: Sciences Naturelles
-  ic: IC
   ir: Instruction Religieuse
   dm: Droit Musulman
   pi: Pensé Islamique
@@ -121,7 +118,7 @@ user:
 footer:
   follow: RETROUVEZ NOUS SUR
   copyright: © 2020 <a href="https://www.rimacademy.net">Rim Academy. </a>All rights reserved.
-  dev: Made with <i class="icofont-heart-alt hr-cp"></i> by <a href="https://github.com/rand0mdev">rand0mDev</a>
+  dev: Made with <i class="icofont-heart-alt hr-cp"></i> by <a href="https://github.com/rand0mdev">rand0mdev</a> and <a href="https://github.com/rand0mdev/courat">contributors</a>
   credits: Hosted by <a href="https://www.iprod.mr/">iProd technology ®</a>
 
 course:
