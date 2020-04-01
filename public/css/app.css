@@ -397,6 +397,7 @@ h6 {
     padding: 5px 0px 5px 0px;
     display: block;
     margin-bottom: 10px;
+    border-radius: 0;
   }
 
   .pic {
@@ -1179,6 +1180,7 @@ body[dir='rtl'] .mobile-nav a {
   color: #fff;
   padding-bottom: 0.65rem;
   padding-top: 0.65rem;
+  border-radius: 0;
 }
 
 .github-btn {
