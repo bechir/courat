@@ -48,6 +48,8 @@ jQuery(function ($) {
         pickDate: false,
     });
 
+    $('#planning_classes input').attr('type', 'radio');
+
     imagefile.change(function(){
         $('.preview-container').html($img);
         readURL(this, '#img-preview');
