@@ -33,7 +33,6 @@ class SubjectFixtures extends Fixture
     {
         return [
             'ar',
-            'eng',
             'maths',
             'pc',
             'sn',
