@@ -13,6 +13,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Form\Admin\UserType;
+use App\Form\PasswordEditType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -79,6 +80,37 @@ class UserController extends AbstractController
         }
 
         return $this->render('admin/user/create.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/change-password", name="admin_user_password_edit")
+     */
+    public function editPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager)
+    {
+        $user = $this->getUser();
+        $form = $this->createForm(PasswordEditType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setPassword(
+                $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('plainPassword')->getData()
+                )
+            );
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Le mot de passe a été changé.');
+
+            return $this->redirectToRoute('admin_index');
+        }
+
+        return $this->render('admin/user/password-edit.html.twig', [
+            'active' => 'editPassword',
             'form' => $form->createView(),
         ]);
     }
