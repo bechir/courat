@@ -48,31 +48,4 @@ class Day
         return $this;
     }
 
-    // /**
-    //  * @return Collection|Planning[]
-    //  */
-    // public function getPlannings(): Collection
-    // {
-    //     return $this->plannings;
-    // }
-
-    // public function addPlanning(Planning $planning): self
-    // {
-    //     if (!$this->plannings->contains($planning)) {
-    //         $this->plannings[] = $planning;
-    //         $planning->addDay($this);
-    //     }
-
-    //     return $this;
-    // }
-
-    // public function removePlanning(Planning $planning): self
-    // {
-    //     if ($this->plannings->contains($planning)) {
-    //         $this->plannings->removeElement($planning);
-    //         $planning->removeDay($this);
-    //     }
-
-    //     return $this;
-    // }
 }

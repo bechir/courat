@@ -132,22 +132,4 @@ class Planning
 
         return $this;
     }
-
-    // public function addDay(Day $day): self
-    // {
-    //     if (!$this->day->contains($day)) {
-    //         $this->day[] = $day;
-    //     }
-
-    //     return $this;
-    // }
-
-    // public function removeDay(Day $day): self
-    // {
-    //     if ($this->day->contains($day)) {
-    //         $this->day->removeElement($day);
-    //     }
-
-    //     return $this;
-    // }
 }
