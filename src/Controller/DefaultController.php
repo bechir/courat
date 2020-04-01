@@ -20,4 +20,9 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/index.html.twig');
     }
+
+    public function contributors(): Response
+    {
+        return $this->render('default/contributor.html.twig');
+    }
 }
