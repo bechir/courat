@@ -15,7 +15,7 @@
 				<tr>
 					<th>Niveau</th>
 					{% for day in days %}
-						<th>{{ day.name }}</th>
+						<th>{{ day.name|trans }}</th>
 					{% endfor %}
 				</tr>
 			</thead>
