@@ -15,7 +15,6 @@ use App\Entity\Planning;
 use App\Repository\PlanningRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -30,9 +29,7 @@ class PlanningController extends AbstractController
      */
     public function index(PlanningRepository $planningRepository)
     {
-
         return $this->json($planningRepository->findAll());
-    
     }
 
     /**
@@ -46,5 +43,4 @@ class PlanningController extends AbstractController
     {
         return $this->json($planning);
     }
-
 }
