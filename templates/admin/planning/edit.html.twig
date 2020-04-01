@@ -1,0 +1,18 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block left_sidebar %}
+    {% include 'admin/common/left-sidebar.twig' with { active: 'new-course' } %}
+{% endblock %}
+
+{% block title %}Modifier un creneau{% endblock %}
+
+{% block main %}
+    <div class="col mx-3">
+        <h3 class="page-title text-success"><span class="lnr lnr-pencil"></span> Modifier</h3>
+        <hr>
+    </div>
+    
+    {{ include('admin/planning/_form.html.twig', {button_label: 'Modifier'}) }}
+
+    <a class="my-3 btn btn-info" href="{{ path('admin_courses') }}"><i class="lnr lnr-arrow-left fa-lg"></i> back to list</a>
+{% endblock %}

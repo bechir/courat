@@ -34,11 +34,79 @@
 						<input id="tab6" type="radio" name="tabs">
 						<label for="tab6">7LM</label>
 
-						<section id="content1">
-							<p>
+
+{% set i = 1 %}		
+{% for classe in classes %}
+<section id='{{"content"~i}}'>
+{% set i = i + 1 %}
+{% set dayIndex = 0 %}
+    {% for day in days %}
+        {% set subjectExist = 0 %}
+        {% set rep = 0 %}   
+        {% for planning in plannings %}
+            {% if day.name == planning.day.name %}
+                {% for class in planning.classes %}
+                    {% if class.name == classe.name %}
+                        {% if rep == 0 %}
+                        <p>
+                            <h3>
+                                <b>
+                                    <span class="badge badge-secondary">{{ planning.day.name|trans }}</span>
+                                </b>
+                            </h3>
+                        </p>
+                        <p>
+                            <i class="icofont-clock-time"></i>
+                            <b>{{ 'planning.hour'|trans }}
+                                :</b>
+                            {{ 'planning.5pm'|trans }}
+                            ({{ 'planning.direct'|trans }})
+                            <br>
+                            <i class="icofont-book-alt"></i>
+                            <b>{{ 'planning.field'|trans }}
+                                :</b>
+                            {% set rep = 1 %}
+                            {% endif %}
+                            {% for subject in planning.subjects %}
+                                {% if subjectExist == 1 %} - {% endif %}{{ subject.code|trans }} 
+								{% set subjectExist = 1 %}
+                            {% endfor %}
+						
+						{# <h3>
+							<b>
+								<span class="badge badge-secondary">{{ days[dayIndex+1]|trans }}</span>
+							</b>
+						</h3>
+						<p>
+                            <i class="icofont-clock-time"></i>
+                            <b>{{ 'planning.hour'|trans }}
+                                :</b>
+                            {{ 'planning.11pm'|trans }}
+                            ({{ 'planning.rediff'|trans }})
+                            <br>
+                            <i class="icofont-book-alt"></i>
+                            <b>{{ 'planning.field'|trans }}
+                                :</b>
+                            {% set rep = 1 %}
+                            {% for subject in planning.subjects %}
+                                {% if subjectExist == 1 %} - {% endif %}{{ subject.code|trans }} 
+								{% set subjectExist = 1 %}
+                            {% endfor %} #}
+                        
+                    {% endif %}
+                    {% endfor %}
+                {% endif %} 
+				{% set dayIndex = dayIndex + 1 %}      
+            {% endfor %}
+			</p>
+            {% endfor %} 
+</section>   
+{% endfor %}
+						{# <section id="content1">
+							<p> #}
 								{# 6AF Class planning #}
 
-								<h3>
+								{# <h3>
 									<b>
 										<span class="badge badge-secondary">{{ 'planning.lun'|trans }}</span>
 									</b>
@@ -111,15 +179,15 @@
 								{{ 'planning.math'|trans }}
 								-
 								{{ 'planning.ir'|trans }}
-							</p>
+							</p> #}
 
 							{# End of class planning #}
-
+{# 
 
 						</p>
 					</section>
-
-					<section id="content2">
+#}
+					{# <section id="content2">
 						<p>
 							<h3>
 								<b>
@@ -310,9 +378,9 @@
 
 
 					</p>
-				</section>
+				</section> #}
 
-				<section id="content3">
+		{#		<section id="content3">
 					<p>
 						<h3>
 							<b>
@@ -986,4 +1054,5 @@
 			{{ 'planning.philo'|trans }}
 		</p>
 	</p>
-</section></div></div></div></div></div></div><!-- End of Schedule Modal -->
+</section> #}
+</div></div></div></div></div></div><!-- End of Schedule Modal -->

@@ -33,8 +33,8 @@
                                     {% for class in planning.classes %}
                                         {% if class.name == classe.name %}
                                             
-                                                {% for da in planning.subjects %}
-                                                    {{ da.code }} <br>
+                                                {% for subject in planning.subjects %}
+                                                <a href="{{ path('admin_planning_edit', {id: planning.id}) }}">{{ subject.code }}</a> <br>
                                                 {% endfor %}
                                             
                                         {% endif %}
@@ -44,28 +44,7 @@
                             </td>
                          {% endfor %}
                     </tr> 
-                {% endfor %}    
-                {# <tr> #}
-
-                
-                
-                    {# <td><a href="{{ path('admin_course_show', {id: course.id}) }}">{{ course.title }}</a></td> #}
-                    {# <td>{{ day.name }}</td> #}
-                    {# <td>{{ course.subject|trans }}</td>
-                    <td><a href="{{ course.videoUrl }}" target="_blank" rel="noopener noreferrer">{{ course.videoUrl }}</a></td>
-                    <td>{{ course.publishedAt|localizeddate('full', 'short', null)|capitalize }}</td>
-                    <td class="px-0">
-                        <div class="btn-group">
-                            <a class="mx-2 edit-item" href="{{ path('course_show', {id: course.id}) }}" target="_blank">
-                                <i class="fa fa-lg fa-external-link"></i>
-                            </a>
-                            <a class="mx-2 edit-item" data-placement="top" style="cursor:pointer;" title="Modifier" href="{{ path('admin_course_edit', {id: course.id}) }}">
-                                <i class="lnr lnr-pencil text-primary"></i>
-                            </a>
-                        </div>
-                    </td> #}
-                {# {% endfor %} #}
-                {# </tr> #}
+                {% endfor %}
         </tbody>
     </table>
 </div>
@@ -73,7 +52,313 @@
 
 
 
-    <a href="{{ path('admin_planning_new') }}" class="btn btn-primary"><i class="lnr lnr-plus-circle"></i> Saisir un nouveau</a>
+    <a href="{{ path('admin_planning_new') }}" class="btn btn-success"><i class="lnr lnr-plus-circle"></i> Saisir un nouveau</a>
     <a href="{{ path('admin_planning_deleteAll') }}" class="btn btn-danger"><i class="lnr lnr-trash"></i> Tous supprimer</a>
 
 {% endblock %}
+
+
+
+<section id="content1">
+{% for classe in classes %}
+    {% for day in days %}
+        {% set dayExist = 0 %}
+        {% set rep = 0 %}   
+        {% for planning in plannings %}
+            {% if day.name == planning.day.name %}
+                {% for class in planning.classes %}
+                    {% if class.name == classe.name %}
+                        {% if rep == 0 %}
+                            
+                        
+                        <p>
+                            <h3>
+                                <b>
+                                    <span class="badge badge-secondary">{{ planning.day.name|trans }}</span>
+                                </b>
+                            </h3>
+                        </p>
+                        <p>
+                            <i class="icofont-clock-time"></i>
+                            <b>{{ 'planning.hour'|trans }}
+                                :</b>
+                            {{ 'planning.5pm'|trans }}
+                            ({{ 'planning.direct'|trans }})
+                            <br>
+                            <i class="icofont-book-alt"></i>
+                            <b>{{ 'planning.field'|trans }}
+                                :</b>
+                            {% set rep = 1 %}
+                            {% endif %}
+                            {% for subject in planning.subjects %}
+                                {{ subject.code }} 
+                            {% endfor %}
+                            {# {{ 'planning.ar'|trans }}
+                            -
+                            {{ 'planning.fr'|trans }} #}
+                        </p>
+                    {% endif %}
+                    {% endfor %}
+                {% endif %}       
+            {% endfor %}
+            {% endfor %}    
+{% endfor %}
+
+{% for classe in classes %}
+    <tr>
+        <td>{{ classe.name }}</td>
+            {% for day in days %}
+            <td>
+            {% for planning in plannings %}
+                {% if day.name == planning.day.name %}
+                    {% for class in planning.classes %}
+                        {% if class.name == classe.name %}
+                            
+                                {% for subject in planning.subjects %}
+                                <a href="{{ path('admin_planning_edit', {id: planning.id}) }}">{{ subject.code }}</a> <br>
+                                {% endfor %}
+                            
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}       
+            {% endfor %}
+            </td>
+            {% endfor %}
+    </tr> 
+{% endfor %}
+
+    <hr>
+    <h3>
+        <b>
+            <span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+        </b>
+    </h3>
+    <p>
+        <i class="icofont-clock-time"></i>
+        <b>{{ 'planning.hour'|trans }}
+            :</b>
+        {{ 'planning.11pm'|trans }}
+        ({{ 'planning.rediff'|trans }})
+        <br>
+        <i class="icofont-book-alt"></i>
+        <b>{{ 'planning.field'|trans }}
+            :</b>
+        {{ 'planning.ar'|trans }}
+        -
+        {{ 'planning.fr'|trans }}
+    </p>
+    <p>
+        <i class="icofont-clock-time"></i>
+        <b>{{ 'planning.hour'|trans }}
+            :</b>
+        {{ 'planning.5pm'|trans }}
+        ({{ 'planning.direct'|trans }})
+        <br>
+        <i class="icofont-book-alt"></i>
+        <b>{{ 'planning.field'|trans }}
+            :</b>
+        {{ 'planning.math'|trans }}
+        -
+        {{ 'planning.ir'|trans }}
+    </p>
+    <hr>
+    <h3>
+        <b>
+            <span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+        </b>
+    </h3>
+    <p>
+        <i class="icofont-clock-time"></i>
+        <b>{{ 'planning.hour'|trans }}
+            :</b>
+        {{ 'planning.11pm'|trans }}
+        ({{ 'planning.rediff'|trans }})
+        <br>
+        <i class="icofont-book-alt"></i>
+        <b>{{ 'planning.field'|trans }}
+            :</b>
+        {{ 'planning.math'|trans }}
+        -
+        {{ 'planning.ir'|trans }}
+    </p>
+
+    {# End of class planning #}
+
+
+</p>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section id="content3">
+        <p>
+            <h3>
+                <b>
+                    <span class="badge badge-secondary">{{ 'planning.mar'|trans }}</span>
+                </b>
+            </h3>
+        </p>
+        <p>
+            <i class="icofont-clock-time"></i>
+            <b>{{ 'planning.hour'|trans }}
+                :</b>
+            {{ 'planning.5pm'|trans }}
+            ({{ 'planning.direct'|trans }})
+            <br>
+            <i class="icofont-book-alt"></i>
+            <b>{{ 'planning.field'|trans }}
+                :</b>
+            {{ 'planning.math'|trans }}
+            -
+            {{ 'planning.sn'|trans }}
+        </p>
+        <hr>
+        <h3>
+            <b>
+                <span class="badge badge-secondary">{{ 'planning.mer'|trans }}</span>
+            </b>
+        </h3>
+        <p>
+            <i class="icofont-clock-time"></i>
+            <b>{{ 'planning.hour'|trans }}
+                :</b>
+            {{ 'planning.11pm'|trans }}
+            ({{ 'planning.rediff'|trans }})
+            <br>
+            <i class="icofont-book-alt"></i>
+            <b>{{ 'planning.field'|trans }}
+                :</b>
+            {{ 'planning.math'|trans }}
+            -
+            {{ 'planning.sn'|trans }}
+        </p>
+        <hr>
+        <h3>
+            <b>
+                <span class="badge badge-secondary">{{ 'planning.jeu'|trans }}</span>
+            </b>
+        </h3>
+        <p>
+            <i class="icofont-clock-time"></i>
+            <b>{{ 'planning.hour'|trans }}
+                :</b>
+            {{ 'planning.5pm'|trans }}
+            ({{ 'planning.direct'|trans }})
+            <br>
+            <i class="icofont-book-alt"></i>
+            <b>{{ 'planning.field'|trans }}
+                :</b>
+            {{ 'planning.pc'|trans }}
+        </p>
+        <hr>
+        <h3>
+            <b>
+                <span class="badge badge-secondary">{{ 'planning.ven'|trans }}</span>
+            </b>
+        </h3>
+        <p>
+            <i class="icofont-clock-time"></i>
+            <b>{{ 'planning.hour'|trans }}
+                :</b>
+            {{ 'planning.11pm'|trans }}
+            ({{ 'planning.rediff'|trans }})
+            <br>
+            <i class="icofont-book-alt"></i>
+            <b>{{ 'planning.field'|trans }}
+                :</b>
+            {{ 'planning.pc'|trans }}
+        </p>
+        <p>
+            <i class="icofont-clock-time"></i>
+            <b>{{ 'planning.hour'|trans }}
+                :</b>
+            {{ 'planning.5pm'|trans }}
+            ({{ 'planning.direct'|trans }})
+            <br>
+            <i class="icofont-book-alt"></i>
+            <b>{{ 'planning.field'|trans }}
+                :</b>
+            {{ 'planning.math'|trans }}
+            -
+            {{ 'planning.sn'|trans }}
+        </p>
+        <hr>
+        <h3>
+            <b>
+                <span class="badge badge-secondary">{{ 'planning.sam'|trans }}</span>
+            </b>
+        </h3>
+        <p>
+            <i class="icofont-clock-time"></i>
+            <b>{{ 'planning.hour'|trans }}
+                :</b>
+            {{ 'planning.11pm'|trans }}
+            ({{ 'planning.rediff'|trans }})
+            <br>
+            <i class="icofont-book-alt"></i>
+            <b>{{ 'planning.field'|trans }}
+                :</b>
+            {{ 'planning.math'|trans }}
+            -
+            {{ 'planning.sn'|trans }}
+        </p>
+        <p>
+            <i class="icofont-clock-time"></i>
+            <b>{{ 'planning.hour'|trans }}
+                :</b>
+            {{ 'planning.5pm'|trans }}
+            ({{ 'planning.direct'|trans }})
+            <br>
+            <i class="icofont-book-alt"></i>
+            <b>{{ 'planning.field'|trans }}
+                :</b>
+            {{ 'planning.pc'|trans }}
+        </p>
+        <hr>
+        <h3>
+            <b>
+                <span class="badge badge-secondary">{{ 'planning.dim'|trans }}</span>
+            </b>
+        </h3>
+        <p>
+            <i class="icofont-clock-time"></i>
+            <b>{{ 'planning.hour'|trans }}
+                :</b>
+            {{ 'planning.11pm'|trans }}
+            ({{ 'planning.rediff'|trans }})
+            <br>
+            <i class="icofont-book-alt"></i>
+            <b>{{ 'planning.field'|trans }}
+                :</b>
+            {{ 'planning.pc'|trans }}
+        </p>
+    
+</section>
