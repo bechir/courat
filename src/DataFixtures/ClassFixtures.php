@@ -20,7 +20,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 class ClassFixtures extends Fixture implements DependentFixtureInterface
 {
     const SUBJECTS_6_AF = ['ar', 'fr', 'maths', 'ir'];
-    const SUBJECTS_4_AS = ['hg', 'sn', 'ic', 'ir', 'fr'];
+    const SUBJECTS_4_AS = ['ir', 'fr', 'ar', 'maths'];
     const SUBJECTS_7_CD = ['sn', 'pc', 'maths'];
     const SUBJECTS_7_LM = ['ar', 'dm', 'pi'];
     const SUBJECTS_7_LO = ['ph', 'fr', 'ar'];
