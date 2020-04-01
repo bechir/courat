@@ -29,13 +29,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class PlanningController extends AbstractController
 {
     const BLOCK_PREFIX = 'planning';
+    const BASE_ROUTE = 'admin_' . self::BLOCK_PREFIX;
+    const BASE_PATH = 'admin/';
 
     /**
      * @Route("/", name="admin_planning")
      */
     public function index(DayRepository $dayRepository, SubjectRepository $subjectRepository, ClassRepository $classRepository, PlanningRepository $planningRepository)
     {
-        return $this->render('admin/' . self::BLOCK_PREFIX . '/index.html.twig', [
+        return $this->render(self::BASE_PATH . self::BLOCK_PREFIX . '/index.html.twig', [
             'controller_name' => 'PlanningController',
             'days' => $dayRepository->findAll(),
             'classes' => $classRepository->findAll(),
@@ -62,10 +64,10 @@ class PlanningController extends AbstractController
             $entityManager->persist($planning);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin_planning');
+            return $this->redirectToRoute(self::BASE_ROUTE);
         }
 
-        return $this->render('admin/' . self::BLOCK_PREFIX . '/new.html.twig', [
+        return $this->render(self::BASE_PATH . self::BLOCK_PREFIX . '/new.html.twig', [
             self::BLOCK_PREFIX => $planning,
             'form' => $form->createView(),
         ]);
@@ -87,10 +89,10 @@ class PlanningController extends AbstractController
             $entityManager->flush();
 
             // $this->addFlash('success', 'Bien modifie avec succes');
-            return $this->redirectToRoute('admin_planning');
+            return $this->redirectToRoute(self::BASE_ROUTE);
         }
 
-        return $this->render('admin/' . self::BLOCK_PREFIX . '/edit.html.twig', [
+        return $this->render(self::BASE_PATH . self::BLOCK_PREFIX . '/edit.html.twig', [
             self::BLOCK_PREFIX => $planning,
             'form' => $form->createView(),
             ]);
@@ -108,6 +110,6 @@ class PlanningController extends AbstractController
 
         $connection->executeUpdate($platform->getTruncateTableSQL(self::BLOCK_PREFIX, true));
 
-        return $this->redirectToRoute('admin_planning');
+        return $this->redirectToRoute(self::BASE_ROUTE);
     }
 }
