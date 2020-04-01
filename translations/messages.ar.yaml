@@ -1,11 +1,3 @@
-Lundi: الإثنين
-Mardi: الثلاثاء
-Mercredi: الأربعاء
-Jeudi: الخميس
-Vendredi: الجمعة
-Samdi: السبت
-Dimanche: الأحد
-
 app:
   phone: 'Téléphone: %phone%'
   index: الصفحة الرئيسية

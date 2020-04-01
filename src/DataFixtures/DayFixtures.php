@@ -19,11 +19,11 @@ class DayFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+        $days = ['lun', 'mar', 'mer', 'jeu', 'ven', 'sam', 'dim'];
 
         foreach ($days as $i => $dayName) {
             $day[$i] = new Day();
-            $day[$i]->setName($dayName);
+            $day[$i]->setName('planning.' . $dayName);
             $manager->persist($day[$i]);
         }
 

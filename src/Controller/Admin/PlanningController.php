@@ -85,10 +85,8 @@ class PlanningController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            //$entityManager->persist($planning);
             $entityManager->flush();
 
-            // $this->addFlash('success', 'Bien modifie avec succes');
             return $this->redirectToRoute(self::BASE_ROUTE);
         }
 
