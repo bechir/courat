@@ -397,7 +397,6 @@ h6 {
     padding: 5px 0px 5px 0px;
     display: block;
     margin-bottom: 10px;
-    border-radius: 0;
   }
 
   .pic {
@@ -789,7 +788,7 @@ section {
   background: #284864;
   color: #fff;
   line-height: 1;
-  padding: 8px 0;
+  padding: 9px 0;
   margin-right: 4px;
   border-radius: 50%;
   text-align: center;
@@ -1180,7 +1179,7 @@ body[dir='rtl'] .mobile-nav a {
   color: #fff;
   padding-bottom: 0.65rem;
   padding-top: 0.65rem;
-  border-radius: 0;
+  transition: .2s;
 }
 
 .github-btn {
