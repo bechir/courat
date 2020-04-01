@@ -47,7 +47,6 @@ class Planning
     {
         $this->classes = new ArrayCollection();
         $this->subjects = new ArrayCollection();
-        // $this->day = new ArrayCollection();
     }
 
     public function getId(): ?int
