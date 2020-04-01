@@ -110,8 +110,8 @@ user:
 
 footer:
   follow: تابعونا على
-  copyright: © 2020 <a href="https://www.rimacademy.net">Rim Academy. </a>جميع الحقوق محفوظة
-  dev: مطور ب <i class="icofont-heart-alt hr-cp"></i> من طرف <a href="https://github.com/rand0mdev">rand0mdev</a>
+  copyright: © 2020 <a href="https://www.rimacademy.net">Rim Academy. </a>جميع الحقوق محفوظة 
+  dev: مطور ب<i class="icofont-heart-alt hr-cp"></i> من طرف <a href="https://github.com/rand0mdev">rand0mdev</a> و <a href="%link%">المساهمون</a>
   credits: برعاية  <a href="https://www.iprod.mr/">iProd technology ®</a>
 
 planning:
@@ -150,3 +150,9 @@ error:
   404-description: قد يكون هنالك مشكلة في الرابط أو تم إزالة الصفحة
   500-title: خطأ في السرفر
   500-description: للأسف ، نواجه مشكلة في تحميل الصفحة التي تبحث عنها. يرجى منكم العودة لاحقا.
+
+contribute:
+  title:  كن مساهما
+  description:  هناك طرق عديدة للمساهمة. جميعهم مرحب بهم. لا تخف من القيام بذلك إذا كان المشروع يهمك. شكرا لهؤلاء المساهمين على هذه الجوهرة
+  github: مساهمة في الGithub
+  discord:  إلتحاق في الDiscord
