@@ -61,6 +61,7 @@
                             <a href="#" class="dropdown-toggle pt-4 pb-0" data-toggle="dropdown"><i class="lnr lnr-user"></i> <span>{{ app.user.username ?? 'demo' }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu mt-3">
                                 <li><a href="{{ path('admin_user_show', {user: app.user.id}) }}"><i class="lnr lnr-user"></i> <span>Mon profil</span></a></li>
+                                <li><a href="{{ path('admin_user_password_edit') }}"><i class="lnr lnr-lock"></i> <span>Changer de mot de passe</span></a></li>
                                 <li><a href="{{ path('app_logout') }}"><i class="lnr lnr-exit"></i> <span>Deconnexion</span></a></li>
                             </ul>
                         </li>
