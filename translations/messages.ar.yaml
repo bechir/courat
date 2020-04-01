@@ -110,12 +110,12 @@ user:
 
 footer:
   follow: تابعونا على
-  copyright: © 2020 <a href="https://www.rimacademy.net">Rim Academy. </a>جميع الحقوق محفوظة 
+  copyright: © 2020 <a href="https://www.rimacademy.net">Rim Academy. </a>جميع الحقوق محفوظة
   dev: مطور ب <i class="icofont-heart-alt hr-cp"></i> من طرف <a href="https://github.com/rand0mdev">rand0mdev</a>
   credits: برعاية  <a href="https://www.iprod.mr/">iProd technology ®</a>
 
 planning:
-  title:  جدول الحصص
+  title: جدول الحصص
   direct: مباشر
   rediff: إعادة
   change: يمكن أن يتغيير هذا الجدول في أي وقت
@@ -136,7 +136,7 @@ planning:
   ir: التربية الإسلامية 
   sn: العلوم 
   pc: الفيزياء و الكيمياء
-  droit-m:  التشريع الإسلامي 
+  droit-m: التشريع الإسلامي 
   pens-isl: الفكر الإسلامي 
   philo: الفلسفة
 
@@ -145,8 +145,8 @@ course:
   start_time_notice: يبدأ درس <b>%subject%</b> في الدقيقة <b>%time%</b> <small>ثانية</small>
 
 error:
-  go-back:  العودة إلى الصفحة الرئيسية
-  404-title:  لا يمكن العثور على هذه الصفحة
-  404-description:  قد يكون هنالك مشكلة في الرابط أو تم إزالة الصفحة
-  500-title:  خطأ في السرفر
+  go-back: العودة إلى الصفحة الرئيسية
+  404-title: لا يمكن العثور على هذه الصفحة
+  404-description: قد يكون هنالك مشكلة في الرابط أو تم إزالة الصفحة
+  500-title: خطأ في السرفر
   500-description: للأسف ، نواجه مشكلة في تحميل الصفحة التي تبحث عنها. يرجى منكم العودة لاحقا.

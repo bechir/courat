@@ -11,7 +11,10 @@
 
 namespace App\Controller\Api;
 
+use App\Entity\Planning;
+use App\Repository\PlanningRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -24,8 +27,20 @@ class PlanningController extends AbstractController
     /**
      * @Route("/", name="api_planning")
      */
-    public function index()
+    public function index(PlanningRepository $planningRepository)
     {
-        return $this->json(true);
+        return $this->json($planningRepository->findAll());
+    }
+
+    /**
+     * Retrieve detail of a planning identified by it's ID.
+     *
+     * @param Planning $planning: The course object
+     *
+     * @Route("/{id}", name="api_planning_detail")
+     */
+    public function courseDetails(Planning $planning): JsonResponse
+    {
+        return $this->json($planning);
     }
 }

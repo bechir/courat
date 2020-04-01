@@ -1,0 +1,20 @@
+{{ form_start(form) }}
+
+    <div class="col-sm-12 mb-5">
+        Classe
+        {{ form_widget(form.classes, {'attr': {'class': 'custom-select input-lg'}})|html_entity_decode|raw }}
+    </div>
+
+    <div class="col-sm-12 mb-5">
+        Matière
+        {{ form_widget(form.subjects, {'attr': {'class': 'custom-select input-lg'}}) }}
+    </div>
+    <div class="col-sm-12 mb-5">
+        Jour
+        {{ form_widget(form.day, {'attr': {'class': 'custom-select input-lg'}}) }}
+    </div>
+
+    <div class="col-sm-12">
+        <button class="btn btn-success btn-lg"><i class="lnr lnr-checkmark-circle"></i> {{ button_label|default('Save') }}</button>
+    </div>
+{{ form_end(form) }}
