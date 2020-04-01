@@ -1,14 +1,14 @@
 {% extends 'admin/base.html.twig' %}
 
 {% block left_sidebar %}
-    {% include 'admin/common/left-sidebar.twig' with { active: 'new-course' } %}
+    {% include 'admin/common/left-sidebar.twig' with { active: 'new-planning' } %}
 {% endblock %}
 
-{% block title %}Saisir un cours{% endblock %}
+{% block title %}Saisir un planning{% endblock %}
 
 {% block main %}
     <div class="col mx-3">
-        <h3 class="page-title text-success"><span class="lnr lnr-plus-circle"></span> Ajouter un cours
+        <h3 class="page-title text-success"><span class="lnr lnr-plus-circle"></span> Saisir un planning
             <a href="#" data-toggle="modal" data-target="#loadExcelFileModal" class="float-right small">
                 <i class="fa fa-upload text-info"></i> <span class="text-info">Importer un fichier Excel</span></a>
         </h1>
