@@ -28,6 +28,8 @@ class PlanningType extends AbstractType
             ->add('classes', EntityType::class, [
                 'class' => Classe::class,
                 'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true,
             ])
             ->add('subjects', EntityType::class, [
                 'class' => Subject::class,
