@@ -25,7 +25,7 @@
           {{ 'footer.copyright'|trans|raw }}
         </div>
         <div class="dev col-md-4">
-          {{ 'footer.dev'|trans|raw }}
+          {{ 'footer.dev'|trans({'%link%': path('contributors')})|raw }}
         </div>
         <div class="credits col-md-4">
           {{ 'footer.credits'|trans|raw }}

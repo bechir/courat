@@ -118,7 +118,7 @@ user:
 footer:
   follow: RETROUVEZ NOUS SUR
   copyright: © 2020 <a href="https://www.rimacademy.net">Rim Academy. </a>All rights reserved.
-  dev: Made with <i class="icofont-heart-alt hr-cp"></i> by <a href="https://github.com/rand0mdev">rand0mdev</a> and <a href="https://github.com/rand0mdev/courat">contributors</a>
+  dev: Made with <i class="icofont-heart-alt hr-cp"></i> by <a href="https://github.com/rand0mdev">rand0mdev</a> and <a href="%link%">contributors</a>
   credits: Hosted by <a href="https://www.iprod.mr/">iProd technology ®</a>
 
 course:
@@ -157,3 +157,9 @@ error:
   404-description:  Il peut y avoir un problème avec le lien ou la page a peut-être été supprimée
   500-title:  Erreur interne du serveur
   500-description:  Malheureusement, nous avons du mal à charger la page que vous recherchez. Veuillez revenir dans un moment.
+
+contribute:
+  title:  DEVENEZ CONTRIBUTEUR
+  description:  Il existe plusieurs manière de contribuer. Elles sont toutes les bienvenues. N'ayez surtout pas peur de le faire si le projet vous intéresse. Merci à ces contributeurs pour ce joyeau.
+  github: CONTRIBUER SUR GITHUB
+  discord:  REJOINDRE SUR DISCORD

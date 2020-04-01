@@ -28,4 +28,9 @@ class DefaultController extends AbstractController
             'days' => $dayRepository->findAll(),
         ]);
     }
+
+    public function contributors(): Response
+    {
+        return $this->render('default/contributor.html.twig');
+    }
 }
