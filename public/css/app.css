@@ -429,6 +429,7 @@ h6 {
   #hero {
     -moz-text-align-last: center;
     text-align-last: center;
+    padding: 1.5rem 1rem;
   }
   #hero h1 {
     font-size: 28px;
