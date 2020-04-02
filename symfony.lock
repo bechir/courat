@@ -152,6 +152,9 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "jms/metadata": {
+        "version": "2.1.0"
+    },
     "knplabs/knp-components": {
         "version": "v2.3.3"
     },
@@ -196,7 +199,7 @@
         "version": "2.7.1"
     },
     "php": {
-        "version": "7.2"
+        "version": "7.4"
     },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
@@ -470,10 +473,16 @@
             "tests/bootstrap.php"
         ]
     },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.15.0"
+    },
     "symfony/polyfill-intl-icu": {
         "version": "v1.15.0"
     },
     "symfony/polyfill-intl-idn": {
+        "version": "v1.15.0"
+    },
+    "symfony/polyfill-intl-normalizer": {
         "version": "v1.15.0"
     },
     "symfony/polyfill-mbstring": {
@@ -546,6 +555,9 @@
     },
     "symfony/stopwatch": {
         "version": "v4.4.6"
+    },
+    "symfony/string": {
+        "version": "v5.0.7"
     },
     "symfony/test-pack": {
         "version": "v1.0.6"
@@ -651,6 +663,18 @@
     },
     "twig/twig": {
         "version": "v2.12.5"
+    },
+    "vich/uploader-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "c4f5755b37fb65b9c6a3cbdae91205c15a137ed4"
+        },
+        "files": [
+            "config/packages/vich_uploader.yaml"
+        ]
     },
     "webmozart/assert": {
         "version": "1.7.0"

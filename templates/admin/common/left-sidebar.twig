@@ -16,6 +16,9 @@
                 <li><a href="{{ path('admin_planning') }}" {% if active == 'planning-list' %} class="active" {% endif %}>
                     <span><i class="lnr lnr-calendar-full"></i> Emploi du temps</span></a>
                 </li>
+                <li><a href="{{ path('admin_resource') }}" {% if active == 'resource-list' %} class="active" {% endif %}>
+                    <span><i class="lnr lnr-highlight"></i> Resources</span></a>
+                </li>
                 <li>
                     <a {% if active in in_create %}class="active" aria-expanded="true"{% else %}class="collapsed"{% endif %} data-toggle="collapse" href="#newCourse">
                         <i class="lnr lnr-plus-circle"></i>
@@ -32,6 +35,9 @@
                             </li>
                             <li><a href="{{ path('admin_user_create') }}" {% if active == 'new-user' %} class="active" {% endif %}>
                                 <span><i class="lnr lnr-user"></i> Utilisateur</span></a>
+                            </li>
+                            <li><a href="{{ path('admin_resource_new') }}" {% if active == 'new-user' %} class="active" {% endif %}>
+                                <span><i class="lnr lnr-highlight"></i> Une ressource</span></a>
                             </li>
                         </ul>
                     </div>
