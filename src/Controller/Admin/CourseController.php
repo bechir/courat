@@ -188,7 +188,7 @@ class CourseController extends AbstractController
             try {
                 for ($rowIt = 2; $rowIt <= $highestRow; ++$rowIt) {
                     $data = $worksheet->rangeToArray(
-                        "A$rowIt:F$rowIt",  // The worksheet range that we want to retrieve
+                        "A$rowIt:G$rowIt",  // The worksheet range that we want to retrieve
                         null,               // Value that should be returned for empty cells
                         true,               // Should formulas be calculated (the equivalent of getCalculatedValue() for each cell)
                         true,               // Should values be formatted (the equivalent of getFormattedValue() for each cell)
