@@ -64,6 +64,12 @@ class Course implements JsonSerializable
      */
     private $subject;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\VideoSource")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $source;
+
     const NB_COURSES_PER_PAGE = 20;
 
     public function getId(): ?int
@@ -172,5 +178,17 @@ class Course implements JsonSerializable
             'class' => $this->class->getName(),
             'subject' => $this->subject->jsonSerialize(),
         ];
+    }
+
+    public function getSource(): ?VideoSource
+    {
+        return $this->source;
+    }
+
+    public function setSource(?VideoSource $source): self
+    {
+        $this->source = $source;
+
+        return $this;
     }
 }

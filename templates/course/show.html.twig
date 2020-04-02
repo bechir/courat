@@ -10,10 +10,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h3{{ locale() == 'ar' ? ' class="text-right"' : '' }}>
+					<h3{{locale()=='ar'?'class="text-right"':''}}>
 						<b>{{ course.title }}</b>
 					</h3>
-					<p{{ locale() == 'ar' ? ' class="text-right"' : '' }}><i class="far fa-clock"></i> {{ course.publishedAt|localizeddate('full', 'none', null)|capitalize }}</p>
+					<p{{locale()=='ar'?'class="text-right"':''}}>
+						<i class="far fa-clock"></i>
+						{{ course.publishedAt|localizeddate('full', 'none', null)|capitalize }}</p>
 					{% if course.startTime %}
 						<div class="alert alert-primary {{ locale() == 'fr' ? 'mr-auto' : 'ml-auto ar text-right' }}" role="alert">
 							<i class="icofont-info-circle"></i>
@@ -25,8 +27,14 @@
 						</div>
 					{% endif %}
 					<hr>
+
 					<div class="vid">
-						<iframe src="{{ course.videoUrl|replace({'watch?v=': 'embed/'}) }}" style="overflow:hidden;height:100%;width:100%" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						{% if course.source == 'YouTube' %}
+							<iframe src="{{ course.videoUrl|replace({'watch?v=': 'embed/'}) }}" style="overflow:hidden;height:100%;width:100%" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						{% elseif course.source == 'Facebook' %}
+							<div id="fb-root"></div>
+							<div class="fb-video" data-href="{{ course.videoUrl }}" data-allowfullscreen="true" data-width="700"></div>
+						{% endif %}
 					</div>
 					<!--./vid -->
 				</div>
@@ -37,6 +45,15 @@
 	</section>
 	<!-- End Classes Section -->
 	<p class="text-center btn-box">
-		<a href="{{ path('course_index',  {name: course.class.name}) }}" class="btn-return"> {{ 'course.back'|trans }}</a>
+		<a href="{{ path('course_index', {name: course.class.name}) }}" class="btn-return">
+			{{ 'course.back'|trans }}</a>
 	</p>
 {% endblock %}
+
+
+{% block javascripts %}
+	{% if course.source == 'Facebook' %}
+		<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+	{% endif %}
+{% endblock %}
+
