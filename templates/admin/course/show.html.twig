@@ -32,6 +32,10 @@
                 <td>{{ course.videoUrl }}</td>
             </tr>
             <tr>
+                <th>Video source</th>
+                <td>{{ course.source }}</td>
+            </tr>
+            <tr>
                 <th>Publication date</th>
                 <td>{{ course.publishedAt|localizeddate('full', 'short', null)|capitalize }}</td>
             </tr>
