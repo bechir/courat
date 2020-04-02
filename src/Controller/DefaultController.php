@@ -11,21 +11,27 @@
 
 namespace App\Controller;
 
-use App\Repository\ClassRepository;
-use App\Repository\DayRepository;
-use App\Repository\PlanningRepository;
+use App\Entity\Classe;
+use App\Entity\Day;
+use App\Entity\Planning;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends AbstractController
 {
-    public function index(PlanningRepository $planningRepository, ClassRepository $classRepository, DayRepository $dayRepository): Response
+    public function index(): Response
     {
-        return $this->render('default/index.html.twig', [
-            'controller_name' => 'PlanningController',
-            'classes' => $classRepository->findAll(),
-            'plannings' => $planningRepository->findAll(),
-            'days' => $dayRepository->findAll(),
+        return $this->render('default/index.html.twig');
+    }
+
+    public function planning(): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        return $this->render('common/planning.html.twig', [
+            'plannings' => $em->getRepository(Planning::class)->findAll(),
+            'classes' => $em->getRepository(Classe::class)->findAll(),
+            'days' => $em->getRepository(Day::class)->findAll(),
         ]);
     }
 
