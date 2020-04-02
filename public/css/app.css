@@ -1199,3 +1199,19 @@ body[dir='rtl'] .mobile-nav a {
   border: 1px solid #7085d6;
   color: #7085d6;
 }
+
+
+.fb-wrapper {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.fb-wrapper iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}

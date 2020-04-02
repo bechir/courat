@@ -33,7 +33,7 @@
 							<iframe src="{{ course.videoUrl|replace({'watch?v=': 'embed/'}) }}" style="overflow:hidden;height:100%;width:100%" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						{% elseif course.source == 'Facebook' %}
 							<div id="fb-root"></div>
-							<div class="fb-video" data-href="{{ course.videoUrl }}" data-allowfullscreen="true" data-width="700"></div>
+							<div class="fb-video" data-href="{{ course.videoUrl }}" data-allowfullscreen="true" data-width="auto"></div>
 						{% endif %}
 					</div>
 					<!--./vid -->
