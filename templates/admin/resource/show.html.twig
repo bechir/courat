@@ -27,7 +27,13 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td>{{ resource.filename }}</td>
+                <td><img src=
+                        {% if resource.filename %}
+                            {{ vich_uploader_asset(resource, 'imageFile') }}
+                        {% endif %} class="img-fluid" alt=""
+                        style="width: 100%; height: 100%"
+                    />
+                </td>
             </tr>
         </tbody>
     </table>

@@ -41,9 +41,13 @@ class HomeController extends AbstractController
             ->from('App:Course', 'c')
             ->getQuery()->getSingleScalarResult();
 
+        $resources = $qb->select('count(r.id)')->from('App:Resource', 'r')
+            ->getQuery()->getSingleScalarResult();
+
         return [
-            'users' => $users,
-            'courses' => $courses,
+            'users'     =>  $users,
+            'courses'   =>  $courses,
+            'resources' =>  $resources
         ];
     }
 }

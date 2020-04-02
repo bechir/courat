@@ -11,7 +11,8 @@
 
     <h1>Les ressources numeriques</h1>
 
-    <table class="table table-striped">
+    <a href="{{ path('admin_resource_new') }}" class="btn btn-success pull-right"><i class="lnr lnr-plus-circle"></i> Ajouter une nouvelle</a>
+    <table class="table table-responsive table-striped">
         <thead>
             <tr>
                 <th>Titre</th>
@@ -41,5 +42,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_resource_new') }}" class="btn btn-success"><i class="lnr lnr-plus-circle"></i> Ajouter une nouvelle</a>
+    
 {% endblock %}
