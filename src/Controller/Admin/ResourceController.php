@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the COURAT application.
+ *
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Controller\Admin;
 
 use App\Entity\Resource;
@@ -87,7 +96,7 @@ class ResourceController extends AbstractController
      */
     public function delete(Request $request, Resource $resource): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$resource->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $resource->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($resource);
             $entityManager->flush();

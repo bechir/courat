@@ -19,7 +19,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200402043146 extends AbstractMigration
+final class Version20200402193252 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -31,7 +31,6 @@ final class Version20200402043146 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf('sqlite' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'sqlite\'.');
 
-        $this->addSql('ALTER TABLE resource ADD COLUMN updated_at DATETIME DEFAULT NULL');
         $this->addSql('DROP INDEX IDX_80575E1B8F5EA509');
         $this->addSql('DROP INDEX IDX_80575E1B23EDC87');
         $this->addSql('CREATE TEMPORARY TABLE __temp__classe_subject AS SELECT classe_id, subject_id FROM classe_subject');
@@ -50,6 +49,8 @@ final class Version20200402043146 extends AbstractMigration
         $this->addSql('DROP TABLE __temp__course');
         $this->addSql('CREATE INDEX IDX_169E6FB9EA000B10 ON course (class_id)');
         $this->addSql('CREATE INDEX IDX_169E6FB923EDC87 ON course (subject_id)');
+        $this->addSql('ALTER TABLE resource ADD COLUMN title_ar VARCHAR(255) DEFAULT NULL');
+        $this->addSql('ALTER TABLE resource ADD COLUMN subtitle_ar VARCHAR(255) DEFAULT NULL');
         $this->addSql('DROP INDEX IDX_D499BFF69C24126');
         $this->addSql('CREATE TEMPORARY TABLE __temp__planning AS SELECT id, day_id FROM planning');
         $this->addSql('DROP TABLE planning');
@@ -125,10 +126,10 @@ final class Version20200402043146 extends AbstractMigration
         $this->addSql('DROP TABLE __temp__planning_subject');
         $this->addSql('CREATE INDEX IDX_26A363913D865311 ON planning_subject (planning_id)');
         $this->addSql('CREATE INDEX IDX_26A3639123EDC87 ON planning_subject (subject_id)');
-        $this->addSql('CREATE TEMPORARY TABLE __temp__resource AS SELECT id, title, subtitle, link, image FROM resource');
+        $this->addSql('CREATE TEMPORARY TABLE __temp__resource AS SELECT id, title, subtitle, link, filename, updated_at FROM resource');
         $this->addSql('DROP TABLE resource');
-        $this->addSql('CREATE TABLE resource (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, title VARCHAR(255) NOT NULL, subtitle VARCHAR(255) DEFAULT NULL, link VARCHAR(255) NOT NULL, image VARCHAR(255) DEFAULT NULL)');
-        $this->addSql('INSERT INTO resource (id, title, subtitle, link, image) SELECT id, title, subtitle, link, image FROM __temp__resource');
+        $this->addSql('CREATE TABLE resource (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, title VARCHAR(255) NOT NULL, subtitle VARCHAR(255) DEFAULT NULL, link VARCHAR(255) NOT NULL, filename VARCHAR(255) DEFAULT NULL, updated_at DATETIME DEFAULT NULL)');
+        $this->addSql('INSERT INTO resource (id, title, subtitle, link, filename, updated_at) SELECT id, title, subtitle, link, filename, updated_at FROM __temp__resource');
         $this->addSql('DROP TABLE __temp__resource');
     }
 }
