@@ -14,6 +14,7 @@ namespace App\Form;
 use App\Entity\Classe;
 use App\Entity\Course;
 use App\Entity\Subject;
+use App\Entity\VideoSource;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
@@ -28,6 +29,11 @@ class CourseType extends AbstractType
         $builder
             ->add('title')
             ->add('videoUrl')
+            ->add('source', EntityType::class, [
+                'class' => VideoSource::class,
+                'choice_label' => 'name',
+                'translation_domain' => false,
+            ])
             ->add('publishedAt', TextType::class)
             ->add('startTime', TextType::class, ['required' => false])
             ->add('class', EntityType::class, [
