@@ -1,10 +1,18 @@
 <?php
 
+/*
+ * This file is part of the COURAT application.
+ *
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -37,13 +45,12 @@ class Resource
 
     /**
      * @var File|null
-     * 
+     *
      * @Vich\UploadableField(mapping="property_image", fileNameProperty="filename")
      */
     private $imageFile;
 
     /**
-     * 
      * @var string|null
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -53,6 +60,19 @@ class Resource
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updatedAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $titleAR;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subtitleAR;
+
+    const ARABIC = 'ar';
+    const FRENSH = 'fr';
 
     public function getId(): ?int
     {
@@ -69,6 +89,24 @@ class Resource
         $this->title = $title;
 
         return $this;
+    }
+
+    public function getTranslatedTitle(string $locale): string
+    {
+        if (self::ARABIC == $locale && !empty($this->titleAR)) {
+            return $this->titleAR;
+        }
+
+        return $this->title;
+    }
+
+    public function getTranslatedSubtitle(string $locale): string
+    {
+        if (self::ARABIC == $locale && !empty($this->subtitleAR)) {
+            return $this->subtitleAR;
+        }
+
+        return $this->subtitle;
     }
 
     public function getSubtitle(): ?string
@@ -107,11 +145,8 @@ class Resource
         return $this;
     }
 
-
     /**
-     * Undocumented function
-     *
-     * @return File|null
+     * Undocumented function.
      */
     public function getImageFile(): ?File
     {
@@ -119,16 +154,12 @@ class Resource
     }
 
     /**
-     * Undocumented function
-     *
-     * @param File|null $imageFile
-     * @return self
-     */    
+     * Undocumented function.
+     */
     public function setImageFile(?File $imageFile): self
     {
         $this->imageFile = $imageFile;
-        if (null !== $this->imageFile)
-        {
+        if (null !== $this->imageFile) {
             $this->updated_at = new \DateTime('now');
         }
 
@@ -143,6 +174,30 @@ class Resource
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getTitleAR(): ?string
+    {
+        return $this->titleAR;
+    }
+
+    public function setTitleAR(?string $titleAR): self
+    {
+        $this->titleAR = $titleAR;
+
+        return $this;
+    }
+
+    public function getSubtitleAR(): ?string
+    {
+        return $this->subtitleAR;
+    }
+
+    public function setSubtitleAR(?string $subtitleAR): self
+    {
+        $this->subtitleAR = $subtitleAR;
 
         return $this;
     }

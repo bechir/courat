@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the COURAT application.
+ *
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Repository;
 
 use App\Entity\Resource;
@@ -7,10 +16,10 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method Resource|null find($id, $lockMode = null, $lockVersion = null)
- * @method Resource|null findOneBy(array $criteria, array $orderBy = null)
- * @method Resource[]    findAll()
- * @method Resource[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method resource|null find($id, $lockMode = null, $lockVersion = null)
+ * @method resource|null findOneBy(array $criteria, array $orderBy = null)
+ * @method resource[]    findAll()
+ * @method resource[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class ResourceRepository extends ServiceEntityRepository
 {

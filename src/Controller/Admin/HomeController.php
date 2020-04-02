@@ -45,9 +45,9 @@ class HomeController extends AbstractController
             ->getQuery()->getSingleScalarResult();
 
         return [
-            'users'     =>  $users,
-            'courses'   =>  $courses,
-            'resources' =>  $resources
+            'users' => $users,
+            'courses' => $courses,
+            'resources' => $resources,
         ];
     }
 }
