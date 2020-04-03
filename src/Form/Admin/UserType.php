@@ -12,6 +12,9 @@
 namespace App\Form\Admin;
 
 use App\Entity\User;
+use App\Entity\UserRole;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -26,7 +29,17 @@ class UserType extends AbstractType
     {
         $builder
             ->add('username')
-            // ->add('roles')
+            ->add('roles', EntityType::class, [
+                'class' => UserRole::class,
+                'choice_label' => 'type',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->where("u.type != 'ROLE_ADMIN'");
+                },
+                'choice_translation_domain' => 'messages',
+                'multiple' => true,
+                'required' => true,
+            ])
             ->add('plainPassword', RepeatedType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller

@@ -12,13 +12,14 @@
                 <tr>
                     <td><a href="{{ path('admin_user_show', {user: user.id}) }}">{{ user.username }}</a></td>
                     <td>
-                        {% set label_type = 'default' %}
-                        {% if user.hasRole('ROLE_SUPER_ADMIN') %}
-                            {% set label_type = 'success' %}
-                        {% elseif user.hasRole('ROLE_ADMIN') %}
-                            {% set label_type = 'info' %}
-                        {% endif %}
-                        <label class="label label-{{ label_type }}">{{ user.masterRole|trans }}</label>
+                        {% set roleLabels = {
+                            "ROLE_ADMIN": 'default',
+                            "ROLE_TEACHER": 'success',
+                            "ROLE_TRANSLATOR": 'primary',
+                            "ROLE_USER": 'info'
+                        } %}
+
+                        {{ user.roles|map(role => '<label class="label label-' ~ roleLabels[role] ~ '">' ~ role|trans ~ '</label>')|join(' ')|raw }}
                     </td>
                     <td>
                         <div class="btn-group">

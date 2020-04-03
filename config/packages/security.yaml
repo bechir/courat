@@ -4,8 +4,9 @@ security:
         App\Entity\User:
             algorithm: auto
     role_hierarchy:
-        ROLE_CUSTOMER: ROLE_USER
-        ROLE_ADMIN: ROLE_USER
+        ROLE_TEACHER: ROLE_USER
+        ROLE_TRANSLATOR: ROLE_USER
+        ROLE_ADMIN: ROLE_TEACHER, ROLE_TRANSLATOR, ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers

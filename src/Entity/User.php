@@ -98,17 +98,15 @@ class User implements UserInterface
 
     public function getMasterRole(): ?string
     {
-        $roles = [
-            'ROLE_SUPER_ADMIN',
-            'ROLE_ADMIN',
-            'ROLE_USER',
-        ];
+        $roles = array_reverse(UserRole::ROLES);
 
         foreach ($roles as $role) {
             if ($this->hasRole($role)) {
                 return $role;
             }
         }
+
+        return 'ROLE_USER';
     }
 
     /**

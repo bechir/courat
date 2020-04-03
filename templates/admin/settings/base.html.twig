@@ -1,0 +1,34 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block left_sidebar %}
+
+{% if active is not defined %}
+    {% set active = 'settings' %}
+{% endif %}
+
+{% include 'admin/common/left-sidebar.twig' with { active: active } %}
+
+{% endblock %}
+
+{% block main %}
+    <div class="panel panel-headline panel-primary">
+        <div class="panel-heading py-3">
+            <h4 class="my-0 font-15"><span class="lnr lnr-cog fa-lg"></span> Paramètres</h4>
+        </div>
+        <div class="panel-body px-0 pt-0">
+            <ul class="nav nav-tabs">
+                <li role="presentation" {% if active == 'setting-users' %} class="active" {% endif %}>
+                    <a href="{{ path('admin_users_setting') }}">
+                        <span class="lnr lnr-users fa-lg"></span>
+                        Utilisateurs</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active px-0" id="{{ active }}" role="tabpanel" aria-labelledby="{{ active }}-tab">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
