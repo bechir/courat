@@ -13,6 +13,7 @@ namespace App\Controller;
 
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 
 class LibraryController extends AbstractController
 {
@@ -21,5 +22,10 @@ class LibraryController extends AbstractController
         return $this->render('library/index.html.twig', [
             'articles' => $articleRepository->findAll(),
         ]);
+    }
+
+    public function upload(): Response
+    {
+        return $this->render('library/upload.html.twig');
     }
 }
