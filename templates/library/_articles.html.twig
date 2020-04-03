@@ -1,0 +1,23 @@
+<div class="row">
+    {% for article in articles %}
+    <!-- Library item -->
+        <a href="" class="col-md-3">
+            <div class="info-box lib rounded mt-3">
+                <div class="circle-badge-light">
+                    <strong>
+                        <i class="icofont-file-pdf icofont-3x"></i>
+                    </strong>
+                </div>
+                <h3>
+                    {{ article.title }}
+                </h3>
+                <hr>
+                <span class="badge badge-secondary">{{ article.classe|trans|raw }}</span>
+                <span class="badge badge-success">{{ article.subject|trans }}</span>
+            </div>
+        </a>
+    <!-- End of Library item -->
+    {% else %}
+        <p class="alert alert-info">Pas de resources disponibles.</p>
+    {% endfor %}
+</div>
