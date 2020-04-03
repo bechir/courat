@@ -24,6 +24,7 @@ class ResourceType extends AbstractType
         $builder
             ->add('title')
             ->add('subtitle')
+            ->add('subtitleAR')
             ->add('link')
             ->add('imageFile', FileType::class, [
                 'required' => false,
