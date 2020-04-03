@@ -21,3 +21,9 @@ contributors:
     fr: /contributeurs
     ar: /contributors
   controller: App\Controller\DefaultController::contributors
+
+library:
+  path:
+    fr: /lib
+    ar: /liba
+  controller: App\Controller\DefaultController::library
