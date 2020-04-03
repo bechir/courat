@@ -429,6 +429,7 @@ h6 {
   #hero {
     -moz-text-align-last: center;
     text-align-last: center;
+    padding: 1.5rem 1rem;
   }
   #hero h1 {
     font-size: 28px;
@@ -1197,4 +1198,20 @@ body[dir='rtl'] .mobile-nav a {
   background-color: #fff;
   border: 1px solid #7085d6;
   color: #7085d6;
+}
+
+
+.fb-wrapper {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.fb-wrapper iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }

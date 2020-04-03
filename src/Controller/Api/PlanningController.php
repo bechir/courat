@@ -29,7 +29,22 @@ class PlanningController extends AbstractController
      */
     public function index(PlanningRepository $planningRepository)
     {
-        return $this->json($planningRepository->findAll());
+        $plannings = $planningRepository->findAll();
+
+        $result = [];
+
+        foreach ($plannings as $planning) {
+            $data = [];
+            $data['class'] = $planning->getClasses()->get(0)->getName();
+
+            foreach ($planning->getSubjects() as $subject) {
+                $data['subjects'][] = $subject->getCode();
+            }
+
+            $result[$planning->getDay()->getName()] = $data;
+        }
+
+        return $this->json($result);
     }
 
     /**

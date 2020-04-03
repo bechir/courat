@@ -1,0 +1,28 @@
+{# {{ form_start(form, {attr: {method: 'post'}}) }}
+<div class="form-row">
+    <label>Selectionnez un rôle</label>
+    {{ form_widget(form.roles, {'attr': {'class': 'custom-select input-lg'}}) }}
+</div>
+<hr>
+<button type="submit" class="btn btn-success btn-lg">
+    <i class="fa fa-check-circle"></i>
+    Mettre à jour
+</button>
+{{ form_end(form) }} #}
+<form method="GET" action="{{ path('admin_settings_edit_user_role') }}">
+    <div class="form-row">
+        <label>Selectionnez un rôle</label>
+        <select id="edit_user_role_roles" name="role" class="custom-select input-lg">
+            <option value="2">Utilisateur</option>
+            <option value="3">Partenaire</option>
+            <option value="4">Administeur</option>
+            <option value="5">Accès Global</option>
+        </select>
+        <input type="hidden" name="userId" value="{{ user.id }}">
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-success btn-lg">
+        <i class="fa fa-check-circle"></i>
+        Mettre à jour
+    </button>
+</form>

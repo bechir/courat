@@ -51,7 +51,7 @@
 
 
         {# Include the planning #}
-         {% include "common/planning.html.twig" %}
+        {{ render(controller('App\\Controller\\DefaultController::planning')) }}
             
         {% block main %}
 

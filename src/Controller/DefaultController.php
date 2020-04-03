@@ -11,6 +11,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Classe;
+use App\Entity\Day;
+use App\Entity\Planning;
 use App\Repository\ClassRepository;
 use App\Repository\DayRepository;
 use App\Repository\PlanningRepository;
@@ -28,6 +31,17 @@ class DefaultController extends AbstractController
             'plannings' => $planningRepository->findAll(),
             'days' => $dayRepository->findAll(),
             'resources' => $resourceRepository->findAll(),
+        ]);
+    }
+
+    public function planning(): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        return $this->render('common/planning.html.twig', [
+            'plannings' => $em->getRepository(Planning::class)->findAll(),
+            'classes' => $em->getRepository(Classe::class)->findAll(),
+            'days' => $em->getRepository(Day::class)->findAll(),
         ]);
     }
 

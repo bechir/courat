@@ -19,7 +19,6 @@
                 <th>Sous-titre</th>
                 <th>Sous-titre en arabe</th>
                 <th>Lien</th>
-                <th>Image</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -30,7 +29,6 @@
                 <td>{{ resource.subtitle }}</td>
                 <td>{{ resource.subtitleAR }}</td>
                 <td>{{ resource.link }}</td>
-                <td>{{ resource.filename }}</td>
                 <td>
                     <a href="{{ path('admin_resource_show', {'id': resource.id}) }}" class="btn btn-info"> <i class="lnr lnr-eye"></i></a>
                     <a href="{{ path('admin_resource_edit', {'id': resource.id}) }}" class="btn btn-success"> <i class="lnr lnr-pencil"></i></a>

@@ -43,7 +43,9 @@ class UserFixtures extends Fixture
     {
         return [
             ['courat', '123456', ['ROLE_ADMIN']],
-            ['demo', '123456', ['ROLE_USER']],
+            ['demo1', '123456', ['ROLE_USER']],
+            ['demo2', '123456', ['ROLE_TEACHER']],
+            ['demo3', '123456', ['ROLE_TRANSLATOR']],
         ];
     }
 }

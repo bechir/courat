@@ -4,12 +4,12 @@
 {% endblock %}
 
 {% block left_sidebar %}
-	{% include 'admin/common/left-sidebar.twig' with { active: 'resource-list' } %}
+	{% include 'admin/common/left-sidebar.twig' with { active: 'new-resource' } %}
 {% endblock %}
 
 {% block main %}
 
-    <h1>Ajouter une nouvelle ressource</h1>
+    <h1>Ajouter une nouvelle resource</h1>
 
     {{ include('admin/resource/_form.html.twig') }}
 

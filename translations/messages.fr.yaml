@@ -169,3 +169,9 @@ contribute:
   description:  Il existe plusieurs manière de contribuer. Elles sont toutes les bienvenues. N'ayez surtout pas peur de le faire si le projet vous intéresse. Merci à ces contributeurs pour ce joyeau.
   github: CONTRIBUER SUR GITHUB
   discord:  REJOINDRE SUR DISCORD
+
+
+ROLE_USER: Utilisateur
+ROLE_ADMIN: Administrateur
+ROLE_TEACHER: Enseignant
+ROLE_TRANSLATOR: Traducteur
