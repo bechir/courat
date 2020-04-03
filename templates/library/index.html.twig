@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ App.name }}
+	&ndash;
+	{{ 'app.title'|trans }}
+{% endblock %}
+
+{% block main %}
+
+	<!-- ======= Hero Section ======= -->
+	<section id="hero">
+		<div class="container-fluid m-0">
+			<div class="row d-flex align-items-center">
+				<div class="col-lg-6 py-5 py-lg-0 order-2 order-lg-1 {{ locale() == 'fr' ? 'mr-auto' : 'ml-auto ar text-right' }}" data-aos="fade-right">
+					<img src="{{ asset('assets/img/read.svg') }}" class="img-fluid" alt=""/>
+				</div>
+				<div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+					<h1>{{ 'library.title'|trans }}</h1>
+					<h2>
+						{{ 'library.description'|trans }}
+					</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Hero -->
+
+
+	<!-- ======= Library Section ======= -->
+	<section id="class" class="class section-bg">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div
+						class="row">
+						<!-- Library item -->
+						<a href="" class="col-md-3">
+							<div class="info-box lib mt-4">
+								<div class="circle-badge-light">
+									<strong>
+										<i class="icofont-file-pdf icofont-3x"></i>
+									</strong>
+								</div>
+								<h3>
+									Physiologie Neurveuse
+								</h3>
+								<hr>
+								<span class="badge badge-secondary">Terminale D</span>
+								<span class="badge badge-success">Sciences Naturelles</span>
+							</div>
+						</a>
+						<!-- End of Library item -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Classes Section -->
+
+
+</div></section><!-- End Team Section --><!-- ======= Submit Document ======= --><section id="plateform" class="plateform section-bg">
+<div class="container">
+	<div class="section-title">
+		<h2 data-aos="fade-in">
+			{{ 'library.post-title'|trans }}
+		</h2>
+		<p data-aos="fade-in">
+			{{ 'library.post-description'|trans }}
+		</p>
+	</div>
+
+	<p class="text-center">
+		<a href="" class="btn-return text-center">
+			<i class="icofont-ebook"></i>
+			&nbsp;
+			{{ 'library.post-title'|trans }}</a>
+	</p>
+
+
+</div></div></section><!-- End Submit -->{% endblock %}{% block diffusion %}{% endblock %}
