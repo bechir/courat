@@ -22,8 +22,15 @@ contributors:
     ar: /contributors
   controller: App\Controller\DefaultController::contributors
 
-library:
+library_index:
   path:
     fr: /bibliotheque
     ar: /library
   controller: App\Controller\LibraryController::index
+
+library_upload:
+  path:
+    fr: /importer
+    ar: /upload
+  controller: App\Controller\LibraryController::upload
+
