@@ -169,6 +169,13 @@ ROLE_ADMIN: Administrateur
 ROLE_TEACHER: Enseignant
 ROLE_TRANSLATOR: Traducteur
 
+article:
+  category:
+    cours: Cours
+    exo: Exercice
+    epreuve_bac: Épreuve bac
+    autre: Autre
+
 library:
   btn: Bibliothèque
   title:  RESSOURCES PEDAGOGIQUES
