@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block left_sidebar %}
+    {% include 'admin/common/left-sidebar.twig' with { active: 'articles-list' } %}
+{% endblock %}
+
+{% block main %}
+    <h1>Article</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ article.title }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ article.url }}</td>
+            </tr>
+            <tr>
+                <th>Size</th>
+                <td>{{ article.size }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_article_index') }}">back to list</a>
+
+    <a href="{{ path('admin_article_edit', {'id': article.id}) }}">edit</a>
+
+    {{ include('admin/article/_delete_form.html.twig') }}
+{% endblock %}

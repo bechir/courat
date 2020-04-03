@@ -1,0 +1,15 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Bibliothèque{% endblock %}
+
+{% block left_sidebar %}
+    {% include 'admin/common/left-sidebar.twig' with { active: 'articles-list' } %}
+{% endblock %}
+
+{% block main %}
+<h3 class="page-title text-success"><span class="lnr lnr-book"></span> Bibliothèque <span class="badge badge-success">{{ articles|length }}</span></h3></h3>
+
+    {% include "admin/article/_table.html.twig" with {articles: articles} %}
+
+    <a href="{{ path('admin_article_new') }}" class="btn btn-primary"><i class="lnr lnr-plus-circle"></i> Create new</a>
+{% endblock %}
