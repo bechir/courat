@@ -1,48 +1,127 @@
-{% set in_create = ['new-course', 'new-user', 'new-planning'] %}
+{% set in_create = ['new-course', 'new-user', 'new-planning', 'new-article', 'new-resource'] %}
+{% set in_settings = ['setting-users'] %}
 
 <div id="sidebar-nav" class="sidebar">
-    <div class="sidebar-scroll">
-        <nav>
-            <ul class="nav">
-                <li><a href="{{ path('admin_index') }}" {% if active == 'index' %} class="active" {% endif %}>
-                    <i class="lnr lnr-home"></i> <span>Tableau de bord</span></a>
+	<div class="sidebar-scroll">
+		<nav>
+			<ul class="nav">
+				<li>
+                    <a href="{{ path('admin_index') }}" {% if active == 'index' %} class="active" {% endif %}>
+                        <i class="lnr lnr-home"></i>
+                        <span>Tableau de bord</span>
+                    </a>
                 </li>
-                <li><a href="{{ path('admin_courses') }}" {% if active == 'courses-list' %} class="active" {% endif %}>
-                    <i class="lnr lnr-camera-video"></i> <span>Cours</span></a>
+                <li>
+                    <a href="{{ path('admin_courses') }}" {% if active == 'courses-list' %} class="active" {% endif %}>
+                        <i class="lnr lnr-camera-video"></i>
+                        <span>Cours</span>
+                    </a>
                 </li>
-                <li><a href="{{ path('admin_users') }}" {% if active == 'users-list' %} class="active" {% endif %}>
-                    <span><i class="lnr lnr-users"></i> Utilisateurs</span></a>
-                </li>
-                <li><a href="{{ path('admin_planning') }}" {% if active == 'planning-list' %} class="active" {% endif %}>
-                    <span><i class="lnr lnr-calendar-full"></i> Emploi du temps</span></a>
+                <li>
+                    <a href="{{ path('admin_planning') }}" {% if active == 'planning-list' %} class="active" {% endif %}>
+                        <span>
+                            <i class="lnr lnr-calendar-full"></i>
+                            Emploi du temps
+                        </span>
+                    </a>
                 </li>
                 <li><a href="{{ path('admin_resource') }}" {% if active == 'resource-list' %} class="active" {% endif %}>
                     <span><i class="lnr lnr-highlight"></i> Resources</span></a>
                 </li>
                 <li>
-                    <a {% if active in in_create %}class="active" aria-expanded="true"{% else %}class="collapsed"{% endif %} data-toggle="collapse" href="#newCourse">
-                        <i class="lnr lnr-plus-circle"></i>
-                        <span>Ajouter</span>
-                        <i class="icon-submenu lnr lnr-chevron-left"></i>
+                    <a href="{{ path('admin_article_index') }}" {% if active == 'articles-list' %} class="active" {% endif %}>
+                        <span>
+                            <i class="lnr lnr-book"></i>
+                            Bibliothèque
+                        </span>
                     </a>
-                    <div class="collapse{% if active in in_create %} in{% endif %}" id="newCourse">
-                        <ul class="nav">
-                            <li><a href="{{ path('admin_planning_new') }}" {% if active == 'new-planning' %} class="active" {% endif %}>
-                                <span><i class="lnr lnr-calendar-full"></i> Emploi du temps</span></a>
-                            </li>
-                            <li><a href="{{ path('admin_course_new') }}" {% if active == 'new-course' %} class="active" {% endif %}>
-                                <span><i class="lnr lnr-camera-video"></i> Cours</span></a>
-                            </li>
-                            <li><a href="{{ path('admin_user_create') }}" {% if active == 'new-user' %} class="active" {% endif %}>
-                                <span><i class="lnr lnr-user"></i> Utilisateur</span></a>
-                            </li>
-                            <li><a href="{{ path('admin_resource_new') }}" {% if active == 'new-user' %} class="active" {% endif %}>
-                                <span><i class="lnr lnr-highlight"></i> Une ressource</span></a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
-            </ul>
-        </nav>
-    </div>
+                {% if is_granted('ROLE_TEACHER') %}
+					<li>
+						<a href="{{ path('admin_teacher_new_course') }}" {% if active == 'add-course' %} class="active" {% endif %}>
+							<span>
+								<i class="lnr lnr-plus-circle"></i>
+								Ajouter un cours
+                            </span>
+						</a>
+					</li>
+				{% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+					<li>
+						<a href="{{ path('admin_users') }}" {% if active == 'users-list' %} class="active" {% endif %}>
+							<span>
+								<i class="lnr lnr-users"></i>
+								Utilisateurs
+                            </span>
+						</a>
+					</li>
+					<li>
+						<a {% if active in in_create %} class="active" aria-expanded="true" {% else %} class="collapsed" {% endif %} data-toggle="collapse" href="#addNew">
+							<i class="lnr lnr-plus-circle"></i>
+							<span>Ajouter</span>
+							<i class="icon-submenu lnr lnr-chevron-left"></i>
+						</a>
+						<div class="collapse{% if active in in_create %} in{% endif %}" id="addNew">
+							<ul class="nav">
+								<li>
+									<a href="{{ path('admin_planning_new') }}" {% if active == 'new-planning' %} class="active" {% endif %}>
+										<span>
+											<i class="lnr lnr-calendar-full"></i>
+											Emploi du temps
+                                        </span>
+									</a>
+								</li>
+								<li>
+									<a href="{{ path('admin_article_new') }}" {% if active == 'new-article' %} class="active" {% endif %}>
+										<span>
+											<i class="lnr lnr-file-add"></i>
+											Article
+                                        </span>
+									</a>
+								</li>
+								<li>
+									<a href="{{ path('admin_course_new') }}" {% if active == 'new-course' %} class="active" {% endif %}>
+										<span>
+											<i class="lnr lnr-camera-video"></i>
+											Cours
+                                        </span>
+									</a>
+								</li>
+								<li>
+									<a href="{{ path('admin_user_create') }}" {% if active == 'new-user' %} class="active" {% endif %}>
+										<span>
+											<i class="lnr lnr-user"></i>
+											Utilisateur
+                                        </span>
+									</a>
+								</li>
+								<li><a href="{{ path('admin_resource_new') }}" {% if active == 'new-resource' %} class="active" {% endif %}>
+									<span><i class="lnr lnr-highlight"></i> Resource numérique</span></a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a {% if active in in_settings %} class="active" aria-expanded="true" {% else %} class="collapsed" {% endif %} data-toggle="collapse" href="#settings">
+							<i class="lnr lnr-cog"></i>
+							<span>Paramètres</span>
+							<i class="icon-submenu lnr lnr-chevron-left"></i>
+						</a>
+						<div class="collapse{% if active in in_settings %} in{% endif %}" id="settings">
+							<ul class="nav">
+								<li>
+									<a href="{{ path('admin_users_setting') }}" {% if active == 'setting-users' %} class="active" {% endif %}>
+										<span>
+											<i class="lnr lnr-users fa-lg"></i>
+											Utilisateurs
+                                        </span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+                {% endif %}
+			</ul>
+		</nav>
+	</div>
 </div>

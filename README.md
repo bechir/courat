@@ -65,5 +65,5 @@ Contributions Are Welcome! Please see [how to contribute page][8] for more detai
 [4]: https://git-scm.com/docs/git-clone
 [5]: https://symfony.com/download
 [6]: https://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html
-[7]: https://courat.herokuapp.com
+[7]: https://courat.rimacademy.net
 [8]: https://github.com/rand0mdev/courat/blob/master/CONTRIBUTING.md

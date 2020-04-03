@@ -1,0 +1,69 @@
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Utilisateur</th>
+                <th>Rôle</th>
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <th>Actions</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr class="td-3rem">
+                    <td>
+                        <a href="{{ path('admin_user_show', {user: user.id}) }}">
+                            {{ user.username }}
+                        </a>
+                    </td>
+                    <td>
+                        {% set label_type = 'default' %}
+                        {% if user.hasRole('ROLE_SUPER_ADMIN') %}
+                            {% set label_type = 'success' %}
+                        {% elseif user.hasRole('ROLE_COMPANIES_MANAGER') %}
+                            {% set label_type = 'primary' %}
+                        {% elseif user.hasRole('ROLE_RESUMES_MANAGER') %}
+                            {% set label_type = 'info' %}
+                        {% endif %}
+                        <label class="label label-{{ label_type }}">{{ user.masterRole|trans }}</label>
+                    </td>
+                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                    <td>
+                        <a class="update-role" data-placement="top" data-target="#updateRoleModal" data-username="{{ user.fullname }}" data-user-id="{{ user.id }}" data-toggle="modal" style="cursor:pointer;" title="Modifier le rôle de {{ user.fullname }}">
+                            <i class="fa fa-edit"></i> Modifier le rôle
+                        </a>
+                        <a class="revoke text-danger float-right" href="{{ path('admin_settings_remove_from_admin', {user: user.id}) }}" title="Modifier le rôle de {{ user.fullname }}">
+                            <i class="lnr lnr-cross"></i> Retirer
+                        </a>
+                    </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+        {% if is_granted('ROLE_SUPER_ADMIN') %}
+            <div class="modal fade item" id="updateRoleModal" tabindex="-1" role="dialog" aria-labelledby="updateRoleModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="updateRoleModalLabel">Modifier le rôle de <span class="username"></span></h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row scrollable">
+                                <div class="role-form-loader text-center">
+                                    <img class="loading-img" src="{{ asset('images/horizontal-loader.gif') }}" alt="Loading...">
+                                </div>
+                                <div class="px-4" id="role-form-results">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-lg float-right" data-dismiss="modal"><i class="fa fa-ban"></i> Annuler</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </table>
+<div>

@@ -15,6 +15,7 @@ use App\Entity\Classe;
 use App\Entity\Course;
 use App\Entity\ExcelFile;
 use App\Entity\Subject;
+use App\Entity\VideoSource;
 use App\Form\Admin\ExcelFileType;
 use App\Form\CourseType;
 use App\Repository\CourseRepository;
@@ -187,14 +188,14 @@ class CourseController extends AbstractController
             try {
                 for ($rowIt = 2; $rowIt <= $highestRow; ++$rowIt) {
                     $data = $worksheet->rangeToArray(
-                        "A$rowIt:F$rowIt",  // The worksheet range that we want to retrieve
+                        "A$rowIt:G$rowIt",  // The worksheet range that we want to retrieve
                         null,               // Value that should be returned for empty cells
                         true,               // Should formulas be calculated (the equivalent of getCalculatedValue() for each cell)
                         true,               // Should values be formatted (the equivalent of getFormattedValue() for each cell)
                         true                // Should the array be indexed by cell row and cell column
                     )[$rowIt];
 
-                    if (null != $data['A'] && null != $data['B'] && null != $data['C'] && null != $data['D'] && null != $data['E']) {
+                    if (null != $data['A'] && null != $data['B'] && null != $data['C'] && null != $data['D'] && null != $data['E'] && null != $data['F']) {
                         $course = (new Course())
                             ->setTitle($data['A'])
                             ->setVideoUrl($data['D'] ?? '');
@@ -204,7 +205,7 @@ class CourseController extends AbstractController
                         }
 
                         try {
-                            if ($startTime = $data['F'] ?? null) {
+                            if ($startTime = $data['G'] ?? null) {
                                 $startTime = explode(':', $startTime);
                                 $datetime = new \DateTime('0-0-0 0:0:0');
                                 switch (count($startTime)) {
@@ -237,6 +238,12 @@ class CourseController extends AbstractController
 
                         if ($class) {
                             $class->addCourse($course);
+                        }
+
+                        $source = $entityManager->getRepository(VideoSource::class)->findOneBy(['name' => $data['F'] ?? null]);
+
+                        if ($source) {
+                            $course->setSource($source);
                         }
 
                         $subject = $entityManager->getRepository(Subject::class)->findOneBy(['code' => 'subject.' . $data['C'] ?? null]);

@@ -4,8 +4,9 @@ security:
         App\Entity\User:
             algorithm: auto
     role_hierarchy:
-        ROLE_CUSTOMER: ROLE_USER
-        ROLE_ADMIN: ROLE_USER
+        ROLE_TEACHER: ROLE_USER
+        ROLE_TRANSLATOR: ROLE_USER
+        ROLE_ADMIN: ROLE_TEACHER, ROLE_TRANSLATOR, ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
@@ -45,7 +46,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/fr/admin, roles: ROLE_ADMIN }
+        - { path: ^/fr/admin, roles: ROLE_USER }
         # require the user to fully login to change password
         - { path: ^/user/change-password, roles: IS_AUTHENTICATED_FULLY }
         # - { path: ^/profile, roles: ROLE_USER }

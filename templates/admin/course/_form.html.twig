@@ -1,29 +1,28 @@
 {{ form_start(form) }}
 
     <div class="col-sm-12 mb-5">
-        {{ form_label(form.title) }}
-        {% if form_errors(form.title) %}
-            <p class="alert alert-danger">{{ form_errors(form.title) }}</p>
-        {% endif %}
+        <label for="">Titre du cours</label>
         {{ form_widget(form.title, {'attr': {'class': 'form-control input-lg'}}) }}
     </div>
 
-    <div class="col-sm-12 mb-5">
-        Classe
+    <div class="col-sm-6 mb-5">
+        <label for="">Classe</label>
         {{ form_widget(form.class, {'attr': {'class': 'custom-select input-lg'}})|html_entity_decode|raw }}
     </div>
 
-    <div class="col-sm-12 mb-5">
-        Matière
+    <div class="col-sm-6 mb-5">
+        <label for="">Matière</label>
         {{ form_widget(form.subject, {'attr': {'class': 'custom-select input-lg'}}) }}
     </div>
 
-    <div class="col-sm-12 mb-5">
-        {{ form_label(form.videoUrl) }}
-        {% if form_errors(form.videoUrl) %}
-            <p class="alert alert-danger">{{ form_errors(form.videoUrl) }}</p>
-        {% endif %}
+    <div class="col-sm-6 mb-5">
+        <label for="">URL de la vidéo</label>
         {{ form_widget(form.videoUrl, {'attr': {'class': 'form-control input-lg'}}) }}
+    </div>
+
+    <div class="col-sm-6 mb-5">
+        <label for="">Source de la vidéo</label>
+        {{ form_widget(form.source, {'attr': {'class': 'custom-select input-lg'}}) }}
     </div>
 
     <div class="col-sm-6 mb-5">

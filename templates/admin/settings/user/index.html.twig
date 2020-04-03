@@ -1,0 +1,12 @@
+{% extends 'admin/settings/base.html.twig' %}
+
+{% block content %}
+	<div class="panel">
+		<div class="panel-heading">
+			<h3 class="panel-title">Liste des administrateurs</h3>
+		</div>
+		<div class="panel-body">
+			{% include 'admin/settings/user/table.html.twig' with {users: users} %}
+		</div>
+	</div>
+{% endblock %}
