@@ -24,6 +24,6 @@ contributors:
 
 library:
   path:
-    fr: /lib
-    ar: /liba
-  controller: App\Controller\DefaultController::library
+    fr: /bibliotheque
+    ar: /library
+  controller: App\Controller\LibraryController::index
