@@ -1,0 +1,21 @@
+{{ form_start(form) }}
+
+    <div class="col-sm-12 mb-5">
+        <label for="">Titre du cours</label>
+        {{ form_widget(form.title, {'attr': {'class': 'form-control input-lg'}}) }}
+    </div>
+
+    <div class="col-sm-6 mb-5">
+        <label for="">Classe</label>
+        {{ form_widget(form.class, {'attr': {'class': 'custom-select input-lg'}})|html_entity_decode|raw }}
+    </div>
+
+    <div class="col-sm-6 mb-5">
+        <label for="">Matière</label>
+        {{ form_widget(form.subject, {'attr': {'class': 'custom-select input-lg'}}) }}
+    </div>
+
+    <div class="col-sm-12">
+        <button class="btn btn-success btn-lg"><i class="lnr lnr-checkmark-circle"></i> {{ button_label|default('Save') }}</button>
+    </div>
+{{ form_end(form) }}
