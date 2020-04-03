@@ -28,6 +28,12 @@ library_index:
     ar: /library
   controller: App\Controller\LibraryController::index
 
+library_articles_filter:
+  path:
+    fr: /filter
+    ar: /filtrer
+  controller: App\Controller\LibraryController::filter
+
 library_upload:
   path:
     fr: /importer

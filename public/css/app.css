@@ -1248,3 +1248,20 @@ body[dir='rtl'] .mobile-nav a {
 
 /*Library Upload */
 
+/* Article filter */
+#results{
+  min-height: 215px;
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #35404f solid;
+	border-radius: 50%;
+	animation: sp-anime 0.7s infinite linear;
+}
+@keyframes sp-anime {
+	100% { 
+		transform: rotate(360deg); 
+	}
+}
