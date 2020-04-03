@@ -1,4 +1,4 @@
-{% set in_create = ['new-course', 'new-user', 'new-planning'] %}
+{% set in_create = ['new-course', 'new-user', 'new-planning', 'new-article'] %}
 {% set in_settings = ['setting-users'] %}
 
 <div id="sidebar-nav" class="sidebar">
@@ -25,9 +25,17 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ path('admin_article_index') }}" {% if active == 'articles-list' %} class="active" {% endif %}>
+                        <span>
+                            <i class="lnr lnr-book"></i>
+                            Bibliothèque
+                        </span>
+                    </a>
+                </li>
                 {% if is_granted('ROLE_TEACHER') %}
 					<li>
-						<a href="#" {% if active == 'add-course' %} class="active" {% endif %}>
+						<a href="{{ path('admin_teacher_new_course') }}" {% if active == 'add-course' %} class="active" {% endif %}>
 							<span>
 								<i class="lnr lnr-plus-circle"></i>
 								Ajouter un cours
@@ -57,6 +65,14 @@
 										<span>
 											<i class="lnr lnr-calendar-full"></i>
 											Emploi du temps
+                                        </span>
+									</a>
+								</li>
+								<li>
+									<a href="{{ path('admin_article_new') }}" {% if active == 'new-article' %} class="active" {% endif %}>
+										<span>
+											<i class="lnr lnr-file-add"></i>
+											Article
                                         </span>
 									</a>
 								</li>

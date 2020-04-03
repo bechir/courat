@@ -53,11 +53,17 @@ class Classe implements JsonSerializable
      */
     private $plannings;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="classe", orphanRemoval=true)
+     */
+    private $articles;
+
     public function __construct()
     {
         $this->courses = new ArrayCollection();
         $this->subjects = new ArrayCollection();
         $this->plannings = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -194,6 +200,37 @@ class Classe implements JsonSerializable
         if ($this->plannings->contains($planning)) {
             $this->plannings->removeElement($planning);
             $planning->removeClass($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setClasse($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->contains($article)) {
+            $this->articles->removeElement($article);
+            // set the owning side to null (unless already changed)
+            if ($article->getClasse() === $this) {
+                $article->setClasse(null);
+            }
         }
 
         return $this;
