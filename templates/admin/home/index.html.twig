@@ -14,7 +14,7 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-offset-1 col-md-5">
+            <div class="col-md-4 col-sm-6">
                 <div class="metric">
                     <span class="icon"><i class="lnr lnr-users"></i></span>
                     <p>
@@ -23,7 +23,16 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4 col-sm-6">
+                <div class="metric">
+                    <span class="icon"><i class="lnr lnr-users"></i></span>
+                    <p>
+                        <span class="number">{{ data.teachers }}</span>
+                        <span class="title"><a href="{{ path('admin_users') }}">Professeur{{ data.teachers != 1 ? 's' : '' }}</a></span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
                 <div class="metric">
                     <span class="icon"><i class="lnr lnr-camera-video"></i></span>
                     <p>
@@ -32,7 +41,16 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-offset-1 col-md-5">
+            <div class="col-md-4 col-sm-6">
+                <div class="metric">
+                    <span class="icon"><i class="lnr lnr-book"></i></span>
+                    <p>
+                        <span class="number">{{ data.articles }}</span>
+                        <span class="title"><a href="{{ path('admin_article_index') }}">Documents</a></span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
                 <div class="metric">
                     <span class="icon"><i class="lnr lnr-calendar-full"></i></span>
                     <p>
@@ -41,7 +59,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4 col-sm-6">
                 <div class="metric">
                     <span class="icon"><i class="lnr lnr-highlight"></i></span>
                     <p>
