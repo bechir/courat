@@ -1,18 +1,16 @@
-<div class="input-group my-3">
-    <span class="input-group-addon">
-        <i class="lnr lnr-envelope fa-lg"></i>
-    </span>
-    {{ form_widget(form.username, {'attr': {'placeholder': "Nom d'utilisateur", 'class': 'form-control input-lg'}}) }}
-</div>
-<div class="input-group my-3">
-    <span class="input-group-addon">
-        <i class="lnr lnr-lock fa-lg"></i>
-    </span>
-    {{ form_widget(form.plainPassword.first, {'attr': {'placeholder': 'Mot de passe', 'class': 'form-control input-lg'}}) }}
-</div>
-<div class="input-group my-3">
-    <span class="input-group-addon">
-        <i class="lnr lnr-lock fa-lg"></i>
-    </span>
-    {{ form_widget(form.plainPassword.second, {'attr': {'placeholder': 'Confirmez le mot de passe', 'class': 'form-control input-lg'}}) }}
+<div class="row">
+
+	<div class="col-sm-6">
+		{{ form_row(form.username, {'attr': {'placeholder': "Nom d'utilisateur", 'class': 'form-control input-lg'}}) }}
+	</div>
+	<div class="col-sm-6">
+		{{ form_row(form.roles, {'attr': {'class': 'custom-select input-lg'}}) }}
+	</div>
+	<div class="col-sm-6">
+		{{ form_row(form.plainPassword.first, {'attr': {'placeholder': 'Mot de passe', 'class': 'form-control input-lg'}}) }}
+	</div>
+	<div class="col-sm-6">
+		{{ form_row(form.plainPassword.second, {'attr': {'placeholder': 'Confirmez le mot de passe', 'class': 'form-control input-lg'}}) }}
+	</div>
+
 </div>

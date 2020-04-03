@@ -67,7 +67,14 @@ class UserController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-            $user->setRoles(['ROLE_ADMIN']);
+
+            $roles = [];
+
+            foreach ($form->get('roles')->getData() as $role) {
+                $roles[] = $role->getType();
+            }
+
+            $user->setRoles($roles);
             $em->persist($user);
 
             $em->flush();
