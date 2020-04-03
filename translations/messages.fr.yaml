@@ -170,6 +170,7 @@ ROLE_TEACHER: Enseignant
 ROLE_TRANSLATOR: Traducteur
 
 library:
+  btn: Bibliothèque
   title:  RESSOURCES PEDAGOGIQUES
   description: Bienvenue sur l'espace des ressources pédagogiques, vous trouverez dans cette page un ensemble de fichiers (Cours, exercices corrigés, annales de BAC ...) 
   post-title: SOUMETTRE UN DOCUMENT  
