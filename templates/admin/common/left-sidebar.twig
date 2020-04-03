@@ -27,7 +27,7 @@
                 </li>
                 {% if is_granted('ROLE_TEACHER') %}
 					<li>
-						<a href="#" {% if active == 'add-course' %} class="active" {% endif %}>
+						<a href="{{ path('admin_teacher_new_course') }}" {% if active == 'add-course' %} class="active" {% endif %}>
 							<span>
 								<i class="lnr lnr-plus-circle"></i>
 								Ajouter un cours
