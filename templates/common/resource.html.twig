@@ -13,7 +13,7 @@
 				<div class="col-lg-4 col-md-6 plateform-item">
 					<div class="plateform-wrap">
 
-						<img src={% if resource.filename %} {{ vich_uploader_asset(resource, 'imageFile') }} {% endif %} class="img-fluid" alt="{{ resource.translatedTitle(locale()) }}"/>
+						<img src={% if resource.filename %} {{ vich_uploader_asset(resource, 'imageFile') }} {% endif %} class="img-fluid" alt="{{ resource.title }}"/>
 
 						<div class="plateform-links">
 							<a target="_blank" href={{ resource.link }}>
@@ -23,7 +23,7 @@
 						</div>
 						<div class="plateform-info">
 							<h4>
-								{{ resource.translatedTitle(locale()) }}
+								{{ resource.title }}
 							</h4>
 
 							<p>

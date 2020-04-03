@@ -64,11 +64,6 @@ class Resource
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $titleAR;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     private $subtitleAR;
 
     const ARABIC = 'ar';
@@ -89,15 +84,6 @@ class Resource
         $this->title = $title;
 
         return $this;
-    }
-
-    public function getTranslatedTitle(string $locale): string
-    {
-        if (self::ARABIC == $locale && !empty($this->titleAR)) {
-            return $this->titleAR;
-        }
-
-        return $this->title;
     }
 
     public function getTranslatedSubtitle(string $locale): string
