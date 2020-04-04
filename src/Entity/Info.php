@@ -11,13 +11,16 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\InfoRepository")
  * @Vich\Uploadable
+ * @ORM\HasLifecycleCallbacks
  */
 class Info
 {
@@ -41,7 +44,7 @@ class Info
     /**
      * @var File|null
      *
-     * @Vich\UploadableField(mapping="property_image", fileNameProperty="filename")
+     * @Vich\UploadableField(mapping="article_image", fileNameProperty="filename")
      */
     private $imageFile;
 
@@ -55,6 +58,17 @@ class Info
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updatedAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @Gedmo\Slug(fields={"title", "id"})
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     public function getId(): ?int
     {
@@ -112,7 +126,7 @@ class Info
     {
         $this->imageFile = $imageFile;
         if (null !== $this->imageFile) {
-            $this->updated_at = new \DateTime('now');
+            $this->updatedAt = new \DateTime();
         }
 
         return $this;
@@ -126,6 +140,42 @@ class Info
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function ensureDateCreated(): self
+    {
+        if (!$this->createdAt) {
+            $this->createdAt = new \DateTime();
+        }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
