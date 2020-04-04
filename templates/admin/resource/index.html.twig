@@ -1,0 +1,46 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Ressources numeriques
+{% endblock %}
+
+{% block left_sidebar %}
+	{% include 'admin/common/left-sidebar.twig' with { active: 'resource-list' } %}
+{% endblock %}
+
+{% block main %}
+
+    <h1>Les ressources numeriques</h1>
+
+    <a href="{{ path('admin_resource_new') }}" class="btn btn-success pull-right"><i class="lnr lnr-plus-circle"></i> Ajouter une nouvelle</a>
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Sous-titre</th>
+                <th>Sous-titre en arabe</th>
+                <th>Lien</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for resource in resources %}
+            <tr>
+                <td>{{ resource.title }}</td>
+                <td>{{ resource.subtitle }}</td>
+                <td>{{ resource.subtitleAR }}</td>
+                <td>{{ resource.link }}</td>
+                <td>
+                    <a href="{{ path('admin_resource_show', {'id': resource.id}) }}" class="btn btn-info"> <i class="lnr lnr-eye"></i></a>
+                    <a href="{{ path('admin_resource_edit', {'id': resource.id}) }}" class="btn btn-success"> <i class="lnr lnr-pencil"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Pas de ressource</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

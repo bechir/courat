@@ -1,3 +1,9 @@
+Title: Titre*
+Subtitle: Sous-titre
+Subtitle a r: Sous-titre en arabe(optionnel)
+Link: Lien*
+Image file: Logo
+
 app:
   phone: 'Téléphone: %phone%'
   index: Accueil
