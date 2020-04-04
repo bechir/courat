@@ -11,18 +11,44 @@
 
 namespace App\Controller;
 
+use App\Repository\ArticleCategoryRepository;
+use App\Repository\ArticleRepository;
+use App\Repository\ClassRepository;
+use App\Repository\SubjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class LibraryController extends AbstractController
 {
-    /**
-     * @Route("/library", name="library")
-     */
-    public function index()
+    public function index(
+        ArticleRepository $articleRep,
+        ArticleCategoryRepository $articleCategoryRep,
+        SubjectRepository $subjectRepository,
+        ClassRepository $classRepository)
     {
         return $this->render('library/index.html.twig', [
-            'controller_name' => 'LibraryController',
+            'articles' => $articleRep->findAll(),
+            'categories' => $articleCategoryRep->findAll(),
+            'subjects' => $subjectRepository->findAll(),
+            'classes' => $classRepository->findAll(),
         ]);
+    }
+
+    public function filter(Request $request, ArticleRepository $articleRepository): Response
+    {
+        sleep(1);
+        $filter = $request->query->get('filter');
+
+        $articles = $articleRepository->findAll();
+
+        return $this->render('library/_articles.html.twig', [
+            'articles' => $articles,
+        ]);
+    }
+
+    public function upload(): Response
+    {
+        return $this->render('library/upload.html.twig');
     }
 }
