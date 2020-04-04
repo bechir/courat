@@ -373,6 +373,15 @@ h6 {
   background: linear-gradient(180deg, #35404f 0%, #35404f 35%, #35404f 100%);
 }
 
+#hero h1 {
+  margin: 0 0 15px 0;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+  font-family: "Cairo", sans-serif;
+}
+
 #hero h2 {
   font-family: 'Lato', sans-serif;
   color: #d2e0ed;
@@ -696,6 +705,27 @@ section {
   color: white;
   margin-left: auto;
   margin-right: auto;
+}
+
+.lib .circle-badge {
+  height: 100px;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 50px;
+  color: #35404f;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lib h3 {
+  font-size: 20px;
+  color: #35404f;
+  font-family: 'Cairo', sans-serif;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 20px;
 }
 
 .class .info-box h3 {
@@ -1200,7 +1230,7 @@ body[dir='rtl'] .mobile-nav a {
   color: #7085d6;
 }
 
-
+/* Facebook Video Player */
 .fb-wrapper {
   overflow: hidden;
   padding-bottom: 56.25%;
@@ -1214,4 +1244,24 @@ body[dir='rtl'] .mobile-nav a {
   height: 100%;
   width: 100%;
   position: absolute;
+}
+
+/*Library Upload */
+
+/* Article filter */
+#results{
+  min-height: 215px;
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #35404f solid;
+	border-radius: 50%;
+	animation: sp-anime 0.7s infinite linear;
+}
+@keyframes sp-anime {
+	100% { 
+		transform: rotate(360deg); 
+	}
 }

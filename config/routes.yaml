@@ -21,3 +21,22 @@ contributors:
     fr: /contributeurs
     ar: /contributors
   controller: App\Controller\DefaultController::contributors
+
+library_index:
+  path:
+    fr: /bibliotheque
+    ar: /library
+  controller: App\Controller\LibraryController::index
+
+library_articles_filter:
+  path:
+    fr: /filter
+    ar: /filtrer
+  controller: App\Controller\LibraryController::filter
+
+library_upload:
+  path:
+    fr: /importer
+    ar: /upload
+  controller: App\Controller\LibraryController::upload
+
