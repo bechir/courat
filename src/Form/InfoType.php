@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the COURAT application.
+ *
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Form;
 
 use App\Entity\Info;
@@ -16,7 +25,7 @@ class InfoType extends AbstractType
             ->add('title')
             ->add('link')
             ->add('imageFile', FileType::class, [
-                'required'  =>  false
+                'required' => false,
             ])
         ;
     }

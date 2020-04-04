@@ -21,3 +21,15 @@ contributors:
     fr: /contributeurs
     ar: /contributors
   controller: App\Controller\DefaultController::contributors
+
+info_index:
+  path:
+    fr: /actualites
+    en: /news
+  controller: App\Controller\InfoController::index
+
+info_show:
+  path:
+    fr: /actualite/{slug}
+    en: /news/{slug}
+  controller: App\Controller\InfoController::index
