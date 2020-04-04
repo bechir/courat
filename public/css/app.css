@@ -1293,3 +1293,81 @@ body[dir='rtl'] .mobile-nav a {
 .my-select:focus{
   outline: 0;
 }
+
+/*Upload*/
+.btn-container{
+  background:#fff;
+  border-radius:5px;
+  padding-bottom:20px;
+  margin-bottom:20px;
+  }
+  .white{
+  color:white;
+  }
+  .imgupload{
+  color:#1E2832;
+  padding-top:40px;
+  font-size:7em;
+  }
+  #namefile{
+  color:black;
+  }
+  h4>strong{
+  color:#ff3f3f
+  }
+  .btn-primary{
+  border-color: #ff3f3f !important;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #ff3f3f !important;
+  border-color: #ff3f3f !important;
+  }
+  
+  /*these two are set to not display at start*/
+  .imgupload.ok{
+  display:none;
+  color:green;
+  }
+  .imgupload.stop{
+  display:none;
+  color:red;
+  }
+  
+  
+  /*this sets the actual file input to overlay our button*/ 
+  #fileup{
+  opacity: 0;
+  -moz-opacity: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  width:200px;
+  cursor: pointer;
+  position:absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40px;
+  height: 50px;
+  }
+  
+  /*switch between input and not active input*/
+  #submitbtn{
+    padding:5px 50px;
+    display:none;
+  }
+  #fakebtn{
+    padding:5px 40px;
+  }
+  
+  
+  /*www.emilianocostanzo.com*/
+  #sign{
+    color:#1E2832;
+    position:fixed;
+    right:10px;
+    bottom:10px;
+    text-shadow:0px 0px 0px #1E2832;
+    transition:all.3s;
+  }
+  #sign:hover{
+    color:#1E2832;
+    text-shadow:0px 0px 5px #1E2832;
+  }
