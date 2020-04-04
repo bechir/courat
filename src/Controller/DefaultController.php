@@ -39,4 +39,9 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/contributor.html.twig');
     }
+
+    public function news(): Response
+    {
+        return $this->render('default/news.html.twig');
+    }
 }
