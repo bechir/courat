@@ -1,0 +1,45 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Informations
+{% endblock %}
+
+{% block left_sidebar %}
+	{% include 'admin/common/left-sidebar.twig' with { active: 'resource-list' } %}
+{% endblock %}
+
+{% block main %}
+
+    <h1>Info index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Filename</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for info in infos %}
+            <tr>
+                <td>{{ info.id }}</td>
+                <td>{{ info.title }}</td>
+                <td>{{ info.link }}</td>
+                <td>{{ info.filename }}</td>
+                <td>
+                    <a href="{{ path('info_show', {'id': info.id}) }}">show</a>
+                    <a href="{{ path('info_edit', {'id': info.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('info_new') }}">Create new</a>
+{% endblock %}
