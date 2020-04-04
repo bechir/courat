@@ -4,16 +4,15 @@
 {% endblock %}
 
 {% block left_sidebar %}
-	{% include 'admin/common/left-sidebar.twig' with { active: 'resource-list' } %}
+	{% include 'admin/common/left-sidebar.twig' with { active: 'info-list' } %}
 {% endblock %}
 
 {% block main %}
 
-    <h1>Edit Info</h1>
+    <h1>Editer une information</h1>
 
-    {{ include('admin/info/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('admin_info') }}">back to list</a>
-
+    {{ include('admin/info/_form.html.twig', {'button_label': 'Modifier'}) }}
     {{ include('admin/info/_delete_form.html.twig') }}
+
+    <a class="my-3 btn btn-info" href="{{ path('admin_info') }}"><i class="lnr lnr-arrow-left fa-lg"></i> Retourner a la liste</a>
 {% endblock %}

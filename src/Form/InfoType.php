@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Info;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,9 @@ class InfoType extends AbstractType
         $builder
             ->add('title')
             ->add('link')
-            ->add('filename')
+            ->add('imageFile', FileType::class, [
+                'required'  =>  false
+            ])
         ;
     }
 
