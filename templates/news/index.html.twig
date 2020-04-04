@@ -45,7 +45,9 @@
 						</div>
 						<div class="cbp_tmlabel">
 							<h2>{{ article.title }}</h2>
-							<img src="{{ vich_uploader_asset(article) }}" class="img-responsive" width="400px">
+							{% if article.filename %}
+								<img src="{{ vich_uploader_asset(article) }}" class="img-responsive" width="400px">
+							{% endif %}
 							<hr>
 							<span class="badge badge-secondary">
 								<i class="icofont-eye-alt"></i>
