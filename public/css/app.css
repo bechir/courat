@@ -1278,11 +1278,18 @@ body[dir='rtl'] .mobile-nav a {
   color: #35404f;
   border: 0 none;
   border-radius: 20px;
+  -webkit-border-radius: 20px; 
+  -moz-border-radius: 20px;
+  -webkit-apparence:none;
   padding: 6px 10px;
   margin-left: 10px;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: normal;
   font-family: 'Cairo',sans-serif;
   width: 300px;
   border: 1px solid #e5e5e5;
+}
+
+.my-select:focus{
+  outline: 0;
 }
