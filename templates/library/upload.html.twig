@@ -8,67 +8,95 @@
 
 {% block main %}
 
-	<!-- ======= Hero Section ======= -->
-	<section id="hero">
-		<div class="container-fluid m-0">
-			<div class="row d-flex align-items-center">
-				<div class="col-lg-6 py-5 py-lg-0 order-2 order-lg-1 {{ locale() == 'fr' ? 'mr-auto' : 'ml-auto ar text-right' }}" data-aos="fade-right">
-					<img src="{{ asset('assets/img/read.svg') }}" class="img-fluid" alt=""/>
-				</div>
-				<div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-					<h1>{{ 'library.title'|trans }}</h1>
-					<h2>
-						{{ 'library.description'|trans }}
-					</h2>
-				</div>
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+	<div class="container-fluid m-0">
+		<div class="row d-flex align-items-center">
+			<div class="col-lg-6 py-5 py-lg-0 order-2 order-lg-1 {{ locale() == 'fr' ? 'mr-auto' : 'ml-auto ar text-right' }}" data-aos="fade-right">
+				<img src="{{ asset('assets/img/read.svg') }}" class="img-fluid" alt=""/>
+			</div>
+			<div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+				<h1>{{ 'library.title'|trans }}</h1>
+				<h2>
+					{{ 'library.description'|trans }}
+				</h2>
 			</div>
 		</div>
-	</section>
-	<!-- End Hero -->
-
-
-
+	</div>
+</section>
+<!-- End Hero -->
 
 
 <section id="plateform" class="plateform section-bg">
-<div class="container">
-	<div class="section-title">
-		<h2 data-aos="fade-in">
-			{{ 'library.post-title'|trans }}
-		</h2>
-	</div>
-    {# Partie Upload #}
-	<form name="upload" method="post" action="#" enctype="multipart/form-data" accept-charset="utf-8">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3 center">
-				<div class="btn-container">
-					<!--the three icons: default, ok file (img), error file (not an img)-->
-					<h1 class="imgupload"><i class="fa fa-file-image-o"></i></h1>
-					<h1 class="imgupload ok"><i class="fa fa-check"></i></h1>
-					<h1 class="imgupload stop"><i class="fa fa-times"></i></h1>
-					<!--this field changes dinamically displaying the filename we are trying to upload-->
-					<p id="namefile">Only pics allowed! (jpg,jpeg,bmp,png)</p>
-					<!--our custom btn which which stays under the actual one-->
-					<button type="button" id="btnup" class="btn btn-primary btn-lg">Browse for your pic!</button>
-					<!--this is the actual file input, is set with opacity=0 beacause we wanna see our custom one-->
-					<input type="file" value="" name="fileup" id="fileup">
+	<div class="container">
+		<div class="section-title">
+			<h2 data-aos="fade-in">
+				{{ 'library.post-title'|trans }}
+			</h2>
+		</div>
+		{# Partie Upload #}
+
+		<div class="container register-form">
+			<div class="form">
+				<div class="note">
+					<p>{{ 'upload.note'|trans }}</p>
+				</div>
+
+				<div class="form-content">
+					<form>
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="{{ 'upload.title'|trans }}">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<select name="subject" id="subject" class="form-control">
+										<option value="" selected>{{ 'library.subject'|trans }}</option>
+
+									</select>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<select name="classe" id="classe" class="form-control">
+										<option value="" selected>{{ 'library.class'|trans }}</option>
+
+									</select>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<select name="category" id="category" class="form-control">
+										<option value="" selected>{{ 'library.category'|trans }}</option>
+
+									</select>
+								</div>
+							</div>
+							<div class="col-md-12">
+
+
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="customFile">
+									<label class="form-control custom-file-label" for="customFile">{{ 'upload.file'|trans }}</label>
+								</div>
+							</form>
+
+
+						</div>
+
+					</div>
+					<br>
+					<p class="text-center">
+						<button type="button" class="btn-return">{{ 'upload.submit'|trans }}</button>
+					</p>
+
 				</div>
 			</div>
 		</div>
-			<!--additional fields-->
-		<div class="row">			
-			<div class="col-md-12">
-				<!--the defauld disabled btn and the actual one shown only if the three fields are valid-->
-				<input type="submit" value="Submit!" class="btn btn-primary" id="submitbtn">
-				<button type="button" class="btn btn-default" disabled="disabled" id="fakebtn">Submit! <i class="fa fa-minus-circle"></i></button>
-			</div>
-		</div>
-	</form>
-
-   
-    
 
 
-</div></div></section><!-- End Submit -->
-{# {% endblock %}{% block diffusion %} #}
-{% endblock %}
+	</div>
+</div></section><!-- End Submit -->{# {% endblock %}{% block diffusion %} #}{% endblock %}
