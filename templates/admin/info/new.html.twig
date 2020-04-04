@@ -4,14 +4,14 @@
 {% endblock %}
 
 {% block left_sidebar %}
-	{% include 'admin/common/left-sidebar.twig' with { active: 'resource-list' } %}
+	{% include 'admin/common/left-sidebar.twig' with { active: 'info-list' } %}
 {% endblock %}
 
 {% block main %}
 
-    <h1>Create new Info</h1>
+    <h1>Ajouter une nouvelle information</h1>
 
     {{ include('admin/info/_form.html.twig') }}
 
-    <a href="{{ path('admin_info') }}">back to list</a>
+    <a class="my-3 btn btn-info" href="{{ path('admin_info') }}"><i class="lnr lnr-arrow-left fa-lg"></i> Retourner a la liste</a>
 {% endblock %}

@@ -4,42 +4,41 @@
 {% endblock %}
 
 {% block left_sidebar %}
-	{% include 'admin/common/left-sidebar.twig' with { active: 'resource-list' } %}
+	{% include 'admin/common/left-sidebar.twig' with { active: 'info-list' } %}
 {% endblock %}
 
 {% block main %}
 
-    <h1>Info index</h1>
+    <h1>Liste des informations</h1>
 
+    <a href="{{ path('admin_info_new') }}" class="btn btn-success pull-right"><i class="lnr lnr-plus-circle"></i> Ajouter une information</a>
+    
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Link</th>
-                <th>Filename</th>
+                <th>Titre</th>
+                <th>Lien</th>
+                <th>Image</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for info in infos %}
             <tr>
-                <td>{{ info.id }}</td>
                 <td>{{ info.title }}</td>
                 <td>{{ info.link }}</td>
                 <td>{{ info.filename }}</td>
                 <td>
-                    <a href="{{ path('info_show', {'id': info.id}) }}">show</a>
-                    <a href="{{ path('info_edit', {'id': info.id}) }}">edit</a>
+                    <a href="{{ path('admin_info_show', {'id': info.id}) }}" class="btn btn-info"> <i class="lnr lnr-eye"></i></a>
+                    <a href="{{ path('admin_info_edit', {'id': info.id}) }}" class="btn btn-success"> <i class="lnr lnr-pencil"></i></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Pas d'informations</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('info_new') }}">Create new</a>
 {% endblock %}

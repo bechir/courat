@@ -30,7 +30,7 @@ class InfoController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="info_new", methods={"GET","POST"})
+     * @Route("/new", name="admin_info_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -53,7 +53,7 @@ class InfoController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="info_show", methods={"GET"})
+     * @Route("/{id}", name="admin_info_show", methods={"GET"})
      */
     public function show(Info $info): Response
     {
@@ -63,7 +63,7 @@ class InfoController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="info_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="admin_info_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Info $info): Response
     {
@@ -83,7 +83,7 @@ class InfoController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="info_delete", methods={"DELETE"})
+     * @Route("/{id}", name="admin_info_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Info $info): Response
     {

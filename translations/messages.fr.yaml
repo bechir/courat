@@ -2,7 +2,7 @@ Title: Titre*
 Subtitle: Sous-titre
 Subtitle a r: Sous-titre en arabe(optionnel)
 Link: Lien*
-Image file: Logo
+Image file: Image
 
 app:
   phone: 'Téléphone: %phone%'
