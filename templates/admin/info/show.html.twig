@@ -23,7 +23,9 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td>{{ info.filename }}</td>
+                <td>
+                    <img src="{{ vich_uploader_asset(info) }}" class="img-responsive" alt="">
+                </td>
             </tr>
         </tbody>
     </table>

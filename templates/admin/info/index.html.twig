@@ -18,7 +18,6 @@
             <tr>
                 <th>Titre</th>
                 <th>Lien</th>
-                <th>Image</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -26,11 +25,10 @@
         {% for info in infos %}
             <tr>
                 <td>{{ info.title }}</td>
-                <td>{{ info.link }}</td>
-                <td>{{ info.filename }}</td>
+                <td><a href="{{ info.link }}" target="_blank">{{ info.link }}</a></td>
                 <td>
-                    <a href="{{ path('admin_info_show', {'id': info.id}) }}" class="btn btn-info"> <i class="lnr lnr-eye"></i></a>
-                    <a href="{{ path('admin_info_edit', {'id': info.id}) }}" class="btn btn-success"> <i class="lnr lnr-pencil"></i></a>
+                    <a href="{{ path('news_show', {slug: info.slug}) }}" target="_blank"> <i class="fa-lg fa fa-external-link"></i></a>
+                    <a href="{{ path('admin_info_edit', {'id': info.id}) }}"> <i class="fa-lg fa fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
