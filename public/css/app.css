@@ -418,6 +418,12 @@ h6 {
   .single-course-link {
     display: none;
   }
+
+  .my-select{
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+  }
 }
 
 #hero .btn-get-started:hover {
@@ -1264,4 +1270,19 @@ body[dir='rtl'] .mobile-nav a {
 	100% { 
 		transform: rotate(360deg); 
 	}
+}
+
+/*Filter*/
+.my-select {
+  background-color: #fff;
+  color: #35404f;
+  border: 0 none;
+  border-radius: 20px;
+  padding: 6px 10px;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Cairo',sans-serif;
+  width: 300px;
+  border: 1px solid #e5e5e5;
 }

@@ -32,24 +32,32 @@
 			<div class="row">
 				<div class="mx-auto mb-4">
 					<form action="{{ path('library_articles_filter') }}" method="get" id="filter-form">
-						<select name="subject" id="subject">
+						<select name="subject" id="subject" class="my-select">
 							<option value="" selected>Matière</option>
 							{% for subject in subjects %}
 								<option value="{{ subject.id }}">{{ subject|trans }}</option>
 							{% endfor %}
 						</select>
-						<select name="classe" id="classe">
+
+						
+						<select name="classe" id="classe" class="my-select">
 							<option value="" selected>Classe</option>
 							{% for classe in classes %}
 								<option value="{{ classe.id }}">{{ classe|trans|raw }}</option>
 							{% endfor %}
 						</select>
-						<select name="category" id="category">
+						<select name="category" id="category" class="my-select">
 							<option value="" selected>Catégorie</option>
 							{% for category in categories %}
 								<option value="{{ category.id }}">{{ category|trans }}</option>
 							{% endfor %}
 						</select>
+{# 
+						  <select class="custom-select my-select">
+          <option>Male</option>
+          <option>Female</option>
+        </select> #}
+        
 					</form>
 				</div>
 			</div>
