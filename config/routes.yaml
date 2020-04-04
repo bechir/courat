@@ -40,9 +40,14 @@ library_upload:
     ar: /upload
   controller: App\Controller\LibraryController::upload
 
-news:
+news_index:
   path:
-    fr: /actu
+    fr: /actualites
     ar: /news
-  controller: App\Controller\DefaultController::news
+  controller: App\Controller\NewsController::index
 
+news_show:
+  path:
+    fr: /actualite/{slug}
+    en: /news/{slug}
+  controller: App\Controller\NewsController::show

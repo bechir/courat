@@ -1,0 +1,38 @@
+{% if resources is not empty %}
+	<section id="plateform" class="plateform section-bg">
+		<div class="container">
+			<div class="section-title">
+				<h2 data-aos="fade-in">
+					{{ 'platforms.title'|trans }}
+				</h2>
+				<p data-aos="fade-in">
+					{{ 'platforms.description'|trans }}
+				</p>
+			</div>
+			<div class="row plateform-container" data-aos="fade-up">
+				{% for resource in resources %}
+					<div class="col-lg-4 col-md-6 plateform-item">
+						<div class="plateform-wrap">
+							<img src={% if resource.filename %} {{ vich_uploader_asset(resource, 'imageFile') }} {% endif %} class="img-fluid" alt="{{ resource.title }}"/>
+							<div class="plateform-links">
+								<a target="_blank" href={{ resource.link }}>
+									<i class="icofont-eye"></i>
+									{{ 'platforms.visit'|trans}}
+								</a>
+							</div>
+							<div class="plateform-info">
+								<h4>
+									{{ resource.title }}
+								</h4>
+
+								<p>
+									{{ resource.translatedSubtitle(locale())|upper }}
+								</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endif %}

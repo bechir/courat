@@ -1,4 +1,4 @@
-{% set in_create = ['new-course', 'new-user', 'new-planning', 'new-article'] %}
+{% set in_create = ['new-course', 'new-user', 'new-planning', 'new-article', 'new-resource'] %}
 {% set in_settings = ['setting-users'] %}
 
 <div id="sidebar-nav" class="sidebar">
@@ -24,6 +24,17 @@
                             Emploi du temps
                         </span>
                     </a>
+                </li>
+				<li>
+                    <a href="{{ path('admin_info') }}" {% if active == 'info-list' %} class="active" {% endif %}>
+                        <span>
+                            <i class="fa fa-newspaper-o"></i>
+                            Informations
+                        </span>
+                    </a>
+                </li>
+                <li><a href="{{ path('admin_resource') }}" {% if active == 'resource-list' %} class="active" {% endif %}>
+                    <span><i class="lnr lnr-highlight"></i> Resources</span></a>
                 </li>
                 <li>
                     <a href="{{ path('admin_article_index') }}" {% if active == 'articles-list' %} class="active" {% endif %}>
@@ -53,12 +64,12 @@
 						</a>
 					</li>
 					<li>
-						<a {% if active in in_create %} class="active" aria-expanded="true" {% else %} class="collapsed" {% endif %} data-toggle="collapse" href="#newCourse">
+						<a {% if active in in_create %} class="active" aria-expanded="true" {% else %} class="collapsed" {% endif %} data-toggle="collapse" href="#addNew">
 							<i class="lnr lnr-plus-circle"></i>
 							<span>Ajouter</span>
 							<i class="icon-submenu lnr lnr-chevron-left"></i>
 						</a>
-						<div class="collapse{% if active in in_create %} in{% endif %}" id="newCourse">
+						<div class="collapse{% if active in in_create %} in{% endif %}" id="addNew">
 							<ul class="nav">
 								<li>
 									<a href="{{ path('admin_planning_new') }}" {% if active == 'new-planning' %} class="active" {% endif %}>
@@ -71,8 +82,8 @@
 								<li>
 									<a href="{{ path('admin_article_new') }}" {% if active == 'new-article' %} class="active" {% endif %}>
 										<span>
-											<i class="lnr lnr-file-add"></i>
-											Article
+											<i class="fa fa-file-pdf-o"></i>
+											Document PDF
                                         </span>
 									</a>
 								</li>
@@ -90,6 +101,22 @@
 											<i class="lnr lnr-user"></i>
 											Utilisateur
                                         </span>
+									</a>
+								</li>
+								<li>
+									<a href="{{ path('admin_resource_new') }}" {% if active == 'new-resource' %} class="active" {% endif %}>
+										<span>
+											<i class="lnr lnr-highlight"></i> 
+											Resource numérique
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href="{{ path('admin_info_new') }}" {% if active == 'info-list' %} class="active" {% endif %}>
+										<span>
+											<i class="lnr lnr-file-add"></i>
+											Article
+										</span>
 									</a>
 								</li>
 							</ul>

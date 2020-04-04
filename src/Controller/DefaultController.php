@@ -14,14 +14,26 @@ namespace App\Controller;
 use App\Entity\Classe;
 use App\Entity\Day;
 use App\Entity\Planning;
+use App\Repository\ClassRepository;
+use App\Repository\DayRepository;
+use App\Repository\InfoRepository;
+use App\Repository\PlanningRepository;
+use App\Repository\ResourceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends AbstractController
 {
-    public function index(): Response
+    public function index(InfoRepository $infoRepository, ResourceRepository $resourceRepository, PlanningRepository $planningRepository, ClassRepository $classRepository, DayRepository $dayRepository): Response
     {
-        return $this->render('default/index.html.twig');
+        return $this->render('default/index.html.twig', [
+            'controller_name' => 'PlanningController',
+            'classes' => $classRepository->findAll(),
+            'plannings' => $planningRepository->findAll(),
+            'days' => $dayRepository->findAll(),
+            'resources' => $resourceRepository->findAll(),
+            'infos' => $infoRepository->findAll(),
+        ]);
     }
 
     public function planning(): Response
