@@ -1,0 +1,42 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Informations
+{% endblock %}
+
+{% block left_sidebar %}
+	{% include 'admin/common/left-sidebar.twig' with { active: 'info-list' } %}
+{% endblock %}
+
+{% block main %}
+
+    <h1>Liste des informations</h1>
+
+    <a href="{{ path('admin_info_new') }}" class="btn btn-success pull-right"><i class="lnr lnr-plus-circle"></i> Ajouter une information</a>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Lien</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for info in infos %}
+            <tr>
+                <td>{{ info.title }}</td>
+                <td><a href="{{ info.link }}" target="_blank">{{ info.link }}</a></td>
+                <td>
+                    <a href="{{ path('news_show', {slug: info.slug}) }}" target="_blank"> <i class="fa-lg fa fa-external-link"></i></a>
+                    <a href="{{ path('admin_info_edit', {'id': info.id}) }}"> <i class="fa-lg fa fa-edit"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas d'informations</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

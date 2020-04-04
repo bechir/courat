@@ -373,6 +373,15 @@ h6 {
   background: linear-gradient(180deg, #35404f 0%, #35404f 35%, #35404f 100%);
 }
 
+#hero h1 {
+  margin: 0 0 15px 0;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+  font-family: "Cairo", sans-serif;
+}
+
 #hero h2 {
   font-family: 'Lato', sans-serif;
   color: #d2e0ed;
@@ -696,6 +705,27 @@ section {
   color: white;
   margin-left: auto;
   margin-right: auto;
+}
+
+.lib .circle-badge {
+  height: 100px;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 50px;
+  color: #35404f;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lib h3 {
+  font-size: 20px;
+  color: #35404f;
+  font-family: 'Cairo', sans-serif;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 20px;
 }
 
 .class .info-box h3 {
@@ -1200,7 +1230,7 @@ body[dir='rtl'] .mobile-nav a {
   color: #7085d6;
 }
 
-
+/* Facebook Video Player */
 .fb-wrapper {
   overflow: hidden;
   padding-bottom: 56.25%;
@@ -1215,3 +1245,189 @@ body[dir='rtl'] .mobile-nav a {
   width: 100%;
   position: absolute;
 }
+
+/*Library Upload */
+
+/* Article filter */
+#results{
+  min-height: 215px;
+}
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #35404f solid;
+	border-radius: 50%;
+	animation: sp-anime 0.7s infinite linear;
+}
+@keyframes sp-anime {
+	100% { 
+		transform: rotate(360deg); 
+	}
+}
+
+/*News*/
+.cbp_tmtimeline {
+  margin-top: 50px;
+  padding: 0;
+  list-style: none;
+  position: relative
+}
+
+.cbp_tmtimeline i {
+  color: #fff;
+}
+
+.cbp_tmtimeline span {
+  font-size: 14px;
+}
+
+.cbp_tmtimeline span a {
+  color: #fff;
+}
+
+.cbp_tmtimeline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #eee;
+  left: 20%;
+  margin-left: -6px
+}
+
+.cbp_tmtimeline>li {
+  position: relative
+}
+
+.cbp_tmtimeline>li .cbp_tmtime {
+  display: block;
+  width: 23%;
+  padding-right: 70px;
+  position: absolute
+}
+
+.cbp_tmtimeline>li .cbp_tmtime span {
+  display: block;
+  text-align: right
+}
+
+.cbp_tmtimeline>li .cbp_tmtime span:first-child {
+  font-size: 15px;
+  color: #3d4c5a;
+  font-weight: 700
+}
+
+.cbp_tmtimeline>li .cbp_tmtime span:last-child {
+  font-size: 14px;
+  color: #444
+}
+
+.cbp_tmtimeline>li .cbp_tmlabel {
+  margin: 0 0 15px 25%;
+  background: #fff;
+  padding: 1.2em;
+  position: relative;
+  border-radius: 5px;
+  border-radius: 1px solid #fff;
+  -webkit-box-shadow: 0 0 20px #e5e5e5;
+        box-shadow: 0 0 20px #e5e5e5;
+}
+
+.cbp_tmtimeline>li .cbp_tmlabel:after {
+  right: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-right-color: #E6E6E6;
+  border-width: 10px;
+  top: 10px
+}
+
+.cbp_tmtimeline>li .cbp_tmlabel h2 {
+  margin: 0px;
+  padding: 0 0 10px 0;
+  line-height: 26px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cbp_tmtimeline>li .cbp_tmicon {
+  width: 40px;
+  height: 40px;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  font-size: 1.4em;
+  line-height: 40px;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #E6E6E6;
+  text-align: center;
+  left: 20%;
+  top: 0;
+  margin: 0 0 0 -25px
+}
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  .cbp_tmtimeline>li .cbp_tmtime {
+      padding-right: 60px
+  }
+}
+
+@media screen and (max-width: 65.375em) {
+  .cbp_tmtimeline>li .cbp_tmtime span:last-child {
+      font-size: 12px
+  }
+}
+
+@media screen and (max-width: 47.2em) {
+  .cbp_tmtimeline:before {
+      display: none
+  }
+  .cbp_tmtimeline>li .cbp_tmtime {
+      width: 100%;
+      position: relative;
+      padding: 0 0 20px 0
+  }
+  .cbp_tmtimeline>li .cbp_tmtime span {
+      text-align: left
+  }
+  .cbp_tmtimeline>li .cbp_tmlabel {
+      margin: 0 0 30px 0;
+      padding: 1em;
+      font-weight: 400;
+      font-size: 95%
+  }
+  .cbp_tmtimeline>li .cbp_tmlabel:after {
+      right: auto;
+      left: 20px;
+      border-right-color: transparent;
+      border-bottom-color: #E6E6E6;
+      top: -20px
+  }
+  .cbp_tmtimeline>li .cbp_tmicon {
+      position: relative;
+      float: right;
+      left: auto;
+      margin: -64px 5px 0 0px
+  }
+}
+
+.bg-blush {
+  background-color:#35404f !important;
+  color: #fff;
+}
+
+.news{
+  margin-bottom: 100px;
+}
+                                

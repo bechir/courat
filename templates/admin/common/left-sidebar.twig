@@ -25,6 +25,14 @@
                         </span>
                     </a>
                 </li>
+				<li>
+                    <a href="{{ path('admin_info') }}" {% if active == 'info-list' %} class="active" {% endif %}>
+                        <span>
+                            <i class="fa fa-newspaper-o"></i>
+                            Informations
+                        </span>
+                    </a>
+                </li>
                 <li><a href="{{ path('admin_resource') }}" {% if active == 'resource-list' %} class="active" {% endif %}>
                     <span><i class="lnr lnr-highlight"></i> Resources</span></a>
                 </li>
@@ -74,8 +82,8 @@
 								<li>
 									<a href="{{ path('admin_article_new') }}" {% if active == 'new-article' %} class="active" {% endif %}>
 										<span>
-											<i class="lnr lnr-file-add"></i>
-											Article
+											<i class="fa fa-file-pdf-o"></i>
+											Document PDF
                                         </span>
 									</a>
 								</li>
@@ -95,8 +103,21 @@
                                         </span>
 									</a>
 								</li>
-								<li><a href="{{ path('admin_resource_new') }}" {% if active == 'new-resource' %} class="active" {% endif %}>
-									<span><i class="lnr lnr-highlight"></i> Resource numérique</span></a>
+								<li>
+									<a href="{{ path('admin_resource_new') }}" {% if active == 'new-resource' %} class="active" {% endif %}>
+										<span>
+											<i class="lnr lnr-highlight"></i> 
+											Resource numérique
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href="{{ path('admin_info_new') }}" {% if active == 'info-list' %} class="active" {% endif %}>
+										<span>
+											<i class="lnr lnr-file-add"></i>
+											Article
+										</span>
+									</a>
 								</li>
 							</ul>
 						</div>
