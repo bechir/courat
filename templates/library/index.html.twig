@@ -1,20 +1,96 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LibraryController!{% endblock %}
-
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Applications/XAMPP/xamppfiles/htdocs/dev/courat/src/Controller/LibraryController.php'|file_link(0) }}">src/Controller/LibraryController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Applications/XAMPP/xamppfiles/htdocs/dev/courat/templates/library/index.html.twig'|file_link(0) }}">templates/library/index.html.twig</a></code></li>
-    </ul>
-</div>
+{% block title %}
+	{{ 'library.title'|trans|capitalize }}
+	&ndash;
+	{{ App.name }}
 {% endblock %}
+
+{% block main %}
+
+	<!-- ======= Hero Section ======= -->
+	<section id="hero">
+		<div class="container-fluid m-0">
+			<div class="row d-flex align-items-center">
+				<div class="col-lg-6 py-5 py-lg-0 order-2 order-lg-1 {{ locale() == 'fr' ? 'mr-auto' : 'ml-auto ar text-right' }}" data-aos="fade-right">
+					<img src="{{ asset('assets/img/read.svg') }}" class="img-fluid" alt=""/>
+				</div>
+				<div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+					<h1>{{ 'library.title'|trans }}</h1>
+					<h2>
+						{{ 'library.description'|trans }}
+					</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Hero -->
+
+	<!-- ======= Library Section ======= -->
+	<section id="class" class="class section-bg">
+		<div class="container">
+			<div class="row">
+				<div class="mx-auto mb-4">
+					<form action="{{ path('library_articles_filter') }}" method="get" id="filter-form">
+						<select name="subject" id="subject">
+							<option value="" selected>Matière</option>
+							{% for subject in subjects %}
+								<option value="{{ subject.id }}">{{ subject|trans }}</option>
+							{% endfor %}
+						</select>
+						<select name="classe" id="classe">
+							<option value="" selected>Classe</option>
+							{% for classe in classes %}
+								<option value="{{ classe.id }}">{{ classe|trans|raw }}</option>
+							{% endfor %}
+						</select>
+						<select name="category" id="category">
+							<option value="" selected>Catégorie</option>
+							{% for category in categories %}
+								<option value="{{ category.id }}">{{ category|trans }}</option>
+							{% endfor %}
+						</select>
+					</form>
+				</div>
+			</div>
+			
+			<div class="row" id="results">
+				<div class="col-md-12 loading-container mt-5" style="display: none;">
+					<div class="spinner mx-auto my-auto"></div>
+				</div>
+				<div class="col-lg-12 items">
+					{% include "library/_articles.html.twig" with {articles: articles} %}
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Library Section -->
+
+	<!-- Submit -->
+	<section id="plateform" class="plateform">
+		<div class="container">
+			<div class="section-title">
+				<h2 data-aos="fade-in">
+					{# {{ 'library.post-title'|trans }} #}
+				</h2>
+				<p data-aos="fade-in">
+					{{ 'library.post-description'|trans }}
+				</p>
+			</div>
+
+			<p class="text-center">
+				<a href="" class="btn-return text-center">
+					<i class="icofont-ebook"></i>
+					&nbsp;
+					{{ 'library.post-title'|trans }}
+				</a>
+			</p>
+		</div>
+	</section>
+	<!-- End Submit -->
+
+    <hr>
+
+{% endblock %}
+
+

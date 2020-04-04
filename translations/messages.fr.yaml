@@ -2,7 +2,7 @@ Title: Titre*
 Subtitle: Sous-titre
 Subtitle a r: Sous-titre en arabe(optionnel)
 Link: Lien*
-Image file: Logo
+Image file: Image
 
 app:
   phone: 'Téléphone: %phone%'
@@ -13,8 +13,8 @@ app:
   title: La plateforme éducative mauritanienne
 
 class:
-  6af: 6<sup>ème</sup>AF
-  4as: 4<sup>ème</sup>AS
+  6af: 6<sup>ème</sup> AF
+  4as: 4<sup>ème</sup> AS
   terminale: Terminale
   terminaleC: Terminale C
   terminaleD: Terminale D
@@ -170,8 +170,25 @@ contribute:
   github: CONTRIBUER SUR GITHUB
   discord:  REJOINDRE SUR DISCORD
 
-
 ROLE_USER: Utilisateur
 ROLE_ADMIN: Administrateur
 ROLE_TEACHER: Enseignant
 ROLE_TRANSLATOR: Traducteur
+
+article:
+  category:
+    cours: Cours
+    exo: Exercice
+    epreuve_bac: Épreuve bac
+    autre: Autre
+
+library:
+  btn: BIBLIOTHEQUE
+  title:  RESSOURCES PEDAGOGIQUES
+  description: Bienvenue sur l'espace des ressources pédagogiques, vous trouverez dans cette page un ensemble de fichiers (Cours, exercices corrigés, annales de BAC ...) 
+  post-title: SOUMETTRE UN DOCUMENT  
+  post-description: Vous pouvez vous aussi enrichir les ressources pédagogiques de cette plateforme en y rajoutant de nouveaux documents qui pourraient interesser les élèves. Pour ce faire cliquez sur le bouton ci-dessous.  
+
+news:
+  title: ACTUALITE
+  description:  Retrouvez sur cette page toute l'actualité liée à l'éducation en Mauritanie ainsi que des informations sur les moyens et méthodes de prévention du COVID-19.

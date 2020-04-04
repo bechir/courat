@@ -123,3 +123,6 @@ jQuery( function() {
 jQuery('.sectiondropdown').click(function() {
 jQuery("i", this).toggleClass("fa-caret-up fa-caret-down");
 });
+
+// Timeline
+

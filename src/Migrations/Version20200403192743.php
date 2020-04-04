@@ -19,7 +19,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200402043146 extends AbstractMigration
+final class Version20200403192743 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -31,7 +31,8 @@ final class Version20200402043146 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf('sqlite' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'sqlite\'.');
 
-        $this->addSql('ALTER TABLE resource ADD COLUMN updated_at DATETIME DEFAULT NULL');
+        $this->addSql('CREATE TABLE article_category (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255) NOT NULL)');
+        $this->addSql('DROP TABLE article_type');
         $this->addSql('DROP INDEX IDX_80575E1B8F5EA509');
         $this->addSql('DROP INDEX IDX_80575E1B23EDC87');
         $this->addSql('CREATE TEMPORARY TABLE __temp__classe_subject AS SELECT classe_id, subject_id FROM classe_subject');
@@ -41,15 +42,27 @@ final class Version20200402043146 extends AbstractMigration
         $this->addSql('DROP TABLE __temp__classe_subject');
         $this->addSql('CREATE INDEX IDX_80575E1B8F5EA509 ON classe_subject (classe_id)');
         $this->addSql('CREATE INDEX IDX_80575E1B23EDC87 ON classe_subject (subject_id)');
+        $this->addSql('DROP INDEX IDX_169E6FB9953C1C61');
         $this->addSql('DROP INDEX IDX_169E6FB9EA000B10');
         $this->addSql('DROP INDEX IDX_169E6FB923EDC87');
-        $this->addSql('CREATE TEMPORARY TABLE __temp__course AS SELECT id, class_id, subject_id, title, video_url, added_at, published_at, start_time FROM course');
+        $this->addSql('CREATE TEMPORARY TABLE __temp__course AS SELECT id, class_id, subject_id, source_id, title, video_url, added_at, published_at, start_time FROM course');
         $this->addSql('DROP TABLE course');
-        $this->addSql('CREATE TABLE course (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, class_id INTEGER NOT NULL, subject_id INTEGER NOT NULL, title VARCHAR(255) NOT NULL COLLATE BINARY, video_url VARCHAR(255) DEFAULT NULL COLLATE BINARY, added_at DATETIME NOT NULL, published_at DATETIME NOT NULL, start_time TIME DEFAULT NULL, CONSTRAINT FK_169E6FB9EA000B10 FOREIGN KEY (class_id) REFERENCES classe (id) NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_169E6FB923EDC87 FOREIGN KEY (subject_id) REFERENCES subject (id) NOT DEFERRABLE INITIALLY IMMEDIATE)');
-        $this->addSql('INSERT INTO course (id, class_id, subject_id, title, video_url, added_at, published_at, start_time) SELECT id, class_id, subject_id, title, video_url, added_at, published_at, start_time FROM __temp__course');
+        $this->addSql('CREATE TABLE course (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, class_id INTEGER NOT NULL, subject_id INTEGER NOT NULL, source_id INTEGER NOT NULL, title VARCHAR(255) NOT NULL COLLATE BINARY, video_url VARCHAR(255) DEFAULT NULL COLLATE BINARY, added_at DATETIME NOT NULL, published_at DATETIME NOT NULL, start_time TIME DEFAULT NULL, CONSTRAINT FK_169E6FB9EA000B10 FOREIGN KEY (class_id) REFERENCES classe (id) NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_169E6FB923EDC87 FOREIGN KEY (subject_id) REFERENCES subject (id) NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_169E6FB9953C1C61 FOREIGN KEY (source_id) REFERENCES video_source (id) NOT DEFERRABLE INITIALLY IMMEDIATE)');
+        $this->addSql('INSERT INTO course (id, class_id, subject_id, source_id, title, video_url, added_at, published_at, start_time) SELECT id, class_id, subject_id, source_id, title, video_url, added_at, published_at, start_time FROM __temp__course');
         $this->addSql('DROP TABLE __temp__course');
+        $this->addSql('CREATE INDEX IDX_169E6FB9953C1C61 ON course (source_id)');
         $this->addSql('CREATE INDEX IDX_169E6FB9EA000B10 ON course (class_id)');
         $this->addSql('CREATE INDEX IDX_169E6FB923EDC87 ON course (subject_id)');
+        $this->addSql('DROP INDEX IDX_23A0E668F5EA509');
+        $this->addSql('DROP INDEX IDX_23A0E6623EDC87');
+        $this->addSql('CREATE TEMPORARY TABLE __temp__article AS SELECT id, subject_id, classe_id, title, url, size FROM article');
+        $this->addSql('DROP TABLE article');
+        $this->addSql('CREATE TABLE article (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, subject_id INTEGER NOT NULL, classe_id INTEGER NOT NULL, category_id INTEGER NOT NULL, title VARCHAR(255) NOT NULL COLLATE BINARY, url VARCHAR(255) NOT NULL COLLATE BINARY, size VARCHAR(255) DEFAULT NULL COLLATE BINARY, CONSTRAINT FK_23A0E6623EDC87 FOREIGN KEY (subject_id) REFERENCES subject (id) NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_23A0E668F5EA509 FOREIGN KEY (classe_id) REFERENCES classe (id) NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_23A0E6612469DE2 FOREIGN KEY (category_id) REFERENCES article_category (id) NOT DEFERRABLE INITIALLY IMMEDIATE)');
+        $this->addSql('INSERT INTO article (id, subject_id, classe_id, title, url, size) SELECT id, subject_id, classe_id, title, url, size FROM __temp__article');
+        $this->addSql('DROP TABLE __temp__article');
+        $this->addSql('CREATE INDEX IDX_23A0E668F5EA509 ON article (classe_id)');
+        $this->addSql('CREATE INDEX IDX_23A0E6623EDC87 ON article (subject_id)');
+        $this->addSql('CREATE INDEX IDX_23A0E6612469DE2 ON article (category_id)');
         $this->addSql('DROP INDEX IDX_D499BFF69C24126');
         $this->addSql('CREATE TEMPORARY TABLE __temp__planning AS SELECT id, day_id FROM planning');
         $this->addSql('DROP TABLE planning');
@@ -82,6 +95,18 @@ final class Version20200402043146 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf('sqlite' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'sqlite\'.');
 
+        $this->addSql('CREATE TABLE article_type (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255) NOT NULL COLLATE BINARY)');
+        $this->addSql('DROP TABLE article_category');
+        $this->addSql('DROP INDEX IDX_23A0E6623EDC87');
+        $this->addSql('DROP INDEX IDX_23A0E668F5EA509');
+        $this->addSql('DROP INDEX IDX_23A0E6612469DE2');
+        $this->addSql('CREATE TEMPORARY TABLE __temp__article AS SELECT id, subject_id, classe_id, title, url, size FROM article');
+        $this->addSql('DROP TABLE article');
+        $this->addSql('CREATE TABLE article (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, subject_id INTEGER NOT NULL, classe_id INTEGER NOT NULL, title VARCHAR(255) NOT NULL, url VARCHAR(255) NOT NULL, size VARCHAR(255) DEFAULT NULL)');
+        $this->addSql('INSERT INTO article (id, subject_id, classe_id, title, url, size) SELECT id, subject_id, classe_id, title, url, size FROM __temp__article');
+        $this->addSql('DROP TABLE __temp__article');
+        $this->addSql('CREATE INDEX IDX_23A0E6623EDC87 ON article (subject_id)');
+        $this->addSql('CREATE INDEX IDX_23A0E668F5EA509 ON article (classe_id)');
         $this->addSql('DROP INDEX IDX_80575E1B8F5EA509');
         $this->addSql('DROP INDEX IDX_80575E1B23EDC87');
         $this->addSql('CREATE TEMPORARY TABLE __temp__classe_subject AS SELECT classe_id, subject_id FROM classe_subject');
@@ -93,13 +118,15 @@ final class Version20200402043146 extends AbstractMigration
         $this->addSql('CREATE INDEX IDX_80575E1B23EDC87 ON classe_subject (subject_id)');
         $this->addSql('DROP INDEX IDX_169E6FB9EA000B10');
         $this->addSql('DROP INDEX IDX_169E6FB923EDC87');
-        $this->addSql('CREATE TEMPORARY TABLE __temp__course AS SELECT id, class_id, subject_id, title, video_url, added_at, published_at, start_time FROM course');
+        $this->addSql('DROP INDEX IDX_169E6FB9953C1C61');
+        $this->addSql('CREATE TEMPORARY TABLE __temp__course AS SELECT id, class_id, subject_id, source_id, title, video_url, added_at, published_at, start_time FROM course');
         $this->addSql('DROP TABLE course');
-        $this->addSql('CREATE TABLE course (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, class_id INTEGER NOT NULL, subject_id INTEGER NOT NULL, title VARCHAR(255) NOT NULL, video_url VARCHAR(255) DEFAULT NULL, added_at DATETIME NOT NULL, published_at DATETIME NOT NULL, start_time TIME DEFAULT NULL)');
-        $this->addSql('INSERT INTO course (id, class_id, subject_id, title, video_url, added_at, published_at, start_time) SELECT id, class_id, subject_id, title, video_url, added_at, published_at, start_time FROM __temp__course');
+        $this->addSql('CREATE TABLE course (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, class_id INTEGER NOT NULL, subject_id INTEGER NOT NULL, source_id INTEGER NOT NULL, title VARCHAR(255) NOT NULL, video_url VARCHAR(255) DEFAULT NULL, added_at DATETIME NOT NULL, published_at DATETIME NOT NULL, start_time TIME DEFAULT NULL)');
+        $this->addSql('INSERT INTO course (id, class_id, subject_id, source_id, title, video_url, added_at, published_at, start_time) SELECT id, class_id, subject_id, source_id, title, video_url, added_at, published_at, start_time FROM __temp__course');
         $this->addSql('DROP TABLE __temp__course');
         $this->addSql('CREATE INDEX IDX_169E6FB9EA000B10 ON course (class_id)');
         $this->addSql('CREATE INDEX IDX_169E6FB923EDC87 ON course (subject_id)');
+        $this->addSql('CREATE INDEX IDX_169E6FB9953C1C61 ON course (source_id)');
         $this->addSql('DROP INDEX IDX_D499BFF69C24126');
         $this->addSql('CREATE TEMPORARY TABLE __temp__planning AS SELECT id, day_id FROM planning');
         $this->addSql('DROP TABLE planning');
@@ -125,10 +152,5 @@ final class Version20200402043146 extends AbstractMigration
         $this->addSql('DROP TABLE __temp__planning_subject');
         $this->addSql('CREATE INDEX IDX_26A363913D865311 ON planning_subject (planning_id)');
         $this->addSql('CREATE INDEX IDX_26A3639123EDC87 ON planning_subject (subject_id)');
-        $this->addSql('CREATE TEMPORARY TABLE __temp__resource AS SELECT id, title, subtitle, link, image FROM resource');
-        $this->addSql('DROP TABLE resource');
-        $this->addSql('CREATE TABLE resource (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, title VARCHAR(255) NOT NULL, subtitle VARCHAR(255) DEFAULT NULL, link VARCHAR(255) NOT NULL, image VARCHAR(255) DEFAULT NULL)');
-        $this->addSql('INSERT INTO resource (id, title, subtitle, link, image) SELECT id, title, subtitle, link, image FROM __temp__resource');
-        $this->addSql('DROP TABLE __temp__resource');
     }
 }

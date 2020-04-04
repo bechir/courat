@@ -12,6 +12,7 @@
 namespace App\Form;
 
 use App\Entity\Article;
+use App\Entity\ArticleCategory;
 use App\Entity\Classe;
 use App\Entity\Subject;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -33,6 +34,11 @@ class ArticleType extends AbstractType
             ])
             ->add('classe', EntityType::class, [
                 'class' => Classe::class,
+                'choice_label' => 'name',
+                'choice_translation_domain' => 'messages',
+            ])
+            ->add('category', EntityType::class, [
+                'class' => ArticleCategory::class,
                 'choice_label' => 'name',
                 'choice_translation_domain' => 'messages',
             ])
