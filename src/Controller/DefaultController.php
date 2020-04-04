@@ -27,12 +27,12 @@ class DefaultController extends AbstractController
     public function index(InfoRepository $infoRepository, ResourceRepository $resourceRepository, PlanningRepository $planningRepository, ClassRepository $classRepository, DayRepository $dayRepository): Response
     {
         return $this->render('default/index.html.twig', [
-            'controller_name'   =>  'PlanningController',
-            'classes'           =>  $classRepository->findAll(),
-            'plannings'         =>  $planningRepository->findAll(),
-            'days'              =>  $dayRepository->findAll(),
-            'resources'         =>  $resourceRepository->findAll(),
-            'infos'             =>  $infoRepository->findAll()
+            'controller_name' => 'PlanningController',
+            'classes' => $classRepository->findAll(),
+            'plannings' => $planningRepository->findAll(),
+            'days' => $dayRepository->findAll(),
+            'resources' => $resourceRepository->findAll(),
+            'infos' => $infoRepository->findAll(),
         ]);
     }
 

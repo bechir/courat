@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the COURAT application.
+ *
+ * (c) Bechir Ba and contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Controller\Admin;
 
 use App\Entity\Info;
@@ -87,7 +96,7 @@ class InfoController extends AbstractController
      */
     public function delete(Request $request, Info $info): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$info->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $info->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($info);
             $entityManager->flush();
