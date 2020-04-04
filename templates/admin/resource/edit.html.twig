@@ -1,0 +1,20 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Editer - Ressources numeriques
+{% endblock %}
+
+{% block left_sidebar %}
+	{% include 'admin/common/left-sidebar.twig' with { active: 'resource-list' } %}
+{% endblock %}
+
+{% block main %}
+
+    <h1>Editer une ressource</h1>
+    
+    {{ include('admin/resource/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    {{ include('admin/resource/_delete_form.html.twig') }}
+
+
+    <a class="my-3 btn btn-info" href="{{ path('admin_resource') }}"><i class="lnr lnr-arrow-left fa-lg"></i> Retourner a la liste</a>
+{% endblock %}

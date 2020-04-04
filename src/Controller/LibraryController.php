@@ -38,9 +38,7 @@ class LibraryController extends AbstractController
     public function filter(Request $request, ArticleRepository $articleRepository): Response
     {
         sleep(1);
-        $filter = $request->query->get('filter');
-
-        $articles = $articleRepository->findAll();
+        $articles = $articleRepository->filter($request->query);
 
         return $this->render('library/_articles.html.twig', [
             'articles' => $articles,
