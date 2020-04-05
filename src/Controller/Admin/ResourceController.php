@@ -11,10 +11,16 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\ExcelFile;
 use App\Entity\Resource;
+use App\Form\Admin\ExcelFileType;
 use App\Form\ResourceType;
 use App\Repository\ResourceRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use SplFileInfo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -103,5 +109,94 @@ class ResourceController extends AbstractController
         }
 
         return $this->redirectToRoute(self::BASE_ROUTE);
+    }
+
+    /**
+     * @Route("/load/excel", name="load_from_excel")
+     */
+    public function loadResources(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $excelFile = new ExcelFile();
+        $form = $this->createForm(ExcelFileType::class, $excelFile);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $file = $excelFile->getFile();
+
+            if (!in_array($file->guessClientExtension(), ['csv', 'xlsx', 'xls'])) {
+                $this->addFlash('danger', 'Le fichier excel est invalide: ' . $file->guessClientExtension());
+
+                return $this->redirectToRoute('admin_resource_new');
+            }
+
+            $fileName = md5(uniqid()) . '.' . $file->guessClientExtension();
+            $directory = dirname(__FILE__) . '/tmp/';
+
+            try {
+                $file->move($directory, $fileName);
+            } catch (FileException $e) {
+                $this->addFlash('danger', $e->getMessage());
+
+                return $this->redirectToRoute('admin_resource_new');
+            }
+
+            $fileName = $directory . '/' . $fileName;
+            $extension = $this->getFileExtension($fileName);
+            $reader = IOFactory::createReader(ucfirst($extension));
+
+            $reader->setReadDataOnly(true);
+            $spreadsheet = $reader->load($fileName);
+            $worksheet = $spreadsheet->getActiveSheet();
+
+            $highestRow = (int) ($worksheet->getHighestDataRow()) - 1;
+
+            try {
+                for ($rowIt = 2; $rowIt <= $highestRow; ++$rowIt) {
+                    $data = $worksheet->rangeToArray(
+                        "A$rowIt:E$rowIt",  // The worksheet range that we want to retrieve
+                        null,               // Value that should be returned for empty cells
+                        true,               // Should formulas be calculated (the equivalent of getCalculatedValue() for each cell)
+                        true,               // Should values be formatted (the equivalent of getFormattedValue() for each cell)
+                        true                // Should the array be indexed by cell row and cell column
+                    )[$rowIt];
+
+                    if (null != $data['A'] && null != $data['B'] && null != $data['C'] && null != $data['D'] && null != $data['E']) {
+                        $resource = (new Resource())
+                            ->setTitle($data['A'])
+                            ->setSubtitle($data['B'])
+                            ->setSubtitleAR($data['C'])
+                            ->setFilename($data['D'])
+                            ->setLink($data['E']);
+
+                        $entityManager->persist($resource);
+                    }
+                }
+            } catch (\Exception $e) {
+                throw $e;
+                // $this->addFlash('danger', $e->getMessage());
+
+                // return $this->redirectToRoute('admin_resource_new');
+            } finally {
+                unlink($fileName);
+            }
+
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Le fichier a été importé.');
+
+            return $this->redirectToRoute('admin_resource');
+        }
+
+        return $this->render('admin/common/upload-excel-file.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    public function getFileExtension(string $filename): ?string
+    {
+        $info = new SplFileInfo($filename);
+
+        return $info->getExtension();
     }
 }
