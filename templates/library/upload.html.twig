@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	{{ App.name }}
-	&ndash;
-	{{ 'app.title'|trans }}
+	{{ App.name }} &ndash; {{ 'app.title'|trans }}
 {% endblock %}
 
 {% block main %}
+
+	{% form_theme form with ['foundation_5_layout.html.twig'] only %}
 
 	<!-- ======= Hero Section ======= -->
 	<section id="hero">
@@ -27,22 +27,63 @@
 	<!-- End Hero -->
 
 
+	<section id="plateform" class="plateform section-bg">
+		<div class="container">
+			<div class="section-title">
+				<h2 data-aos="fade-in">
+					{{ 'library.post-title'|trans }}
+				</h2>
+			</div>
+			{# Partie Upload #}
 
+			<div class="container register-form">
+				<div class="form">
+					<div class="note">
+						<p>{{ 'upload.note'|trans }}</p>
+					</div>
 
+					<div class="form-content">
+						{{ form_start(form, {attr: {class: 'was-validated'}}) }}
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									{{ form_widget(form.title, {attr: {class: 'form-control', placeholder: 'upload.title'}}) }}
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									{{ form_widget(form.subject, {attr: {class: 'custom-select'}}) }}
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									{{ form_widget(form.classe, {attr: {class: 'custom-select'}})|html_entity_decode|raw }}
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									{{ form_widget(form.category, {attr: {class: 'custom-select'}}) }}
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="custom-file">
+									{{ form_widget(form.file, {attr: {class: 'custom-file-input'}}) }}
+									<label class="custom-file-label" for="document_file">{{ 'upload.file'|trans }}</label>
+									<div class="invalid-feedback">{{ 'upload.file'|trans }}</div>
+								</div>
+							</div>
+						</div>
+						<p class="text-center mt-5 mb-0">
+							<button type="submit" class="btn-return">{{ 'upload.submit'|trans }}</button>
+						</p>
+						{{ form_end(form) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<section id="plateform" class="plateform section-bg">
-<div class="container">
-	<div class="section-title">
-		<h2 data-aos="fade-in">
-			{{ 'library.post-title'|trans }}
-		</h2>
-	</div>
-    {# Partie Upload #}
+	<!-- End Submit -->
 
-   
-    
-
-
-</div></div></section><!-- End Submit -->
-{# {% endblock %}{% block diffusion %} #}
 {% endblock %}
+

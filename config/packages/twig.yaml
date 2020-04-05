@@ -4,7 +4,10 @@ twig:
     strict_variables: '%kernel.debug%'
     exception_controller: null
 
-    form_themes: ['bootstrap_4_layout.html.twig']
+    form_themes:
+        - 'bootstrap_4_layout.html.twig'
+        - 'foundation_5_layout.html.twig'
+        # - '_forms/document_widgets.html.twig'
 
     globals:
         App: '%app%'

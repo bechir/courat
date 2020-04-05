@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Url</th>
+            <th>Size</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for document in documents %}
+        <tr>
+            <td>{{ document.id }}</td>
+            <td>{{ document.title }}</td>
+            <td>{{ document.url }}</td>
+            <td>{{ document.size }}</td>
+            <td>
+                <a href="{{ path('admin_document_show', {'id': document.id}) }}">show</a>
+                <a href="{{ path('admin_document_edit', {'id': document.id}) }}">edit</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="5">no records found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

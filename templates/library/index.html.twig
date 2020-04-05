@@ -30,36 +30,46 @@
 	<section id="class" class="class section-bg">
 		<div class="container">
 			<div class="row">
-				<div class="mx-auto mb-4">
-					<form action="{{ path('library_articles_filter') }}" method="get" id="filter-form">
-						<select name="subject" id="subject">
-							<option value="" selected>Matière</option>
-							{% for subject in subjects %}
-								<option value="{{ subject.id }}">{{ subject|trans }}</option>
-							{% endfor %}
-						</select>
-						<select name="classe" id="classe">
-							<option value="" selected>Classe</option>
-							{% for classe in classes %}
-								<option value="{{ classe.id }}">{{ classe|trans|raw }}</option>
-							{% endfor %}
-						</select>
-						<select name="category" id="category">
-							<option value="" selected>Catégorie</option>
-							{% for category in categories %}
-								<option value="{{ category.id }}">{{ category|trans }}</option>
-							{% endfor %}
-						</select>
+				<div class="col-md-8 mx-auto mb-4">
+					<form action="{{ path('library_documents_filter') }}" method="get" id="filter-form">
+						<div class="form-row">
+							<div class="col-sm-4 mb-2">
+							<select name="subject" id="subject" class="custom-select form-control">
+								<option value="" selected>{{ 'library.subject'|trans }}</option>
+								{% for subject in subjects %}
+									<option value="{{ subject.id }}">{{ subject|trans }}</option>
+								{% endfor %}
+							</select>
+							</div>
+	
+							
+							<div class="col-sm-4 mb-2">
+							<select name="classe" id="classe" class="custom-select form-control">
+								<option value="" selected>{{ 'library.class'|trans }}</option>
+								{% for classe in classes %}
+									<option value="{{ classe.id }}">{{ classe|trans|raw }}</option>
+								{% endfor %}
+							</select>
+							</div>
+							<div class="col-sm-4 mb-2">
+							<select name="category" id="category" class="custom-select form-control">
+								<option value="" selected>{{ 'library.category'|trans }}</option>
+								{% for category in categories %}
+									<option value="{{ category.id }}">{{ category|trans }}</option>
+								{% endfor %}
+							</select>
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>
 			
 			<div class="row" id="results">
-				<div class="col-md-12 loading-container mt-5" style="display: none;">
+				<div class="col-md-12 loading-container" style="display: none;">
 					<div class="spinner mx-auto my-auto"></div>
 				</div>
 				<div class="col-lg-12 items">
-					{% include "library/_articles.html.twig" with {articles: articles} %}
+					{% include "library/_documents.html.twig" with {documents: documents} %}
 				</div>
 			</div>
 		</div>
@@ -79,7 +89,7 @@
 			</div>
 
 			<p class="text-center">
-				<a href="" class="btn-return text-center">
+				<a href="{{ path('library_upload') }}" class="btn-return text-center">
 					<i class="icofont-ebook"></i>
 					&nbsp;
 					{{ 'library.post-title'|trans }}

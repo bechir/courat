@@ -32,7 +32,7 @@ class HomeController extends AbstractController
 
     public function getStats(EntityManagerInterface $em)
     {
-        $articles = $em->createQueryBuilder()->select('count(a.id)')->from('App:Article', 'a')
+        $documents = $em->createQueryBuilder()->select('count(d.id)')->from('App:Document', 'd')
             ->getQuery()->getSingleScalarResult();
 
         $infos = $em->createQueryBuilder()->select('count(i.id)')->from('App:Info', 'i')
@@ -55,7 +55,7 @@ class HomeController extends AbstractController
             'users' => $users,
             'courses' => $courses,
             'infos' => $infos,
-            'articles' => $articles,
+            'documents' => $documents,
             'teachers' => $teachers,
         ];
     }
