@@ -1304,8 +1304,7 @@ body[dir='rtl'] .mobile-nav a {
 .cbp_tmtimeline>li .cbp_tmtime {
   display: block;
   width: 23%;
-  padding-right: 70px;
-  position: absolute
+  padding-right: 70px
 }
 
 .cbp_tmtimeline>li .cbp_tmtime span {

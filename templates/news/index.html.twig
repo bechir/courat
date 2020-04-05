@@ -36,7 +36,7 @@
 					{% for article in articles %}
 					{# Info Item #}
 					<li>
-						<time class="cbp_tmtime" datetime="{{ article.createdAt|localizeddate('full', 'full', null) }}">
+						<time class="cbp_tmtime float-left" datetime="{{ article.createdAt|localizeddate('full', 'full', null) }}">
 							<span>{{ article.createdAt|localizeddate('full', 'none')|capitalize }}</span>
 							<span>{{ article.createdat|localizeddate('none', 'short') }}</span>
 						</time>

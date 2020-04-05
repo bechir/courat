@@ -34,7 +34,7 @@ class DocumentCategoryFixtures extends Fixture
         return [
             'cours',
             'exo',
-            'epreuve_bac',
+            'annale',
             'corrige',
             'autre',
         ];
