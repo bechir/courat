@@ -1,7 +1,8 @@
 <div class="row">
     {% for document in documents %}
+    {% set url = document.fileUrl ?: vich_uploader_asset(document) %}
     <!-- Library item -->
-        <a href="{{ vich_uploader_asset(document) }}" target="_blank" class="col-sm-6 col-lg-4 col-xl-3 mb-4">
+        <a href="{{ url }}" target="_blank" class="col-sm-6 col-lg-4 col-xl-3 mb-4">
             <div class="info-box lib rounded h-100">
                 <div class="circle-badge-light">
                     <strong>

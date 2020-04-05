@@ -6,8 +6,27 @@
 {% block main %}
     <h3 class="page-title text-success">
         <span class="lnr lnr-file-add"></span>
-        Ajouter un document
+            Ajouter un document
+            <a href="#" data-toggle="modal" data-target="#loadExcelFileModal" class="float-right small">
+                <i class="fa fa-upload text-info"></i> <span class="text-info">Importer un fichier Excel</span></a>
+        <hr>
     </h3>
+    <div class="modal fade" id="loadExcelFileModal" role="dialog" aria-labelledby="loadExcelFileModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="loadExcelFileModalLabel"><i class="fa fa-file-import text-info"></i> <span class="text-info">Importer un fichier Excel</span></h4>
+                </div>
+                <div class="modal-body">
+                    {{ render(controller('App\\Controller\\Admin\\DocumentController::loadDocuments')) }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-lg float-left" data-dismiss="modal">Annuler</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12">
             <div class="panel">

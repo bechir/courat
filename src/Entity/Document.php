@@ -48,7 +48,7 @@ class Document
     private $file;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $path;
 
@@ -84,6 +84,11 @@ class Document
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updatedAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $fileUrl;
 
     public function getId(): ?int
     {
@@ -238,5 +243,17 @@ class Document
                 ->addViolation()
             ;
         }
+    }
+
+    public function getFileUrl(): ?string
+    {
+        return $this->fileUrl;
+    }
+
+    public function setFileUrl(?string $fileUrl): self
+    {
+        $this->fileUrl = $fileUrl;
+
+        return $this;
     }
 }
