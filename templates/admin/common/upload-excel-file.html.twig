@@ -1,4 +1,4 @@
-{{ form_start(form, {'attr': {'id': 'upload-form', action: path('load_from_excel')}}) }}
+{{ form_start(form, {'attr': {'id': 'upload-form', action: path(path)}}) }}
 <div class="form-group">
     {{ form_errors(form) }}
     {{ form_widget(form.file, {'attr': {'accept': '.csv, .xls, .xlsx', class: 'form-control input-lg'}}) }}
