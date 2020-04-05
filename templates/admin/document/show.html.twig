@@ -9,6 +9,8 @@
 {% block main %}
     <h1>document</h1>
 
+    {% set url = document.fileUrl ?: vich_uploader_asset(document) %}
+
     <table class="table">
         <tbody>
             <tr>
@@ -21,7 +23,7 @@
             </tr>
             <tr>
                 <th>Url</th>
-                <td>{{ document.url }}</td>
+                <td><a href="{{ url  }}" target="_blank">{{ url }}</a></td>
             </tr>
             <tr>
                 <th>Size</th>
