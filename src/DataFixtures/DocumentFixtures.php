@@ -27,13 +27,47 @@ class DocumentFixtures extends Fixture implements DependentFixtureInterface
         $subjects = $manager->getRepository(Subject::class)->findAll();
         $categories = $manager->getRepository(DocumentCategory::class)->findAll();
 
-        foreach ($this->getData() as [$title, $path]) {
+        $findEntity = function ($type, $key) use ($classes, $subjects, $categories) {
+            switch ($type) {
+                case 'class':
+                    foreach ($classes as $class) {
+                        if ($class->getName() == $key) {
+                            return $class;
+                        }
+                    }
+
+                break;
+
+                case 'subject':
+                    foreach ($subjects as $subject) {
+                        if ($subject->getCode() == "subject.$key") {
+                            return $subject;
+                        }
+                    }
+
+                break;
+
+                case 'category':
+                    foreach ($categories as $category) {
+                        if ($category->getName() == "document.category.$key") {
+                            return $category;
+                        }
+                    }
+
+                break;
+
+                default:
+                    throw new \Exception("Invalid type $type");
+            }
+        };
+
+        foreach ($this->getData() as [$title, $category, $path, $class, $subject]) {
             $document = (new Document())
                 ->setTitle($title)
                 ->setPath($path)
-                ->setCategory($categories[mt_rand(0, count($categories) - 1)])
-                ->setClasse($classes[mt_rand(0, count($classes) - 1)])
-                ->setSubject($subjects[mt_rand(0, count($subjects) - 1)]);
+                ->setCategory($findEntity('category', $category))
+                ->setClasse($findEntity('class', $class))
+                ->setSubject($findEntity('subject', $subject));
 
             $manager->persist($document);
         }
@@ -43,13 +77,16 @@ class DocumentFixtures extends Fixture implements DependentFixtureInterface
 
     public function getData(): array
     {
-        $data = [];
-
-        for ($i = 0; $i < 30; ++$i) {
-            $data[] = ["Test de test $i", "a4cd34fab32$i.pdf"];
-        }
-
-        return $data;
+        return [
+            // Title                                          Category            Path              Classe        Subject
+            ['Annales du Baccalauréat National C & TMGM',   'epreuve_bac',   'baccmaths.pdf',     'terminaleC',   'maths'],
+            ['الدالة اللوغاريتمية النبيرية',                'epreuve_bac',   '7LOcoursln.pdf',    'terminaleLO',  'maths'],
+            ['Session normal 2016',                         'epreuve_bac',   'BacA2016sn.pdf',    'terminaleLM',  'maths'],
+            ['Session complémentaire 2016',                 'epreuve_bac',   'BacC2016comp.pdf',  'terminaleC',   'maths'],
+            ['Session normal 2016',                         'epreuve_bac',   'BacC2016sn.pdf',    'terminaleC',   'maths'],
+            ['Corrigé des sujets du Baccalauréat',          'epreuve_bac',   'bacd.pdf',          'terminaleD',   'maths'],
+            ['Session Complémentaire 2015',                 'epreuve_bac',   'BacD2015sc.pdf',    'terminaleC',   'maths'],
+        ];
     }
 
     public function getDependencies()

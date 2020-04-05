@@ -56,7 +56,6 @@ class LibraryController extends AbstractController
      */
     public function filter(Request $request, DocumentRepository $documentRepository): Response
     {
-        sleep(1);
         $documents = $documentRepository->filter($request->query);
 
         return $this->render('library/_documents.html.twig', [
