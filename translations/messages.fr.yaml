@@ -177,10 +177,11 @@ ROLE_TRANSLATOR: Traducteur
 
 document:
   category:
-    cours: Cours
-    exo: Exercice
-    epreuve_bac: Épreuve bac
-    autre: Autre
+    cours:  Cours
+    exo:  Exercice
+    corrige:  Corrigé
+    annale: Annale
+    autre:  Autre
   no_result:  Pas de documents disponibles
 
 library:
