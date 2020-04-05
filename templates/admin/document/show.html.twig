@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}document{% endblock %}
+
+{% block left_sidebar %}
+    {% include 'admin/common/left-sidebar.twig' with { active: 'documents-list' } %}
+{% endblock %}
+
+{% block main %}
+    <h1>document</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ document.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ document.title }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ document.url }}</td>
+            </tr>
+            <tr>
+                <th>Size</th>
+                <td>{{ document.size }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_document_index') }}">back to list</a>
+
+    <a href="{{ path('admin_document_edit', {'id': document.id}) }}">edit</a>
+
+    {{ include('admin/document/_delete_form.html.twig') }}
+{% endblock %}

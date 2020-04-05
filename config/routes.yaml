@@ -28,7 +28,7 @@ library_index:
     ar: /library
   controller: App\Controller\LibraryController::index
 
-library_articles_filter:
+library_documents_filter:
   path:
     fr: /filter
     ar: /filtrer

@@ -175,7 +175,7 @@ ROLE_ADMIN: Administrateur
 ROLE_TEACHER: Enseignant
 ROLE_TRANSLATOR: Traducteur
 
-article:
+document:
   category:
     cours: Cours
     exo: Exercice
@@ -188,7 +188,17 @@ library:
   description: Bienvenue sur l'espace des ressources pédagogiques, vous trouverez dans cette page un ensemble de fichiers (Cours, exercices corrigés, annales de BAC ...) 
   post-title: SOUMETTRE UN DOCUMENT  
   post-description: Vous pouvez vous aussi enrichir les ressources pédagogiques de cette plateforme en y rajoutant de nouveaux documents qui pourraient interesser les élèves. Pour ce faire cliquez sur le bouton ci-dessous.  
+  class:  Classe 
+  subject:  Matiere
+  category: Catégorie 
 
 news:
   title: ACTUALITE
   description:  Retrouvez sur cette page toute l'actualité liée à l'éducation en Mauritanie ainsi que des informations sur les moyens et méthodes de prévention du COVID-19.
+  post-description: Vous pouvez vous aussi enrichir les ressources pédagogiques de cette plateforme en y rajoutant de nouveaux documents qui pourraient interesser les élèves. Pour ce faire cliquez sur le bouton ci-dessous. 
+
+upload:
+  title:  Titre du document
+  note: En cliquant sur "Valider" vous attestez avoir les droits de publication du document à soumettre.
+  submit: Valider
+  file: Choisir un fichier
