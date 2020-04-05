@@ -18,7 +18,7 @@
 				<div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
 					<h1>{{ 'library.title'|trans }}</h1>
 					<h2>
-						{{ 'library.description'|trans }}
+						{{ 'library.description'|trans({'%count%': documents|length}) }}
 					</h2>
 				</div>
 			</div>
@@ -92,7 +92,7 @@
 				<a href="{{ path('library_upload') }}" class="btn-return text-center">
 					<i class="icofont-ebook"></i>
 					&nbsp;
-					{{ 'library.post-title'|trans({'%count%': documents|length}) }}
+					{{ 'library.post-title'|trans }}
 				</a>
 			</p>
 		</div>
