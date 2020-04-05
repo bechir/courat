@@ -112,7 +112,7 @@ class ResourceController extends AbstractController
     }
 
     /**
-     * @Route("/load/excel", name="load_from_excel")
+     * @Route("/load/excel", name="load_resources_from_excel")
      */
     public function loadResources(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -190,6 +190,7 @@ class ResourceController extends AbstractController
 
         return $this->render('admin/common/upload-excel-file.html.twig', [
             'form' => $form->createView(),
+            'path' => 'load_resources_from_excel',
         ]);
     }
 

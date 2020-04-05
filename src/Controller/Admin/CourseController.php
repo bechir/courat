@@ -146,7 +146,7 @@ class CourseController extends AbstractController
     }
 
     /**
-     * @Route("/load/excel", name="load_from_excel")
+     * @Route("/load/excel", name="load_courses_from_excel")
      */
     public function loadCourses(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -273,6 +273,7 @@ class CourseController extends AbstractController
 
         return $this->render('admin/common/upload-excel-file.html.twig', [
             'form' => $form->createView(),
+            'path' => 'load_courses_from_excel',
         ]);
     }
 

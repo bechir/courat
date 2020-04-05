@@ -90,6 +90,16 @@ class Document
      */
     private $fileUrl;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $enabled;
+
+    public function __construct()
+    {
+        $this->enabled = false;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -253,6 +263,18 @@ class Document
     public function setFileUrl(?string $fileUrl): self
     {
         $this->fileUrl = $fileUrl;
+
+        return $this;
+    }
+
+    public function getEnabled(): ?bool
+    {
+        return $this->enabled;
+    }
+
+    public function setEnabled(?bool $enabled): self
+    {
+        $this->enabled = $enabled;
 
         return $this;
     }

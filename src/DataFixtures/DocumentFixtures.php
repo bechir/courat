@@ -67,7 +67,8 @@ class DocumentFixtures extends Fixture implements DependentFixtureInterface
                 ->setPath($path)
                 ->setCategory($findEntity('category', $category))
                 ->setClasse($findEntity('class', $class))
-                ->setSubject($findEntity('subject', $subject));
+                ->setSubject($findEntity('subject', $subject))
+                ->setEnabled(true);
 
             $manager->persist($document);
         }

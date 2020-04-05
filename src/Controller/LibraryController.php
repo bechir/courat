@@ -41,7 +41,7 @@ class LibraryController extends AbstractController
         ClassRepository $classRepository)
     {
         return $this->render('library/index.html.twig', [
-            'documents' => $documentRep->findAll(),
+            'documents' => $documentRep->findBy(['enabled' => true]),
             'categories' => $documentCategoryRep->findAll(),
             'subjects' => $subjectRepository->findAll(),
             'classes' => $classRepository->findAll(),

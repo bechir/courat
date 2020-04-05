@@ -3,6 +3,7 @@
         <tr>
             <th>Id</th>
             <th>Title</th>
+            <th>Status</th>
             <th>Url</th>
             <th>Size</th>
             <th>actions</th>
@@ -13,6 +14,7 @@
         <tr>
             <td>{{ document.id }}</td>
             <td>{{ document.title }}</td>
+            <td><span class="label label-{{ document.enabled ? 'success' : 'warning' }}">{{ document.enabled ? 'Activé' : 'Désactivé' }}</span></td>
             <td>{{ document.size }}</td>
             <td>
                 <a href="{{ path('admin_document_show', {'id': document.id}) }}">show</a>

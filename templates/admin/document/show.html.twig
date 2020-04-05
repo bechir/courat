@@ -10,6 +10,7 @@
     <h1>document</h1>
 
     {% set url = document.fileUrl ?: vich_uploader_asset(document) %}
+    {% set enabled = document.enabled %}
 
     <table class="table">
         <tbody>
@@ -29,12 +30,33 @@
                 <th>Size</th>
                 <td>{{ document.size }}</td>
             </tr>
+            <tr>
+                <th>Status</th>
+                <th>{{ enabled ? 'Activé' : 'Désactivé' }}</th>
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    {% if enabled %}
+                        <a class="btn btn-default" href="{{ path('admin_document_toggle_enabled', {id: document.id, enabled: 0}) }}">
+                            Désactiver
+                        </a>
+                    {% else %}
+                        <a class="btn btn-warning" href="{{ path('admin_document_toggle_enabled', {id: document.id, enabled: 1}) }}">
+                            Activer
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('admin_document_index') }}">back to list</a>
+    <hr>
 
-    <a href="{{ path('admin_document_edit', {'id': document.id}) }}">edit</a>
+    <a class="my-3 btn btn-info" href="{{ path('admin_document_index') }}"><i class="lnr lnr-arrow-left fa-lg"></i> Back to list</a>
+
+    <a class="btn btn-primary" href="{{ path('admin_document_edit', {'id': document.id}) }}"><i class="fa fa-edit"></i> edit</a>
+
 
     {{ include('admin/document/_delete_form.html.twig') }}
 {% endblock %}
