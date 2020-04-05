@@ -12,9 +12,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DocumentRepository")
+ * @Vich\Uploadable
  */
 class Document
 {
@@ -31,9 +36,21 @@ class Document
     private $title;
 
     /**
+     * @Assert\File(
+     *     maxSize = "10M",
+     *     maxSizeMessage = "Veuillez uploader un fichier inferieur a 10MB."
+     * )
+     *
+     * @Vich\UploadableField(mapping="document_file", fileNameProperty="path"))
+     *
+     * @var File|null
+     */
+    private $file;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
-    private $url;
+    private $path;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -58,6 +75,16 @@ class Document
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $clientIp;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,14 +102,29 @@ class Document
         return $this;
     }
 
-    public function getUrl(): ?string
+    public function getFile(): ?File
     {
-        return $this->url;
+        return $this->file;
     }
 
-    public function setUrl(string $url): self
+    public function setFile(File $file): self
     {
-        $this->url = $url;
+        $this->file = $file;
+        if (null !== $this->file) {
+            $this->updatedAt = new \DateTime();
+        }
+
+        return $this;
+    }
+
+    public function getPath(): ?string
+    {
+        return $this->path;
+    }
+
+    public function setPath(string $path): self
+    {
+        $this->path = $path;
 
         return $this;
     }
@@ -90,13 +132,6 @@ class Document
     public function getSize(): ?string
     {
         return $this->size;
-    }
-
-    public function setSize(?string $size): self
-    {
-        $this->size = $size;
-
-        return $this;
     }
 
     public function getSubject(): ?Subject
@@ -133,5 +168,75 @@ class Document
         $this->category = $category;
 
         return $this;
+    }
+
+    public function getClientIp(): ?string
+    {
+        return $this->clientIp;
+    }
+
+    public function setClientIp(?string $clientIp): self
+    {
+        $this->clientIp = $clientIp;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updateSize()
+    {
+        $this->size = $this->readableBytes($this->file->getSize());
+    }
+
+    /**
+     * Converts a long string of bytes into a readable format e.g KB, MB, GB, TB, YB.
+     *
+     * @param int num The number of bytes
+     */
+    public function readableBytes($bytes)
+    {
+        $i = floor(log($bytes) / log(1024));
+        $sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+        return sprintf('%.02F', $bytes / pow(1024, $i)) * 1 . ' ' . $sizes[$i];
+    }
+
+    /**
+     * Ensure to upload valid file type.
+     *
+     * @Assert\Callback
+     */
+    public function validate(ExecutionContextInterface $context)
+    {
+        if (!in_array($this->file->getMimeType(), [
+            'application/pdf',
+            'application/x-pdf',
+            'application/msword',
+            'application/vnd.ms-powerpoint',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+        ])) {
+            $context
+                ->buildViolation('Erreur de format (Insérer au format PDF ou Word)')
+                ->atPath('file')
+                ->addViolation()
+            ;
+        }
     }
 }

@@ -419,7 +419,7 @@ h6 {
     display: none;
   }
 
-  .my-select{
+  #filter-form .custom-select{
     display: block;
     text-align: center;
     margin-bottom: 10px;
@@ -1279,27 +1279,18 @@ body[dir='rtl'] .mobile-nav a {
 }
 
 /*Filter*/
-.my-select {
+.custom-select {
   background-color: #fff;
   color: #35404f;
-  border: 0 none;
-  border-radius: 20px;
-  -webkit-border-radius: 20px; 
-  -moz-border-radius: 20px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  padding: 6px 10px;
-  margin-left: 10px;
-  font-size: 18px;
-  font-weight: normal;
   font-family: 'Cairo',sans-serif;
-  width: 300px;
   border: 1px solid #e5e5e5;
 }
-
-.my-select:focus,.form-control:focus{
-  outline: 0;
+.form-control:focus{
+  outline: 0!important;
+  box-shadow: none!important;
 }
 
 /*Upload*/

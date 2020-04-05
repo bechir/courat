@@ -1,101 +1,89 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	{{ App.name }}
-	&ndash;
-	{{ 'app.title'|trans }}
+	{{ App.name }} &ndash; {{ 'app.title'|trans }}
 {% endblock %}
 
 {% block main %}
 
-<!-- ======= Hero Section ======= -->
-<section id="hero">
-	<div class="container-fluid m-0">
-		<div class="row d-flex align-items-center">
-			<div class="col-lg-6 py-5 py-lg-0 order-2 order-lg-1 {{ locale() == 'fr' ? 'mr-auto' : 'ml-auto ar text-right' }}" data-aos="fade-right">
-				<img src="{{ asset('assets/img/read.svg') }}" class="img-fluid" alt=""/>
+	{% form_theme form with ['foundation_5_layout.html.twig'] only %}
+
+	<!-- ======= Hero Section ======= -->
+	<section id="hero">
+		<div class="container-fluid m-0">
+			<div class="row d-flex align-items-center">
+				<div class="col-lg-6 py-5 py-lg-0 order-2 order-lg-1 {{ locale() == 'fr' ? 'mr-auto' : 'ml-auto ar text-right' }}" data-aos="fade-right">
+					<img src="{{ asset('assets/img/read.svg') }}" class="img-fluid" alt=""/>
+				</div>
+				<div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+					<h1>{{ 'library.title'|trans }}</h1>
+					<h2>
+						{{ 'library.description'|trans }}
+					</h2>
+				</div>
 			</div>
-			<div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-				<h1>{{ 'library.title'|trans }}</h1>
-				<h2>
-					{{ 'library.description'|trans }}
+		</div>
+	</section>
+	<!-- End Hero -->
+
+
+	<section id="plateform" class="plateform section-bg">
+		<div class="container">
+			<div class="section-title">
+				<h2 data-aos="fade-in">
+					{{ 'library.post-title'|trans }}
 				</h2>
 			</div>
-		</div>
-	</div>
-</section>
-<!-- End Hero -->
+			{# Partie Upload #}
 
+			<div class="container register-form">
+				<div class="form">
+					<div class="note">
+						<p>{{ 'upload.note'|trans }}</p>
+					</div>
 
-<section id="plateform" class="plateform section-bg">
-	<div class="container">
-		<div class="section-title">
-			<h2 data-aos="fade-in">
-				{{ 'library.post-title'|trans }}
-			</h2>
-		</div>
-		{# Partie Upload #}
-
-		<div class="container register-form">
-			<div class="form">
-				<div class="note">
-					<p>{{ 'upload.note'|trans }}</p>
-				</div>
-
-				<div class="form-content">
-					<form>
+					<div class="form-content">
+						{{ form_start(form, {attr: {class: 'was-validated'}}) }}
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="{{ 'upload.title'|trans }}">
+									{{ form_widget(form.title, {attr: {class: 'form-control', placeholder: 'upload.title'}}) }}
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<select name="subject" id="subject" class="form-control custom-select">
-										<option value="" selected>{{ 'library.subject'|trans }}</option>
-
-									</select>
+									{{ form_widget(form.subject, {attr: {class: 'custom-select'}}) }}
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<select name="classe" id="classe" class="form-control custom-select">
-										<option value="" selected>{{ 'library.class'|trans }}</option>
-
-									</select>
+									{{ form_widget(form.classe, {attr: {class: 'custom-select'}})|html_entity_decode|raw }}
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<select name="category" id="category" class="form-control custom-select">
-										<option value="" selected>{{ 'library.category'|trans }}</option>
-
-									</select>
+									{{ form_widget(form.category, {attr: {class: 'custom-select'}}) }}
 								</div>
 							</div>
 							<div class="col-md-12">
-
-
 								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="customFile">
-									<label class="form-control custom-file-label" for="customFile">{{ 'upload.file'|trans }}</label>
+									{{ form_widget(form.file, {attr: {class: 'custom-file-input'}}) }}
+									<label class="custom-file-label" for="document_file">{{ 'upload.file'|trans }}</label>
+									<div class="invalid-feedback">{{ 'upload.file'|trans }}</div>
 								</div>
-							</form>
-
-
+							</div>
 						</div>
-
+						<p class="text-center mt-5 mb-0">
+							<button type="submit" class="btn-return">{{ 'upload.submit'|trans }}</button>
+						</p>
+						{{ form_end(form) }}
 					</div>
-					<br>
-					<p class="text-center">
-						<button type="button" class="btn-return">{{ 'upload.submit'|trans }}</button>
-					</p>
-
 				</div>
 			</div>
 		</div>
+	</section>
 
+	<!-- End Submit -->
 
-	</div>
-</div></section><!-- End Submit -->{# {% endblock %}{% block diffusion %} #}{% endblock %}
+{% endblock %}
+

@@ -17,6 +17,7 @@ use App\Entity\DocumentCategory;
 use App\Entity\Subject;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -26,7 +27,7 @@ class DocumentType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('url')
+            ->add('file', FileType::class)
             ->add('subject', EntityType::class, [
                 'class' => Subject::class,
                 'choice_label' => 'code',
@@ -34,7 +35,9 @@ class DocumentType extends AbstractType
             ])
             ->add('classe', EntityType::class, [
                 'class' => Classe::class,
-                'choice_label' => 'name',
+                'choice_label' => function (Classe $classe) {
+                    return 'class.' . $classe->getName();
+                },
                 'choice_translation_domain' => 'messages',
             ])
             ->add('category', EntityType::class, [

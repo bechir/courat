@@ -1,7 +1,7 @@
 <div class="row">
     {% for document in documents %}
     <!-- Library item -->
-        <a href="" class="col-md-3">
+        <a href="{{ vich_uploader_asset(document) }}" target="_blank" class="col-md-3">
             <div class="info-box lib rounded mt-3">
                 <div class="circle-badge-light">
                     <strong>

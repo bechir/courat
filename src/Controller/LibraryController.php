@@ -11,16 +11,29 @@
 
 namespace App\Controller;
 
+use App\Entity\Document;
+use App\Form\DocumentType;
 use App\Repository\ClassRepository;
 use App\Repository\DocumentCategoryRepository;
 use App\Repository\DocumentRepository;
 use App\Repository\SubjectRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class LibraryController extends AbstractController
 {
+    /**
+     * The library homepage.
+     *
+     * @param DocumentRepository            The document repository
+     * @param DocumentCategoryRepository    Document category repository
+     * @param SubjectRepository             Subject repository
+     * @param ClassRepository               Class repository
+     *
+     * @return Response
+     */
     public function index(
         DocumentRepository $documentRep,
         DocumentCategoryRepository $documentCategoryRep,
@@ -35,6 +48,12 @@ class LibraryController extends AbstractController
         ]);
     }
 
+    /**
+     * Return list of document filtered by the 'filter query'.
+     *
+     * @param Request            The request
+     * @param DocumentRepository The document repository
+     */
     public function filter(Request $request, DocumentRepository $documentRepository): Response
     {
         sleep(1);
@@ -45,8 +64,28 @@ class LibraryController extends AbstractController
         ]);
     }
 
-    public function upload(): Response
+    /**
+     * Upload document from user.
+     */
+    public function upload(Request $request, EntityManagerInterface $entityManager): Response
     {
-        return $this->render('library/upload.html.twig');
+        $document = new Document();
+        $form = $this->createForm(DocumentType::class, $document);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $document->setClientIp($request->getClientIp());
+
+            $entityManager->persist($document);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'document.upload_success');
+
+            return $this->redirectToRoute('library_index');
+        }
+
+        return $this->render('library/upload.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }

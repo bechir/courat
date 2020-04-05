@@ -30,7 +30,7 @@ class DocumentFixtures extends Fixture implements DependentFixtureInterface
         foreach ($this->getData() as [$title, $path]) {
             $document = (new Document())
                 ->setTitle($title)
-                ->setUrl($path)
+                ->setPath($path)
                 ->setCategory($categories[mt_rand(0, count($categories) - 1)])
                 ->setClasse($classes[mt_rand(0, count($classes) - 1)])
                 ->setSubject($subjects[mt_rand(0, count($subjects) - 1)]);

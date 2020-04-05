@@ -1,3 +1,5 @@
+{% form_theme form with ['bootstrap_4_layout.html.twig'] only %}
+
 <div class="row">
 
 	<div class="col-sm-6">
@@ -5,7 +7,7 @@
     </div>
 
 	<div class="col-sm-6">
-		{{ form_row(form.url, {'attr': {'class': 'input-lg'}}) }}
+		{{ form_row(form.file, {'attr': {'class': 'input-lg form-control'}}) }}
     </div>
 
 	<div class="col-sm-4">
@@ -13,7 +15,7 @@
     </div>
     
 	<div class="col-sm-4">
-		{{ form_row(form.classe, {'attr': {'class': 'custom-select input-lg'}}) }}
+		{{ form_row(form.classe, {'attr': {'class': 'custom-select input-lg'}})|html_entity_decode|raw }}
     </div>
     
 	<div class="col-sm-4">

@@ -175,7 +175,7 @@ ROLE_ADMIN: Administrateur
 ROLE_TEACHER: Enseignant
 ROLE_TRANSLATOR: Traducteur
 
-article:
+document:
   category:
     cours: Cours
     exo: Exercice
