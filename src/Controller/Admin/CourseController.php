@@ -271,7 +271,7 @@ class CourseController extends AbstractController
             return $this->redirectToRoute('admin_courses');
         }
 
-        return $this->render('admin/course/upload-excel-file.html.twig', [
+        return $this->render('admin/common/upload-excel-file.html.twig', [
             'form' => $form->createView(),
         ]);
     }

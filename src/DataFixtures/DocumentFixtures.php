@@ -79,13 +79,13 @@ class DocumentFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             // Title                                          Category            Path              Classe        Subject
-            ['Annales du Baccalauréat National C & TMGM',   'epreuve_bac',   'baccmaths.pdf',     'terminaleC',   'maths'],
-            ['الدالة اللوغاريتمية النبيرية',                'epreuve_bac',   '7LOcoursln.pdf',    'terminaleLO',  'maths'],
-            ['Session normal 2016',                         'epreuve_bac',   'BacA2016sn.pdf',    'terminaleLM',  'maths'],
-            ['Session complémentaire 2016',                 'epreuve_bac',   'BacC2016comp.pdf',  'terminaleC',   'maths'],
-            ['Session normal 2016',                         'epreuve_bac',   'BacC2016sn.pdf',    'terminaleC',   'maths'],
-            ['Corrigé des sujets du Baccalauréat',          'epreuve_bac',   'bacd.pdf',          'terminaleD',   'maths'],
-            ['Session Complémentaire 2015',                 'epreuve_bac',   'BacD2015sc.pdf',    'terminaleC',   'maths'],
+            // ['Annales du Baccalauréat National C & TMGM',   'epreuve_bac',   'baccmaths.pdf',     'terminaleC',   'maths'],
+            // ['الدالة اللوغاريتمية النبيرية',                'epreuve_bac',   '7LOcoursln.pdf',    'terminaleLO',  'maths'],
+            // ['Session normal 2016',                         'epreuve_bac',   'BacA2016sn.pdf',    'terminaleLM',  'maths'],
+            // ['Session complémentaire 2016',                 'epreuve_bac',   'BacC2016comp.pdf',  'terminaleC',   'maths'],
+            // ['Session normal 2016',                         'epreuve_bac',   'BacC2016sn.pdf',    'terminaleC',   'maths'],
+            // ['Corrigé des sujets du Baccalauréat',          'epreuve_bac',   'bacd.pdf',          'terminaleD',   'maths'],
+            // ['Session Complémentaire 2015',                 'epreuve_bac',   'BacD2015sc.pdf',    'terminaleC',   'maths'],
         ];
     }
 
