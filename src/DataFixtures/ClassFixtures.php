@@ -22,8 +22,8 @@ class ClassFixtures extends Fixture implements DependentFixtureInterface
     const SUBJECTS_6_AF = ['ar', 'fr', 'maths', 'ir'];
     const SUBJECTS_4_AS = ['ir', 'fr', 'ar', 'maths'];
     const SUBJECTS_7_CD = ['sn', 'pc', 'maths'];
-    const SUBJECTS_7_LM = ['ar', 'dm', 'pi'];
-    const SUBJECTS_7_LO = ['ph', 'fr', 'ar'];
+    const SUBJECTS_7_LM = ['ar', 'fr', 'ph'];
+    const SUBJECTS_7_LO = ['ar', 'dm', 'pi'];
 
     public function load(ObjectManager $manager)
     {
