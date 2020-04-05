@@ -17,4 +17,4 @@ parameters:
     # phpmd:
     #   exclude: ['test', 'features']
     #   ruleset: ['phpmd.xml']
-    phpunit: ~
+    # phpunit: ~

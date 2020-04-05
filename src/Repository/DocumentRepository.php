@@ -31,13 +31,14 @@ class DocumentRepository extends ServiceEntityRepository
 
     public function filter(ParameterBag $query)
     {
-        $qb = $this->createQueryBuilder('a')
-            ->leftJoin('a.category', 'c')
+        $qb = $this->createQueryBuilder('d')
+            ->leftJoin('d.category', 'c')
                 ->addSelect('c')
-            ->leftJoin('a.classe', 'cls')
+            ->leftJoin('d.classe', 'cls')
                 ->addSelect('cls')
-            ->leftJoin('a.subject', 'subj')
-                ->addSelect('subj');
+            ->leftJoin('d.subject', 'subj')
+                ->addSelect('subj')
+            ->andWhere('d.enabled = true');
 
         $subject = $query->getInt('subject', -1);
         $classe = $query->getInt('classe', -1);

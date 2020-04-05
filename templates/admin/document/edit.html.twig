@@ -1,13 +1,21 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
 {% block title %}Edit document{% endblock %}
 
-{% block body %}
-    <h1>Edit document</h1>
+{% block left_sidebar %}
+    {% include 'admin/common/left-sidebar.twig' with { active: 'documents-list' } %}
+{% endblock %}
 
-    {{ include('document/_form.html.twig', {'button_label': 'Update'}) }}
+{% block main %}
+    <h3 class="page-title text-success">
+        <span class="fa fa-edit"></span>
+            Modifier le document
+        <hr>
+    </h3>
+
+    {{ include('admin/document/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('admin_document_index') }}">back to list</a>
 
-    {{ include('document/_delete_form.html.twig') }}
+    {{ include('admin/document/_delete_form.html.twig') }}
 {% endblock %}
