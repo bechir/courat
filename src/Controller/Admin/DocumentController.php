@@ -111,7 +111,22 @@ class DocumentController extends AbstractController
     }
 
     /**
-     * @Route("/load/excel", name="load_from_excel")
+     * @Route("/{id}/enabled={enabled}", name="admin_document_toggle_enabled")
+     */
+    public function toggleEnabled(Document $document, $enabled, EntityManagerInterface $entityManager): Response
+    {
+        $document->setEnabled($enabled);
+        $entityManager->persist($document);
+        $entityManager->flush();
+        $this->addFlash('success', 'Modifications effectuée.');
+
+        return $this->redirectToRoute('admin_document_show', [
+            'id' => $document->getId(),
+        ]);
+    }
+
+    /**
+     * @Route("/load/excel", name="load_documents_from_excel")
      */
     public function loadDocuments(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -163,7 +178,8 @@ class DocumentController extends AbstractController
                     if (null != $data['A'] && null != $data['B'] && null != $data['C'] && null != $data['D'] && null != $data['E']) {
                         $document = (new Document())
                             ->setTitle($data['A'])
-                            ->setFileUrl($data['D']);
+                            ->setFileUrl($data['D'])
+                            ->setEnabled(true);
 
                         $class = $entityManager->getRepository(Classe::class)->findOneBy(['name' => $data['B'] ?? null]);
                         if ($class) {
@@ -201,6 +217,7 @@ class DocumentController extends AbstractController
 
         return $this->render('admin/common/upload-excel-file.html.twig', [
             'form' => $form->createView(),
+            'path' => 'load_documents_from_excel',
         ]);
     }
 
