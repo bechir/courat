@@ -1,8 +1,8 @@
 <div class="row">
     {% for document in documents %}
     <!-- Library item -->
-        <a href="{{ vich_uploader_asset(document) }}" target="_blank" class="col-md-3">
-            <div class="info-box lib rounded mt-3">
+        <a href="{{ vich_uploader_asset(document) }}" target="_blank" class="col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="info-box lib rounded h-100">
                 <div class="circle-badge-light">
                     <strong>
                         <i class="icofont-file-pdf icofont-3x"></i>
@@ -11,13 +11,13 @@
                 <h3>
                     {{ document.title }}
                 </h3>
-                <hr>
+                <hr class="mb-2">
                 <span class="badge badge-secondary">{{ document.classe|trans|raw }}</span>
                 <span class="badge badge-success">{{ document.subject|trans }}</span>
             </div>
         </a>
     <!-- End of Library item -->
     {% else %}
-        <p class="alert alert-info w-100 text-center">Pas de documents disponibles.</p>
+        <p class="text-info w-100 text-center" style="height: 40px;">Pas de documents disponibles.</p>
     {% endfor %}
 </div>

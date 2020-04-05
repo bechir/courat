@@ -143,9 +143,11 @@
       },
 
       success: function (data) {
-        results.find('.items').fadeIn();
-        results.find('.items').html(data);
         results.find('div.loading-container').fadeOut(0);
+        setTimeout(function(){
+          results.find('.items').html(data);
+          results.find('.items').fadeIn();
+        }, 600);
       },
 
       error: function (data) {

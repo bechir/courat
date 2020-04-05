@@ -698,7 +698,7 @@ section {
   color: #444444;
   text-align: center;
   box-shadow: 0 0 30px rgba(53, 64, 79, 0.6);
-  padding: 20px 0 30px 0;
+  padding: 15px 0;
   background: #fff;
   display: block;
 }
@@ -730,24 +730,15 @@ section {
   margin-right: auto;
 }
 
+.class .info-box h3,
 .lib h3 {
-  font-size: 20px;
   color: #35404f;
   font-family: 'Cairo', sans-serif;
-  font-weight: bold;
+  font-weight: 400;
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 20px;
-}
-
-.class .info-box h3 {
-  font-size: 20px;
-  color: #35404f;
-  font-family: 'Cairo', sans-serif;
-  font-weight: bold;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-top: 20px;
+  font-size: 1rem;
 }
 
 .class .info-box p {
@@ -1261,9 +1252,6 @@ body[dir='rtl'] .mobile-nav a {
 /*Library Upload */
 
 /* Article filter */
-#results{
-  min-height: 215px;
-}
 .spinner {
 	width: 40px;
 	height: 40px;
