@@ -28,89 +28,93 @@
 						<input id="tab4" type="radio" name="tabs">
 						<label for="tab4">7D</label>
 
-						<input id="tab5" type="radio" name="tabs">
-						<label for="tab5">7LO</label>
-
 						<input id="tab6" type="radio" name="tabs">
 						<label for="tab6">7LM</label>
 
+						<input id="tab5" type="radio" name="tabs">
+						<label for="tab5">7LO</label>
 
 						{% if classes is defined %}
-							
-						{% set i = 1 %}		
-						{% for classe in classes %}
-							<section id='{{"content"~i}}'>
-							{% set i = i + 1 %}
-							{% set dayIndex = 1 %}
-							{% set dayExist = 0 %}
-							{% for day in days %}
-								{% set subjectExist = 0 %}
-								{% set rep = 0 %}   
-								{% for planning in plannings %}
-									{% if day.name == planning.day.name %}
-										{% for class in planning.classes %}
-											{% if class.name == classe.name %}
-												{% if rep == 0 %}
-												{% if dayExist == 0 %}
-												<p>
-													<h3>
-														<b>
-															<span class="badge badge-secondary">{{ day.name|trans }}</span>
-														</b>
-													</h3>
-												</p>
-												{% endif %}
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.5pm'|trans }}
-													({{ 'planning.direct'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{% set rep = 1 %}
+							{% set i = 1 %}
+							{% for classe in classes %}
+								<section id='{{"content"~i}}'>
+									{% set i = i + 1 %}
+									{% set dayIndex = 1 %}
+									{% set dayExist = 0 %}
+									{% for day in days %}
+										{% set subjectExist = 0 %}
+										{% set rep = 0 %}
+										{% for planning in plannings %}
+											{% if day.name == planning.day.name %}
+												{% for class in planning.classes %}
+													{% if class.name == classe.name %}
+														{% if rep == 0 %}
+															{% if dayExist == 0 %}
+																<p>
+																	<h3><b><span class="badge badge-secondary">{{ day.name|trans }}</span></b></h3>
+																</p>
+															{% endif %}
+															<p>
+																<i class="icofont-clock-time"></i>
+																<b>{{ 'planning.hour'|trans }}
+																	:</b>
+																{{ 'planning.5pm'|trans }}
+																({{ 'planning.direct'|trans }})
+																<br>
+																<i class="icofont-book-alt"></i>
+																<b>{{ 'planning.field'|trans }}: </b>
+																{% set rep = 1 %}
+															</p>
+														{% endif %}
+														{% for subject in planning.subjects %}
+															{% if subjectExist == 1 %}
+																-
+															{% endif %}
+															{{ subject.code|trans }}
+															{% set subjectExist = 1 %}
+														{% endfor %}
+														<h3>
+															<b>
+																<span class="badge badge-secondary">
+																	{% if dayIndex < 7 %}
+																		{{ days[dayIndex].name|trans }}
+																	{% endif %}
+																</span>
+															</b>
+														</h3>
+														{% set dayExist = 1 %}
+														<p>
+															<i class="icofont-clock-time"></i>
+															<b>{{ 'planning.hour'|trans }} :</b>
+															{{ 'planning.11pm'|trans }}
+															({{ 'planning.rediff'|trans }})
+															<br>
+															<i class="icofont-book-alt"></i>
+															<b>{{ 'planning.field'|trans }}: </b>
+															{% set rep = 1 %}
+															{% set subjectExist = 0 %}
+															{% for subject in planning.subjects %}
+																{% if subjectExist == 1 %}
+																	-
+																{% endif %}
+																{{ subject.code|trans }}
+																{% set subjectExist = 1 %}
+															{% endfor %}
+														</p>
 													{% endif %}
-													{% for subject in planning.subjects %}
-														{% if subjectExist == 1 %} - {% endif %}{{ subject.code|trans }} 
-														{% set subjectExist = 1 %}
-													{% endfor %}
-												
-												<h3>
-													<b>
-														<span class="badge badge-secondary"> {% if dayIndex < 7 %}
-															
-														{{ days[dayIndex].name|trans }}{% endif %}</span>
-													</b>
-												</h3>
-												{% set dayExist = 1 %}
-												<p>
-													<i class="icofont-clock-time"></i>
-													<b>{{ 'planning.hour'|trans }}
-														:</b>
-													{{ 'planning.11pm'|trans }}
-													({{ 'planning.rediff'|trans }})
-													<br>
-													<i class="icofont-book-alt"></i>
-													<b>{{ 'planning.field'|trans }}
-														:</b>
-													{% set rep = 1 %}
-													{% set subjectExist = 0 %}
-													{% for subject in planning.subjects %}
-														{% if subjectExist == 1 %} - {% endif %}{{ subject.code|trans }} 
-														{% set subjectExist = 1 %}
-													{% endfor %}
-												
+												{% endfor %}
 											{% endif %}
-											{% endfor %}
-										{% endif %}       
-								{% endfor %}
-								</p>
-								{% set dayIndex = dayIndex + 1 %}
-							{% endfor %} 
-							</section>   
-						{% endfor %}
-
+										{% endfor %}
+										{% set dayIndex = dayIndex + 1 %}
+									{% endfor %}
+								</section>
+							{% endfor %}
 						{% endif %}
-</div></div></div></div></div></div><!-- End of Schedule Modal -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End of Schedule Modal -->
+

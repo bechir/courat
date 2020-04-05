@@ -35,6 +35,7 @@ class DocumentCategoryFixtures extends Fixture
             'cours',
             'exo',
             'epreuve_bac',
+            'corrige',
             'autre',
         ];
     }
