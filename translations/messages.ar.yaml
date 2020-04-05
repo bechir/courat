@@ -163,6 +163,7 @@ document:
     exo: تمرين
     epreuve_bac: موضوع بكالوريا
     autre: آخر
+  no_result:  لا توجد ملفات في هذا القسم
 
 library:
   btn:  المكتبة
@@ -180,3 +181,7 @@ upload:
   submit: إرسال
   file: إختيار الملف
   
+news:
+  title:  أخبار
+  description:  ستجدون في هذه الصفحة جميع الأخبار المتعلقة بالتعليم في موريتانيا في فترة وباء COVID-19.
+  more: قرائة المزيد
