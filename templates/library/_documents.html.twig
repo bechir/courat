@@ -1,5 +1,5 @@
 <div class="row">
-    {% for article in articles %}
+    {% for document in documents %}
     <!-- Library item -->
         <a href="" class="col-md-3">
             <div class="info-box lib rounded mt-3">
@@ -9,15 +9,15 @@
                     </strong>
                 </div>
                 <h3>
-                    {{ article.title }}
+                    {{ document.title }}
                 </h3>
                 <hr>
-                <span class="badge badge-secondary">{{ article.classe|trans|raw }}</span>
-                <span class="badge badge-success">{{ article.subject|trans }}</span>
+                <span class="badge badge-secondary">{{ document.classe|trans|raw }}</span>
+                <span class="badge badge-success">{{ document.subject|trans }}</span>
             </div>
         </a>
     <!-- End of Library item -->
     {% else %}
-        <p class="alert alert-info w-100 text-center">Pas de resources disponibles.</p>
+        <p class="alert alert-info w-100 text-center">Pas de documents disponibles.</p>
     {% endfor %}
 </div>

@@ -1,12 +1,12 @@
 {% extends 'admin/base.html.twig' %}
 {% block left_sidebar %}
-    {% include 'admin/common/left-sidebar.twig' with { active: 'new-article' } %}
+    {% include 'admin/common/left-sidebar.twig' with { active: 'new-document' } %}
 {% endblock %}
 
 {% block main %}
     <h3 class="page-title text-success">
         <span class="lnr lnr-file-add"></span>
-        Ajouter un article
+        Ajouter un document
     </h3>
     <div class="row">
         <div class="col-12">
@@ -18,7 +18,7 @@
                     {{ form_start(form) }}
                         <div class="container-fluid">
 
-                            {% include 'admin/article/_form.html.twig' with {form: form} %}
+                            {% include 'admin/document/_form.html.twig' with {form: form} %}
                             
                             <hr>
                             <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-check-circle"></i> Ajouter</button>

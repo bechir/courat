@@ -11,17 +11,17 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\ArticleCategory;
+use App\Entity\DocumentCategory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class ArticleCategoryFixtures extends Fixture
+class DocumentCategoryFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
         foreach ($this->getNames() as $name) {
-            $type = new ArticleCategory();
-            $type->setName('article.category.' . $name);
+            $type = new DocumentCategory();
+            $type->setName('document.category.' . $name);
 
             $manager->persist($type);
         }

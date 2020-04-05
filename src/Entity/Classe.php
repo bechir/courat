@@ -54,16 +54,16 @@ class Classe implements JsonSerializable
     private $plannings;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="classe", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Document", mappedBy="classe", orphanRemoval=true)
      */
-    private $articles;
+    private $documents;
 
     public function __construct()
     {
         $this->courses = new ArrayCollection();
         $this->subjects = new ArrayCollection();
         $this->plannings = new ArrayCollection();
-        $this->articles = new ArrayCollection();
+        $this->documents = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -206,30 +206,30 @@ class Classe implements JsonSerializable
     }
 
     /**
-     * @return Collection|Article[]
+     * @return Collection|Document[]
      */
-    public function getArticles(): Collection
+    public function getDocuments(): Collection
     {
-        return $this->articles;
+        return $this->documents;
     }
 
-    public function addArticle(Article $article): self
+    public function addDocument(Document $document): self
     {
-        if (!$this->articles->contains($article)) {
-            $this->articles[] = $article;
-            $article->setClasse($this);
+        if (!$this->documents->contains($document)) {
+            $this->documents[] = $document;
+            $document->setClasse($this);
         }
 
         return $this;
     }
 
-    public function removeArticle(Article $article): self
+    public function removeDocument(Document $document): self
     {
-        if ($this->articles->contains($article)) {
-            $this->articles->removeElement($article);
+        if ($this->documents->contains($document)) {
+            $this->documents->removeElement($document);
             // set the owning side to null (unless already changed)
-            if ($article->getClasse() === $this) {
-                $article->setClasse(null);
+            if ($document->getClasse() === $this) {
+                $document->setClasse(null);
             }
         }
 

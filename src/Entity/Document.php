@@ -14,9 +14,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\DocumentRepository")
  */
-class Article
+class Document
 {
     /**
      * @ORM\Id()
@@ -47,13 +47,13 @@ class Article
     private $subject;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Classe", inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Classe", inversedBy="documents")
      * @ORM\JoinColumn(nullable=false)
      */
     private $classe;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ArticleCategory")
+     * @ORM\ManyToOne(targetEntity="App\Entity\DocumentCategory")
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
@@ -123,12 +123,12 @@ class Article
         return $this;
     }
 
-    public function getCategory(): ?ArticleCategory
+    public function getCategory(): ?DocumentCategory
     {
         return $this->category;
     }
 
-    public function setCategory(?ArticleCategory $category): self
+    public function setCategory(?DocumentCategory $category): self
     {
         $this->category = $category;
 

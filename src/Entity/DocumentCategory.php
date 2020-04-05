@@ -14,9 +14,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ArticleCategoryRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\DocumentCategoryRepository")
  */
-class ArticleCategory
+class DocumentCategory
 {
     /**
      * @ORM\Id()

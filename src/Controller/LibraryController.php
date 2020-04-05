@@ -11,9 +11,9 @@
 
 namespace App\Controller;
 
-use App\Repository\ArticleCategoryRepository;
-use App\Repository\ArticleRepository;
 use App\Repository\ClassRepository;
+use App\Repository\DocumentCategoryRepository;
+use App\Repository\DocumentRepository;
 use App\Repository\SubjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,26 +22,26 @@ use Symfony\Component\HttpFoundation\Response;
 class LibraryController extends AbstractController
 {
     public function index(
-        ArticleRepository $articleRep,
-        ArticleCategoryRepository $articleCategoryRep,
+        DocumentRepository $documentRep,
+        DocumentCategoryRepository $documentCategoryRep,
         SubjectRepository $subjectRepository,
         ClassRepository $classRepository)
     {
         return $this->render('library/index.html.twig', [
-            'articles' => $articleRep->findAll(),
-            'categories' => $articleCategoryRep->findAll(),
+            'documents' => $documentRep->findAll(),
+            'categories' => $documentCategoryRep->findAll(),
             'subjects' => $subjectRepository->findAll(),
             'classes' => $classRepository->findAll(),
         ]);
     }
 
-    public function filter(Request $request, ArticleRepository $articleRepository): Response
+    public function filter(Request $request, DocumentRepository $documentRepository): Response
     {
         sleep(1);
-        $articles = $articleRepository->filter($request->query);
+        $documents = $documentRepository->filter($request->query);
 
-        return $this->render('library/_articles.html.twig', [
-            'articles' => $articles,
+        return $this->render('library/_documents.html.twig', [
+            'documents' => $documents,
         ]);
     }
 

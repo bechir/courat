@@ -9,15 +9,15 @@
         </tr>
     </thead>
     <tbody>
-    {% for article in articles %}
+    {% for document in documents %}
         <tr>
-            <td>{{ article.id }}</td>
-            <td>{{ article.title }}</td>
-            <td>{{ article.url }}</td>
-            <td>{{ article.size }}</td>
+            <td>{{ document.id }}</td>
+            <td>{{ document.title }}</td>
+            <td>{{ document.url }}</td>
+            <td>{{ document.size }}</td>
             <td>
-                <a href="{{ path('admin_article_show', {'id': article.id}) }}">show</a>
-                <a href="{{ path('admin_article_edit', {'id': article.id}) }}">edit</a>
+                <a href="{{ path('admin_document_show', {'id': document.id}) }}">show</a>
+                <a href="{{ path('admin_document_edit', {'id': document.id}) }}">edit</a>
             </td>
         </tr>
     {% else %}

@@ -11,16 +11,16 @@
 
 namespace App\Form;
 
-use App\Entity\Article;
-use App\Entity\ArticleCategory;
 use App\Entity\Classe;
+use App\Entity\Document;
+use App\Entity\DocumentCategory;
 use App\Entity\Subject;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ArticleType extends AbstractType
+class DocumentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -38,7 +38,7 @@ class ArticleType extends AbstractType
                 'choice_translation_domain' => 'messages',
             ])
             ->add('category', EntityType::class, [
-                'class' => ArticleCategory::class,
+                'class' => DocumentCategory::class,
                 'choice_label' => 'name',
                 'choice_translation_domain' => 'messages',
             ])
@@ -48,7 +48,7 @@ class ArticleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Article::class,
+            'data_class' => Document::class,
         ]);
     }
 }

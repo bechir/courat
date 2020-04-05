@@ -1286,12 +1286,9 @@ body[dir='rtl'] .mobile-nav a {
   border-radius: 20px;
   -webkit-border-radius: 20px; 
   -moz-border-radius: 20px;
-<<<<<<< HEAD
-=======
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
->>>>>>> ca53f890877784745cbf92ec853a488ea934e7d4
   padding: 6px 10px;
   margin-left: 10px;
   font-size: 18px;

@@ -31,7 +31,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="mx-auto mb-4">
-					<form action="{{ path('library_articles_filter') }}" method="get" id="filter-form">
+					<form action="{{ path('library_documents_filter') }}" method="get" id="filter-form">
 						<select name="subject" id="subject" class="my-select">
 							<option value="" selected>{{ 'library.subject'|trans }}</option>
 							{% for subject in subjects %}
@@ -62,7 +62,7 @@
 					<div class="spinner mx-auto my-auto"></div>
 				</div>
 				<div class="col-lg-12 items">
-					{% include "library/_articles.html.twig" with {articles: articles} %}
+					{% include "library/_documents.html.twig" with {documents: documents} %}
 				</div>
 			</div>
 		</div>
@@ -82,7 +82,7 @@
 			</div>
 
 			<p class="text-center">
-				<a href="" class="btn-return text-center">
+				<a href="{{ path('library_upload') }}" class="btn-return text-center">
 					<i class="icofont-ebook"></i>
 					&nbsp;
 					{{ 'library.post-title'|trans }}
