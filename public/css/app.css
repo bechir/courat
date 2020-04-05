@@ -1304,7 +1304,8 @@ body[dir='rtl'] .mobile-nav a {
 .cbp_tmtimeline>li .cbp_tmtime {
   display: block;
   width: 23%;
-  padding-right: 70px
+  padding-right: 70px;
+  z-index: 999;
 }
 
 .cbp_tmtimeline>li .cbp_tmtime span {
@@ -1417,7 +1418,8 @@ body[dir='rtl'] .mobile-nav a {
       position: relative;
       float: right;
       left: auto;
-      margin: -64px 5px 0 0px
+      margin: -64px 5px 0 0px;
+      z-index: 999;
   }
 }
 
