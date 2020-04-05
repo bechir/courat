@@ -9,9 +9,43 @@
 
 {% block main %}
 
-    <h1>Ajouter une nouvelle resource</h1>
+    <h3 class="page-title text-success">
+        <span class="lnr lnr-highlight"></span>
+            Ajouter une nouvelle resource
+            <a href="#" data-toggle="modal" data-target="#loadExcelFileModal" class="float-right small">
+                <i class="fa fa-upload text-info"></i> <span class="text-info">Importer un fichier Excel</span></a>
+        <hr>
+    </h3>
 
-    {{ include('admin/resource/_form.html.twig') }}
+    <div class="modal fade" id="loadExcelFileModal" role="dialog" aria-labelledby="loadExcelFileModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="loadExcelFileModalLabel"><i class="fa fa-file-import text-info"></i> <span class="text-info">Importer un fichier Excel</span></h4>
+                </div>
+                <div class="modal-body">
+                    {{ render(controller('App\\Controller\\Admin\\ResourceController::loadResources')) }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-lg float-left" data-dismiss="modal">Annuler</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Remplissez le formulaire</h3>
+                </div>
+                <div class="panel-body">
+                    {{ include('admin/resource/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
 
     <a class="my-3 btn btn-info" href="{{ path('admin_resource') }}"><i class="lnr lnr-arrow-left fa-lg"></i> Retourner a la liste</a>
 {% endblock %}
