@@ -29,7 +29,7 @@
                     <a href="{{ path('admin_info') }}" {% if active == 'info-list' %} class="active" {% endif %}>
                         <span>
                             <i class="fa fa-newspaper-o"></i>
-                            Informations
+                            Actualité
                         </span>
                     </a>
                 </li>
@@ -44,7 +44,7 @@
                         </span>
                     </a>
                 </li>
-                {% if is_granted('ROLE_TEACHER') %}
+                {% if is_granted('ROLE_TEACHER') and not is_granted('ROLE_ADMIN') %}
 					<li>
 						<a href="{{ path('admin_teacher_new_course') }}" {% if active == 'add-course' %} class="active" {% endif %}>
 							<span>
