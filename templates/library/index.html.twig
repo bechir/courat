@@ -92,7 +92,7 @@
 				<a href="{{ path('library_upload') }}" class="btn-return text-center">
 					<i class="icofont-ebook"></i>
 					&nbsp;
-					{{ 'library.post-title'|trans }}
+					{{ 'library.post-title'|trans({'%count%': documents|length}) }}
 				</a>
 			</p>
 		</div>
