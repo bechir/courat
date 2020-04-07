@@ -29,10 +29,10 @@
 						<label for="tab4">7D</label>
 
 						<input id="tab6" type="radio" name="tabs">
-						<label for="tab6">7LM</label>
+						<label for="tab6">7LO</label>
 
 						<input id="tab5" type="radio" name="tabs">
-						<label for="tab5">7LO</label>
+						<label for="tab5">7LM</label>
 
 						{% if classes is defined %}
 							{% set i = 1 %}
@@ -64,15 +64,15 @@
 																<i class="icofont-book-alt"></i>
 																<b>{{ 'planning.field'|trans }}: </b>
 																{% set rep = 1 %}
+																{% for subject in planning.subjects %}
+																	{% if subjectExist == 1 %}
+																		-
+																	{% endif %}
+																	{{ subject.code|trans }}
+																	{% set subjectExist = 1 %}
+																{% endfor %}
 															</p>
 														{% endif %}
-														{% for subject in planning.subjects %}
-															{% if subjectExist == 1 %}
-																-
-															{% endif %}
-															{{ subject.code|trans }}
-															{% set subjectExist = 1 %}
-														{% endfor %}
 														<h3>
 															<b>
 																<span class="badge badge-secondary">
