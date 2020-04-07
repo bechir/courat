@@ -64,15 +64,15 @@
 																<i class="icofont-book-alt"></i>
 																<b>{{ 'planning.field'|trans }}: </b>
 																{% set rep = 1 %}
+																{% for subject in planning.subjects %}
+																	{% if subjectExist == 1 %}
+																		-
+																	{% endif %}
+																	{{ subject.code|trans }}
+																	{% set subjectExist = 1 %}
+																{% endfor %}
 															</p>
 														{% endif %}
-														{% for subject in planning.subjects %}
-															{% if subjectExist == 1 %}
-																-
-															{% endif %}
-															{{ subject.code|trans }}
-															{% set subjectExist = 1 %}
-														{% endfor %}
 														<h3>
 															<b>
 																<span class="badge badge-secondary">
