@@ -123,6 +123,10 @@
     processFilter();
   });
 
+  filterForm.on('blur', function(){
+    processFilter();
+  })
+
   filterForm.submit(function () {
     processFilter();
   });
