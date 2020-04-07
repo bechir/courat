@@ -70,6 +70,11 @@ class Info
      */
     private $slug;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $titleAr;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,11 @@ class Info
         $this->title = $title;
 
         return $this;
+    }
+
+    public function getTranslatedTitle(string $locale): string
+    {
+        return ('ar' == $locale && !empty($this->titleAr)) ? $this->titleAr : $this->title;
     }
 
     public function getLink(): ?string
@@ -176,6 +186,18 @@ class Info
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getTitleAr(): ?string
+    {
+        return $this->titleAr;
+    }
+
+    public function setTitleAr(?string $titleAr): self
+    {
+        $this->titleAr = $titleAr;
 
         return $this;
     }

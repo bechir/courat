@@ -44,7 +44,7 @@
 							<i class="icofont-newspaper"></i>
 						</div>
 						<div class="cbp_tmlabel">
-							<h2>{{ article.title }}</h2>
+							<h2>{{ article.translatedTitle(locale()) }}</h2>
 							{% if article.filename %}
 								<img src="{{ vich_uploader_asset(article) }}" class="img-responsive" width="400px">
 							{% endif %}

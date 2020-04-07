@@ -41,6 +41,11 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <title>{% block title %}{{ App.name }}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        {% for l in locales() %}
+            {% if l.code != locale() %}
+                <link rel="alternate" hreflang="{{ l.code }}" href="{{ url(app.request.get('_route', 'index'), app.request.get('_route_params', [])|merge({_locale: l.code})) }}" />
+            {% endif %}
+        {% endfor %}
     </head>
     <body {% if locale() == 'ar' %}dir="rtl"{% endif %}>
 
