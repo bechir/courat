@@ -11,22 +11,22 @@
 
 namespace App\Controller;
 
-use App\Entity\Info;
-use App\Repository\InfoRepository;
+use App\Entity\Article;
+use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class NewsController extends AbstractController
 {
-    public function index(InfoRepository $infoRepository)
+    public function index(ArticleRepository $infoRepository)
     {
         return $this->render('news/index.html.twig', [
             'articles' => $infoRepository->findAll(),
         ]);
     }
 
-    public function show(Info $info)
+    public function show(Article $article)
     {
-        return new RedirectResponse($info->getLink());
+        return new RedirectResponse($article->getLink());
     }
 }

@@ -18,11 +18,11 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\InfoRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  * @Vich\Uploadable
  * @ORM\HasLifecycleCallbacks
  */
-class Info
+class Article
 {
     /**
      * @ORM\Id()

@@ -279,8 +279,8 @@ class CourseController extends AbstractController
 
     public function getFileExtension(string $filename): ?string
     {
-        $info = new SplFileInfo($filename);
+        $article = new SplFileInfo($filename);
 
-        return $info->getExtension();
+        return $article->getExtension();
     }
 }

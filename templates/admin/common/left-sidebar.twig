@@ -26,7 +26,7 @@
                     </a>
                 </li>
 				<li>
-                    <a href="{{ path('admin_info') }}" {% if active == 'info-list' %} class="active" {% endif %}>
+                    <a href="{{ path('admin_article') }}" {% if active == 'articles-list' %} class="active" {% endif %}>
                         <span>
                             <i class="fa fa-newspaper-o"></i>
                             Actualité
@@ -112,7 +112,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="{{ path('admin_info_new') }}" {% if active == 'info-list' %} class="active" {% endif %}>
+									<a href="{{ path('admin_article_new') }}" {% if active == 'new-article' %} class="active" {% endif %}>
 										<span>
 											<i class="lnr lnr-file-add"></i>
 											Article
