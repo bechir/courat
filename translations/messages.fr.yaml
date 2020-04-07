@@ -205,3 +205,4 @@ upload:
   note: En cliquant sur "Valider" vous attestez avoir les droits de publication du document à soumettre.
   submit: Valider
   file: Choisir un fichier
+  success: "Le document envoyé est en cours de traitement et sera publié après son approbation."

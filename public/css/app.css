@@ -1528,3 +1528,40 @@ body[dir='rtl'] .mobile-nav a {
     height: auto;
   }
 }
+.alert.alert-dismissable{
+  visibility: hidden;
+  border-radius: 2px;
+  position: fixed;
+  z-index: 999;
+  min-width: 360px;
+  left: 50px;
+  bottom: 25px;
+}
+.alert.alert-dismissable .jy-alert{
+  position: relative;
+  padding: 15px 25px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+.alert.alert-dismissable.show {
+  visibility: visible;
+ -webkit-animation: fadein 1s, fadeout 1s 9s;
+ animation: fadein 1s, fadeout 1s 9s;
+}
+@-webkit-keyframes fadein {
+  from {opacity: 0; bottom: 0;}
+  to {opacity: 1; bottom: 25px;}
+}
+@keyframes fadein {
+  from {opacity: 0; bottom: 0;}
+  to {opacity: 1; bottom: 25px;}
+}
+@-webkit-keyframes fadeout {
+  from {opacity: 1; bottom: 25px;}
+  to {opacity: 0; bottom: 0;}
+}
+
+@keyframes fadeout {
+  from {opacity: 1; bottom: 25px;}
+  to {opacity: 0; bottom: 0;}
+}

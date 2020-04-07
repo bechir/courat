@@ -79,6 +79,22 @@
             {% include "common/footer.html.twig" %}
         {% endblock %}
 
+        <div class="alert alert-dismissable">
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="jy-alert alert-{{ type }}" role="alert">
+                            {% set icon = 'check-circle' %}
+                            {% if type == 'danger' %}
+                                {% set icon = 'exclamation-circle' %}
+                            {% elseif icon == 'info'  %}
+                                {% set icon = 'info-circle' %}
+                            {% endif %}
+                        <span class="fa fa-{{ icon }}"></span> {{ message|trans }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
