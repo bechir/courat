@@ -1430,6 +1430,11 @@ body[dir='rtl'] .mobile-nav a {
 .news {
   margin-bottom: 100px;
 }
+@media (max-width: 575px) {
+  .news .img {
+    width: 100%;
+  }
+}
 
 /*Filter*/
 .custom-select {
