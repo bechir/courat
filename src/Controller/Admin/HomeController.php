@@ -35,7 +35,7 @@ class HomeController extends AbstractController
         $documents = $em->createQueryBuilder()->select('count(d.id)')->from('App:Document', 'd')
             ->getQuery()->getSingleScalarResult();
 
-        $articles = $em->createQueryBuilder()->select('count(i.id)')->from('App:Article', 'i')
+        $articles = $em->createQueryBuilder()->select('count(a.id)')->from('App:Article', 'a')
             ->getQuery()->getSingleScalarResult();
 
         $users = $em->createQueryBuilder()->select('count(u.id)')->from('App:User', 'u')
