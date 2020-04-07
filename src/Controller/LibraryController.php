@@ -78,7 +78,7 @@ class LibraryController extends AbstractController
             $entityManager->persist($document);
             $entityManager->flush();
 
-            $this->addFlash('success', 'document.upload_success');
+            $this->addFlash('success', 'upload.success');
 
             return $this->redirectToRoute('library_index');
         }

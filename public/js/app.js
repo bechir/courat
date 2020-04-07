@@ -156,6 +156,13 @@
     })
   }
 
+  var alerts = $(".alert.alert-dismissable");
+  alerts.addClass('show');
+
+  setTimeout(function() {
+    alerts.removeClass('show');
+  }, 9000);
+
 })(jQuery);
 
 
