@@ -1,23 +1,6 @@
-<div class="row">
+{% form_theme form with ['bootstrap_4_layout.html.twig'] only %}
 
-	<div class="col-sm-6">
-		{{ form_row(form.title, {'attr': {'class': 'input-lg'}}) }}
-    </div>
-
-	<div class="col-sm-6">
-		{{ form_row(form.url, {'attr': {'class': 'input-lg'}}) }}
-    </div>
-
-	<div class="col-sm-4">
-		{{ form_row(form.subject, {'attr': {'class': 'custom-select input-lg'}}) }}
-    </div>
-    
-	<div class="col-sm-4">
-		{{ form_row(form.classe, {'attr': {'class': 'custom-select input-lg'}}) }}
-    </div>
-    
-	<div class="col-sm-4">
-		{{ form_row(form.category, {'attr': {'class': 'custom-select input-lg'}}) }}
-	</div>
-</div>
-
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

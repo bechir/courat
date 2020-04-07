@@ -31,7 +31,7 @@ final class Version20200405201548 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf('sqlite' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'sqlite\'.');
 
-        $this->addSql('CREATE TABLE info (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, title VARCHAR(255) NOT NULL, link VARCHAR(255) NOT NULL, filename VARCHAR(255) DEFAULT NULL, updated_at DATETIME DEFAULT NULL, created_at DATETIME DEFAULT NULL, slug VARCHAR(255) NOT NULL)');
+        $this->addSql('CREATE TABLE article (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, title VARCHAR(255) NOT NULL, link VARCHAR(255) NOT NULL, filename VARCHAR(255) DEFAULT NULL, updated_at DATETIME DEFAULT NULL, created_at DATETIME DEFAULT NULL, slug VARCHAR(255) NOT NULL)');
         $this->addSql('CREATE TABLE document (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, subject_id INTEGER NOT NULL, classe_id INTEGER NOT NULL, category_id INTEGER NOT NULL, title VARCHAR(255) NOT NULL, path VARCHAR(255) DEFAULT NULL, size VARCHAR(255) DEFAULT NULL, client_ip VARCHAR(255) DEFAULT NULL, updated_at DATETIME DEFAULT NULL, file_url VARCHAR(255) DEFAULT NULL)');
         $this->addSql('CREATE INDEX IDX_D8698A7623EDC87 ON document (subject_id)');
         $this->addSql('CREATE INDEX IDX_D8698A768F5EA509 ON document (classe_id)');
@@ -68,7 +68,7 @@ final class Version20200405201548 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf('sqlite' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'sqlite\'.');
 
-        $this->addSql('DROP TABLE info');
+        $this->addSql('DROP TABLE article');
         $this->addSql('DROP TABLE document');
         $this->addSql('DROP TABLE day');
         $this->addSql('DROP TABLE document_category');

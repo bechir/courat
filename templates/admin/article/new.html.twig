@@ -1,32 +1,17 @@
 {% extends 'admin/base.html.twig' %}
+
+{% block title %}Ajouter un article
+{% endblock %}
+
 {% block left_sidebar %}
-    {% include 'admin/common/left-sidebar.twig' with { active: 'new-article' } %}
+	{% include 'admin/common/left-sidebar.twig' with { active: 'new-article' } %}
 {% endblock %}
 
 {% block main %}
-    <h3 class="page-title text-success">
-        <span class="lnr lnr-file-add"></span>
-        Ajouter un article
-    </h3>
-    <div class="row">
-        <div class="col-12">
-            <div class="panel">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Remplissez le formulaire</h3>
-                </div>
-                <div class="panel-body">
-                    {{ form_start(form) }}
-                        <div class="container-fluid">
 
-                            {% include 'admin/article/_form.html.twig' with {form: form} %}
-                            
-                            <hr>
-                            <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-check-circle"></i> Ajouter</button>
-                        </div>
-                    {{ form_end(form) }}
-                </div>
-            </div>
-        </div>
-    </div>
+    <h1>Ajouter un article</h1>
 
+    {{ include('admin/article/_form.html.twig') }}
+
+    <a class="my-3 btn btn-info" href="{{ path('admin_article') }}"><i class="lnr lnr-arrow-left fa-lg"></i> Retourner a la liste</a>
 {% endblock %}

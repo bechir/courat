@@ -1,15 +1,42 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Bibliothèque{% endblock %}
+{% block title %}Informations
+{% endblock %}
 
 {% block left_sidebar %}
-    {% include 'admin/common/left-sidebar.twig' with { active: 'articles-list' } %}
+	{% include 'admin/common/left-sidebar.twig' with { active: 'articles-list' } %}
 {% endblock %}
 
 {% block main %}
-<h3 class="page-title text-success"><span class="lnr lnr-book"></span> Bibliothèque <span class="badge badge-success">{{ articles|length }}</span></h3></h3>
 
-    {% include "admin/article/_table.html.twig" with {articles: articles} %}
+    <h1>Liste des articles</h1>
 
-    <a href="{{ path('admin_article_new') }}" class="btn btn-primary"><i class="lnr lnr-plus-circle"></i> Create new</a>
+    <a href="{{ path('admin_article_new') }}" class="btn btn-success pull-right"><i class="lnr lnr-plus-circle"></i> Ajouter une article</a>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Lien</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.title }}</td>
+                <td><a href="{{ article.link }}" target="_blank">{{ article.link }}</a></td>
+                <td>
+                    <a href="{{ path('news_show', {slug: article.slug}) }}" target="_blank"> <i class="fa-lg fa fa-external-link"></i></a>
+                    <a href="{{ path('admin_article_edit', {'id': article.id}) }}"> <i class="fa-lg fa fa-edit"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas d'articles</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
 {% endblock %}
