@@ -1431,7 +1431,7 @@ body[dir='rtl'] .mobile-nav a {
   margin-bottom: 100px;
 }
 @media (max-width: 575px) {
-  .news .img {
+  .news img {
     width: 100%;
   }
 }
