@@ -1,8 +1,18 @@
 RewriteEngine On
 
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
 RewriteRule ^ %1 [L,NE,R=302]
 
-RewriteRule !\.(js|gif|JPG|JPEG|PNG|jpg|png|css|txt|svg|woff|woff2|ttf|map|ico|pdf|svg)$ public/index.php [L]
+RewriteRule !\.(js|gif|JPG|JPEG|PNG|jpg|png|css|txt|xml|csv|ppt|pptx|xls||xlt|xlsx|pdf|docx|svg|woff|woff2|ttf|map|ico)$ public/index.php [L]
 RewriteCond %{REQUEST_URI} !^/public/
 RewriteRule ^(.*)$ public/$1 [L]
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php72” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php72 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
