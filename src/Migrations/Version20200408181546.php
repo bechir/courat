@@ -2,15 +2,6 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of the COURAT application.
- *
- * (c) Bechir Ba and contributors
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace DoctrineMigrations;
 
 use Doctrine\DBAL\Schema\Schema;
@@ -19,31 +10,27 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200407023045 extends AbstractMigration
+final class Version20200408181546 extends AbstractMigration
 {
-    public function getDescription(): string
+    public function getDescription() : string
     {
         return '';
     }
 
-    public function up(Schema $schema): void
+    public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->abortIf('sqlite' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'sqlite\'.');
+        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'sqlite', 'Migration can only be executed safely on \'sqlite\'.');
 
-        $this->addSql('CREATE TABLE article (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, title VARCHAR(255) NOT NULL, link VARCHAR(255) NOT NULL, filename VARCHAR(255) DEFAULT NULL, updated_at DATETIME DEFAULT NULL, created_at DATETIME DEFAULT NULL, slug VARCHAR(255) NOT NULL, title_ar VARCHAR(255) DEFAULT NULL)');
-        $this->addSql('DROP TABLE info');
-        $this->addSql('DROP INDEX IDX_169E6FB9953C1C61');
-        $this->addSql('DROP INDEX IDX_169E6FB923EDC87');
-        $this->addSql('DROP INDEX IDX_169E6FB9EA000B10');
-        $this->addSql('CREATE TEMPORARY TABLE __temp__course AS SELECT id, class_id, subject_id, source_id, title, video_url, added_at, published_at, start_time FROM course');
-        $this->addSql('DROP TABLE course');
-        $this->addSql('CREATE TABLE course (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, class_id INTEGER NOT NULL, subject_id INTEGER NOT NULL, source_id INTEGER NOT NULL, title VARCHAR(255) NOT NULL COLLATE BINARY, video_url VARCHAR(255) DEFAULT NULL COLLATE BINARY, added_at DATETIME NOT NULL, published_at DATETIME NOT NULL, start_time TIME DEFAULT NULL, CONSTRAINT FK_169E6FB9EA000B10 FOREIGN KEY (class_id) REFERENCES classe (id) NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_169E6FB923EDC87 FOREIGN KEY (subject_id) REFERENCES subject (id) NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_169E6FB9953C1C61 FOREIGN KEY (source_id) REFERENCES video_source (id) NOT DEFERRABLE INITIALLY IMMEDIATE)');
-        $this->addSql('INSERT INTO course (id, class_id, subject_id, source_id, title, video_url, added_at, published_at, start_time) SELECT id, class_id, subject_id, source_id, title, video_url, added_at, published_at, start_time FROM __temp__course');
-        $this->addSql('DROP TABLE __temp__course');
-        $this->addSql('CREATE INDEX IDX_169E6FB9953C1C61 ON course (source_id)');
-        $this->addSql('CREATE INDEX IDX_169E6FB923EDC87 ON course (subject_id)');
-        $this->addSql('CREATE INDEX IDX_169E6FB9EA000B10 ON course (class_id)');
+        $this->addSql('DROP INDEX IDX_80575E1B23EDC87');
+        $this->addSql('DROP INDEX IDX_80575E1B8F5EA509');
+        $this->addSql('CREATE TEMPORARY TABLE __temp__classe_subject AS SELECT classe_id, subject_id FROM classe_subject');
+        $this->addSql('DROP TABLE classe_subject');
+        $this->addSql('CREATE TABLE classe_subject (classe_id INTEGER NOT NULL, subject_id INTEGER NOT NULL, PRIMARY KEY(classe_id, subject_id), CONSTRAINT FK_80575E1B8F5EA509 FOREIGN KEY (classe_id) REFERENCES classe (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_80575E1B23EDC87 FOREIGN KEY (subject_id) REFERENCES subject (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE)');
+        $this->addSql('INSERT INTO classe_subject (classe_id, subject_id) SELECT classe_id, subject_id FROM __temp__classe_subject');
+        $this->addSql('DROP TABLE __temp__classe_subject');
+        $this->addSql('CREATE INDEX IDX_80575E1B23EDC87 ON classe_subject (subject_id)');
+        $this->addSql('CREATE INDEX IDX_80575E1B8F5EA509 ON classe_subject (classe_id)');
         $this->addSql('DROP INDEX IDX_D8698A7612469DE2');
         $this->addSql('DROP INDEX IDX_D8698A768F5EA509');
         $this->addSql('DROP INDEX IDX_D8698A7623EDC87');
@@ -55,6 +42,25 @@ final class Version20200407023045 extends AbstractMigration
         $this->addSql('CREATE INDEX IDX_D8698A7612469DE2 ON document (category_id)');
         $this->addSql('CREATE INDEX IDX_D8698A768F5EA509 ON document (classe_id)');
         $this->addSql('CREATE INDEX IDX_D8698A7623EDC87 ON document (subject_id)');
+        $this->addSql('DROP INDEX IDX_169E6FB9953C1C61');
+        $this->addSql('DROP INDEX IDX_169E6FB923EDC87');
+        $this->addSql('DROP INDEX IDX_169E6FB9EA000B10');
+        $this->addSql('CREATE TEMPORARY TABLE __temp__course AS SELECT id, class_id, subject_id, source_id, title, video_url, added_at, published_at, start_time FROM course');
+        $this->addSql('DROP TABLE course');
+        $this->addSql('CREATE TABLE course (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, class_id INTEGER NOT NULL, subject_id INTEGER NOT NULL, source_id INTEGER NOT NULL, title VARCHAR(255) NOT NULL COLLATE BINARY, video_url VARCHAR(255) DEFAULT NULL COLLATE BINARY, added_at DATETIME NOT NULL, published_at DATETIME NOT NULL, start_time TIME DEFAULT NULL, CONSTRAINT FK_169E6FB9EA000B10 FOREIGN KEY (class_id) REFERENCES classe (id) NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_169E6FB923EDC87 FOREIGN KEY (subject_id) REFERENCES subject (id) NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_169E6FB9953C1C61 FOREIGN KEY (source_id) REFERENCES video_source (id) NOT DEFERRABLE INITIALLY IMMEDIATE)');
+        $this->addSql('INSERT INTO course (id, class_id, subject_id, source_id, title, video_url, added_at, published_at, start_time) SELECT id, class_id, subject_id, source_id, title, video_url, added_at, published_at, start_time FROM __temp__course');
+        $this->addSql('DROP TABLE __temp__course');
+        $this->addSql('CREATE INDEX IDX_169E6FB9953C1C61 ON course (source_id)');
+        $this->addSql('CREATE INDEX IDX_169E6FB923EDC87 ON course (subject_id)');
+        $this->addSql('CREATE INDEX IDX_169E6FB9EA000B10 ON course (class_id)');
+        $this->addSql('DROP INDEX UNIQ_88BDF3E9F85E0677');
+        $this->addSql('CREATE TEMPORARY TABLE __temp__app_user AS SELECT id, username, roles, password, is_activated FROM app_user');
+        $this->addSql('DROP TABLE app_user');
+        $this->addSql('CREATE TABLE app_user (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username VARCHAR(180) NOT NULL COLLATE BINARY, roles CLOB NOT NULL COLLATE BINARY --(DC2Type:json)
+        , password VARCHAR(255) NOT NULL COLLATE BINARY, is_activated BOOLEAN DEFAULT \'0\')');
+        $this->addSql('INSERT INTO app_user (id, username, roles, password, is_activated) SELECT id, username, roles, password, is_activated FROM __temp__app_user');
+        $this->addSql('DROP TABLE __temp__app_user');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_88BDF3E9F85E0677 ON app_user (username)');
         $this->addSql('DROP INDEX IDX_D499BFF69C24126');
         $this->addSql('CREATE TEMPORARY TABLE __temp__planning AS SELECT id, day_id FROM planning');
         $this->addSql('DROP TABLE planning');
@@ -80,24 +86,21 @@ final class Version20200407023045 extends AbstractMigration
         $this->addSql('DROP TABLE __temp__planning_subject');
         $this->addSql('CREATE INDEX IDX_26A3639123EDC87 ON planning_subject (subject_id)');
         $this->addSql('CREATE INDEX IDX_26A363913D865311 ON planning_subject (planning_id)');
-        $this->addSql('DROP INDEX IDX_80575E1B23EDC87');
-        $this->addSql('DROP INDEX IDX_80575E1B8F5EA509');
-        $this->addSql('CREATE TEMPORARY TABLE __temp__classe_subject AS SELECT classe_id, subject_id FROM classe_subject');
-        $this->addSql('DROP TABLE classe_subject');
-        $this->addSql('CREATE TABLE classe_subject (classe_id INTEGER NOT NULL, subject_id INTEGER NOT NULL, PRIMARY KEY(classe_id, subject_id), CONSTRAINT FK_80575E1B8F5EA509 FOREIGN KEY (classe_id) REFERENCES classe (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_80575E1B23EDC87 FOREIGN KEY (subject_id) REFERENCES subject (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE)');
-        $this->addSql('INSERT INTO classe_subject (classe_id, subject_id) SELECT classe_id, subject_id FROM __temp__classe_subject');
-        $this->addSql('DROP TABLE __temp__classe_subject');
-        $this->addSql('CREATE INDEX IDX_80575E1B23EDC87 ON classe_subject (subject_id)');
-        $this->addSql('CREATE INDEX IDX_80575E1B8F5EA509 ON classe_subject (classe_id)');
     }
 
-    public function down(Schema $schema): void
+    public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->abortIf('sqlite' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'sqlite\'.');
+        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'sqlite', 'Migration can only be executed safely on \'sqlite\'.');
 
-        $this->addSql('CREATE TABLE info (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, title VARCHAR(255) NOT NULL COLLATE BINARY, link VARCHAR(255) NOT NULL COLLATE BINARY, filename VARCHAR(255) DEFAULT NULL COLLATE BINARY, updated_at DATETIME DEFAULT NULL, created_at DATETIME DEFAULT NULL, slug VARCHAR(255) NOT NULL COLLATE BINARY, title_ar VARCHAR(255) DEFAULT NULL COLLATE BINARY)');
-        $this->addSql('DROP TABLE article');
+        $this->addSql('DROP INDEX UNIQ_88BDF3E9F85E0677');
+        $this->addSql('CREATE TEMPORARY TABLE __temp__app_user AS SELECT id, username, roles, password, is_activated FROM app_user');
+        $this->addSql('DROP TABLE app_user');
+        $this->addSql('CREATE TABLE app_user (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username VARCHAR(180) NOT NULL, roles CLOB NOT NULL --(DC2Type:json)
+        , password VARCHAR(255) NOT NULL, is_activated BOOLEAN DEFAULT NULL)');
+        $this->addSql('INSERT INTO app_user (id, username, roles, password, is_activated) SELECT id, username, roles, password, is_activated FROM __temp__app_user');
+        $this->addSql('DROP TABLE __temp__app_user');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_88BDF3E9F85E0677 ON app_user (username)');
         $this->addSql('DROP INDEX IDX_80575E1B8F5EA509');
         $this->addSql('DROP INDEX IDX_80575E1B23EDC87');
         $this->addSql('CREATE TEMPORARY TABLE __temp__classe_subject AS SELECT classe_id, subject_id FROM classe_subject');

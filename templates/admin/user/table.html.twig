@@ -18,7 +18,7 @@
                             "ROLE_TRANSLATOR": 'primary',
                             "ROLE_USER": 'info'
                         } %}
-
+                        
                         {{ user.roles|map(role => '<label class="label label-' ~ roleLabels[role] ~ '">' ~ role|trans ~ '</label>')|join(' ')|raw }}
                     </td>
                     <td>
@@ -34,6 +34,7 @@
                             {% endif %}
                         </div>
                     </td>
+                    
                 </tr>
                 {% else %}
                     <p>Pas d'utilisateurs</p>

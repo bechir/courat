@@ -50,6 +50,11 @@ class User implements UserInterface
      */
     protected $plainPassword;
 
+    /**
+     * @ORM\Column(type="boolean", options={"default": false}, nullable=true)
+     */
+    private $isActivated;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -151,5 +156,17 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getIsActivated(): ?bool
+    {
+        return $this->isActivated;
+    }
+
+    public function setIsActivated(bool $isActivated): self
+    {
+        $this->isActivated = $isActivated;
+
+        return $this;
     }
 }

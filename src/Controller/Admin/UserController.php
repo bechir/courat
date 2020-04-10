@@ -14,6 +14,7 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use App\Form\Admin\UserType;
 use App\Form\PasswordEditType;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -120,6 +121,24 @@ class UserController extends AbstractController
             'active' => 'editPassword',
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="admin_user_activated_edit")
+     */
+    public function editStatus(User $user, EntityManagerInterface $em)
+    {
+        
+        $user->setIsActivated(!$user->getIsActivated());
+        $em->flush();
+       
+        $this->addFlash('success', 'Le statut a été changé.');
+
+        
+        return $this->render('admin/user/show.html.twig', [
+            'user' => $user,
+          ]);
+        
     }
 
     /**
