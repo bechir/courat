@@ -30,7 +30,7 @@ class CourseController extends AbstractController
      *
      * @param Request $request: The HTTP Request
      *
-     * @Route("/list", name="api_courses_list")
+     * @Route("s", name="api_courses_list")
      */
     public function paginateLatest(Request $request, CourseRepository $courseRepository): JsonResponse
     {

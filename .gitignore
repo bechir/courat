@@ -22,3 +22,7 @@
 /.DS_Store
 
 /src/Controller/Admin/tmp/
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###

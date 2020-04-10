@@ -2,7 +2,7 @@ security:
     # always_authenticate_before_granting: true
     encoders:
         App\Entity\User:
-            algorithm: auto
+            algorithm: bcrypt
     role_hierarchy:
         ROLE_TEACHER: ROLE_USER
         ROLE_TRANSLATOR: ROLE_USER
@@ -20,6 +20,27 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        
+        api_register:
+            pattern: ^/api/register
+            stateless: true
+            anonymous: true
+
+        api_login:
+            pattern: ^/api/signin
+            stateless: true
+            anonymous: true
+            json_login:
+                check_path: api_auth_login
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+        api:
+            pattern: ^/api
+            stateless: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
 
         main:
             anonymous: lazy

@@ -161,6 +161,21 @@
     "knplabs/knp-paginator-bundle": {
         "version": "v5.1.1"
     },
+    "lcobucci/jwt": {
+        "version": "3.3.1"
+    },
+    "lexik/jwt-authentication-bundle": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "5b2157bcd5778166a5696e42f552ad36529a07a6"
+        },
+        "files": [
+            "config/packages/lexik_jwt_authentication.yaml"
+        ]
+    },
     "markbaker/complex": {
         "version": "1.4.8"
     },
@@ -173,6 +188,9 @@
     "myclabs/deep-copy": {
         "version": "1.9.5"
     },
+    "namshi/jose": {
+        "version": "7.2.3"
+    },
     "nelmio/alice": {
         "version": "3.2",
         "recipe": {
@@ -184,6 +202,18 @@
         "files": [
             "config/packages/dev/nelmio_alice.yaml",
             "config/packages/test/nelmio_alice.yaml"
+        ]
+    },
+    "nelmio/cors-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "6388de23860284db9acce0a7a5d9d13153bcb571"
+        },
+        "files": [
+            "config/packages/nelmio_cors.yaml"
         ]
     },
     "nikic/php-parser": {

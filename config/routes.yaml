@@ -51,3 +51,7 @@ news_show:
     fr: /actualite/{slug}
     en: /news/{slug}
   controller: App\Controller\NewsController::show
+
+api_auth_login:
+  path: /api/signin
+  methods: ['POST']

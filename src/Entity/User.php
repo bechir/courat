@@ -12,13 +12,17 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\Table(name="app_user")
+ * @UniqueEntity(fields={"username"}, message="There is already an account with this username.")
  */
-class User implements UserInterface
+class User implements UserInterface, JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -29,6 +33,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank(message="The username is required.")
      */
     private $username;
 
@@ -40,6 +45,10 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(
+     *  min=6,
+     *  minMessage="This password is too short (6 characters min)."
+     * )
      */
     private $password;
 
@@ -142,6 +151,15 @@ class User implements UserInterface
         $this->plainPassword = $plainPassword;
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->id,
+            'username' => $this->username,
+            'roles' => $this->getRoles(),
+        ];
     }
 
     /**
