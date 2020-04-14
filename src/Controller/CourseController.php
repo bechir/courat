@@ -21,7 +21,7 @@ class CourseController extends AbstractController
 {
     public function index(Request $request, Classe $class, CourseRepository $courseRepository)
     {
-        $list = $courseRepository->paginate($class, $request->query->get('page', 1))->getItems();
+        $list = $courseRepository->findBy(['class' => $class]);
         $courses = [];
         $subjects = $class->getSubjects();
 
