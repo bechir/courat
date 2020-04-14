@@ -41,7 +41,7 @@ class CourseController extends AbstractController
      */
     public function index(Request $request, CourseRepository $courseRepository): Response
     {
-        $courses = $courseRepository->adminPaginate($request->query->get('page', 1));
+        $courses = $courseRepository->findAll();
 
         return $this->render('admin/course/index.html.twig', [
             'courses' => $courses,
