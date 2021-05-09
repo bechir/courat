@@ -6,8 +6,8 @@ parameters:
     # gulp: ~
     # jsonlint: ~
     # kahlan: ~
-    phpcsfixer2:
-      config: './.php_cs.dist'
+    # phpcsfixer2/:
+    # config: './.php_cs.dist'
     # phplint: ~
     # phpspec: ~
     # phpstan:

@@ -3,7 +3,7 @@
 /*
  * This file is part of the COURAT application.
  *
- * (c) Bechir Ba and contributors
+ * (c) NEOTIC and contributors
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,7 +13,7 @@ namespace App\Repository;
 
 use App\Entity\UserRole;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method UserRole|null find($id, $lockMode = null, $lockVersion = null)
@@ -27,33 +27,4 @@ class UserRoleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, UserRole::class);
     }
-
-    // /**
-    //  * @return UserRole[] Returns an array of UserRole objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?UserRole
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

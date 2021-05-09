@@ -21,15 +21,15 @@
 
       <div class="container footer-bottom clearfix">
       <div class="row">
-        <div class="copyright col-md-4">
+        <div class="copyright col-md-6 text-right">
           {{ 'footer.copyright'|trans|raw }}
         </div>
-        <div class="dev col-md-4">
+        <div class="dev col-md-6 text-left">
           {{ 'footer.dev'|trans({'%link%': path('contributors')})|raw }}
         </div>
-        <div class="credits col-md-4">
+        {# <div class="credits col-md-4">
           {{ 'footer.credits'|trans|raw }}
-        </div>  
+        </div>   #}
     </div>
   </footer>
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>

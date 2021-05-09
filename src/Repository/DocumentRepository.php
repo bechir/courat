@@ -3,7 +3,7 @@
 /*
  * This file is part of the COURAT application.
  *
- * (c) Bechir Ba and contributors
+ * (c) NEOTIC and contributors
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,7 +13,7 @@ namespace App\Repository;
 
 use App\Entity\Document;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**

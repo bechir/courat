@@ -3,7 +3,7 @@
 /*
  * This file is part of the COURAT application.
  *
- * (c) Bechir Ba and contributors
+ * (c) NEOTIC and contributors
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,7 +13,7 @@ namespace App\DataFixtures;
 
 use App\Entity\DocumentCategory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 
 class DocumentCategoryFixtures extends Fixture
 {

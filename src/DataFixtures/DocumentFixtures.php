@@ -3,7 +3,7 @@
 /*
  * This file is part of the COURAT application.
  *
- * (c) Bechir Ba and contributors
+ * (c) NEOTIC and contributors
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -17,7 +17,7 @@ use App\Entity\DocumentCategory;
 use App\Entity\Subject;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 
 class DocumentFixtures extends Fixture implements DependentFixtureInterface
 {
