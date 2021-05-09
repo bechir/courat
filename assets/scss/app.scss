@@ -1,7 +1,8 @@
+@import 'variables';
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 
 body {
   font-family: 'Lato', sans-serif;
@@ -65,7 +66,7 @@ h6 {
   z-index: 997;
   transition: all 0.5s;
   padding: 16px 0;
-  background: #35404f;
+  background: $primary;
 }
 
 #header .logo h1 {
@@ -143,7 +144,7 @@ h6 {
   background: #fff;
   font-size: 18px;
   font-family: 'Cairo', sans-serif;
-  color: #35404f;
+  color: $primary;
   border-radius: 50px;
   margin: 2px 0 0 15px;
   padding: 5px 15px 5px 15px;
@@ -151,7 +152,7 @@ h6 {
 }
 
 .nav-menu .get-started a:hover {
-  background: #35404f;
+  background: $primary;
   color: #fff;
   border: 1px solid #fff;
 }
@@ -186,7 +187,7 @@ h6 {
   font-size: 14px;
   font-weight: 500;
   text-transform: none;
-  color: #35404f;
+  color: $primary;
 }
 
 .nav-menu .drop-down ul a:hover,
@@ -280,7 +281,7 @@ h6 {
 .mobile-nav a {
   display: block;
   position: relative;
-  color: #35404f;
+  color: $primary;
   text-align: left;
   font-family: 'Cairo', sans-serif;
   font-weight: bold;
@@ -322,7 +323,7 @@ h6 {
 }
 
 .mobile-nav .get-started a {
-  background: #35404f;
+  background: $primary;
   color: #fff;
   font-family: 'Cairo', sans-serif;
   border-radius: 50px;
@@ -333,8 +334,8 @@ h6 {
 
 .mobile-nav .get-started a:hover {
   background: #fff;
-  color: #35404f;
-  border: 1px solid #35404f;
+  color: $primary;
+  border: 1px solid $primary;
 }
 
 .mobile-nav-overly {
@@ -369,8 +370,8 @@ h6 {
 #hero {
   width: 100%;
   padding: 0 30px 0 60px;
-  background: #35404f;
-  background: linear-gradient(180deg, #35404f 0%, #35404f 35%, #35404f 100%);
+  background: $primary;
+  background: linear-gradient(180deg, $primary 0%, $primary 35%, $primary 100%);
 }
 
 #hero h1 {
@@ -396,7 +397,7 @@ h6 {
   border: 1px solid #fff;
   transition: all ease-in-out 0.3s;
   display: inline-block;
-  background: #35404f;
+  background: $primary;
 }
 
 @media (max-width: 768px) {
@@ -434,7 +435,7 @@ h6 {
 
 #hero .btn-get-started:hover {
   background: #fff;
-  color: #35404f;
+  color: $primary;
 }
 
 @media (max-width: 991px) {
@@ -498,7 +499,7 @@ section {
   padding-bottom: 20px;
   position: relative;
   font-family: 'Poppins', sans-serif;
-  color: #35404f;
+  color: $primary;
 }
 
 @media (max-width: 768px) {
@@ -713,7 +714,7 @@ section {
   line-height: 100px;
   text-align: center;
   border-radius: 50px;
-  background: #35404f;
+  background: $primary;
   color: white;
   margin-left: auto;
   margin-right: auto;
@@ -725,14 +726,14 @@ section {
   line-height: 100px;
   text-align: center;
   border-radius: 50px;
-  color: #35404f;
+  color: $primary;
   margin-left: auto;
   margin-right: auto;
 }
 
 .class .info-box h3,
 .lib h3 {
-  color: #35404f;
+  color: $primary;
   font-family: 'Cairo', sans-serif;
   font-weight: 400;
   padding-left: 10px;
@@ -970,10 +971,10 @@ section {
   background: #fff;
   font-size: 18px;
   font-family: 'Cairo', sans-serif;
-  color: #35404f;
+  color: $primary;
   border-radius: 50px;
   padding: 4px 25px 6px 25px;
-  border: 1px solid #35404f;
+  border: 1px solid $primary;
 }
 
 .btn-box {
@@ -981,9 +982,9 @@ section {
 }
 
 .btn-return:hover {
-  background: #35404f;
+  background: $primary;
   color: #fff;
-  border: 1px solid #35404f;
+  border: 1px solid $primary;
 }
 
 /* COURSES INDEX STYLE*/
@@ -1009,7 +1010,7 @@ section {
 }
 .panel-heading .title:before,
 .panel-heading .title.collapsed:before {
-  font-family: FontAwesome;
+  font-family: "Font 5 Awesome Free";
   font-size: 25px;
   padding-right: 10px;
   line-height: 25px;
@@ -1088,7 +1089,7 @@ body[dir='rtl'] .mobile-nav a {
 }
 
 .ads {
-  background-color: #35404f;
+  background-color: $primary;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   color: #fff;
@@ -1107,6 +1108,15 @@ body[dir='rtl'] .mobile-nav a {
 .profile-img img {
   border-radius: 50%;
   /* animation: mymove 2s infinite; */
+}
+
+@-webkit-keyframes mymove {
+  from {
+    border: 1px solid #f2f3f4;
+  }
+  to {
+    border: 8px solid #f2f3f4;
+  }
 }
 
 @keyframes mymove {
@@ -1185,7 +1195,7 @@ body[dir='rtl'] .mobile-nav a {
 }
 
 .team .member .social a {
-  color: #35404f;
+  color: $primary;
   transition: 0.3s;
 }
 
@@ -1256,9 +1266,15 @@ body[dir='rtl'] .mobile-nav a {
   width: 40px;
   height: 40px;
   border: 4px #ddd solid;
-  border-top: 4px #35404f solid;
+  border-top: 4px $primary solid;
   border-radius: 50%;
-  animation: sp-anime 0.7s infinite linear;
+  -webkit-animation: sp-anime 0.7s infinite linear;
+          animation: sp-anime 0.7s infinite linear;
+}
+@-webkit-keyframes sp-anime {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 @keyframes sp-anime {
   100% {
@@ -1331,7 +1347,6 @@ body[dir='rtl'] .mobile-nav a {
   position: relative;
   border-radius: 5px;
   border-radius: 1px solid #fff;
-  -webkit-box-shadow: 0 0 20px #e5e5e5;
   box-shadow: 0 0 20px #e5e5e5;
 }
 
@@ -1423,7 +1438,7 @@ body[dir='rtl'] .mobile-nav a {
 }
 
 .bg-blush {
-  background-color: #35404f !important;
+  background-color: $primary !important;
   color: #fff;
 }
 
@@ -1439,7 +1454,7 @@ body[dir='rtl'] .mobile-nav a {
 /*Filter*/
 .custom-select {
   background-color: #fff;
-  color: #35404f;
+  color: $primary;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1455,7 +1470,7 @@ body[dir='rtl'] .mobile-nav a {
 .note {
   text-align: center;
   height: 60px;
-  background: -webkit-linear-gradient(left, #35404f, #284864);
+  background: -webkit-linear-gradient(left, $primary, #284864);
   color: #fff;
   font-weight: normal;
   font-family: 'Cairo', sans-serif;
@@ -1501,7 +1516,7 @@ body[dir='rtl'] .mobile-nav a {
   width: 90%;
 }
 .well-secondary {
-  background-color: #35404f;
+  background-color: $primary;
   height: 260px;
   width: 380px;
 }

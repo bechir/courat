@@ -1,7 +1,7 @@
 {
     "name": "bechir/courat",
     "type": "project",
-    "description": "Open Source online courses website for Mauritanians",
+    "description": "La plateforme éducative mauritanienne.",
     "license": "MIT",
     "authors": [
         {
