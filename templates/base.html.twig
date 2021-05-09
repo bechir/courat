@@ -46,6 +46,8 @@
                 <link rel="alternate" hreflang="{{ l.code }}" href="{{ url(app.request.get('_route', 'index'), app.request.get('_route_params', [])|merge({_locale: l.code})) }}" />
             {% endif %}
         {% endfor %}
+
+        {{ encore_entry_script_tags('app') }}
     </head>
     <body {% if locale() == 'ar' %}dir="rtl"{% endif %}>
 
@@ -57,10 +59,10 @@
 
         {# Include the planning #}
         {{ render(controller('App\\Controller\\DefaultController::planning')) }}
-            
-        {% block main %}
 
-        {% endblock %}
+        <turbo-frame id="main">
+            {% block main %}{% endblock %}
+        </turbo-frame>
 
         {# Include the diffusion platforms #}
          {% block diffusion %}
