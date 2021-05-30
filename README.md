@@ -29,6 +29,7 @@ Installation
 
    ```
    $ git clone https://github.com/rand0mdev/courat.git
+   $ cd courat
    $ composer install
    ```
    
