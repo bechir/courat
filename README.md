@@ -2,11 +2,11 @@
 
 # Online courses website for Mauritanians
 
-### Built on top of [Symfony 4][1]
+### Built on top of [Symfony 5][1]
 ### The user interface is built with [Bootstrap 4][2]
 
-![GitHub](https://raw.githubusercontent.com/rand0mdev/courat/master/docs/images/home_fr.png)
-![GitHub](https://raw.githubusercontent.com/rand0mdev/courat/master/docs/images/home_ar.png)
+![GitHub](https://raw.githubusercontent.com/bechir/courat/master/docs/images/home_fr.png)
+![GitHub](https://raw.githubusercontent.com/bechir/courat/master/docs/images/home_ar.png)
 
 Online Demo
 -----------
@@ -28,7 +28,7 @@ Installation
 2. Clone the project via [Git][4]
 
    ```
-   $ git clone https://github.com/rand0mdev/courat.git
+   $ git clone https://github.com/bechir/courat.git
    $ cd courat
    $ composer install
    ```
@@ -66,5 +66,5 @@ Contributions Are Welcome! Please see [how to contribute page][8] for more detai
 [4]: https://git-scm.com/docs/git-clone
 [5]: https://symfony.com/download
 [6]: https://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html
-[7]: https://courat.rimacademy.net
-[8]: https://github.com/rand0mdev/courat/blob/master/CONTRIBUTING.md
+[7]: https://courat.net
+[8]: https://github.com/bechir/courat/blob/master/CONTRIBUTING.md
