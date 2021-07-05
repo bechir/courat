@@ -10,11 +10,5 @@
         "/build/app.79ddbcca.css"
       ]
     }
-  },
-  "integrity": {
-    "/build/runtime.f799512a.js": "sha384-qnSp/YA0I9ruq9mHnlNR/bbsHEaIPToayr5+ATpKEEhT32N5BCmnsZImp8Y4zSL9",
-    "/build/639.3ad41ae6.js": "sha384-dtHaUIDXIKl84zyo0ub09rptV//SzyL3BAOGwiI8Z20/NK10V6UfjSkqhClAXM1m",
-    "/build/app.b365e6db.js": "sha384-i8Ssyaazl/2Aec71lFw04/0fUSm9HaNxUxe5403QMemfD2/Om9Mf1k+XUh4YGf5F",
-    "/build/app.79ddbcca.css": "sha384-V+58SVm9V3aayCVuy+l3W/d+Do4DTI6C7bWGkCOisEtpEf64NsAI2YMmx2tTPw0s"
   }
 }
