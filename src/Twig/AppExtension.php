@@ -49,7 +49,7 @@ class AppExtension extends AbstractExtension
 
     public function getLocale(): ?string
     {
-        return $this->container->get('request_stack')->getMasterRequest()->attributes->get('_locale');
+        return $this->container->get('request_stack')->getMainRequest()->attributes->get('_locale');
     }
 
     public function getLocales(): array
