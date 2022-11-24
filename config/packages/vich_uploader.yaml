@@ -3,18 +3,18 @@ vich_uploader:
 
     mappings:
         property_image:
-            uri_prefix: /assets/img/plateformes
-            upload_destination: '%kernel.project_dir%/public/assets/img/plateformes'
+            uri_prefix: /img/plateformes
+            upload_destination: '%kernel.project_dir%/public/img/plateformes'
             namer: Vich\UploaderBundle\Naming\UniqidNamer
 
         article_image:
-            uri_prefix: /assets/img/articles
-            upload_destination: '%kernel.project_dir%/public/assets/img/articles'
+            uri_prefix: /img/articles
+            upload_destination: '%kernel.project_dir%/public/img/articles'
             namer: Vich\UploaderBundle\Naming\UniqidNamer
 
         document_file:
-            uri_prefix: /assets/documents
-            upload_destination: '%kernel.project_dir%/public/assets/documents'
+            uri_prefix: /documents
+            upload_destination: '%kernel.project_dir%/public/documents'
             namer: Vich\UploaderBundle\Naming\UniqidNamer
     #mappings:
     #    products:
